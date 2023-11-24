@@ -1,0 +1,373 @@
+<config>
+		
+	<!-- Dew collector filter drop  -->
+	<append xpath="/lootcontainers/lootgroup[@name='groupDewCollector']">
+			<item name="resourceWaterFilter" prob="0.75" force_prob="true" />
+	</append>
+	
+	<!--begin airdrop loot settings-->
+	<!--Quality template for the solar panels - used in airdrop & police car loot-->
+	<insertBefore xpath="/lootcontainers/lootgroup[@name='empty']">
+		<lootqualitytemplates>
+			<lootqualitytemplate name="solarPanelTemplate">
+				<qualitytemplate level="0,999999" default_quality="3">
+					<loot quality="2" prob="0.2"/>
+					<loot quality="3" prob="0.2"/>
+					<loot quality="4" prob="0.2"/>
+					<loot quality="5" prob="0.2"/>
+					<loot quality="6" prob="0.2"/>
+				</qualitytemplate>
+			</lootqualitytemplate>
+		</lootqualitytemplates>
+	</insertBefore>
+
+	<!-- Air Drop loot groups and  containers-->
+	<insertBefore xpath="/lootcontainers/lootgroup[@name='groupAirDrop']">
+		<!-- an explosives group to include in the air drop loot  -->	
+		<lootgroup name="groupAirDropExplosives"> 
+			<item name="thrownAmmoMolotovCocktail" count="15" />
+			<item name="thrownGrenadeContact" count="15" />
+			<item name="thrownGrenade" count="15" />
+		</lootgroup>
+		
+		<!--venhicle parts group-->
+		<lootgroup name="groupAirDropVehicles"> 
+			<item name="vehicleMinibikeChassis" count="1"/>
+			<item name="vehicleMinibikeHandlebars" count="1"/>
+			<item name="vehicleMotorcycleChassis" count="1"/>
+			<item name="vehicleMotorcycleHandlebars" count="1"/>
+			<item name="vehicleGyroCopterChassis" count="1"/>
+			<item name="vehicleGyroCopterAccessories" count="1"/>
+			<item name="vehicle4x4TruckChassis" count="1"/>
+			<item name="vehicle4x4TruckAccessories" count="1"/>
+		</lootgroup>
+		<!--food group-->
+		<lootgroup name="groupAirDropConsumable"> 
+			<item name="foodSteakAndPotato" count="8"/>
+			<item name="foodMeatStew" count="8"/>
+			<item name="foodShamChowder" count="8"/>
+			<item name="foodHoboStew" count="8"/>
+			<item name="foodGumboStew" count="8"/>
+			<item name="foodShepardsPie" count="8"/>
+			<item name="foodSpaghetti" count="8"/>
+			<item name="drinkJarPureMineralWater" count="8"/>
+		</lootgroup>
+		<!--solar panel group-->
+		<lootgroup name="groupAirDropSolarPanel" loot_quality_template="solarPanelTemplate"> 
+			<item name="solarCell" count="2"/>
+		</lootgroup>
+	</insertBefore>
+	
+	<!-- main air drop - expands on the loot that might drop from the airdrops.
+		 See items.xml for lootBundle definitions-->
+	<append xpath="/lootcontainers/lootgroup[@name='groupAirDrop']">		
+		<!-- 10% chance for each of the following -->
+		<item name="resourceGunPowder" count="750" prob="0.1" force_prob="true"/>
+		<item name="resourceCoal" count="1000" prob="0.1" force_prob="true"/>
+		<item name="resourcePotassiumNitratePowder" count="1000" prob="0.1" force_prob="true"/>
+		<item name="ammoGasCan" count="1200,2200" prob="0.1" force_prob="true"/>
+		<item name="resourceDuctTape" count="35" prob="0.1" force_prob="true"/>
+		<item group="groupAirDropExplosives" count="1" prob="0.1" force_prob="true" />
+		<item group="groupAirDropConsumable" count="1" prob="0.1" force_prob="true" />
+		<item name="drinkJarGrandpasForgettingElixir" count="1" prob="0.1" force_prob="true"/>
+		<item name="concreteShapes:VariantHelper" count="50,75" prob="0.1" force_prob="true"/>/>
+		<item name="resourceForgedSteel" count="50,80" prob="0.1" force_prob="true"/>
+		<item name="airdropTreasureSmallBundle" count="1" prob="0.1" force_prob="true" />
+		<item name="toolBeaker" count="1" prob="0.1" force_prob="true" />
+		<item name="solarbank" count="1" prob="0.1" force_prob="true" />
+		
+		<!-- 0.05 chance for each of the following -->
+		<item name="toolForgeCrucible" count="1" prob="0.05" force_prob="true" />
+		<item name="drinkJarGrandpasThemsFightinWordsMoonshine" count="1" prob="0.05" force_prob="true"/>
+		<item name="drinkJarGrandpasGunbeltOilSauce" count="1" prob="0.05" force_prob="true"/>
+		<item name="drinkJarGrandpasWheelchairRacingElixir" count="1" prob="0.05" force_prob="true"/>
+		<item name="resourceForgedSteel" count="250" prob="0.05" force_prob="true"/>
+		<item group="groupAirDropVehicles" count="1" prob="0.05" force_prob="true" />
+		<item name="shotgunTurret" count="1" prob="0.05" force_prob="true" />
+		<item name="airdropTreasureLargeBundle" count="1" prob="0.05" force_prob="true" />
+		<item name="airdropAPAmmoBundle" count="1" prob="0.05" force_prob="true" />
+		<!--solar pack w random (level 2 and above) panel and bank-->
+		<item name="airdropSolarBankBundle" count="1" prob="0.05" force_prob="true" />
+		<!--couple of random (level 2 and above) solar panels -->
+		<item group="groupAirDropSolarPanel" count="1" prob="0.05" force_prob="true" />
+		<item name="batterybank" count="1" prob="0.05" force_prob="true" />
+		
+		<!-- guaranteed stuff -->
+		<item name="casinoCoin" count="1200,3000" />		
+		<item name="questRewardT1SkillMagazineBundle" count="2"/>
+		<item name="airdropBookBundle" count="1"/>
+		
+	</append>
+	<!--end airdrop loot settings-->
+	
+	<!--set the storage size of the T4 & T5 hardened chests 
+			Also the writable storage box. Default is 8,9.
+			see also xui.xml and windows.xml-->
+	<!--max size can be 11,10 in the ui visually-->
+	<set xpath="/lootcontainers/lootcontainer[@name='hardenedChestT4']/@size">10,10</set>
+	<set xpath="/lootcontainers/lootcontainer[@name='hardenedChestT5']/@size">10,10</set>
+	<!--<set xpath="/lootcontainers/lootcontainer[@name='storageCrate']/@size">10,10</set>-->
+
+	<!--begin police car loot settings-->
+	<!--add the specialist recipe ingredients for the CrowdControl mod to PoliceCar loot drops
+		(Missing PatrolCar)-->
+	<insertBefore xpath="/lootcontainers/lootgroup[@name='groupPoliceCar01']">
+		<!--solar panel group for police car drops -->
+		<lootgroup name="lootgroupPoliceCarSolarPanel" loot_quality_template="solarPanelTemplate"> 
+			<item name="solarCell" count="1"/>
+		</lootgroup>
+		<lootgroup name="lootGroupElectricRagdollRecipe">
+			<item name="chargedNiCdBattery" count="1" />
+			<item name="advancedClothingMesh" count="1" />
+			<item name="hafniumHydrideMagnet" count="1" />
+		</lootgroup>
+		<!--generic parts for the CrowdControl mod-->
+		<lootgroup name="lootGroupElectricRagdollGenericParts">
+			<item name="modGunMeleeRadRemover" count="1" />
+			<item name="modMeleeStunBatonRepulsor" count="1" />
+		</lootgroup>
+		<!--lootgroup for the specialist parts to the CrowdControl mod recipe-->
+		<lootgroup name="lootGroupElectricRagdoll">
+			<item group="lootGroupElectricRagdollRecipe" count="1" />
+		</lootgroup>
+		<!--lootgroup for the generic parts to the CrowdControl mod recipe-->
+		<lootgroup name="lootGroupElectricRagdollGeneric">
+			<item group="lootGroupElectricRagdollGenericParts" count="1" />
+		</lootgroup>
+		<!--lootgroup for the CrowdControl recipe schematic-->
+		<lootgroup name="lootGroupElectricRagdollSchematic">
+			<item name="qt_burialPatrolCarNote" count="1" />
+		</lootgroup>
+	</insertBefore>
+	
+	<!-- redefine the groupPoliceCarBonus lootgroup so parts for the 
+			Crowd Control recipe can be looted-->
+	<remove xpath="/lootcontainers/lootgroup[@name='groupPoliceCarBonus']"/>
+	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupPoliceCarBonus04']">
+		<lootgroup name="groupPoliceCarBonus" count="all">
+			<!--chance to get one of the ingredients or schematic for the Electric Ragdoll armour mod -->
+			<item group="lootGroupElectricRagdoll" prob="0.22" force_prob="true"/>
+			<item group="lootGroupElectricRagdollGeneric" prob="0.08" force_prob="true"/>
+			<item group="lootGroupElectricRagdollSchematic" prob="0.08" force_prob="true"/>
+			<!--chance for a couple solar panels-->
+			<item group="lootgroupPoliceCarSolarPanel" prob="0.08" force_prob="true"/>
+			
+			<!--everything else is default, no change for now-->
+			<item group="groupPoliceCarBonus01" count="2"/>
+			<item group="groupPoliceCarBonus02" count="1"/>
+			<item group="groupPoliceCarBonus03" loot_prob_template="medHigh" force_prob="true"/>
+			<item group="groupPoliceCarBonus04" loot_prob_template="med" force_prob="true"/>
+			<item group="groupPoliceCar04" loot_prob_template="low" force_prob="true"/>
+		</lootgroup>
+	</insertAfter>
+	<!--end add the ingredients for the ElectricRagdoll armour mod to PoliceCar loot drops-->
+	
+	
+	<!--loot group and container for the buried Patrol Car treasure quest  -->
+	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupPoliceCarBonus04']">
+		<lootgroup name="groupBuriedPatrolCarLoot" count="all">
+			<item name="resourceGoreBlockHumanCorpse1" count="1"/>
+			<item name="resourceGoreBlockHumanCorpse2" count="1"/>
+			<item name="cntLuggageBigOpen" count="1"/>
+			<item name="resourceHubcap" count="1"/>
+			<item name="modElectricRagdollSpecialSchematic" count="1"/>
+			<item name="resourceConeConstruction" count="1"/>
+			<item name="resourceYoDawg" count="1"/>
+			<item name="resourceCobweb" count="1"/>
+		</lootgroup>
+		<lootcontainer name="buriedPatrolCarLootContainer" count="1" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+			<item group="groupBuriedPatrolCarLoot"/>
+		</lootcontainer>
+	</insertAfter>	
+	<!--end loot group and container for the buried Patrol Car treasure quest-->
+	<!--end police car loot settings-->
+	
+	<!--medical, food and small water tweeks-->
+	<!-- remove some medical containers--> 
+	<remove xpath="/lootcontainers/lootcontainer[@name='popnpillsCrate']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='popnpillsShelves']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='medicalPillCase']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='medicineCabinet']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='ambulance']"/>
+	<!-- remove some water containers -->
+	<remove xpath="/lootcontainers/lootcontainer[@name='waterCooler']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='sodaFountain']"/>
+	<!-- remove some food containers -->
+	<remove xpath="/lootcontainers/lootcontainer[@name='cupboard']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='armyTruck']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileSmall']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileMed']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileLarge']"/>
+
+	<!-- add changed contianers for food/water/medical-->
+	<append xpath="/lootcontainers">
+	
+		<!--medical stuff-->
+		<!-- pop n pills -->
+		<lootcontainer name="popnpillsCrate" count="1,4" size="6,4" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case" loot_quality_template="qualBaseTemplate">
+			<item group="groupPopNPillsCrate" />
+		</lootcontainer>
+		<!-- cntPillCase -->
+		<lootcontainer name="popnpillsShelves" count="1,3" size="6,2" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard" loot_quality_template="qualBaseTemplate">
+			<item group="groupPopnpillsShelves" />
+		</lootcontainer>
+		<!-- cntPillCaseClosed -->
+		<lootcontainer name="medicalPillCase" count="1,3" size="6,2" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case" loot_quality_template="qualBaseTemplate">
+			<item group="groupMedicalPileLarge" />
+		</lootcontainer>
+		<!-- medicine cabinets -->
+		<lootcontainer name="medicineCabinet" count="1,4" size="6,2" sound_open="UseActions/open_medicine_cabinet" sound_close="UseActions/close_medicine_cabinet" loot_quality_template="qualBaseTemplate">
+			<item group="groupMedicineCabinet" />
+		</lootcontainer>
+		<!--Ambulance -->
+		<lootcontainer name="ambulance" count="1,3" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+			<item group="groupAmbulance" />
+		</lootcontainer>
+
+		<!--water-->
+		<!-- cntWaterCoolerFull -->
+		<lootcontainer name="waterCooler" count="1,3" size="6,2" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="qualBaseTemplate">
+			<item name="drinkJarRiverWater" count="1,2"/>
+		</lootcontainer>	
+		<!-- cntSodaFountain -->
+		<lootcontainer name="sodaFountain" count="1,3" size="6,1" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="qualBaseTemplate">
+			<item group="groupSodaFountain"/>
+			<item name="drinkJarRiverWater" count="1,3"/>
+		</lootcontainer>
+		
+		<!--food-->
+		<!-- canned or dry food -->
+		<lootcontainer name="cupboard"  size="6,3" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard" loot_quality_template="qualBaseTemplate">
+			<item group="groupCupboard"/>
+			<item group="cannedfood" count="1,3" prob="0.25"/>
+		</lootcontainer>
+
+		<!-- army truck-->
+		<lootcontainer name="armyTruck"  size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+			<item group="groupArmyTruck"/>
+			<item group="cannedfood" count="1,3" prob="0.25"/>
+		</lootcontainer>		
+
+		<!-- cntFoodPileSmall -->
+		<lootcontainer name="foodPileSmall" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupFoodPileSmall"/>
+			<item group="cannedfood" count="1,2" prob="0.25"/>
+		</lootcontainer>
+
+		<!-- cntFoodPileMedium -->
+		<lootcontainer name="foodPileMed"  size="6,2" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupFoodPileMed"/>
+			<item group="cannedfood" count="1,3" prob="0.25"/>
+		</lootcontainer>
+
+		<!-- cntFoodPileLarge -->
+		<lootcontainer name="foodPileLarge"  size="6,3" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupFoodPileLarge"/>
+			<item group="cannedfood" count="1,4" prob="0.25"/>
+		</lootcontainer>
+	</append>
+	<!-- end add changed contianers for food/water/medical-->
+	<!--end medical, food and small water tweeks-->
+	
+	<!-- Brood Nest stuff -->
+	<!-- add a lootgroup for the BroodNest item -->
+	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupBirdNest02']">
+		<lootgroup name="groupBroodNest" count="all">
+			<item name="foodEgg" count="0,3" prob="1" force_prob="true"/>
+			<item name="resourceFeather" count="2,3" prob="1"/>
+		</lootgroup>
+	</insertAfter>
+	<!-- add the Brood Nest Container -->
+	<append xpath="/lootcontainers">
+		<!-- Farmed Birds Nest - for the Broodnest in blocks.xml-->
+		<lootcontainer name="farmBirdnest" size="3,3"  sound_open="UseActions/nest_open" sound_close="UseActions/nest_shut" destroy_on_close="empty">
+			<item group="groupBroodNest"/>
+		</lootcontainer>
+	</append>
+	
+	<!--loot container for Burial Site Coffins - Mary's Revenge-->
+	<append xpath="/lootcontainers">
+		<lootgroup name="groupBurialSiteCoffins" count="all">
+			<item name="resourceLetterV" count="1"/>
+			<item name="resourceLetterE" count="1"/>
+			<item name="resourceLetterN" count="1"/>
+			<item name="resourceLetterG" count="1"/>
+			<item name="resourceLetterE" count="1"/>
+			<item name="resourceLetterA" count="1"/>
+			<item name="resourceLetterN" count="1"/>
+			<item name="resourceLetterC" count="1"/>
+			<item name="resourceLetterE" count="1"/>
+			
+			<item name="resourceGoreBlockHumanBones" count="1"/>
+			<item name="coffinClockBroken" count="1"/>
+			<item name="cntBarrelGasOld" count="1"/>
+			<item name="playerExplosiveBarrelSchematic" count="1"/>
+			<item name="coffinWoodSpikes" count="1"/>
+			<item name="resourcegGraveStone" count="1"/>
+			<item name="marysRevengeArtifactContainer" count="1"/>
+		</lootgroup>
+		<lootcontainer name="burialSiteCoffins" count="1" size="9,2" sound_open="UseActions/coffin_wood_open" sound_close="UseActions/coffin_wood_close" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupBurialSiteCoffins"/>
+		</lootcontainer>
+	</append>
+	<!--end loot container for Burial Site Coffins -->
+	
+	<!-- set probability of gold, silver and diamonds 
+		They are used in the added grandpa recipes 
+		see blocks.xml for other drop probability changes-->
+		<!-- *** Rare_Ores -->
+	<set xpath="/lootcontainers/lootgroup[@name='rareOres']">
+		<!--<lootgroup name="rareOres">-->
+		<item name="resourceSilverNugget" count="1" loot_prob_template="veryLow"/>
+		<item name="resourceGoldNugget" count="1" loot_prob_template="veryLow"/>
+		<item name="resourceRawDiamond" count="1" loot_prob_template="veryLow"/>
+	</set>
+	<set xpath="/lootcontainers/lootgroup[@name='groupValuablesMed']">
+		<!--<lootgroup name="groupValuablesMed">-->
+		<item name="oldCash" count="100,500" loot_prob_template="high"/>
+		<item name="casinoCoin" count="200,600" loot_prob_template="medHigh"/>
+		<item name="resourceSilverNugget" count="1" loot_prob_template="veryLow"/>
+		<item name="resourceGoldNugget" count="1" loot_prob_template="veryLow"/>
+		<item name="resourceRawDiamond" count="1" loot_prob_template="veryLow"/>
+	</set>
+	<set xpath="/lootcontainers/lootgroup[@name='groupValuablesLarge']">
+		<!--<lootgroup name="groupValuablesLarge">-->
+		<item name="oldCash" count="100,500" loot_prob_template="high"/>
+		<item name="casinoCoin" count="200,600" loot_prob_template="medHigh"/>
+		<item name="resourceSilverNugget" count="1" loot_prob_template="veryLow"/>
+		<item name="resourceGoldNugget" count="1" loot_prob_template="veryLow"/>
+		<item name="resourceRawDiamond" count="1" loot_prob_template="veryLow"/>	
+	</set>
+	<!-- *** Treasure_Cache -->
+	<set xpath="/lootcontainers/lootgroup[@name='groupValuablesExtraLarge']">
+		<!--<lootgroup name="groupValuablesExtraLarge">-->
+		<item name="oldCash" count="100,500" loot_prob_template="med"/>
+		<item name="casinoCoin" count="3000,8000" loot_prob_template="high"/>
+		<item name="resourceSilverNugget" count="1" loot_prob_template="low"/>
+		<item name="resourceGoldNugget" count="1" loot_prob_template="low"/>
+		<item name="resourceRawDiamond" count="1" loot_prob_template="low"/>
+	</set>
+	<set xpath="/lootcontainers/lootgroup[@name='groupHardenedChestT4_09']">
+		<!--<lootgroup name="groupHardenedChestT4_09">-->
+		<item name="oldCash" count="100,500" loot_prob_template="high"/>
+		<item name="casinoCoin" count="200,600" loot_prob_template="medHigh"/>
+		<item name="resourceSilverNugget" count="1" loot_prob_template="low"/>
+		<item name="resourceGoldNugget" count="1" loot_prob_template="low"/>
+		<item name="resourceRawDiamond" count="1" loot_prob_template="low"/>
+	</set>
+	<set xpath="/lootcontainers/lootgroup[@name='groupHardenedChestT5_07']">
+		<!--<lootgroup name="groupHardenedChestT5_07">-->
+		<item name="oldCash" count="100,500" loot_prob_template="high"/>
+		<item name="casinoCoin" count="200,600" loot_prob_template="medHigh"/>
+		<item name="resourceSilverNugget" count="1" loot_prob_template="medLow"/>
+		<item name="resourceGoldNugget" count="1" loot_prob_template="medLow"/>
+		<item name="resourceRawDiamond" count="1" loot_prob_template="medLow"/>
+		<item name="drinkJarGrandpasForgettingElixir" count="1" loot_prob_template="low"/>
+		<!--add chance for a crucible -->
+		<item name="toolForgeCrucible" count="1" loot_prob_template="low"/>
+	</set>
+
+	<!--lootgroups: groupPOIStorageBox02,groupMorticianDrawer02,groupChem01, coffins and caskets - are all set to 'verylow' so are ignored-->
+	<!--end gold, silver and diamond block changes : see blocks.xml for other drop probability changes-->
+	
+</config>

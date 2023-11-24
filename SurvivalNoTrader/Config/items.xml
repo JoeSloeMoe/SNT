@@ -1,0 +1,1291 @@
+<configs>
+	<!-- Adding an additional mod slot to a select group of top tier equipment {Tools,Handweapons,Guns,Military Armour,Steel Armour,Swat Helmet} 
+		 Everything is the same as the base game except for (value="3,3,3,4,4,5" <==this value 5) in each line
+	-->
+	<!-- Tools -->
+	<append xpath="/items/item[starts-with(@name, 'meleeToolAxeT2SteelAxe')]/effect_group[starts-with(@name, 'meleeToolAxeT2SteelAxe')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'meleeToolPickT2SteelPickaxe')]/effect_group[starts-with(@name, 'meleeToolPickT2SteelPickaxe')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeToolShovelT2SteelShovel')]/effect_group[starts-with(@name, 'meleeToolShovelT2SteelShovel')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeToolPickT3Auger')]/effect_group[starts-with(@name, 'meleeToolPickT3Auger')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeToolSalvageT3ImpactDriver')]/effect_group[starts-with(@name, 'meleeToolSalvageT3ImpactDriver')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	
+	<!-- Hand Weapons -->
+	<append xpath="/items/item[starts-with(@name, 'meleeWpnBladeT3Machete')]/effect_group[starts-with(@name, 'meleeWpnBladeT3Machete')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeWpnClubT3SteelClub')]/effect_group[starts-with(@name, 'meleeWpnClubT3SteelClub')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeWpnBatonT2StunBaton')]/effect_group[starts-with(@name, 'meleeWpnBatonT2StunBaton')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeWpnSpearT3SteelSpear')]/effect_group[starts-with(@name, 'meleeWpnSpearT3SteelSpear')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeWpnSledgeT3SteelSledgehammer')]/effect_group[starts-with(@name, 'meleeWpnSledgeT3SteelSledgehammer')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'meleeWpnKnucklesT3SteelKnuckles')]/effect_group[starts-with(@name, 'meleeWpnKnucklesT3SteelKnuckles')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	
+	<!-- Ranged -->
+	<append xpath="/items/item[starts-with(@name, 'gunHandgunT3SMG5')]/effect_group[starts-with(@name, 'gunHandgunT3SMG5')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'gunHandgunT3DesertVulture')]/effect_group[starts-with(@name, 'gunHandgunT3DesertVulture')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'gunShotgunT3AutoShotgun')]/effect_group[starts-with(@name, 'gunShotgunT3AutoShotgun')]">
+		<passive_effect name="ModSlots" operation="base_set" value="4,4,4,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'gunRifleT3SniperRifle')]/effect_group[starts-with(@name, 'gunRifleT3SniperRifle')]">
+		<passive_effect name="ModSlots" operation="base_set" value="4,4,4,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'gunMGT2TacticalAR')]/effect_group[starts-with(@name, 'gunMGT2TacticalAR')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'gunMGT3M60')]/effect_group[starts-with(@name, 'gunMGT3M60')]">
+		<passive_effect name="ModSlots" operation="base_set" value="4,4,4,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'gunBowT3CompoundBow')]/effect_group[starts-with(@name, 'gunBowT3CompoundBow')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'gunBowT3CompoundCrossbow')]/effect_group[starts-with(@name, 'gunBowT3CompoundCrossbow')]">
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,3,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	
+	<!-- Military Armour -->
+	<append xpath="/items/item[starts-with(@name, 'armorMilitaryHelmet')]/effect_group[starts-with(@name, 'military armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>		
+	<append xpath="/items/item[starts-with(@name, 'armorMilitaryVest')]/effect_group[starts-with(@name, 'military armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorMilitaryGloves')]/effect_group[starts-with(@name, 'military armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorMilitaryLegs')]/effect_group[starts-with(@name, 'military armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorMilitaryBoots')]/effect_group[starts-with(@name, 'military armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorMilitaryStealthBoots')]/effect_group[starts-with(@name, 'military without penalties')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>		
+	
+	<!-- Steel Armour -->	
+	<append xpath="/items/item[starts-with(@name, 'armorSteelHelmet')]/effect_group[starts-with(@name, 'steel armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorSteelChest')]/effect_group[starts-with(@name, 'steel armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorSteelGloves')]/effect_group[starts-with(@name, 'steel armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>	
+	<append xpath="/items/item[starts-with(@name, 'armorSteelLegs')]/effect_group[starts-with(@name, 'steel armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<append xpath="/items/item[starts-with(@name, 'armorSteelBoots')]/effect_group[starts-with(@name, 'steel armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	
+	<!-- Swat Helmet -->
+	<append xpath="/items/item[starts-with(@name, 'armorSwatHelmet')]/effect_group[starts-with(@name, 'steel armor')]">
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/>
+	</append>
+	<!-- end adding mod slot section -->
+	
+	<!--add a tag (bookMagnumV4) for magnum 44 and desert vulture for the '44 Magnum vol 4 book
+		(7% added to base lootstage if holding 44 or vulture when looting 
+		see buff.xml:buffGameEventController-->
+	<set xpath ="/items/item[@name='gunHandgunT2Magnum44']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,revolver,barrelAttachments,sideAttachments,smallTopAttachments,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
+	<set xpath ="/items/item[@name='gunHandgunT3DesertVulture']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,revolver,holdBreathAiming,reloadPenalty,gun,shortRange,pistol,barrelAttachments,sideAttachments,smallTopAttachments,magazine,firingMode,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
+		
+	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
+	<set xpath="/items/item[@name='oldCash']/property[@name='FuelValue']/@value">30</set>
+
+	<!--solar panels can be repaired as they dont always come out at full health in loot-->
+	<append xpath="/items/item[@name='solarCell']">
+		<property name="RepairTools" value="resourceRepairKit"/>
+	</append>
+	
+	<!--remove tint colour from grenades-->
+	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='CustomIconTint']"/>
+	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='TintColor']"/>
+	<remove xpath="/items/item[@name='thrownGrenade']/property[@name='CustomIconTint']"/>
+	<remove xpath="/items/item[@name='thrownGrenade']/property[@name='TintColor']"/>
+		
+	<!-- adding several kinds of drinks -->
+	<append xpath="/items">
+		<!-- Elixir focuses on heath and stamina type stuff - see buffs.xml --> 
+		<item name="drinkJarGrandpasWheelchairRacingElixir">
+			<property name="Tags" value="drinks"/>
+			<property name="HoldType" value="3"/>
+			<property name="Meshfile" value="@:Other/Items/Food/bottled_waterPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mglass"/>
+			<property name="DescriptionKey" value="drinkJarGrandpasWheelchairRacingElixirDesc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="DisplayType" value="waterGrandpasWheelchairRacingElixir"/>
+			<property name="CustomIcon" value="drinkJarGrandpasLearningElixir"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="CraftingIngredientTime" value="15"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1"/>
+				<property name="Sound_start" value="player_drinking"/>
+			</property>
+			
+			<effect_group tiered="false" >
+				<requirement name="NotHasBuff" buff="buffIsOnFire"/>	
+					<display_value name="dBlockDamage" value="0.1"/>
+					<display_value name="dRunSpeed" value="0.1"/>
+					<display_value name="dWalkSpeed" value="0.1"/>
+					<display_value name="dHealthAmount" value="0.25"/>
+					<display_value name="dMaxHealthBonus" value="5"/>
+					<display_value name="dStaminaRegen" value=".1"/>
+					<display_value name="dDuration" value="3600"/>
+					
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="add" value="3603"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="set" value="7203">
+						<requirement name="CVarCompare" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="GT" value="7203"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrunkGrandpasWheelchairRacingElixir"/>
+					
+			</effect_group>
+			
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+			</effect_group>
+			
+		</item>
+		
+		<!-- Sauce focuses on melle type stuff -->
+		<item name="drinkJarGrandpasThemsFightinWordsMoonshine">
+			<property name="Tags" value="drinks"/>
+			<property name="HoldType" value="3"/>
+			<property name="Meshfile" value="@:Other/Items/Food/bottled_waterPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mglass"/>
+			<property name="DescriptionKey" value="drinkJarGrandpasThemsFightinWordsMoonshineDesc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="DisplayType" value="waterGrandpasThemsFightinWordsMoonshine"/>
+			<property name="CustomIcon" value="drinkJarGrandpasMoonshine"/>
+			<property name="CustomIconTint" value="0,171,255"/>
+			<property name="CraftingIngredientTime" value="15"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1"/>
+				<property name="Sound_start" value="player_drinking"/>
+			</property>
+			
+			<effect_group tiered="false" >
+				<requirement name="NotHasBuff" buff="buffIsOnFire"/>		
+					<display_value name="dEntityDamage" value="0.05"/>
+					<display_value name="dAttacksPerMinute" value="0.05"/>
+					<display_value name="dBuffResistance1" value="0.1"/>
+					<display_value name="dBuffResistance2" value="0.1"/>
+					<display_value name="dBuffResistance3" value="0.1"/>
+					<display_value name="dGeneralDamageResist" value="0.15"/>
+					<display_value name="dDuration" value="3600"/>	
+					
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="add" value="3603"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="set" value="7203">
+						<requirement name="CVarCompare" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="GT" value="7203"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrunkGrandpasThemsFightinWordsMoonshine"/>
+			</effect_group>
+	
+			<effect_group tiered="false">
+				<requirement name="HasBuff" buff="buffIsOnFire"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+			</effect_group>
+			
+		</item>
+		<!-- Sauce focuses on ranged combat -->
+		<item name="drinkJarGrandpasGunbeltOilSauce">
+			<property name="Tags" value="drinks"/>
+			<property name="HoldType" value="3"/>
+			<property name="Meshfile" value="@:Other/Items/Food/bottled_waterPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mglass"/>
+			<property name="DescriptionKey" value="drinkJarGrandpasGunbeltOilSauceDesc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="CustomIcon" value="drinkJarGrandpasAwesomeSauce"/>
+			<property name="CustomIconTint" value="0,255,171"/>
+			<property name="DisplayType" value="waterGrandpasGunbeltOilSauce"/>
+			<property name="CraftingIngredientTime" value="15"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1"/>
+				<property name="Sound_start" value="player_drinking"/>
+			</property>
+			
+			<effect_group tiered="false" >
+				<requirement name="NotHasBuff" buff="buffIsOnFire"/>		
+					<display_value name="dEntityDamage" operation="perc_add" value=".05" />	
+					<display_value name="dWeaponHandling" operation="perc_add" value="0.1" />
+					<display_value name="dReloadSpeedMultiplier" operation="perc_add" value="0.1" />
+					<display_value name="dRoundsPerMinute" operation="perc_add" value="0.05"/>
+					<display_value name="dBuffResistance" value="0.15"/>
+					<display_value name="dElementalDamageResist" value="0.15"/>
+					<display_value name="dDuration" value="3600"/>
+					
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="add" value="3603"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="set" value="7203">
+						<requirement name="CVarCompare" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="GT" value="7203"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrunkGrandpasGunbeltOilSauce"/>
+			</effect_group>
+		</item>
+	</append>
+	<!-- end adding several kinds of drinks -->
+
+	<!-- set value of base ingredients for new long duration Drinks to be all the same (game default is 250 and 500) -->
+	<set xpath ="items/item[@name='drinkJarGrandpasLearningElixir']/property[@name='EconomicValue']/@value">250</set>
+	<set xpath ="items/item[@name='drinkJarGrandpasMoonshine']/property[@name='EconomicValue']/@value">250</set>
+	<!-- awesomesource based drink value  is set below -->
+	
+	<!-- change the effects of Awesome Sauce as their is no Trading see buffs.xml -->
+	<set xpath="/items/item[@name='drinkJarGrandpasAwesomeSauce']">
+		<!-- <item name="drinkJarGrandpasAwesomeSauce"> -->
+		<property name="Tags" value="drinks,foodSkill"/>
+		<property name="HoldType" value="3"/>
+		<property name="Meshfile" value="@:Other/Items/Food/bottled_waterPrefab.prefab"/>
+		<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+		<property name="Material" value="Mglass"/>
+		<property name="Stacknumber" value="10"/> <!-- STK resource -->
+		<property name="EconomicValue" value="250"/>
+		<property name="UnlockedBy" value="craftingFood"/>
+		<!-- change the display -->
+		<property name="DisplayType" value="waterGrandpasAwesomeSauceChanged"/>
+		<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
+		<property class="Action0">
+			<property name="Class" value="Eat"/>
+			<property name="Delay" value="1"/>
+			<property name="Sound_start" value="player_drinking"/>
+		</property>
+		<effect_group tiered="false" name="Drink Tier 5">
+			<requirement name="NotHasBuff" buff="buffIsOnFire"/>
+				<display_value name="dLootStage" value="30"/>
+				<display_value name="dDuration" value="180"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="add" value="183"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="set" value="543">
+					<requirement name="CVarCompare" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="GT" value="543"/></triggered_effect>
+				<!-- change the buff -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrunkGrandpasAwesomeSauceChanged"/>
+		</effect_group>
+
+		<effect_group tiered="false">
+			<requirement name="HasBuff" buff="buffIsOnFire"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+		</effect_group>
+	</set>
+	
+	<!-- change the effect of the pumpkinCheeseCake as there are no traders -->
+	<set xpath="/items/item[@name='foodPumpkinCheesecake']">
+		<!--	<item name="foodPumpkinCheesecake"> -->
+		<property name="Tags" value="food,foodSkill"/>
+		<property name="HoldType" value="31"/>
+		<property name="DisplayType" value="foodPumpkinCheesecakeChanged"/>
+		<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+		<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+		<property name="Material" value="Morganic"/>
+		<property name="Stacknumber" value="10"/> <!-- STK food -->
+		<property name="EconomicValue" value="124"/>
+		<property name="UnlockedBy" value="craftingFood"/>
+		<property class="Action0">
+			<property name="Class" value="Eat"/>
+			<property name="Delay" value="1.0"/>
+			<property name="Sound_start" value="player_eating"/>
+			
+		</property>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+
+		<effect_group tiered="false" name="Food Tier 2">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="42"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="21"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="20"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+
+			<display_value name="dLootStage" value="0.05"/>
+			<display_value name="dDuration" value="300"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffPumpkinCheesecakeChangedDuration" operation="add" value="303"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffPumpkinCheesecakeChangedDuration" operation="set" value="903">
+				<requirement name="CVarCompare" cvar="$buffPumpkinCheesecakeChangedDuration" operation="GT" value="903"/></triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffPumpkinCheesecakeChanged"/>
+		</effect_group>
+	</set>
+	
+	<!--adding different resource bundles and stacks -->
+	<append xpath="/items">	
+		<item name="ammoGasCanBundleChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammoGasCan"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property name="DescriptionKey" value="ammoGasCanBundleChangedDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammoGasCan"/>
+				<property name="Create_item_count" value="10000"/>
+			</property>
+			<property name="Group" value="Resources,Chemicals,CFChemicals"/>
+		</item>	
+		<item name="resourceDuctTapeBundleChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="resourceDuctTape"/>
+			<property name="DescriptionKey" value="resourceDuctTapeBundleChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="resourceDuctTape"/>
+				<property name="Create_item_count" value="10"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceDuctTapeBundleLargeChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="resourceDuctTape"/>
+			<property name="DescriptionKey" value="resourceDuctTapeBundleLargeChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="resourceDuctTape"/>
+				<property name="Create_item_count" value="50"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceGlueBundleChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="resourceGlue"/>
+			<property name="DescriptionKey" value="resourceGlueBundleChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="resourceGlue"/>
+				<property name="Create_item_count" value="10"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceGlueBundleLargeChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="resourceGlue"/>
+			<property name="DescriptionKey" value="resourceGlueBundleLargeChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="resourceGlue"/>
+				<property name="Create_item_count" value="30"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLooseCobblestoneBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="resourceCobblestones"/>
+			<property name="DescriptionKey" value="resourceLooseCobblestoneBundleDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="resourceCobblestones"/>
+				<property name="Create_item_count" value="1000"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="thrownAmmoMolotovCocktailBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="thrownAmmoMolotovCocktail"/>
+			<property name="DescriptionKey" value="thrownAmmoMolotovCocktailBundleDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="thrownAmmoMolotovCocktail"/>
+				<property name="Create_item_count" value="20"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="thrownGrenadeBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="thrownGrenade"/>
+			<property name="DescriptionKey" value="thrownGrenadeBundleDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="thrownGrenade"/>
+				<property name="Create_item_count" value="20"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="thrownGrenadeContactBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="thrownGrenadeContact"/>
+			<property name="DescriptionKey" value="thrownGrenadeContactBundleDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="thrownGrenadeContact"/>
+				<property name="Create_item_count" value="20"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<!--small stacks see recipes -->
+		<item name="cobblestoneShapesBundleChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="cobblestoneMaster"/>
+			<property name="DescriptionKey" value="cobblestoneShapesBundleChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="cobblestoneShapes:VariantHelper"/>
+				<property name="Create_item_count" value="50"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="concreteShapesBundleChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="concreteMaster"/>
+			<property name="DescriptionKey" value="concreteShapesBundleChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/>
+			<property class="Action0">
+				<property name="Create_item" value="concreteShapes:VariantHelper"/>
+				<property name="Create_item_count" value="50"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="steelShapesBundleChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="steelMaster"/>
+			<property name="DescriptionKey" value="steelShapesBundleChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="steelShapes:VariantHelper"/>
+				<property name="Create_item_count" value="50"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<!-- large stacks see recipes -->
+		<item name="cobblestoneShapesBundleLargeChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="cobblestoneMaster"/>
+			<property name="CustomIconTint" value="151,151,151"/>
+			<property name="DescriptionKey" value="cobblestoneShapesBundleLargeChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="cobblestoneShapes:VariantHelper"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="concreteShapesBundleLargeChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="concreteMaster"/>
+			<property name="CustomIconTint" value="151,151,151"/>
+			<property name="DescriptionKey" value="concreteShapesBundleLargeChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/>
+			<property class="Action0">
+				<property name="Create_item" value="concreteShapes:VariantHelper"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="steelShapesBundleLargeChanged">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="steelMaster"/>
+			<property name="CustomIconTint" value="151,151,151"/>
+			<property name="DescriptionKey" value="steelShapesBundleLargeChangedDesc"/>
+			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
+			<property class="Action0">
+				<property name="Create_item" value="steelShapes:VariantHelper"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+	</append>
+	
+	<append xpath="/items">	
+		<!--Air Drop loot bundle for treasure maps - see loot.xml for full airdrop loot -->
+		<item name="airdropTreasureLargeBundle">
+				<property name="Extends" value="resourceRockSmallBundle"/>
+				<property name="CustomIcon" value="treasureQuestMaster"/>
+				<property name="DescriptionKey" value="airdropTreasureLargeBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="qt_taylor,qt_nickole,qt_stephan,qt_jennifer,qt_claude,qt_sarah,qt_raphael"/>
+					<property name="Random_item_count" value="1,1,1,1,1,1,1"/> 
+					<property name="Random_count" value="8"/>
+					<!--code below is required to stop 6000 stone being dropped-->
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>
+				</property>
+		</item>	
+		<item name="airdropTreasureSmallBundle">
+				<property name="Extends" value="resourceRockSmallBundle"/>
+				<property name="CustomIcon" value="treasureQuestMaster"/>
+				<property name="DescriptionKey" value="airdropTreasureSmallBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="qt_taylor,qt_nickole,qt_stephan,qt_jennifer"/>
+					<property name="Random_item_count" value="1,1,1,1"/>  
+					<property name="Random_count" value="4"/>
+					<!--code below is required to stop 6000 stone being dropped-->
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>
+				</property>
+		</item>	
+		<!--airdrop SeedBundle-->
+		<item name="airdropSeedBundle">
+				<property name="Extends" value="resourceRockSmallBundle"/>
+				<property name="CustomIcon" value="plantedYucca3Harvest"/>
+				<property name="DescriptionKey" value="airdropSeedBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="plantedPotato1,plantedCoffee1,plantedCorn1,plantedBlueberry1,plantedAloe1,plantedMushroom1,plantedYucca1,plantedHop1,plantedPumpkin1"/>
+					<property name="Random_item_count" value="1,1,1,1,1,1,1,1,1"/>  
+					<property name="Random_count" value="30"/>
+					<!--code below is required to stop 6000 stone being dropped-->
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>				
+				</property>
+		</item>	
+		<!--airdrop AP ammo bundle-->
+		<item name="airdropAPAmmoBundle">
+				<property name="Extends" value="resourceRockSmallBundle"/>
+				<property name="CustomIcon" value="ammo762mmBulletAP"/>
+				<property name="CustomIconTint" value="163,301,240"/> 
+				<property name="DescriptionKey" value="airdropAPAmmoBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="ammo762mmBulletAP,ammo9mmBulletAP,ammo44MagnumBulletAP,ammoShotgunSlug"/>
+					<property name="Random_item_count" value="1,1,1,1"/>  
+					<property name="Random_count" value="300"/>
+					<!--code below is required to stop 6000 stone being dropped-->
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>				
+				</property>
+		</item>
+		<item name="airdropBookBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="bundleBooks"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="airdropBookBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="bookRangersArrowRecovery,bookRangersCripplingShot,bookRangersKnockdown,bookRangersFlamingArrows,bookRangersAPAmmo,bookRangersExplodingBolts,bookRangersForestGuide,bookSpearHunter1Damage,bookSpearHunter2Maintenance,bookSpearHunter3Bleed,bookSpearHunter4KillMove,bookSpearHunter5RapidStrike,bookSpearHunter6PenetratingShaft,bookSpearHunter7QuickStrike,bookHuntingJournalBears,bookHuntingJournalCoyotes,bookHuntingJournalDeer,bookHuntingJournalMountainLions,bookHuntingJournalVultures,bookHuntingJournalWolves,bookHuntingJournalSelfDefense,bookArtOfMiningLuckyStrike,bookArtOfMiningDiamondTools,bookArtOfMiningCoffee,bookArtOfMiningBlackStrap,bookArtOfMiningPallets,bookArtOfMiningAvalanche,bookArtOfMiningDamage,bookBatterUpFoulBalls,bookBatterUpBigHits,bookBatterUpStealingBases,bookBatterUpKnockdown,bookBatterUpSlowPitch,bookBatterUpMaintenance,bookBatterUpMetalChain,bookNeedleAndThreadDesertWear,bookNeedleAndThreadDusters,bookNeedleAndThreadFootwear,bookNeedleAndThreadLegwear,bookNeedleAndThreadPockets,bookNeedleAndThreadPufferCoats,bookNeedleAndThreadWinterWear,bookPistolPeteAPAmmo,bookPistolPeteDamage,bookPistolPeteHPAmmo,bookPistolPeteMaintenance,bookPistolPeteSteadyHand,bookPistolPeteSwissKnees,bookPistolPeteTakeAim,bookWasteTreasuresAcid,bookWasteTreasuresCloth,bookWasteTreasuresCoffins,bookWasteTreasuresDoors,bookWasteTreasuresHoney,bookWasteTreasuresSinks,bookWasteTreasuresWater,bookUrbanCombatAdrenalineRush,bookUrbanCombatCigar,bookUrbanCombatRoomClearing,bookUrbanCombatJumping,bookUrbanCombatLandMines,bookUrbanCombatLanding,bookUrbanCombatSneaking,bookNightStalkerArchery,bookNightStalkerBlades,bookNightStalkerSilentNight,bookNightStalkerSlumberParty,bookNightStalkerStealthDamage,bookNightStalkerThiefAdrenaline,bookNightStalkerTwilightThief,bookFiremansAlmanacSpeed,bookFiremansAlmanacAxes,bookFiremansAlmanacEquipment,bookFiremansAlmanacPrevention,bookFiremansAlmanacHarvest,bookFiremansAlmanacHeat,bookFiremansAlmanacMolotov,bookBarBrawling1BasicMoves,bookBarBrawling2DropABomb,bookBarBrawling3KillerInstinct,bookBarBrawling4FinishingMoves,bookBarBrawling5AdrenalineHealing,bookBarBrawling6RageMode,bookBarBrawling7BoozedUp,bookLuckyLooterAmmunition,bookLuckyLooterBooks,bookLuckyLooterBrass,bookLuckyLooterDukes,bookLuckyLooterFood,bookLuckyLooterLead,bookLuckyLooterMedical,bookEnforcerAPAmmo,bookEnforcerApparel,bookEnforcerCriminalPursuit,bookEnforcerHPAmmo,bookEnforcerDamage,bookEnforcerIntimidation,bookEnforcerPunks,bookShotgunMessiahBreachingSlugs,bookShotgunMessiahDamage,bookShotgunMessiahLimbShot,bookShotgunMessiahMaintenance,bookShotgunMessiahMagazine,bookShotgunMessiahPartyStarter,bookShotgunMessiahSlugs,bookGreatHeistAdrenalineFall,bookGreatHeistGoldRush,bookGreatHeistClaimed,bookGreatHeistGems,bookGreatHeistMotionDetection,bookGreatHeistSafes,bookGreatHeistSprintSneak,bookSniperAPAmmo,bookSniperControlledBreathing,bookSniperCripplingShot,bookSniperDamage,bookSniperHeadShot,bookSniperReload,bookSniperHPAmmo,bookAutoWeaponsDamage,bookAutoWeaponsRagdoll,bookAutoWeaponsMaintenance,bookAutoWeaponsRecoil,bookAutoWeaponsDrumMag,bookAutoWeaponsUncontrolledBurst,bookAutoWeaponsMachineGuns,bookTechJunkie1Damage,bookTechJunkie2Maintenance,bookTechJunkie3APAmmo,bookTechJunkie4Shells,bookTechJunkie5Repulsor,bookTechJunkie6BatonCharge,bookTechJunkie7Hydraulics"/>
+				<property name="Random_item_count" value="1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+				<!--code below is required to stop 6000 stone being dropped-->
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>
+		<item name="airdropSolarBankBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CustomIcon" value="bundleSolarBank"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="airdropSolarBankBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="solarbank,solarCell,switch,electricianSkillMagazine"/>
+				<property name="Create_item_count" value="1,2-6,2,3"/>
+			</property>
+		</item>
+		<!--end Air Drop loot bundles -->	
+	</append>
+	
+	
+	<!--adding bundles to scrap different kinds of ammo 
+		All bundles assume bundles of 50 when calculating scrap returns
+		and generally return 75% (38 per 50) of the intial bullet recipe -->
+	<append xpath="/items">	
+		<!--7.62 ammo-->
+		<item name="scrap762AmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo762mmBulletBall"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap762AmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="38,114,38"/>  <!--create recipe is 1,3,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrap762HPAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo762mmBulletHP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap762HPAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="76,114,38"/> <!--create recipe is 2,3,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrap762APAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo762mmBulletAP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap762APAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="76,190,38"/> <!--create recipe is 2,5,1 per bullet-->
+			</property>
+		</item>	
+		<!--end 7.62 ammo -->
+		<!--9mm ammo-->
+		<item name="scrap9mmAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo9mmBulletBall"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap9mmAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="38,38,38"/>  <!--create recipe is 1,1,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrap9mmHPAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo9mmBulletHP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap9mmHPAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="76,38,38"/> <!--create recipe is 2,1,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrap9mmAPAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo9mmBulletAP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap9mmAPAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="76,76,38"/> <!--create recipe is 2,2,1 per bullet-->
+			</property>
+		</item>	
+		<!--end 9mm ammo -->
+		<!--44 ammo-->
+		<item name="scrap44AmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo44MagnumBulletBall"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap44AmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="38,76,38"/>  <!--create recipe is 1,2,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrap44HPAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo44MagnumBulletHP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap44HPAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="76,76,38"/> <!--create recipe is 2,2,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrap44APAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammo44MagnumBulletAP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrap44APAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceBulletCasing"/>
+				<property name="Create_item_count" value="76,114,38"/> <!--create recipe is 2,3,1 per bullet-->
+			</property>
+		</item>	
+		<!--end 45 ammo -->
+		<!--shotgun ammo-->
+		<item name="scrapShotgunAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammoShotgunShell"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapShotgunAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBuckshot,resourceGunPowder,resourcePaper"/>
+				<property name="Create_item_count" value="38,152,38"/>  <!--create recipe is 1,4,1 per bullet-->
+			</property>
+		</item>		
+		<item name="scrapShotgunBreachingAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammoShotgunBreachingSlug"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapShotgunBreachingAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceForgedSteel,resourceClayLump,resourceGunPowder,resourceScrapPolymers"/>
+				<property name="Create_item_count" value="114,76,152,38"/> <!--create recipe is 3,2,4,1 per bullet-->
+			</property>
+		</item>	
+		<item name="scrapShotgunSlugAmmoBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="ammoShotgunSlug"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapShotgunSlugAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip,resourceGunPowder,resourceScrapPolymers"/>
+				<property name="Create_item_count" value="76,190,38"/> <!--create recipe is 2,5,1 per bullet-->
+			</property>
+		</item>	
+		<!--end shotgun ammo -->
+	</append>
+	<!--end adding bundles to scrap different kinds of ammo -->
+	
+
+	<!--modify the Kandy bars to be able to be unlocked and group them-->
+	<append xpath ="items/item[@name='drugHealthBar']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugEyeKandy']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugRockBusters']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugHackers']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugAtomJunkies']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugCovertCats']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugSkullCrushers']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugNerdTats']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<append xpath ="items/item[@name='drugOhShitzDrops']">
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+	</append>
+	<!--do the full jailgrakers as adding lock pick time reduction as well-->
+	<set xpath ="items/item[@name='drugJailBreakers']">
+		<property name="Extends" value="drugAtomJunkies"/>
+		<property name="DisplayType" value="drugJailBreakers"/>
+		<property name="UnlockedBy" value="perkBetterBarter"/>
+		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+		<effect_group tiered="false" name="Candy Tier 1">
+			<display_value name="dLockpickSuccess" value="1"/>
+			<display_value name="dLockPickTime" value="-0.95"/>
+			<display_value name="dDuration" value="360"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="add" value="363"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="set" value="1083">
+				<requirement name="CVarCompare" cvar="$buffDrugJailBreakersDuration" operation="GT" value="1083"/></triggered_effect>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugJailBreakers"/>
+
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="5"/>
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+		</effect_group>
+	</set>
+	<!--end modify the Kandy bars to be able to be unlocked and group them-->
+
+
+	<!--books, mags etc for quests-->
+	<insertAfter xpath ="items/item[@name='qt_raphael']">
+		<item name="playerExplosiveBarrelSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="cntBarrelGasSingle00"/>
+			<property name="DescriptionKey" value="playerExplosiveBarrelSchematicDesc"/>
+			<property name="Unlocks" value="playerExplosiveBarrel"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="playerExplosiveBarrel" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		
+		<!--Burial Site inspection quest (Mary's revenge)-->
+		<item name="qt_burialSiteMarysRevengeNote">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="schematicMaster"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="qt_burialSiteMarysRevengeNote"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="graveRobbingOne"/>
+			</property>
+		</item>
+		<!--buriedPatrolCar loot-->
+		<item name="qt_burialPatrolCarNote">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="cntBookPile08"/>
+			<!--<property name="CustomIconTint" value="255,152,152"/>-->
+			<property name="DescriptionKey" value="qt_burialPatrolCarNoteDesc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="buriedPatrolCar"/>
+			</property>
+		</item>
+		
+		<!--recipe books for the armour mods -->
+		<item name="modRagdollSpecialSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modMeleeStunBatonRepulsor"/>
+			<property name="CustomIconTint" value="0,171,255"/>
+			<property name="Unlocks" value="modElectricSpecial"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modRagdollSpecial" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		<item name="modElectricSpecialSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modGunMeleeNiCdBattery"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="Unlocks" value="modElectricSpecial"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modElectricSpecial" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		<!--combined - this is the only one being used -->
+		<item name="modElectricRagdollSpecialSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="modMeleeStunBatonRepulsor"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="Unlocks" value="modElectricRagdollSpecial"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modElectricRagdollSpecial" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		<!--end recipe books for the armour mods-->
+		
+		<!--items for CrowdControl (MissingPatrolCar) mod recipes-->
+		<item name="hafniumHydrideMagnet">
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="modElectricRagdollSpecial"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="CustomIcon" value="helipad"/>
+			<property name="CustomIconTint" value="142,213,249"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Stacknumber" value="10"/> <!-- STK loot -->
+			<property name="Group" value="Resources"/>
+			<property name="DescriptionKey" value="hafniumHydrideMagnetDesc"/>
+		</item>
+		
+		<item name="advancedClothingMesh">
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="modElectricRagdollSpecial"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="CustomIcon" value="cntClothesRackWallFlat"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Stacknumber" value="10"/> <!-- STK loot -->
+			<property name="Group" value="Resources"/>
+			<property name="DescriptionKey" value="advancedClothingMeshDesc"/>
+		</item>	
+
+		<!--nicad battery -->
+		<item name="chargedNiCdBattery" >
+			<property name="HoldType" value="45"/>
+			<property name="Tags" value="modElectricRagdollSpecial"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="CustomIcon" value="modGunMeleeNiCdBattery"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Stacknumber" value="10"/> <!-- STK loot -->
+			<property name="Group" value="Resources"/>
+			<property name="DescriptionKey" value="chargedNiCdBatteryDesc"/>
+		</item>
+		<!--end items for armour mod (CrowdControl mod) recipes-->
+	</insertAfter>
+	
+	<append xpath="/items">
+		<!-- Mary's Revenge  - special homemade rifle, uses magnum rounds 
+			Can use with shotgun tube extender, full auto, burst mods 
+			-->
+		<item name="marysRevengeHomemadeRifle">
+			<property name="Tags" value="weapon,noSilencer,firingMode,modGunShotgunTubeExtenderMagazine,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,largeTopAttachments,stock,bottomAttachments,attPerception,perkDeadEye,attachmentsIncluded,canHaveCosmetic,rifleSkill"/>
+			<property name="HoldType" value="85"/>
+			<property name="Meshfile" value="@:Other/Items/Weapons/Ranged/LeverActionRifle/leverActionRiflePrefab.prefab"/>
+			<property name="Material" value="MRifleParts"/>
+			<property name="TintColor" value="239,200,162"/>
+			<property class="UMA">
+				<property name="UMA.Overlay0Tint" value="239,200,162"/>
+			</property>
+			<property name="DescriptionKey" value="marysRevengeHomemadeRifleDesc"/>
+			<property name="CustomIcon" value="gunRifleT2LeverActionRifle"/>
+			<property name="CustomIconTint" value="239,200,162"/>
+			<property name="DisplayType" value="rangedGun"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="DegradationBreaksAfter" value="false"/>
+			<property name="SoundJammed" value="weapon_jam"/>
+			<property name="Attachments" value="meleeToolFlashlight02"/>
+			<property name="CrosshairOnAim" value="false"/> <!-- aimTest **-->
+			<property name="CrosshairUpAfterShot" value="false"/> <!-- aimTest -->
+			<property name="Sound_Sight_In" value="rifle_sight_in"/>
+			<property name="Sound_Sight_Out" value="rifle_sight_out"/>
+			<property name="LightSource" value="lightSource"/> <!-- Start: Needed for the attachment flashlight -->
+			<property name="ActivateObject" value="Attachments/flashlight/lightSource"/>
+			<property name="AttachmentFlashlight" value="meleeToolFlashlight02"/> <!-- End: Needed for the attachment flashlight -->
+			<property name="Group" value="Ammo/Weapons,Ranged Weapons"/>
+			<property name="RepairExpMultiplier" value="10.8"/>
+			<property name="LightValue" value=".45"/>
+			<property name="EconomicValue" value="2000"/>
+			<property name="TraderStageTemplate" value="baseTier2"/>
+			<property name="ShowQuality" value="true"/>
+			<property name="SoundUnholster" value="weapon_unholster"/>
+			<property name="SoundHolster" value="weapon_holster"/>
+			
+			<property class="Action0">
+				<property name="Class" value="Ranged"/>
+				<property name="Delay" value=".4"/> <!-- obsolete if rounds per minute exists -->
+				<property name="Magazine_items" value="ammo44MagnumBulletBall,ammo44MagnumBulletHP,ammo44MagnumBulletAP"/>
+				<property name="Reload_time" value="1.8"/>
+				<property name="Sound_start" value="sniperrifle_s_fire"/>   <!-- silencer stuff -->
+				<property name="Sound_loop" value="sniperrifle_s_fire"/>
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value="silencefiller"/>
+				<property name="Sound_empty" value="dryfire"/>
+				<property name="Sound_reload" value=""/>
+				<property name="AutoReload" value="false"/>
+				<property name="Particles_muzzle_fire" value="gunfire_SMG"/>
+				<property name="Particles_muzzle_fire_fpv" value="gunfire_SMG_fpv"/>
+				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".98"/>
+						<property name="triggerEffectTriggerPullDualsense" value="RifleTrigger"/>
+						<property name="triggerEffectTriggerPullXbox" value="PistolTrigger"/>
+						<property name="triggerEffectTriggerShootDualsense" value="RifleShoot"/>
+						<property name="triggerEffectTriggerShootXbox" value="PistolShoot"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Zoom"/>
+				<property name="Zoom_max_out" value="55"/>
+				<property name="Zoom_max_in" value="55"/>
+				<!-- <property name="ScopeCameraOffset" value="0,.0262,-.05"/> -->
+						<property name="zoomTriggerEffectTriggerPullDualsense" value="PistolZoom"/>
+						<property name="zoomTriggerEffectTriggerPullXbox" value="PistolZoom"/>
+			</property>
+			<effect_group name="marysRevengeHomemadeRifle">
+				<passive_effect name="MaxRange" operation="base_set" value="170" tags="perkDeadEye"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="75" tags="perkDeadEye"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="-.1,.05" tier="1,6" tags="perkDeadEye"/> <!-- random effective rng -->
+				<passive_effect name="BlockDamage" operation="base_add" value="-1" tags="perkDeadEye"/> <!-- damage offset -->
+				<passive_effect name="RoundsPerMinute" operation="base_set" value="120" tags="perkDeadEye"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="3" tags="perkDeadEye"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="8" tags="perkDeadEye"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="base_set" value="1" tags="perkDeadEye"/> <!-- 2.7s -->
+				<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="EntityDamage" operation="base_add" value="46" tags="perkDeadEye"/> <!-- damage offset -->
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.02,.02" tags="perkDeadEye"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05,.25" tier="2,6" tags="perkDeadEye"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.08,.08" tags="perkDeadEye"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".15,.75" tier="2,6" tags="perkDeadEye"/> <!-- tier bonus -->
+				<passive_effect name="WeaponHandling" operation="perc_add" value="-.08,.08" tags="perkDeadEye"/> <!-- random WeaponHandling -->
+
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="3.2" tags="perkDeadEye"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="3.2" tags="perkDeadEye"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".066" tags="perkDeadEye"/>
+				<passive_effect name="SpreadMultiplierCrouching" operation="base_set" value=".8" tags="perkDeadEye"/>
+				<passive_effect name="SpreadMultiplierWalking" operation="base_set" value="1.5" tags="perkDeadEye"/>
+				<passive_effect name="SpreadMultiplierRunning" operation="base_set" value="2" tags="perkDeadEye"/>
+
+				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value="0.7" tags="perkDeadEye"/>
+				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value="1.5" tags="perkDeadEye"/>
+				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-.2" tags="perkDeadEye"/>
+				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value=".2" tags="perkDeadEye"/>
+
+				<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="3.0" tags="perkDeadEye"/>
+				<passive_effect name="WeaponHandling" operation="base_set" value=".7" tags="perkDeadEye"/>
+
+				<passive_effect name="DegradationMax" operation="base_set" value="600,900" tier="1,6" tags="perkDeadEye"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkDeadEye"/>
+
+				<passive_effect name="DamageModifier" operation="base_add" value="300" tags="head"/>
+			</effect_group>
+			
+			<!-- silencer stuff -->			
+			<property name="BarrelOffset" value="0,-.02,.2182"/>
+			<property name="BarrelScale" value=".88,.88,.88"/>
+			<effect_group tiered="false" name="internal attachment prefab (A19)">
+				<requirement name="HoldingItemHasTags" tags="attachmentsIncluded"/>
+					<triggered_effect trigger="onSelfHoldingItemCreated" action="SetTransformActive" active="true" parent_transform="#HeldItemRoot" transform_path="silencer"/>
+			</effect_group>
+			
+			<!-- chance to cripple target-->
+			<effect_group tiered="false">
+				<requirement name="EntityTagCompare" target="other" tags="walker"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01"/>
+			</effect_group>
+			
+			<!--very small chance to knckdown, this is just added to provide some 
+				variance to zombie behaviour on hit and isnt intended to do much. 
+				It doesnt last long and doesnt have much force -->
+			<effect_group tiered="false">
+				<requirement name="EntityTagCompare" target="other" tags="walker"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+					<triggered_effect trigger="onOtherDamagedSelf" action="Ragdoll" target="other" duration="1.8" force="275"/>		
+			</effect_group>
+		</item>
+		<!-- end Mary's Revenge  - special homemade rifle-->
+		
+		
+		
+		<!-- reward bundle stuff that drops Mary's Revenge rifle above (see quests.xml)-->
+		<!-- cursed artifact container from Burial Site One quest
+			 When the container is opened a quest is called to spawn 
+			 screamers (cant spawn zombies from this item, need to use a quest)-->
+		<!--this item will give out Mary's revenge WITH the screamers-->
+		<item name="marysRevengeArtifactContainer">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="Tags" value="graveRobbingOneCoffin"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="cntSecureStorageChest"/>
+			<property name="CustomIconTint" value="239,200,162"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="rewardMarysRevengeBundleDesc"/>
+
+			<!-- we want to spawn some zombies but dont seem to be able to do that from here-
+				Have to call an event (cant spawn zombies from the event either when using SpawnEntity for some reason)
+				so then have to call a quest (from the event) that then spawns zombies and gives Mary's Revenge-->
+			<effect_group tiered="false">		
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="CallGameEvent" event="eventMarysRevengeArtifactContainerOpened"/>
+			</effect_group>
+		</item>
+		
+		<!--this item will give out Mary's Revenge WITHOUT the screamers-->
+		<item name="rewardMarysRevengeBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="Tags" value="graveRobbingOneCoffin"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="gunRifleT2LeverActionRifle"/>
+			<property name="CustomIconTint" value="239,200,162"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="rewardMarysRevengeBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="marysRevengeHomemadeRifle,ammo44MagnumBulletAP"/>
+				<property name="Create_item_count" value="6,300"/>
+			</property>
+		</item>
+		
+		<!--generic items for visuals in coffins and patrol car loot slots-->
+		<!--simple placeholder item for a gore block in the loot-->
+		<item name="resourceGoreBlockHumanBones">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanBones"/>
+			<property name="DescriptionKey" value="resourceGoreBlockHumanBones"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceGoreBlockHumanCorpse1">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanCorpse2"/>
+			<property name="DescriptionKey" value="resourceGoreBlockHumanBones"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceGoreBlockHumanCorpse2">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanCorpse"/>
+			<property name="DescriptionKey" value="resourceGoreBlockHumanBones"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceConeConstruction">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="coneConstruction"/>
+			<property name="DescriptionKey" value="resourceConeConstruction"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceCobweb">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="cobweb"/>
+			<property name="DescriptionKey" value="resourceCobweb"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceHubcap">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="hubcapNoMine"/>
+			<property name="CustomIconTint" value="176,172,168"/>
+			<property name="DescriptionKey" value="resourceHubcap"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceYoDawg">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="cntPoliceCar01"/>
+			<property name="DescriptionKey" value="resourceYoDawg"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<item name="resourcegGraveStone">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="graveStone02"/>
+			<property name="DescriptionKey" value="resourcegGraveStone"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+
+		<!--letters spelling out 'vengence'
+			Is placed in the MarysRevenge coffin-->
+		<item name="resourceLetterV">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="shapeFontV"/>
+			<property name="CustomIconTint" value="102,0,0"/>
+			<property name="DescriptionKey" value="resourceLetterV"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLetterE">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="shapeFontE"/>
+			<property name="CustomIconTint" value="102,0,0"/>
+			<property name="DescriptionKey" value="resourceLetterE"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLetterN">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="shapeFontN"/>
+			<property name="CustomIconTint" value="102,0,0"/>
+			<property name="DescriptionKey" value="resourceLetterN"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLetterG">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="shapeFontG"/>
+			<property name="CustomIconTint" value="102,0,0"/>
+			<property name="DescriptionKey" value="resourceLetterG"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLetterC">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="shapeFontC"/>
+			<property name="CustomIconTint" value="102,0,0"/>
+			<property name="DescriptionKey" value="resourceLetterC"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLetterA">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="shapeFontA"/>
+			<property name="CustomIconTint" value="102,0,0"/>
+			<property name="DescriptionKey" value="resourceLetterA"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--end letters spelling our 'vengeance'-->
+		<!--other stuff for the coffin-->
+		<item name="coffinClockBroken">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="wallClockBroken"/>
+			<property name="DescriptionKey" value="coffinClockBroken"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="coffinWoodSpikes">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="woodSpikesTrap1POI"/>
+			<property name="DescriptionKey" value="coffinWoodSpikes"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--end generic items for visuals in coffina nd patrol car loot slots-->
+	
+	</append>
+</configs>

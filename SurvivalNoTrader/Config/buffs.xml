@@ -1,0 +1,300 @@
+<configs>
+
+	<append xpath="/buffs">
+		<!-- *** buffDrunkGrandpasWheelchairRacingElixir -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasWheelchairRacingElixir -->
+		<buff name="buffDrunkGrandpasWheelchairRacingElixir" name_key="buffDrunkGrandpasWheelchairRacingElixirName" description_key="buffDrunkGrandpasWheelchairRacingElixirDesc" tooltip_key="buffDrunkGrandpasWheelchairRacingElixirName" icon="ui_game_symbol_add" icon_color="255,152,152">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasWheelchairRacingElixirDisplay"/>
+			<display_value_format value="time"/>
+				
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasWheelchairRacingElixirDisplay" operation="set" value="@$buffGrandpasWheelchairRacingElixirDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasWheelchairRacingElixirDisplay" operation="divide" value="@$MetabolismDuration"/> 
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasWheelchairRacingElixir">
+					<requirement name="CVarCompare" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasWheelchairRacingElixirDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="BlockDamage" operation="perc_add" value="0.05"> 
+					<requirement name="HoldingItemHasTags" tags="melee"/>
+				</passive_effect>
+				
+				<passive_effect name="HealthChangeOT" operation="base_add" value="0.25"/>
+				<passive_effect name="HealthMax" operation="base_add" value="5"/>
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.1"/>
+				<passive_effect name="RunSpeed" operation="perc_add" value="0.1"/>
+				<passive_effect name="WalkSpeed" operation="perc_add" value="0.1"/>
+					
+				<!-- special drink effects -->
+				<passive_effect name="FoodLossPerHealthPointGained" operation="base_set" value="0" />
+				<passive_effect name="WaterLossPerStaminaPointGained" operation="base_set" value="0"/> 
+			</effect_group>
+		</buff>
+		
+		<!-- *** buffDrunkGrandpasThemsFightinWordsMoonshine -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasThemsFightinWordsMoonshine -->
+		<buff name="buffDrunkGrandpasThemsFightinWordsMoonshine" name_key="buffDrunkGrandpasThemsFightinWordsMoonshineName" description_key="buffDrunkGrandpasThemsFightinWordsMoonshineDesc" tooltip_key="buffDrunkGrandpasThemsFightinWordsMoonshineName" icon="ui_game_symbol_melee" icon_color="0,171,255" >
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasThemsFightinWordsMoonshineDisplay"/>
+			<display_value_format value="time"/>
+				
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasThemsFightinWordsMoonshineDisplay" operation="set" value="@$buffGrandpasThemsFightinWordsMoonshineDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasThemsFightinWordsMoonshineDisplay" operation="divide" value="@$MetabolismDuration"/> 
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasThemsFightinWordsMoonshine">
+					<requirement name="CVarCompare" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasThemsFightinWordsMoonshineDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="set" value="0"/>
+			
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.05" >
+					<requirement name="HoldingItemHasTags" tags="melee"/> 
+				</passive_effect>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.05">
+					<requirement name="HoldingItemHasTags" tags="melee"/> 
+				</passive_effect>
+	
+				<passive_effect name="GeneralDamageResist" operation="perc_add" value="0.15"/>
+				<!-- 10% increase in melee type resistances e.g. fatigue, sprains, abrasions, infection etc. -->
+				<passive_effect name="BuffResistance" operation="base_add" value=".1" tags="buffInfectionCatch,buffInfectionMain,buffFatiguedTrigger,buffLaceration,buffAbrasionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value=".15" tags="buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+	
+			</effect_group>
+		</buff>
+		
+		<!-- *** buffDrunkGrandpasGunbeltOilSauce -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasGunbeltOilSauce -->
+		<buff name="buffDrunkGrandpasGunbeltOilSauce" name_key="buffDrunkGrandpasGunbeltOilSauceName" description_key="buffDrunkGrandpasGunbeltOilSauceDesc" tooltip_key="buffDrunkGrandpasGunbeltOilSauceName" icon="ui_game_symbol_gunslinger" icon_color="0,255,171">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasGunbeltOilSauceDisplay"/>
+			<display_value_format value="time"/>
+				
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasGunbeltOilSauceDisplay" operation="set" value="@$buffGrandpasGunbeltOilSauceDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasGunbeltOilSauceDisplay" operation="divide" value="@$MetabolismDuration"/> 
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasGunbeltOilSauce">
+					<requirement name="CVarCompare" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasGunbeltOilSauceDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group> 
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" >
+					<requirement name="HoldingItemHasTags" tags="ranged"/>
+				</passive_effect>
+				
+				<passive_effect name="WeaponHandling" operation="perc_add" value="0.1" />
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.1" />
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.05"/>
+				<!-- drink special effect -->
+				<!-- resistance to fire -->
+				<passive_effect name="BuffResistance" operation="base_add" value="0.25" tags="buffBurningElement,buffIsOnFire,buffBurningEnvironment,buffBurningFlamingArrow,buffBurningMolotov,buffBurning,buffBurningWeapon,buffShocked,buffDemonFireball,buffBurningMolotovDM1,buffBurningMolotovDM2,buffBurningMolotovDM3,buffBurningMolotovDM4,buffBurningMolotovDM5,buffBurningFlamingArrowDM1,buffBurningFlamingArrowDM2,buffBurningFlamingArrowDM3,buffBurningFlamingArrowDM4,buffBurningFlamingArrowDM5"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="0.25" tags="heat,electrical"/>
+			</effect_group>
+
+		</buff>
+		
+		<!-- *** buffDrunkGrandpasAwesomeSauceChanged -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasAwesomeSauce -->
+		<!-- Temporarily increases Base lootstage by 30 -->
+		<buff name="buffDrunkGrandpasAwesomeSauceChanged" name_key="buffDrunkGrandpasAwesomeSauceChangedName" description_key="buffDrunkGrandpasAwesomeSauceChangedDesc" tooltip_key="buffDrunkGrandpasAwesomeSauceChangedTooltip" icon="ui_game_symbol_candy_eye_candy">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasAwesomeSauceChangedDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasAwesomeSauceChangedDisplay" operation="set" value="@$buffGrandpasAwesomeSauceChangedDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasAwesomeSauceChangedDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasAwesomeSauceChanged">
+					<requirement name="CVarCompare" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasAwesomeSauceChangedDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="LootStage" operation="base_add" value="30"/>
+			</effect_group>
+		</buff>
+		
+		<!-- *** buffPumpkinCheesecakeChanged -->
+		<!-- TRIGGERED_BY: Items = foodPumpkinCheesecake -->
+		<!-- Temporarily increases lootstage by 5% -->
+		<buff name="buffPumpkinCheesecakeChanged" name_key="foodPumpkinCheesecakeChanged" description_key="foodPumpkinCheesecakeChangedDesc" icon="ui_game_symbol_fork">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffPumpkinCheesecakeChangedDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<passive_effect name="LootStage" operation="perc_add" value="0.05"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffPumpkinCheesecakeChangedDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffPumpkinCheesecakeChangedDisplay" operation="set" value="@$buffPumpkinCheesecakeChangedDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffPumpkinCheesecakeChangedDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPumpkinCheesecakeChanged">
+					<requirement name="CVarCompare" cvar="$buffPumpkinCheesecakeChangedDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffPumpkinCheesecakeChangedDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffPumpkinCheesecakeChangedDuration" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+		
+		<!-- this buff is given to the player when they start a game - see buff ADDCONTROLLERBUFF below -->
+		<!-- Keeps track of various game counters e.g. number of zombie kills.
+			 Uses this info to set off events in game e.g. Give player 'Mary's Revenge Bundle' for 3000 zombie kills -->
+		<buff name="buffGameEventController" name_key="buffGameEventController" description_key="buffGameEventControllerDesc">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGameEventControllerDisplay"/>
+			<!-- this buff is a background buff and isnt shown on the hud so no display value format-->
+			<!--<display_value_format value="time"/>-->
+			<effect_group>
+				<!--update number of zombie kills when onSelfKilledOther event received-->
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$numZombieKillsControl" operation="add" value="1" >
+					<requirement name="EntityTagCompare" target="other" tags="walker,crawler,spider,zombie"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="@$numZombieKillsControl"/>
+			</effect_group>
+			
+			<effect_group>
+				<!--handling the buff for the magnum vol 4 intimidation book.
+				  All .44 handguns are tagged with 'bookMagnumV4'-->
+				<requirement name="ProgressionLevel" progression_name="perkEnforcerIntimidation" operation="Equals" value="1"/>
+				<requirement name="ItemHasTags" tags="bookMagnumV4"/>
+					<passive_effect name="LootStage" operation="base_add" value="7"/>
+			</effect_group>
+			
+			<effect_group>
+				<!--handling the event for making the solarbank recipe available at level 50 -->
+				<requirement name="PlayerLevel" operation="Equals" value="50"/>
+				<requirement name="CVarCompare" cvar="$solarBankRecipeUnlocked" operation="LTE" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="solarbank" operation="set" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$solarBankRecipeUnlocked" operation="add" value="1" />
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="solarBankUnlocked"/>
+			</effect_group>
+			
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$buffGameEventControllerDuration" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$buffGameEventControllerDuration" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$burialSiteOneGiven1" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$burialSiteOneGiven1" operation="set" value="0" />				
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$solarBankRecipeUnlocked" operation="set" value="0"/>		
+			</effect_group>
+
+			<effect_group>			
+				<!-- check zombie death count - give reward if passed-->
+				<requirement name="CVarCompare" cvar="$numZombieKillsControl" operation="Equals" value="4000"/>
+				<requirement name="CVarCompare" cvar="$burialSiteOneGiven" operation="LTE" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="give_graveRobbingOneQuest"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="milestoneBundleZombieKill"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$burialSiteOneGiven" operation="add" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGameEventControllerDuration" operation="add" value="1"/>
+				<!--currenty just remove this buff after the zombie kill rewards, because its the only rewards at the moment-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffGameEventController">
+					<requirement name="CVarCompare" cvar="$numZombieKillsControl" operation="GTE" value="300000"/> <!--buff is essentially active forever -->
+				</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$burialSiteOneGiven" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGameEventControllerDuration" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
+			</effect_group>
+			
+			
+					<!-- Tracking leveling / level up and current level
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$numLevelsControl" operation="add" value="1" >
+						<requirement name="PlayerLevel" operation="GT" value="@$LastPlayerLevel"/>
+					</triggered_effect>
+					-->
+					<!--example OR statement: If counter is LT next blur OR next blur = 0 
+						<requirements compare_type="or">
+							<requirement name="CVarCompare" cvar="$concussionCounter" operation="LT" value="@$concussionNextBlur"/>
+							<requirement name="CVarCompare" cvar="$concussionNextBlur" operation="Equals" value="0"/>
+						</requirements>
+					-->
+		</buff>
+	</append>
+	<!--ADDCONTROLLERBUFF adds the background buff to the player 
+		This will auto re-add buffGameEventController to the player after initial spawn and any deaths,
+		as buffStatusCheck01 is called by the system on major events-->
+	<append xpath="/buffs/buff[starts-with(@name, 'buffStatusCheck01')]">
+		<effect_group>
+			<requirement name="!HasBuff" buff="buffGameEventController"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffGameEventController"/>
+				<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>
+		</effect_group>
+	</append>
+
+	<!--set the jail breaker kandy to do instant unlock
+		'Instant' as much as possible - system stops working if 
+		unlock time set to 0. Set it to 0.03 instead-->
+	<remove xpath="/buffs/buff[@name='buffDrugJailBreakers']"/>
+	<insertAfter xpath="/buffs/buff[@name='buffDrugHealthBar']">
+		<buff name="buffDrugJailBreakers" name_key="drugJailBreakers" description_key="drugJailBreakersDesc" icon="ui_game_symbol_candy_jail_breakers">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffDrugJailBreakersDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="@$buffDrugJailBreakersDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrugJailBreakers">
+					<requirement name="CVarCompare" cvar="$buffDrugJailBreakersDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
+				<passive_effect name="LockPickTime" operation="perc_set" value="0.03"/>
+			</effect_group>
+		</buff>
+	</insertAfter>
+</configs>
