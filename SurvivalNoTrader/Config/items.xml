@@ -122,6 +122,38 @@
 		<property name="RepairTools" value="resourceRepairKit"/>
 	</append>
 	
+	<!--change the effect of cigars from trade spcific to block damage
+		See also ui_display.xml-->
+	<set xpath="/items/item[@name='apparelCigar']">
+		<!--<item name="apparelCigar">-->
+		<property name="Tags" value="head,clothing,noMods"/>
+		<property name="DisplayType" value="clothingCigar"/>
+		<property name="UnlockedBy" value="perkUrbanCombatCigar"/> <!-- BOOK_PERK -->
+		<property name="Material" value="Mplants"/>
+		<property name="Stacknumber" value="1"/>
+		<property name="DegradationBreaksAfter" value="false"/>
+		<property name="EconomicValue" value="500"/>
+		<property name="TraderStageTemplate" value="armorTier2"/>
+		<property name="HoldType" value="45"/>
+		<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+		<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+		<property name="Group" value="Clothing,TCClothing"/>
+		<property name="EquipSlot" value="Face"/>
+		<property class="UMA">
+			<property name="Mesh" value="gear_cigar"/>
+			<property name="Overlay0" value="gear_cigar"/>
+			<property name="Layer" value="1"/>
+			<property name="UISlot" value="Face"/>
+		</property>
+		<effect_group tiered="false">
+			<display_value name="bAttributeLevel" value="1"/>
+			<display_value name="bBlockDamage" value="0.1"/>
+			<passive_effect name="ModSlots" operation="base_set" value="0"/>
+			<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="1"/>
+			<passive_effect name="BlockDamage" operation="perc_add" value="0.1"/>
+		</effect_group>
+	</set>
+	
 	<!--remove tint colour from grenades-->
 	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='CustomIconTint']"/>
 	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='TintColor']"/>
@@ -394,17 +426,18 @@
 			</property>
 			<property name="Group" value="Resources"/>
 		</item>
-		<item name="resourceLooseCobblestoneBundle">
+		<item name="resourceWoodBlockBundle">
 			<property name="Extends" value="resourceRockSmallBundle"/>
-			<property name="CustomIcon" value="resourceCobblestones"/>
-			<property name="DescriptionKey" value="resourceLooseCobblestoneBundleDesc"/>
+			<property name="CustomIcon" value="woodMaster"/>
+			<property name="DescriptionKey" value="resourceWoodBlockBundleDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
 			<property class="Action0">
-				<property name="Create_item" value="resourceCobblestones"/>
-				<property name="Create_item_count" value="1000"/>
+				<property name="Create_item" value="woodShapes:VariantHelper"/>
+				<property name="Create_item_count" value="100"/>
 			</property>
 			<property name="Group" value="Resources"/>
 		</item>
+
 		<item name="thrownAmmoMolotovCocktailBundle">
 			<property name="Extends" value="resourceRockSmallBundle"/>
 			<property name="CustomIcon" value="thrownAmmoMolotovCocktail"/>
@@ -595,6 +628,19 @@
 				<property name="Create_item_count" value="1,2-6,2,3"/>
 			</property>
 		</item>
+		<item name="airdropSteelDoorBundle">
+				<property name="Extends" value="resourceRockSmallBundle"/>
+				<property name="CustomIcon" value="treasureQuestMaster"/>
+				<property name="DescriptionKey" value="airdropSteelDoorBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="vaultDoor01,vaultDoor01Double,vaultHatch01,vaultDoor01_Powered,vaultDoor01Double_Powered,vaultHatch01_Powered"/>
+					<property name="Random_item_count" value="1,1,1,1,1,1"/> 
+					<property name="Random_count" value="3"/>
+					<!--code below is required to stop 6000 stone being dropped-->
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>
+				</property>
+		</item>	
 		<!--end Air Drop loot bundles -->	
 	</append>
 	

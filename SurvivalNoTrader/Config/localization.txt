@@ -52,8 +52,8 @@ perkBetterBarterRank4Desc,progression,perk Int,,,"Make Jail Breakers, Health Bar
 perkBetterBarterRank4LongDesc,progression,perk Int,,,"Make Jail Breakers, Health Bar and Eye Kandy\nBonus: Adds 2% more to Lootstage (12% Total)\n"
 perkDaringAdventurerDesc,progression,perk Int,,,Using your noggin' - refine your production line processes\n and save 20% or more by crafting resource bundles.\n
 perkDaringAdventurerName,progression,perk Int,,,Production Line
-perkDaringAdventurerRank1Desc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of loose Cobblestone(1000).\nSave 20% on packs of Cobblestone blocks(50).
-perkDaringAdventurerRank1LongDesc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of loose Cobblestone(1000).\nSave 20% on packs of Cobblestone blocks(50).
+perkDaringAdventurerRank1Desc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of Wooden blocks(100).\nSave 20% on packs of Cobblestone blocks(50).
+perkDaringAdventurerRank1LongDesc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of Wooden blocks(100).\nSave 20% on packs of Cobblestone blocks(50).
 perkDaringAdventurerRank2Desc,progression,perk Int,,,Save 20% on bundles of Duct Tape(10).\nSave 20% on packs of Concrete blocks(50).\nSave 30% on large packs of Cobblestone blocks(100).
 perkDaringAdventurerRank2LongDesc,progression,perk Int,,,Save 20% on bundles of Duct Tape(10).\nSave 20% on packs of Concrete blocks(50).\nSave 30% on large packs of Cobblestone blocks(100).
 perkDaringAdventurerRank3Desc,progression,perk Int,,,Save 20% on packs of Steel blocks(50).\nSave 30% on large packs of Duct Tape(50) & Glue(30).\nSave 30% on large packs of Concrete Blocks(100).
@@ -70,8 +70,8 @@ resourceDuctTapeBundleChanged,items,Item,,,Stack of Duct Tape (10)
 resourceDuctTapeBundleChangedDesc,items,Item,,,This is a compact stack of 10 duct tape. Use this item to open and unpack it.
 resourceDuctTapeBundleLargeChanged,items,Item,,,Large stack of Duct Tape (50)
 resourceDuctTapeBundleLargeChangedDesc,items,Item,,,This is a compact stack of 50 duct tape. Use this item to open and unpack it.
-resourceLooseCobblestoneBundle,items,Item,,,Stack of 1000 loose cobblestone.
-resourceLooseCobblestoneBundleDesc,items,Item,,,This is a compact stack of 1000 loose cobblestone. Use this item to open and unpack it.
+resourceWoodBlockBundle,items,Item,,,Stack of Wood Blocks (100).
+resourceWoodBlockBundleDesc,items,Item,,,This is a compact stack of 100 Wood Blocks. Use this item to open and unpack it.
 thrownAmmoMolotovCocktailBundle,items,Item,,,Stack of Molotov Cocktails (20).
 thrownAmmoMolotovCocktailBundleDesc,items,Item,,,This is a compact stack of 20 Molotov Cocktails. Use this item to open and unpack it.
 thrownGrenadeBundle,items,Item,,,Stack of Grenades (20).
@@ -164,6 +164,8 @@ airdropBookBundle,items,item,,,A couple of random books
 airdropBookBundleDesc,items,item,,,A couple of random books
 airdropSolarBankBundle,items,item,,,Small Solar bundle
 airdropSolarBankBundleDesc,items,item,,,Small Solar bundle
+airdropSteelDoorBundle,items,item,,,Random Steel Doors bundle
+airdropSteelDoorBundleDesc,items,item,,,Random Steel Doors bundle
 resourceGoreBlockHumanBones,items,Item,,,Human Remains
 resourceGoreBlockHumanCorpse1,items,Item,,,Human Remains
 resourceGoreBlockHumanCorpse2,items,Item,,,Human Remains
@@ -196,7 +198,7 @@ electicPowerSourceDesc,blocks,Electricity,,,"Recipe available at Player Level 50
 solarBankTip,Journal Tip,,,,"The Solar Bank allows you to power your electrical components. It requires at least one solar cell to be installed, expandable up to six.\nThe maximum energy output is determined by the number of solar cells installed and their quality.\nSolar banks produce power during the day when in direct sunlight.\nSolar cells are found in Air Drops and forced open Police Cars.\nRequires a wire tool to add and cut wires between electrical components."
 solarCellDesc,items,Part,,,Place solar cells into a solar cell bank to generate power.\nFound in Air Drop loot and forced open Police Cars.\nCan be repaired with a Repair Kit.
 solarBankUnlocked,buffs,Buff,,,Unlocked the Solar Bank Recipe!
-oldCashDesc,items,Item,,,This used to be legal tender. Now it is mostly valued for being made of paper.\NBurns really well, can be used as fuel for forges, chem stations etc.
+oldCashDesc,items,Item,,,This used to be legal tender. Now it is mostly valued for being made of paper.\nBurns really well, can be used as fuel for forges, chem stations etc.
 playerExplosiveBarrel,blocks,Block,,,High Explosive Barrel - Kills Zombies
 playerExplosiveBarrelDesc,blocks,Block,,,A well positioned barrel can cause chaos.\nZombie Damage 1600\nZombie Blast Radius 7\nBlock Damage 20\nBlock Damage Radius 4.\nCant be picked up once placed but can be safely removed with a pickaxe.
 playerExplosiveBarrelSchematic,items,Traps,,,High Explosive Barrel Schematic
@@ -204,6 +206,8 @@ playerExplosiveBarrelSchematicDesc,items,Traps,,,Learn the High Explosive Barrel
 thrownTimedChargeDesc,items,Gun,,,"A shaped charge designed for delicate work like blowing off a safe lock, a door, or a zombie's head. Automatically detonates after 5 seconds. Want to bring the house down? Try some dynamite instead.\nArm with [action:local:Secondary]\nThrow with [action:local:Primary]\n\nUsed as Impact Trigger in High Explosive Barrels"
 modMeleeStunBatonRepulsorDesc,item_modifiers,Mod,,,Install this mod into a stun baton and send zombies flying on the charged hit.\nIngredient in the CrowdControl Mod recipe.
 modGunMeleeRadRemoverDesc,item_modifiers,mod,,,Will disable the regeneration ability of radiated zombies for 90 seconds.\nIngredient in the CrowdControl Mod recipe.
+apparelCigarDesc,items,Clothes,,,Look intimidating and get a better deal from traders. Boosts strength and adds block damage!
+perkUrbanCombatCigarLongDesc,progression,perk  book,,,"Cigars: Cigars boost your strength and increase your block damage. Learn to craft cigars."
 mmGoMaxZombies,,,Main Menu Game Options,KgNone,Max Zombies Alive
 goMaxZombies,,UI,Menu,KgNone,Max Zombies Alive
 goMaxZombiesDesc,,UI,Menu,KgNone,Maximum amount of zombies that can spawn in the world.

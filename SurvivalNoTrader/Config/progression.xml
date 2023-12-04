@@ -51,7 +51,7 @@
 				<!--unoptimised syntax as is easier to read this way for testing-->
 				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="cobblestoneShapesBundleChanged"/>
 				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="resourceGlueBundleChanged"/>
-				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="resourceLooseCobblestoneBundle"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="resourceWoodBlockBundle"/>
 				
 				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="resourceDuctTapeBundleChanged"/>
 				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="concreteShapesBundleChanged"/>	

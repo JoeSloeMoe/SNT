@@ -5,6 +5,8 @@ Traders are still present in the world as part of the storyline, they just ignor
 Survival No Trader is not intended to be easier or harder than vanilla 7DTD, just slightly different. 
 Some things are a bit easier, some things will be a bit harder. 
 
+Special thanks to Khaine and his work - this mod contains a couple of Khaine's QOL modlets.
+
 Background: You are one of 4 siblings from the Harrington Clan out East. You run point for your crew.
 Your family is engaged in an extended war and the war brings you here. You're exploring this area to find new sources of weapons and supplies. 
 You've heard rumors that this area is rich for the pickings, with both the Duke's gang and the Traders moving in to sift through whatever remains of civilization. 
@@ -75,47 +77,28 @@ Havent tested any other mods
 
 **T6 Items that have an additional mod slot (5 slots total):
 T6 Tools:
- - Steel Axe
- - Steel Pickaxe
- - Steel Shovel
- - Auger
- - Impact Driver
-
+ - Steel Axe - Steel Pickaxe - Steel Shovel - Auger - Impact Driver
 T6 Hand Weapons:
- - Machete
- - Stun Baton
- - Steel Club
- - Steel Spear
- - Steel Sledgehammer
- - Steel Knuckles
- 
+ - Machete - Stun Baton - Steel Club - Steel Spear - Steel Sledgehammer - Steel Knuckles
 T6 Ranged:
- - SMG
- - DesertVulture
- - Auto Shotgun
- - Sniper Rifle
- - Tactical AR
- - M60
- - Compound Bow
- - Compound Crossbow
-	
+ - SMG - DesertVulture - Auto Shotgun - Sniper Rifle - Tactical AR - M60 - Compound Bow - Compound Crossbow	
 T6 Military Armour:
- - Military Helmet
- - Military Vest
- - Military Gloves
- - Military Legs
- - Military Boots
- - Military Stealth Boots
- 
+ - Military Helmet - Military Vest - Military Gloves - Military Legs - Military Boots - Military Stealth Boots
 T6 Steel Armour:
- - Steel Helmet
- - Steel Chest
- - Steel Gloves
- - Steel Legs
- - Steel Boots
- 
+ - Steel Helmet - Steel Chest - Steel Gloves - Steel Legs - Steel Boots
 T6 Other:
  - Swat Helmet
 
+////////////
+1.0.2
+Removed 1000 Cobblestone Rock bundle from Production Line perk, replaced with 100 Wood Block bundle.
+Added a couple of items to the Air Drop loot table.
+Fixed syntax error in Localisation file.
+Fixed placement direction for T4 Chests.
+Changed Cigar. Gives 10% to Block Damage instead of Bartering.
 
+To answer a couple of questions:
+This is an A21 compatible XML mod.
+Can be used on existing maps but should start a new game.
+The code can be used freely just be aware that some ui code is Khaines (commented as such in the xml) and is under his license.
 

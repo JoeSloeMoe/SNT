@@ -95,11 +95,10 @@
 			<ingredient name="resourceCloth" count="350"/>
 		</recipe>
 		
-		<recipe name="resourceLooseCobblestoneBundle" count="1" craft_time="60" tags="perkDaringAdventurer,learnable">
-			<ingredient name="resourceClayLump" count="800"/>
-			<ingredient name="resourceRockSmall" count="800"/>
+		<recipe name="resourceWoodBlockBundle" count="1" craft_time="60" tags="perkDaringAdventurer,learnable">
+			<ingredient name="resourceWood" count="800"/>
 		</recipe>
-		
+
 		<recipe name="cobblestoneShapesBundleChanged" count="1" craft_time="200" tags="perkDaringAdventurer,learnable">
 			<ingredient name="resourceCobblestones" count="400"/>
 		</recipe>

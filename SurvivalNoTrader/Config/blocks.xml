@@ -1,5 +1,5 @@
 <configs>
-	<!-- Set crops seed drop probability to 85% -->
+	<!-- Set crops seed drop probability to 75% -->
 	<set xpath ="blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0.75</set>
 	<set xpath ="blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0.75</set>
 	<set xpath ="blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0.75</set>
@@ -14,7 +14,7 @@
 	<set xpath ="blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0.75</set>
 	<set xpath ="blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0.75</set>
 	
-	<!--change the descritpion text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops-->
+	<!--change the descritpion text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops)-->
 	<set xpath ="blocks/block[@name='solarbank']/property[@name='DescriptionKey']/@value">electicPowerSourceDesc</set>
 
 	<!-- Brood Nest for farming eggs -->
@@ -197,7 +197,7 @@
 			<property name="SortOrder2" value="0000"/>
 			<property name="FilterTags" value="MC_building,SC_automotive,A21_NEW"/>
 			<!--this event triggers zombie spawns manually because the alarm in the 
-				 police car (cntPoliceCar01AlarmLockedBuried below) doesnt spawn zombies 
+				 police car (cntPoliceCar01AlarmLockedBuried - see below) doesnt spawn zombies 
 				 when used as treasure container in a Treasure Quest -->
 			<property name="DowngradeEvent" value="block_car_alarm_start_PatrolCar" />
 		</block>
@@ -304,14 +304,14 @@
 		</block>
 	</insertAfter>
 	<!--end Patrol Car Treasure Chest -->
-	<!--set the vanilla patrol cars to have 1000 MaxDamage-->
+	<!--set the vanilla patrol cars to have 1000 (double)MaxDamage-->
 	<set xpath ="blocks/block[@name='cntPoliceCar01']/property[@name='MaxDamage']/@value">1000</set> 
 	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmLocked']/property[@name='MaxDamage']/@value">1000</set> 
 	<!--end set the vanilla patrol cars to have 1000 MaxDamage-->
 
 	<!--allow for the T4 and T5 chests to be picked up.
 		Edit the whole chest blocks rather than individual property change 
-		because of fiddling: Loot stuff remains the unchanged, this is just pickup -->
+		because of fiddling: Loot stuff remains unchanged, this is just pickup -->
 	<!-- Hardened_Chest_T4_UNLOCKED 
 		This will also setup T5 chest for pickup as they extend this block-->
 	<insertBefore xpath="blocks/block[@name='cntHardenedChestInsecure']">
@@ -345,6 +345,7 @@
 			<property name="FilterTags" value="MC_building,SC_loot"/>
 		</block>
 	</insertBefore>
+
 	<!-- add a chest as a drop-on-destroy item for the actual T4 chest-->
 	<set xpath ="blocks/block[@name='cntHardenedChestInsecure']">
 		<property name="Extends" value="cntHardenedChestInsecureTemplate" />
@@ -377,7 +378,8 @@
 		<property name="SortOrder1" value="B104"/>
 		<property name="SortOrder2" value="0006"/>
 		<property name="Tags" value="safes"/>
-		<property name="FilterTags" value="MC_building,SC_loot"/>			
+		<property name="FilterTags" value="MC_building,SC_loot"/>	
+		<property name="Place" value="TowardsPlacerInverted"/>
 	</set>
 	
 	<!-- set T5 chest for pickup-->
@@ -396,6 +398,7 @@
 		<property name="ModelOffset" value="0,0.5,0"/>
 		<property name="MultiBlockDim" value="2,1,1"/>
 		<property name="WaterFlow" value="permitted"/>
+
 		<property name="Place" value="TowardsPlacerInverted"/>
 		<property name="MaxDamage" value="10000"/>
 		<property name="SortOrder1" value="B104"/>
@@ -405,7 +408,6 @@
 	<!--end allow for the T4 and T5 chests to be picked up-->
 
 	<!--player can make explosive barrels that do a lot of Zombie damage and little block damage-->
-	<!--this is about twice as powerfull as a rocket frag but requires pre-placement and cant be moved around -->
 	<insertAfter xpath ="blocks/block[@name='cntBarrelGasSingle45']">	
 		<block name="playerExplosiveBarrel">
 			<property name="Class" value="CarExplodeLoot"/>
