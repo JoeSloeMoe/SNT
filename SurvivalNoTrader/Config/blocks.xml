@@ -62,31 +62,31 @@
 		They are used in added grandpa recipes 
 		see loot.xml for other drop probability changes-->
 	<!--ores-->
-	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.005-->
-	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.007-->
-	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.01-->
-	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.005-->
-	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.007-->
-	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.01-->
-	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.005-->
-	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.007-->
-	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.01-->
-	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.005-->
-	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.007-->
-	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.01-->
-	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.005-->
-	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.007-->
-	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
 	<!--coffins-->
-	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.05-->	
-	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.006</set> <!-- orig 0.05-->
-	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.006</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.05-->	
+	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.05-->
 	<!--end gold, silver and diamond block changes : see loot.xml for other drop probability changes-->
 	
 	<!--coffin treasure chests-->
@@ -308,6 +308,11 @@
 	<set xpath ="blocks/block[@name='cntPoliceCar01']/property[@name='MaxDamage']/@value">1000</set> 
 	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmLocked']/property[@name='MaxDamage']/@value">1000</set> 
 	<!--end set the vanilla patrol cars to have 1000 MaxDamage-->
+	
+	<!--set the forced open Police Car loot to include the items for the Crowd Conbtrol mod-->
+	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmLocked']/property[@name='LootList']/@value">policeCarsForcedBonus</set>
+	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmUnlocked']/property[@name='LootList']/@value">policeCarsForcedBonus</set>
+	<!--end set the forced open Police Car loot to include the items for the Crowd Conbtrol mod-->
 
 	<!--allow for the T4 and T5 chests to be picked up.
 		Edit the whole chest blocks rather than individual property change 

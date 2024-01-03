@@ -1,4 +1,11 @@
 <config>
+	<!--set parts to be scrapable
+	<remove xpath="/recipes/recipe[@name='armorMilitarySetParts']"/>
+	<insertBefore xpath="/recipes/recipe[@name='resourceRockSmallBundle']">
+		<recipe name="armorMilitarySetParts" count="1" > 
+		<ingredient name="resourceForgedIron" count="25"/>
+		</recipe>
+	</insertBefore>-->
 	<append xpath="/recipes">
 	
 		<!-- solar bank recipe -->

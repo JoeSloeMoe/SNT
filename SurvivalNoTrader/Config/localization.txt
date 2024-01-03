@@ -186,8 +186,8 @@ cntPoliceCar01AlarmLockedBuried,blocks,block,,,Locked Missing Patrol Car
 cntPoliceCar01AlarmUnlockedBuried,blocks,block,,,Unlocked Missing Patrol Car
 quest_buriedPatrolCarComplete,Quest,Quest Info,,,Patrol Car Unlocked
 bookEnforcerIntimidation,items,perk book,,,Magnum Enforcer Vol 4
-perkEnforcerIntimidationDesc,progression,perk book,,,Looting with a .44 handgun drawn gives you a +7 base lootstage boost.
-perkEnforcerIntimidationLongDesc,progression,perk book,,,Intimidation: Tired of getting shitty loot? Time to show the loot containers who's boss. Looting with a .44 handgun drawn gives you a +7 base lootstage boost.
+perkEnforcerIntimidationDesc,progression,perk book,,,Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
+perkEnforcerIntimidationLongDesc,progression,perk book,,,Intimidation: Tired of getting shitty loot? Time to show the loot containers who's boss. Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
 noteDuke01,items,Quest - Note,,,Objectives
 noteDuke01Desc,items,Quest - Note,,,"Objectives:\n - establish a base that can withstand zombie attacks as a foothold in the territory\n - disrupt the Duke's supply chain, cause them problems without tipping them off to your presence\n - identify Trader locations. Map out the extent of their presence and capabilities. Determine if they are friend or foe."
 coffinClockBroken,items,Item,,,Broken Clock

@@ -144,11 +144,10 @@
 		</lootgroup>
 	</insertBefore>
 	
-	<!-- redefine the groupPoliceCarBonus lootgroup so parts for the 
-			Crowd Control recipe can be looted-->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupPoliceCarBonus']"/>
+	<!-- Add a lootcontainer and lootgroup for parts for the 
+			Crowd Control recipe and add to the forced open police cars-->
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupPoliceCarBonus04']">
-		<lootgroup name="groupPoliceCarBonus" count="all">
+		<lootgroup name="groupPoliceCarForcedBonus" count="all">
 			<!--chance to get one of the ingredients or schematic for the Electric Ragdoll armour mod -->
 			<item group="lootGroupElectricRagdoll" prob="0.22" force_prob="true"/>
 			<item group="lootGroupElectricRagdollGeneric" prob="0.08" force_prob="true"/>
@@ -156,13 +155,20 @@
 			<!--chance for a couple solar panels-->
 			<item group="lootgroupPoliceCarSolarPanel" prob="0.08" force_prob="true"/>
 			
-			<!--everything else is default, no change for now-->
+			<!--everything else is same as default groupPoliceCarBonus lootgroup, no change -->
 			<item group="groupPoliceCarBonus01" count="2"/>
 			<item group="groupPoliceCarBonus02" count="1"/>
 			<item group="groupPoliceCarBonus03" loot_prob_template="medHigh" force_prob="true"/>
 			<item group="groupPoliceCarBonus04" loot_prob_template="med" force_prob="true"/>
 			<item group="groupPoliceCar04" loot_prob_template="low" force_prob="true"/>
 		</lootgroup>
+	</insertAfter>
+	<!--add a lootcontainer for the above loot group. 
+		Gets added to forced open police cars in blocks.xml-->
+	<insertAfter xpath="/lootcontainers/lootcontainer[@name='policeCarsBonus']">
+		<lootcontainer name="policeCarsForcedBonus" count="1" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+			<item group="groupPoliceCarForcedBonus"/>
+		</lootcontainer>
 	</insertAfter>
 	<!--end add the ingredients for the ElectricRagdoll armour mod to PoliceCar loot drops-->
 	

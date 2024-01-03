@@ -90,6 +90,11 @@ T6 Other:
  - Swat Helmet
 
 ////////////
+To answer a couple of questions:
+This is an A21 compatible XML mod.
+Can be used on existing maps but should start a new game.
+The code can be used freely just be aware that some ui code is Khaines (commented as such in the xml) and is under his license.
+
 1.0.2
 Removed 1000 Cobblestone Rock bundle from Production Line perk, replaced with 100 Wood Block bundle.
 Added a couple of items to the Air Drop loot table.
@@ -97,8 +102,10 @@ Fixed syntax error in Localisation file.
 Fixed placement direction for T4 Chests.
 Changed Cigar. Gives 10% to Block Damage instead of Bartering.
 
-To answer a couple of questions:
-This is an A21 compatible XML mod.
-Can be used on existing maps but should start a new game.
-The code can be used freely just be aware that some ui code is Khaines (commented as such in the xml) and is under his license.
+1.0.3
+Small reduction in gold, silver and diamond drops from mining ores. 
+Extended Magnum Perk book 'Enforcer Intimidation' buff to all .44 weapons.
+Fixed Patrol Car challenge loot bug.
+Adjusted Motorcycle traction so it no longer fishtails like a wet noodle.
+
 

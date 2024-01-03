@@ -1,6 +1,6 @@
 <configs>
 	<!-- Adding an additional mod slot to a select group of top tier equipment {Tools,Handweapons,Guns,Military Armour,Steel Armour,Swat Helmet} 
-		 Everything is the same as the base game except for (value="3,3,3,4,4,5" <==this value 5) in each line
+		 Everything is the same as the base game except for (value=".,.,.,.,.,5" <==this value 5) in each line
 	-->
 	<!-- Tools -->
 	<append xpath="/items/item[starts-with(@name, 'meleeToolAxeT2SteelAxe')]/effect_group[starts-with(@name, 'meleeToolAxeT2SteelAxe')]">
@@ -108,21 +108,24 @@
 	</append>
 	<!-- end adding mod slot section -->
 	
-	<!--add a tag (bookMagnumV4) for magnum 44 and desert vulture for the '44 Magnum vol 4 book
-		(7% added to base lootstage if holding 44 or vulture when looting 
+	<!--add a tag (bookMagnumV4) for magnum 44 and desert vulture for the '44 Magnum vol 4 book' logic
+		(Mary's Revenge is added as well in the weapons definition further down in this file)
+		(7% added to base lootstage if holding 44 weapon when looting) 
 		see buff.xml:buffGameEventController-->
 	<set xpath ="/items/item[@name='gunHandgunT2Magnum44']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,revolver,barrelAttachments,sideAttachments,smallTopAttachments,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
 	<set xpath ="/items/item[@name='gunHandgunT3DesertVulture']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,revolver,holdBreathAiming,reloadPenalty,gun,shortRange,pistol,barrelAttachments,sideAttachments,smallTopAttachments,magazine,firingMode,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
 		
 	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
 	<set xpath="/items/item[@name='oldCash']/property[@name='FuelValue']/@value">30</set>
-
+<!--
+	<set xpath="/items/item[@name='armorMilitarySetParts']/property[@name='Material']/@value">Mmetal</set>
+	-->
 	<!--solar panels can be repaired as they dont always come out at full health in loot-->
 	<append xpath="/items/item[@name='solarCell']">
 		<property name="RepairTools" value="resourceRepairKit"/>
 	</append>
 	
-	<!--change the effect of cigars from trade spcific to block damage
+	<!--change the effect of cigars from trade specific to block damage
 		See also ui_display.xml-->
 	<set xpath="/items/item[@name='apparelCigar']">
 		<!--<item name="apparelCigar">-->
@@ -208,7 +211,7 @@
 			
 		</item>
 		
-		<!-- Sauce focuses on melle type stuff -->
+		<!-- Moonshine focuses on mellee type stuff -->
 		<item name="drinkJarGrandpasThemsFightinWordsMoonshine">
 			<property name="Tags" value="drinks"/>
 			<property name="HoldType" value="3"/>
@@ -298,7 +301,7 @@
 	<set xpath ="items/item[@name='drinkJarGrandpasMoonshine']/property[@name='EconomicValue']/@value">250</set>
 	<!-- awesomesource based drink value  is set below -->
 	
-	<!-- change the effects of Awesome Sauce as their is no Trading see buffs.xml -->
+	<!-- change the effects of Awesome Sauce as there is no Trading see buffs.xml -->
 	<set xpath="/items/item[@name='drinkJarGrandpasAwesomeSauce']">
 		<!-- <item name="drinkJarGrandpasAwesomeSauce"> -->
 		<property name="Tags" value="drinks,foodSkill"/>
@@ -830,7 +833,7 @@
 		<property name="UnlockedBy" value="perkBetterBarter"/>
 		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 	</append>
-	<!--do the full jailgrakers as adding lock pick time reduction as well-->
+	<!--do the full jailbreakers as adding lock pick time reduction as well-->
 	<set xpath ="items/item[@name='drugJailBreakers']">
 		<property name="Extends" value="drugAtomJunkies"/>
 		<property name="DisplayType" value="drugJailBreakers"/>
@@ -972,10 +975,11 @@
 	
 	<append xpath="/items">
 		<!-- Mary's Revenge  - special homemade rifle, uses magnum rounds 
-			Can use with shotgun tube extender, full auto, burst mods 
+			Can use with shotgun tube extender, full auto, burst mods
+			Add tag (bookMagnumV4) for the '44 Magnum vol 4 book' logic.
 			-->
 		<item name="marysRevengeHomemadeRifle">
-			<property name="Tags" value="weapon,noSilencer,firingMode,modGunShotgunTubeExtenderMagazine,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,largeTopAttachments,stock,bottomAttachments,attPerception,perkDeadEye,attachmentsIncluded,canHaveCosmetic,rifleSkill"/>
+			<property name="Tags" value="bookMagnumV4,weapon,noSilencer,firingMode,modGunShotgunTubeExtenderMagazine,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,largeTopAttachments,stock,bottomAttachments,attPerception,perkDeadEye,attachmentsIncluded,canHaveCosmetic,rifleSkill"/>
 			<property name="HoldType" value="85"/>
 			<property name="Meshfile" value="@:Other/Items/Weapons/Ranged/LeverActionRifle/leverActionRiflePrefab.prefab"/>
 			<property name="Material" value="MRifleParts"/>
@@ -1090,7 +1094,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01"/>
 			</effect_group>
 			
-			<!--very small chance to knckdown, this is just added to provide some 
+			<!--very small chance to knockdown, this is just added to provide some 
 				variance to zombie behaviour on hit and isnt intended to do much. 
 				It doesnt last long and doesnt have much force -->
 			<effect_group tiered="false">
@@ -1331,7 +1335,7 @@
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
-		<!--end generic items for visuals in coffina nd patrol car loot slots-->
+		<!--end generic items for visuals in coffin and patrol car loot slots-->
 	
 	</append>
 </configs>
