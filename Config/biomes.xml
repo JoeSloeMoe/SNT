@@ -1,0 +1,110 @@
+<configs>
+	<!--desert-->
+	<!-- it doesnt rain in the desert except for storm-->
+	<remove xpath="worldgeneration/biomes/biome[@name='desert']/weather[@name='rain']"/>
+	<!--must increase default chance as we removed chance of rain-->
+	<set xpath ="worldgeneration/biomes/biome[@name='desert']/weather[@name='default']/@prob">95</set> <!--increase by 5-->
+	<!--min and max for storm fog-->
+	<remove xpath ="worldgeneration/biomes/biome[@name='desert']/weather[@name='storm']"/>
+	<insertAfter xpath ="worldgeneration/biomes/biome[@name='desert']/weather[@name='default']">
+		<weather name="storm" prob="5">
+			<Temperature min="95" max="105" prob="1"/>
+			<CloudThickness min="75" max="90" prob="1"/>
+			<Precipitation min="35" max="55" prob="1"/>
+			<Fog min="0" max="8" prob="1"/>
+			<Wind min="50" max="55" prob="1"/>
+			<spectrum name="Stormy"/>
+		</weather>
+	</insertAfter>
+	
+	<!--wasteland fog settings - to much work fiddling with indiviual properties so remove and replace whole weather elements-->
+	<remove xpath ="worldgeneration/biomes/biome[@name='wasteland']/weather[@name='default']"/>
+	<remove xpath ="worldgeneration/biomes/biome[@name='wasteland']/weather[@name='rain']"/>
+	<remove xpath ="worldgeneration/biomes/biome[@name='wasteland']/weather[@name='storm']"/>
+	<insertBefore xpath ="worldgeneration/biomes/biome[@name='wasteland']/weather[@name='bloodMoon']">
+		<weather name="default" prob="85">
+			<Temperature min="50" max="90" prob="1"/>
+			<CloudThickness min="0" max="0" prob="30"/>
+			<CloudThickness min="10" max="70" prob="70"/>
+			<Precipitation min="0" max="0" prob="1"/>
+			<Fog min="0" max="3" prob="1"/>
+			<Wind min="7" max="20" prob="1"/>
+		</weather>
+		<weather name="rain" prob="10"> <!--5% lower chance of rain -->
+			<Temperature min="50" max="90" prob="1"/>
+			<CloudThickness min="55" max="75" prob="1"/>
+			<Precipitation min="20" max="60" prob="1"/>
+			<Fog min="0" max="3" prob="1"/>
+			<Wind min="10" max="25" prob="1"/>
+			<spectrum name="Rainy"/>
+		</weather>
+		<weather name="storm" prob="5">
+			<Temperature min="50" max="90" prob="1"/>
+			<CloudThickness min="80" max="100" prob="1"/>
+			<Precipitation min="90" max="100" prob="1"/>
+			<Fog min="0" max="4" prob="1"/>
+			<Wind min="35" max="50" prob="1"/>
+			<spectrum name="Stormy"/>
+		</weather>
+	</insertBefore>
+	
+	<!--fog for snow biome-->
+	<remove xpath ="worldgeneration/biomes/biome[@name='snow']/weather[@name='fog']"/>
+	<remove xpath ="worldgeneration/biomes/biome[@name='snow']/weather[@name='snow']"/>
+	<remove xpath ="worldgeneration/biomes/biome[@name='snow']/weather[@name='storm']"/>
+	<insertAfter xpath ="worldgeneration/biomes/biome[@name='snow']/weather[@name='default']">
+		<weather name="fog" prob="8">
+			<Temperature min="20" max="30" prob="1"/>
+			<CloudThickness min="35" max="60" prob="1"/>
+			<Precipitation min="0" max="0" prob="1"/>
+			<Fog min="3" max="8" prob="1"/>
+			<Wind min="5" max="6" prob="1"/>
+			<spectrum name="Snowy"/>
+		</weather>
+		<weather name="snow" prob="40">
+			<Temperature min="18" max="28" prob="1"/>
+			<CloudThickness min="50" max="70" prob="1"/>
+			<Precipitation min="30" max="60" prob="1"/>
+			<Fog min="0" max="3" prob="1"/>
+			<Wind min="18" max="25" prob="1"/>
+			<spectrum name="Snowy"/>
+		</weather>
+		<weather name="storm" prob="8">
+			<Temperature min="12" max="18" prob="1"/>
+			<CloudThickness min="80" max="90" prob="1"/>
+			<Precipitation min="70" max="100" prob="1"/>
+			<Fog min="0" max="5" prob="1"/>
+			<Wind min="45" max="50" prob="1"/>
+			<spectrum name="Snowy"/>
+		</weather>
+	</insertAfter>
+
+	
+	<!--Pine Forest: general fog during storms and rain-->
+	<remove xpath ="worldgeneration/biomes/biome[@name='pine_forest']/weather[@name='rain']"/>
+	<remove xpath ="worldgeneration/biomes/biome[@name='pine_forest']/weather[@name='storm']"/>
+	
+	<insertAfter xpath ="worldgeneration/biomes/biome[@name='pine_forest']/weather[@name='default']">
+		<weather name="rain" prob="7">
+			<Temperature min="65" max="70" prob="1"/>
+			<CloudThickness min="50" max="70" prob="1"/> <!-- reduced cloud thickness-->
+			<Precipitation min="10" max="60" prob="1"/> <!-- reduced precipitation-->
+			<Fog min="0" max="3" prob="1"/>
+			<Wind min="10" max="25" prob="1"/>
+			<spectrum name="Rainy"/>
+		</weather>
+		<weather name="storm" prob="3">
+			<Temperature min="65" max="70" prob="1"/>
+			<CloudThickness min="90" max="100" prob="1"/>
+			<Precipitation min="90" max="100" prob="1"/>
+			<Fog min="0" max="3" prob="1"/>
+			<Wind min="35" max="40" prob="1"/>
+			<spectrum name="Stormy"/>
+		</weather>
+	</insertAfter>
+
+	<!-- it doesnt fog in the forest outside of storms and rain-->
+	<remove xpath="worldgeneration/biomes/biome[@name='pine_forest']/weather[@name='fog']"/>
+	<!--must increase default chance as removed chance of fog-->
+	<set xpath ="worldgeneration/biomes/biome[@name='pine_forest']/weather[@name='default']/@prob">90</set> <!--increase by 7-->
+</configs>

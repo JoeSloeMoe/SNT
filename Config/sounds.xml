@@ -1,0 +1,13 @@
+<config>
+	<!-- change trader annoucements to just awkward coughing from the Trader -->
+	<set xpath="/Sounds/SoundDataNode[@name='trader_announce_open']/AudioSource/@name">Sounds/AudioSource_VO</set>
+	<set xpath="/Sounds/SoundDataNode[@name='trader_announce_open']/AudioClip/@ClipName">Sounds/VO/Trader/Male/Neutral/trader_male_neutral_cough_1</set>
+
+	<set xpath="/Sounds/SoundDataNode[@name='trader_announce_closing']/AudioSource/@name">Sounds/AudioSource_VO</set>
+	<set xpath="/Sounds/SoundDataNode[@name='trader_announce_closing']/AudioClip/@ClipName">Sounds/VO/Trader/Male/Neutral/trader_male_neutral_cough_2</set>
+
+	<set xpath="/Sounds/SoundDataNode[@name='trader_announce_closed']/AudioSource/@name">Sounds/AudioSource_VO</set>
+	<set xpath="/Sounds/SoundDataNode[@name='trader_announce_closed']/AudioClip/@ClipName">Sounds/VO/Trader/Male/Neutral/trader_male_neutral_cough_1</set>
+
+
+</config>

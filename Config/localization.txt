@@ -1,0 +1,224 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+tutorialTipQuest01,Journal Tip,,,,"You are one of 4 siblings from the Harrington Clan out East. You run point for your crew.\nYour family is engaged in an extended war and the war brings you here. You're exploring this area to find new sources of weapons and supplies. \nYou've heard rumours that this area is rich for the pickings, with both the Duke's gang and the Traders moving in to sift through whatever remains of civilisation. \nYour objectives are:\n - establish a base that can withstand zombie attacks as a foothold in the territory.\n - disrupt the Duke's supply chain. Strip the good loot without tipping them off to your presence.\n - identify Trader locations. Map out the extent of their presence and capabilites. Determine if they are friend or foe."
+broodnest,Blocks,block,,,Brood Egg Nest
+broodnestInfo,Blocks,block,,,"Set up a comfy place for birds to nest in and lay eggs"
+broodnestHarvest,Blocks,block,,,Brood Nest Harvest 
+broodnestHarvestInfo,Blocks,block,,,"Birds have gone, maybe they've left some eggs"
+buffDrunkGrandpasWheelchairRacingElixirDesc,buffs,Buff,,,"Grandpas Wheelchair Racin' Elixir\nHealth Amount +5\nHealth Restore 0.25h/sec\nBlock Damage +10%\nMovement Speed +10%\nStamina Regen +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nInhibits Hunger depletion from Health Regen\nInhibits Thirst depletion from Stamina Regen"
+buffDrunkGrandpasWheelchairRacingElixirName,buffs,Buff,,,"Grandpas Wheelchair Racin' Elixir"
+buffDrunkGrandpasWheelchairRacingElixirTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..."
+drinkJarGrandpasWheelchairRacingElixir,items,Food,,,Grandpa's Wheelchair Racin' Elixir
+drinkJarGrandpasWheelchairRacingElixirDesc,items,Food,,,"Grandpas Wheelchair Racin' Elixir\nHealth Amount +5\nHealth Restore 0.25h/sec\nBlock Damage +10%\nMovement Speed +10%\nStamina Regen +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\n\nSpecial:\nInhibits Hunger depletion from Health Regen\nInhibits Thirst depletion from Stamina Regen"
+drinkJarGrandpasWheelchairRacingElixirPromptDesc,items,Food,,,Drink?
+buffDrunkGrandpasThemsFightinWordsMoonshineDesc,buffs,Buff,,,"Grandpas Fightin' Words Moonshine\nMelee Damage +5%\nAttacks per min +5%\nResist:\n   Infection-Fatigue +10%\n   Laceration-Abrasions +10%\n   Stun-Strain-Bleeding +15%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nDamage Resistance +15%"
+buffDrunkGrandpasThemsFightinWordsMoonshineName,buffs,Buff,,,"Grandpas Fightin' Words Moonshine"
+buffDrunkGrandpasThemsFightinWordsMoonshineTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..,"
+drinkJarGrandpasThemsFightinWordsMoonshine,items,Food,,,Grandpas Fightin' Words Moonshine
+drinkJarGrandpasThemsFightinWordsMoonshineDesc,items,Food,,,"Grandpas Fightin' Words Moonshine\nMelee Damage +5%\nAttacks per min +5%\nResist:\n   Infection-Fatigue +10%\n   Laceration-Abrasions +10%\n   Stun-Strain-Bleeding +15%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nDamage Resistance +15%"
+drinkJarGrandpasThemsFightinWordsMoonshinePromptDesc,items,Food,,,Drink?
+buffDrunkGrandpasGunbeltOilSauceDesc,buffs,Buff,,,"Grandpas Gunbelt Oil Sauce\nRanged Damage +5%\nRounds per min +5%\nWeapon Handling +10%\nReload Speed +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\n    Fire Resistance +25%\n    Explosion Resistance +25%"
+buffDrunkGrandpasGunbeltOilSauceName,buffs,Buff,,,"Grandpas Gunbelt Oil Sauce"
+buffDrunkGrandpasGunbeltOilSauceTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..,"
+drinkJarGrandpasGunbeltOilSauce,items,Food,,,Grandpas Gunbelt Oil Sauce
+drinkJarGrandpasGunbeltOilSauceDesc,items,Food,,,"Grandpas Gunbelt Oil Sauce\nRanged Damage +5%\nRounds per min +5%\nWeapon Handling +10%\nReload Speed +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\n    Fire Resistance +25%\n    Explosion Resistance +25%"
+drinkJarGrandpasGunbeltOilSaucePromptDesc,items,Food,,,Drink?
+buffDrunkGrandpasAwesomeSauceChangedDesc,buffs,Buff,,,Focus your brain on identifying the quality loot. \nRaise Lootstage by 40 for 3 min.
+buffDrunkGrandpasAwesomeSauceChangedName,buffs,Buff,,,Grandpas Awesome Sauce
+buffDrunkGrandpasAwesomeSauceChangedTooltip,buffs,Buff,,,Tastes like brass or ass. Hard to tell.
+drinkJarGrandpasAwesomeSauce,items,Food,,,Grandpa's Awesome Sauce
+drinkJarGrandpasAwesomeSauceDesc,items,Food,,,Focus your brain on identifying the quality loot. \nRaise Lootstage by 40 for 3 min.
+drinkJarGrandpasAwesomeSauceSchematic,items,Food,,,Grandpa's Awesome Sauce Recipe
+foodPumpkinCheesecakeChanged,items,Food,,,Pumpkin Cheesecake.
+foodPumpkinCheesecakeChangedDesc,items,Food,,,This pumpkin cheesecake tastes delicious and grants you a +5% Lootstage Bonus.
+quest_BasicStart,Quest,Quest Info,,,Fresh Start
+quest_BasicStart_subtitle,Quest,Quest Info,,,"You have 4 exp points"
+quest_BasicStart_description,Quest,Quest Info,,,"You have 4 exp points"
+statMovementSpeedChanged,ui_display,Item stat,,,Movement Speed
+statGeneralDamageResist,ui_display,Item stat,,,Damage Resistance
+statReloadSpeedMultiplier,ui_display,Item stat,,,Reload Speed
+statFireResistance,ui_display,Item stat,,,Fire Resist
+statStunFatigueResistance1,ui_display,Item stat,,,Resist: Infection - Fatigue
+statStunFatigueResistance2,ui_display,Item stat,,,Resist: Laceration - Abrasion
+statStunFatigueResistance3,ui_display,Item stat,,,Resist: Stun - Sprain - Bleeding
+perkBetterBarterDesc,progression,perk Int,,,Figure out how to make different kinds of sweets.\nEach discovery brings a small bonus to Lootstage\nNote: Jail Breakers now also have 95% lockpick time reduction.
+perkBetterBarterName,progression,perk Int,,,Sweet Tooth 
+perkBetterBarterRank1Desc,progression,perk Int,,,Make Rockbusters and Hackers \nBonus: Adds 4% to Lootstage\n
+perkBetterBarterRank1LongDesc,progression,perk Int,,,Make Rock Busters and Hackers \nBonus: Adds 4% to Lootstage\n
+perkBetterBarterRank2Desc,progression,perk Int,,,Make Atom Junkies and Covert Cats \nBonus: Adds 4% more to Lootstage (8% Total)\n
+perkBetterBarterRank2LongDesc,progression,perk Int,,,Make Atom Junkies and Covert Cats \nBonus: Adds 4% more to Lootstage (8% Total)\n
+perkBetterBarterRank3Desc,progression,perk Int,,,"Make Skull Crushers, Nerd Tats and Oh Shitz Drops\nBonus: Adds 2% more to Lootstage (10% Total)\n"
+perkBetterBarterRank3LongDesc,progression,perk Int,,,"Make Skull Crushers, Nerd Tats and Oh Shitz Drops\nBonus: Adds 2% more to Lootstage (10% Total)\n"
+perkBetterBarterRank4Desc,progression,perk Int,,,"Make Jail Breakers, Health Bar and Eye Kandy\nBonus: Adds 2% more to Lootstage (12% Total)\n"
+perkBetterBarterRank4LongDesc,progression,perk Int,,,"Make Jail Breakers, Health Bar and Eye Kandy\nBonus: Adds 2% more to Lootstage (12% Total)\n"
+perkDaringAdventurerDesc,progression,perk Int,,,Using your noggin' - refine your production line processes\n and save 20% or more by crafting resource bundles.\n
+perkDaringAdventurerName,progression,perk Int,,,Production Line
+perkDaringAdventurerRank1Desc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of Wooden blocks(100).\nSave 20% on packs of Cobblestone blocks(50).
+perkDaringAdventurerRank1LongDesc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of Wooden blocks(100).\nSave 20% on packs of Cobblestone blocks(50).
+perkDaringAdventurerRank2Desc,progression,perk Int,,,Save 20% on bundles of Duct Tape(10).\nSave 20% on packs of Concrete blocks(50).\nSave 30% on large packs of Cobblestone blocks(100).
+perkDaringAdventurerRank2LongDesc,progression,perk Int,,,Save 20% on bundles of Duct Tape(10).\nSave 20% on packs of Concrete blocks(50).\nSave 30% on large packs of Cobblestone blocks(100).
+perkDaringAdventurerRank3Desc,progression,perk Int,,,Save 20% on packs of Steel blocks(50).\nSave 30% on large packs of Duct Tape(50) & Glue(30).\nSave 30% on large packs of Concrete Blocks(100).
+perkDaringAdventurerRank3LongDesc,progression,perk Int,,,Save 20% on packs of Steel blocks(50).\nSave 30% on large packs of Duct Tape(50) & Glue(30).\nSave 30% on large packs of Concrete Blocks(100).
+perkDaringAdventurerRank4Desc,progression,perk Int,,,Save 30% on large packs of Steel Blocks(100).\nSave 30% on packs of Molotovs & Grenades(20).\nSave 50% on large packs of Fuel(10000).
+perkDaringAdventurerRank4LongDesc,progression,perk Int,,,Save 30% on large packs of Steel Blocks(100).\nSave 30% on packs of Molotovs & Grenades(20).\nSave 50% on large packs of Fuel(10000).
+ammoGasCanBundleChanged,items,Item,,,Stack of Gas Cans (10000)
+ammoGasCanBundleChangedDesc,items,Item,,,This is a compact stack of 10000 gas cans. Use this item to open and unpack it.
+resourceGlueBundleChanged,items,Item,,,Stack of Glue (10)
+resourceGlueBundleChangedDesc,items,Item,,,This is a compact stack of 10 glue. Use this item to open and unpack it.
+resourceGlueBundleLargeChanged,items,Item,,,Stack of Glue (30)
+resourceGlueBundleLargeChangedDesc,items,Item,,,This is a compact stack of 30 glue. Use this item to open and unpack it.
+resourceDuctTapeBundleChanged,items,Item,,,Stack of Duct Tape (10)
+resourceDuctTapeBundleChangedDesc,items,Item,,,This is a compact stack of 10 duct tape. Use this item to open and unpack it.
+resourceDuctTapeBundleLargeChanged,items,Item,,,Large stack of Duct Tape (50)
+resourceDuctTapeBundleLargeChangedDesc,items,Item,,,This is a compact stack of 50 duct tape. Use this item to open and unpack it.
+resourceWoodBlockBundle,items,Item,,,Stack of Wood Blocks (100).
+resourceWoodBlockBundleDesc,items,Item,,,This is a compact stack of 100 Wood Blocks. Use this item to open and unpack it.
+thrownAmmoMolotovCocktailBundle,items,Item,,,Stack of Molotov Cocktails (20).
+thrownAmmoMolotovCocktailBundleDesc,items,Item,,,This is a compact stack of 20 Molotov Cocktails. Use this item to open and unpack it.
+thrownGrenadeBundle,items,Item,,,Stack of Grenades (20).
+thrownGrenadeBundleDesc,items,Item,,,This is a compact stack of 20 Grenades. Use this item to open and unpack it.
+thrownGrenadeContactBundle,items,Item,,,Stack of Contact Grenades (20).
+thrownGrenadeContactBundleDesc,items,Item,,,This is a compact stack of 20 Contact Grenades. Use this item to open and unpack it.
+cobblestoneShapesBundleChanged,items,Item,,,Stack of 50 Cobblestone Blocks
+cobblestoneShapesBundleChangedDesc,items,Item,,,This is a compact stack of 50 Cobblestone Blocks. Use this item to open and unpack it.
+concreteShapesBundleChanged,items,Item,,,Stack of 50 Concrete Blocks
+concreteShapesBundleChangedDesc,items,Item,,,This is a compact stack of 50 Concrete Blocks. Use this item to open and unpack it.
+steelShapesBundleChanged,items,Item,,,Stack of 50 Steel Blocks
+steelShapesBundleChangedDesc,items,Item,,,This is a compact stack of 50 Steel Blocks. Use this item to open and unpack it.
+cobblestoneShapesBundleLargeChanged,items,Item,,,Stack of 100 Cobblestone Blocks
+cobblestoneShapesBundleLargeChangedDesc,items,Item,,,This is a compact stack of 100 Cobblestone Blocks. Use this item to open and unpack it.
+concreteShapesBundleLargeChanged,items,Item,,,Stack of 100 Concrete Blocks
+concreteShapesBundleLargeChangedDesc,items,Item,,,This is a compact stack of 100 Concrete Blocks. Use this item to open and unpack it.
+steelShapesBundleLargeChanged,items,Item,,,Stack of 100 Steel Blocks
+steelShapesBundleLargeChangedDesc,items,Item,,,This is a compact stack of 100 Steel Blocks. Use this item to open and unpack it.
+scrap762AmmoBundle,items,Item,,,Stack of 50 scrapped 7.62 ammo.
+scrap762AmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 7.62 ammo.\nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap762HPAmmoBundle,items,Item,,,Stack of 50 scrapped 7.62 HP ammo.
+scrap762HPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 7.62 HP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap762APAmmoBundle,items,Item,,,Stack of 50 scrapped 7.62 AP ammo.
+scrap762APAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 7.62 AP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap9mmAmmoBundle,items,Item,,,Stack of 50 scrapped 9mm ammo.
+scrap9mmAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 9mm ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap9mmHPAmmoBundle,items,Item,,,Stack of 50 scrapped 9mm HP ammo.
+scrap9mmHPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 9mm HP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap9mmAPAmmoBundle,items,Item,,,Stack of 50 scrapped 9mm AP ammo.
+scrap9mmAPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 9mm AP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap44AmmoBundle,items,Item,,,Stack of 50 scrapped 44 Magnum ammo.
+scrap44AmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 44 Magnum ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap44HPAmmoBundle,items,Item,,,Stack of 50 scrapped 44 Magnum HP ammo.
+scrap44HPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 44 Magnum HP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap44APAmmoBundle,items,Item,,,Stack of 50 scrapped 44 Magnum AP ammo.
+scrap44APAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 44 Magnum AP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapShotgunAmmoBundle,items,Item,,,Stack of 50 scrapped Shotgun ammo.
+scrapShotgunAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped Shotgun ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapShotgunBreachingAmmoBundle,items,Item,,,Stack of 50 scrapped Shotgun Breaching ammo.
+scrapShotgunBreachingAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped Shotgun Breaching ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapShotgunSlugAmmoBundle,items,Item,,,Stack of 50 scrapped Shotgun Slug ammo.
+scrapShotgunSlugAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped Shotgun Slug ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+marysRevengeHomemadeRifle,items,Gun,,,Mary's Revenge - kitted out homemade Rifle
+marysRevengeHomemadeRifleDesc,items,Gun,,,"Mary's Revenge (MR45).\nBorne from the dark depths of vengeance\nUses .45 ammo\nSuppressed\n20% chance to cripple\n300% Headshot damage\n8X Scope atachments have full focus range.\nCan Mod with Shotgun Barrel Extender."
+rewardMarysRevengeBundle,items,Item,,,Mary's Revenge
+rewardMarysRevengeBundleDesc,items,Item,,,There are 6 in a Coven and their breath is in the air! 
+marysRevengeArtifactContainer,items,Item,,,Mary's Revenge
+marysRevengeArtifactContainerDesc,items,Item,,,Mary's Revenge
+buffGameEventController,buffs,Buff,,,Zombie Kills: 
+buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 4000.
+buffGraveArtifactComplete,buffs,Buff,,,Cursed Artifact-Strongbox 
+buffGraveArtifactCompleteDesc,buffs,Buff,,,Cursed Artifact-Strongbox
+milestoneBundleZombieKill,buffs,Buff,,,Mary reaches out to you from the grave
+testbuffmsg,buffs,Buff,,,Buff test Msg
+modGunShotgunTubeExtenderMagazine,item_modifiers,Mod,,,Tube Extender Mod For Shotgun and Mary's Revenge
+modGunShotgunTubeExtenderMagazineDesc,item_modifiers,Mod,,,Increases magazine capacity for pump shotguns and Mary's Revenge by 3 shells.
+questMarysRevengeArtifactContainerOpened,Quest,Challenge Info,,,Break open the cursed container to get the Artifact inside
+qt_burialSiteMarysRevengeNote,items,Quest - Treasure Map,,,Inspect Burial Site - Mary's Revenge
+qt_burialPatrolCarNote,items,Missing Patrol Car,,,Dirty old Police Notebook: Missing Schematics
+qt_burialPatrolCarNoteDesc,items,Missing Patrol Car,,,"After discovering the Crowd Control mod could be hacked to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car.\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
+ObjectiveTreasureChest_keyword,Quest,Keywords,,,Distance:
+ttTreasureRadiusReduced,UI,Tooltip,,,.
+buriedPatrolCar,Quest,Challenge Info,,,Missing Patrol Car
+buriedPatrolCar_offer,Quest,Challenge Info,,,"After discovering the Crowd Control mod could be hacked to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car. Well armed and caution are advised.\n\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
+graveRobbingOne,Quest,Challenge Info,,,Mary calls to you from the grave.
+graveRobbingOne_offer,Quest,Challenge Info,,,"A cursed burial site and a dream. Seek Mary's Revenge!"
+graveRobbingOneCoffinClosed,blocks,Block,,,Burial Site Coffin Closed
+graveRobbingOneCoffinCracked,blocks,Block,,,Burial Site Coffin Cracked
+graveRobbingOneCoffinOpen,blocks,Block,,,Burial Site Coffin Open
+graveRobbingCoffinRandomHelper,blocks,Block,,,= Grave Robbing Coffin = Random Helper =
+graveRobbingCoffinRandomHelperDesc,blocks,Block,,,Grave Robbing Coffin helper - used for spawning Grave Robbing Coffins
+advancedClothingMesh,items,Item,,,Advanced Clothing Mesh
+advancedClothingMeshDesc,items,Item,,,Clothing Mesh for the CrowdControl recipe. \nOnly found in forced opened Police Cars.
+hafniumHydrideMagnet,items,Item,,,Hafnium Hydride Magnet
+hafniumHydrideMagnetDesc,items,Item,,,Exotic HfH2 Magnet for the CrowdControl recipe. \nOnly found in forced opened Police Cars.
+chargedNiCdBattery,items,Item,,,Cobalt Oxide NiCd Battery
+chargedNiCdBatteryDesc,items,Item,,,Cobalt Oxide NiCd Battery for the CrowdControl recipe. \nOnly found in forced opened Police Cars.
+modElectricRagdollSpecial,item_modifiers,Mod,,,Crowd Control Mod  
+modElectricRagdollSpecialDesc,item_modifiers,Mod,,,Tikola Nesla's Crowd Control Mod. Originally developed to keep his relative's kids at a distance during family barbecues.\nToned down for Military & Police operations.\n - 25% chance to ragdoll-shock on contact\n - Disables Rad regen for 90sec\n - Reduces HP loss by 5%\n - Installs in chest armour\n\n  	[Parts found in forced open police cars]
+modElectricRagdollSpecialSchematic,item_modifiers,mod,,,Schematic for Tikola Nesla's CrowdControl Mod
+airdropTreasureLargeBundle,items,Item,,,Stack of 8 treasure maps.
+airdropTreasureLargeBundleDesc,items,Item,,,A stack of 8 treasure maps. \nUse this item to open and unpack it.
+airdropTreasureSmallBundle,items,Item,,,Stack of 4 treasure maps.
+airdropTreasureSmallBundleDesc,items,Item,,,A stack of 4 treasure maps. \nUse this item to open and unpack it.
+airdropSeedBundle,items,Item,,,Bundle of 30 random Seeds.
+airdropSeedBundleDesc,items,Item,,,Bundle of 30 random generic farming seeds. \n(No plants or supercorn)\nUse this item to open and unpack it.
+airdropAPAmmoBundle,items,Item,,,Bundle of 300 random AP Bullets.
+airdropAPAmmoBundleDesc,items,Item,,,Bundle of 300 random AP Bullets. \nAP 9mm\nAP 7.62\nAP 44\nSlugs\nUse this item to open and unpack it.
+airdropBookBundle,items,item,,,A couple of random books
+airdropBookBundleDesc,items,item,,,A couple of random books
+airdropSolarBankBundle,items,item,,,Small Solar bundle
+airdropSolarBankBundleDesc,items,item,,,Small Solar bundle
+airdropSteelDoorBundle,items,item,,,Random Steel Doors bundle
+airdropSteelDoorBundleDesc,items,item,,,Random Steel Doors bundle
+resourceGoreBlockHumanBones,items,Item,,,Human Remains
+resourceGoreBlockHumanCorpse1,items,Item,,,Human Remains
+resourceGoreBlockHumanCorpse2,items,Item,,,Human Remains
+resourceConeConstruction,items,Item,,,Construction Cone
+resourceCobweb,items,Item,,,Cobweb
+resourcegGraveStone,items,Item,,,Battered Old Gravestone
+resourceHubcap,items,Item,,,Hubcap
+resourceYoDawg,items,Item,,,"Yo dawg, I heard you like police cars ..."
+resourceLetterV,items,Item,,,V
+resourceLetterE,items,Item,,,E
+resourceLetterN,items,Item,,,N
+resourceLetterG,items,Item,,,G
+resourceLetterC,items,Item,,,C
+resourceLetterA,items,Item,,,A
+cntPoliceCar01BuriedDesc,blocks,block,,,Missing Patrol Car
+cntPoliceCar01Buried,blocks,block,,,Missing Patrol Car
+cntPoliceCar01AlarmLockedBuried,blocks,block,,,Locked Missing Patrol Car
+cntPoliceCar01AlarmUnlockedBuried,blocks,block,,,Unlocked Missing Patrol Car
+quest_buriedPatrolCarComplete,Quest,Quest Info,,,Patrol Car Unlocked
+bookEnforcerIntimidation,items,perk book,,,Magnum Enforcer Vol 4
+perkEnforcerIntimidationDesc,progression,perk book,,,Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
+perkEnforcerIntimidationLongDesc,progression,perk book,,,Intimidation: Tired of getting shitty loot? Time to show the loot containers who's boss. Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
+noteDuke01,items,Quest - Note,,,Objectives
+noteDuke01Desc,items,Quest - Note,,,"Objectives:\n - establish a base that can withstand zombie attacks as a foothold in the territory\n - disrupt the Duke's supply chain, cause them problems without tipping them off to your presence\n - identify Trader locations. Map out the extent of their presence and capabilities. Determine if they are friend or foe."
+coffinClockBroken,items,Item,,,Broken Clock
+coffinWoodSpikes,items,Item,,,Broken Defences
+statLockpickTime,ui_display,Item stat,,,Lockpicking Duration
+drugJailBreakersDesc,items,Medical,,,Lockpicking is always successful and lockpicking time is reduced 95%.
+electicPowerSourceDesc,blocks,Electricity,,,"Recipe available at Player Level 50.\nUsed to generate power for your electrical components. \nSolar Cells are found in AirDrops and forced open Police Cars\nSee Journal Tip for more info.\n\nRepair with Forged Iron, Electrical Parts, Mechanical Parts or Scrap Polymers."
+solarBankTip,Journal Tip,,,,"The Solar Bank allows you to power your electrical components. It requires at least one solar cell to be installed, expandable up to six.\nThe maximum energy output is determined by the number of solar cells installed and their quality.\nSolar banks produce power during the day when in direct sunlight.\nSolar cells are found in Air Drops and forced open Police Cars.\nRequires a wire tool to add and cut wires between electrical components."
+solarCellDesc,items,Part,,,Place solar cells into a solar cell bank to generate power.\nFound in Air Drop loot and forced open Police Cars.\nCan be repaired with a Repair Kit.
+solarBankUnlocked,buffs,Buff,,,Unlocked the Solar Bank Recipe!
+oldCashDesc,items,Item,,,This used to be legal tender. Now it is mostly valued for being made of paper.\nBurns really well, can be used as fuel for forges, chem stations etc.
+playerExplosiveBarrel,blocks,Block,,,High Explosive Barrel - Kills Zombies
+playerExplosiveBarrelDesc,blocks,Block,,,A well positioned barrel can cause chaos.\nZombie Damage 1600\nZombie Blast Radius 7\nBlock Damage 20\nBlock Damage Radius 4.\nCant be picked up once placed but can be safely removed with a pickaxe.
+playerExplosiveBarrelSchematic,items,Traps,,,High Explosive Barrel Schematic
+playerExplosiveBarrelSchematicDesc,items,Traps,,,Learn the High Explosive Barrel Recipe
+thrownTimedChargeDesc,items,Gun,,,"A shaped charge designed for delicate work like blowing off a safe lock, a door, or a zombie's head. Automatically detonates after 5 seconds. Want to bring the house down? Try some dynamite instead.\nArm with [action:local:Secondary]\nThrow with [action:local:Primary]\n\nUsed as Impact Trigger in High Explosive Barrels"
+modMeleeStunBatonRepulsorDesc,item_modifiers,Mod,,,Install this mod into a stun baton and send zombies flying on the charged hit.\nIngredient in the CrowdControl Mod recipe.
+modGunMeleeRadRemoverDesc,item_modifiers,mod,,,Will disable the regeneration ability of radiated zombies for 90 seconds.\nIngredient in the CrowdControl Mod recipe.
+apparelCigarDesc,items,Clothes,,,Look intimidating and get a better deal from traders. Boosts strength and adds block damage!
+perkUrbanCombatCigarLongDesc,progression,perk  book,,,"Cigars: Cigars boost your strength and increase your block damage. Learn to craft cigars."
+mmGoMaxZombies,,,Main Menu Game Options,KgNone,Max Zombies Alive
+goMaxZombies,,UI,Menu,KgNone,Max Zombies Alive
+goMaxZombiesDesc,,UI,Menu,KgNone,Maximum amount of zombies that can spawn in the world.
+goZombies,,UI,Menu,New,{0} Zombies
+mmGoMaxAnimals,,,Main Menu Game Options,KgNone,Max Animals Alive
+goMaxAnimals,,UI,Menu,KgNone,Max Animals Alive
+goMaxAnimalsDesc,,UI,Menu,KgNone,Maximum amount of animals that can spawn in the world.
+goAnimals,,UI,Menu,New,{0} Animals
+mmGoLandClaimCount,,,Main Menu Game Options,KgNone,Land Claim Amount
+goLandClaimCount,,UI,Menu,KgNone,Claim Amount
+goLandClaimCountDesc,,UI,Menu,KgNone,The amount of land claim blocks a player can have active.
+goLandClaimCountValue,,UI,Menu,KgNone,{0} block
+goLandClaimCountValues,,UI,Menu,KgNone,{0} blocks
+

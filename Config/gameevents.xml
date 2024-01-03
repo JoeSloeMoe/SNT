@@ -1,0 +1,78 @@
+<configs>
+
+	<append xpath="/gameevents">
+		<!--can either give Marys Revenge (burial site One) using book or directly-->
+		<!--give the map/note for the BurialSiteOne quest - Used from buffs.xml see buffGameEventController -->
+		<action_sequence name="give_burialSiteOneQuestNote">	
+			<action class="AddItems">
+					<property name="added_items" value="qt_burialSiteMarysRevenge"/>
+					<property name="added_item_counts" value="1"/>
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="quest_restore_power_complete" />
+			</action>
+			<action class="BeltTooltip"> 
+				<property name="text" value="You've found a page from a bloodstained black book" />
+			</action>
+		</action_sequence>	
+		
+		<!--give the first burial site quest. Given from treasure map/note, see give_burialSiteOneQuestNote above -->
+		<action_sequence name="give_graveRobbingOneQuest">
+			<action class="AddQuest">
+				<property name="quest" value="graveRobbingOne" />
+			</action>
+		</action_sequence>
+	
+		<!--called when the person activates the marysRevengeArtifactContainer
+			 (items.xml). When a person open the container,
+			this Event is called- this Event will then assign a quest whose sole goal 
+			is to spawn zombies and provide the contents of the container.
+		-->
+		<action_sequence name="eventMarysRevengeArtifactContainerOpened">
+			<action class="AddQuest">
+				<property name="quest" value="questMarysRevengeArtifactContainerOpened" />
+			</action>
+		</action_sequence>
+		
+		<!--not used right now - handy to play screamer 
+			sound on some actions so leaving in for other use sometime-->
+		<action_sequence name="eventPlayScreamerSound">
+			<action class="PlaySound">
+				<property name="sound" value="zombiefemalescoutattack" />
+			</action>
+		</action_sequence>
+		
+		<!--called from the buried patrol car treasure quest.
+			Called when the cop car is downgraded and the alarm goes off
+				Have to manually spawn zombies, so call a quest to do that-->
+			<action_sequence name="block_car_alarm_start_PatrolCar">
+				<property name="action_type" value="Game" />
+				<property name="target_type" value="Block" />
+				<property name="allow_while_dead" value="false" />
+				<action class="AddQuest">
+					<property name="quest" value="quest_buriedPatrolCarComplete" />
+				</action>
+			</action_sequence>
+			
+			<!--called when the buried Patrol car alarm stops-->
+			<action_sequence name="block_car_alarm_end_PatrolCar">
+				<property name="action_type" value="Game" />
+				<property name="target_type" value="Block" />
+				<property name="allow_while_dead" value="false" />
+				
+				<action class="PlaySound">
+					<property name="sound" value="caralarm1_dying" />
+					<property name="phase" value="1" /> 
+				</action>
+			</action_sequence>
+	</append>
+	<!--this sound is present in vanilla but commented out.
+		Set Police Cars to 'wind-down' when alarm stops.
+		Only doing this because the mod uses PatrolCars a lot, else wouldnt bother-->
+	<append xpath="/gameevents/action_sequence[@name='block_car_alarm_end']">
+		<action class="PlaySound">
+					<property name="sound" value="caralarm1_dying" />
+					<property name="phase" value="1" /> 
+		</action>
+	</append>
+</configs>

@@ -1,0 +1,17 @@
+<configs>
+	<!--Khaine's POI Name Removal & POI Name Tracker Removal-->
+	<!-- Remove windowLocation to stop POI names and skulls showing up in the top right -->
+	<remove xpath="/xui/ruleset/window_group[@name='toolbelt']/window[@name='windowLocation']"/>
+	<!-- Remove windowEntering to stop POI names and skulls popping up -->
+	<remove xpath="/xui/ruleset/window_group[@name='compass']/window[@name='windowEntering']"/>
+
+	<!--this is Khaines code from mod:KHA21-3SlotForge-->
+	<!-- Change old forge input window to the new one -->
+	<set xpath="/xui/ruleset/window_group[@name='workstation_forge']/window[@name='windowForgeInput']/@name">windowThreeForgeInput</set>
+	<set xpath="/xui/ruleset/window_group[@name='workstation_forge']/window[@name='windowOutput']/@name">windowThreeForgeOutput</set>
+
+	<!-- this is for resetting to size of the lootbox for	
+		T4 & T5 hardened chests as well as the writable storage boxs 
+		see windows.mlx and loot.xml-->
+	<set xpath="/xui/ruleset/@scale">1.2</set>
+</configs>
