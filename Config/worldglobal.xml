@@ -1,3 +1,0 @@
-<configs>
-	<set xpath="/worldglobal/environment/property[@name='ambientInsideSkyScale']/@value">.65, .4</set>
-</configs>
