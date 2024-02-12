@@ -109,7 +109,7 @@ Extended Magnum Perk book 'Enforcer Intimidation' buff to all .44 weapons.
 Fixed Patrol Car challenge loot bug.
 Adjusted Motorcycle traction so it no longer fishtails like a wet noodle.
 
-1.0.4
+1.1.0
 Spotlights can now rotate on all axis for placement.
 Fixed exception on opening death backpack when using Kaine's 90 Slot Backpack modlet with this mod.
 Fixed incorrect description value for Fire and Explosion Resistance on GrandPa's Gunbelt oil Sauce. Was showing 15%, is actually 25%.
