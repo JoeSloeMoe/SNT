@@ -282,8 +282,8 @@
 					<display_value name="dWeaponHandling" operation="perc_add" value="0.1" />
 					<display_value name="dReloadSpeedMultiplier" operation="perc_add" value="0.1" />
 					<display_value name="dRoundsPerMinute" operation="perc_add" value="0.05"/>
-					<display_value name="dBuffResistance" value="0.15"/>
-					<display_value name="dElementalDamageResist" value="0.15"/>
+					<display_value name="dBuffResistance" value="0.25"/>
+					<display_value name="dElementalDamageResist" value="0.25"/>
 					<display_value name="dDuration" value="3600"/>
 					
 					<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="add" value="3603"/>
@@ -1338,4 +1338,6 @@
 		<!--end generic items for visuals in coffin and patrol car loot slots-->
 	
 	</append>
+	
+	
 </configs>

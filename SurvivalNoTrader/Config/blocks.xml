@@ -17,6 +17,9 @@
 	<!--change the descritpion text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops)-->
 	<set xpath ="blocks/block[@name='solarbank']/property[@name='DescriptionKey']/@value">electicPowerSourceDesc</set>
 
+	<!--spotlights can be rotated in any axis-->
+	<set xpath ="blocks/block[@name='spotlightPlayer']/property[@name='OnlySimpleRotations']/@value">false</set>
+	
 	<!-- Brood Nest for farming eggs -->
 	<append xpath="/blocks">
 		<block name="broodnest">

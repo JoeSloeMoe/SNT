@@ -1,4 +1,5 @@
 Survival No Trader (SNT) 7DTD XML mod.
+https://community.7daystodie.com/topic/34585-survival-no-trader/#comment-546720
 
 This mod removes the ability to trade and get quests from Traders. It balances the game to reflect no trading or trader-questing. 
 Traders are still present in the world as part of the storyline, they just ignore you.
@@ -108,4 +109,11 @@ Extended Magnum Perk book 'Enforcer Intimidation' buff to all .44 weapons.
 Fixed Patrol Car challenge loot bug.
 Adjusted Motorcycle traction so it no longer fishtails like a wet noodle.
 
-
+1.0.4
+Spotlights can now rotate on all axis for placement.
+Fixed exception on opening death backpack when using Kaine's 90 Slot Backpack modlet with this mod.
+Fixed incorrect description value for Fire and Explosion Resistance on GrandPa's Gunbelt oil Sauce. Was showing 15%, is actually 25%.
+Modified Random Gen for new generated maps. Increased number and size of towns and cities on default and large maps. 
+Added Hybrid Learn By Use Action Skills. Increase half of all Perk Damage, Stamina, Harvesting etc. skills by using tools and weapons. Upgrade the other half of the skill increases using the Perk Tree as normal.
+Applies to the tools and weapons for the following Perks: Miner69r, Salvage, DeadEye, SpearMaster, Bookstick, PummelPete, SkullCrusher, Brawler, MachineGunner, Archery, Gunslinger, DeapCuts, Electrocutioner, Robotics.
+(The hybrid learn-by-use action skills is based on the Action Skill algorithm from Kaine in the Darkness Falls https://community.7daystodie.com/topic/4941-darkness-falls-they-mostly-come-out-at-night/ )

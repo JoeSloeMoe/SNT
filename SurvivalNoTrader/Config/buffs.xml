@@ -1,6 +1,7 @@
 <configs>
 
 	<append xpath="/buffs">
+			
 		<!-- *** buffDrunkGrandpasWheelchairRacingElixir -->
 		<!-- TRIGGERED_BY: Items = drinkJarGrandpasWheelchairRacingElixir -->
 		<buff name="buffDrunkGrandpasWheelchairRacingElixir" name_key="buffDrunkGrandpasWheelchairRacingElixirName" description_key="buffDrunkGrandpasWheelchairRacingElixirDesc" tooltip_key="buffDrunkGrandpasWheelchairRacingElixirName" icon="ui_game_symbol_add" icon_color="255,152,152">
@@ -188,7 +189,7 @@
 				</triggered_effect>
 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="@$numZombieKillsControl"/>
 			</effect_group>
-			
+					
 			<effect_group>
 				<!--handling the buff for the magnum vol 4 intimidation book.
 				  All .44 handguns are tagged with 'bookMagnumV4'-->
@@ -254,18 +255,52 @@
 						</requirements>
 					-->
 		</buff>
+		
+		
+		<buff name="buffProtectiveVehicles" name_key="buffProtectiveVehicles" description_key="buffProtectiveVehicles" icon="ui_game_symbol_fork">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffProtectiveVehiclesDisplay"/>
+			<display_value_format value="time"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$buffProtectiveVehiclesDuration" operation="set" value="360"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$buffProtectiveVehiclesDuration" operation="set" value="360" />
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffProtectiveVehiclesDuration" operation="subtract" value="1"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffProtectiveVehiclesDisplay" operation="set" value="@$buffProtectiveVehiclesDuration"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="IsAttachedToEntity" entity_tags="motorcycle"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="milestoneBundleZombieKill"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffProtectiveVehicles">
+					<requirement name="CVarCompare" cvar="$buffProtectiveVehiclesDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffProtectiveVehiclesDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffProtectiveVehiclesDuration" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+		
 	</append>
 	<!--ADDCONTROLLERBUFF adds the background buff to the player 
 		This will auto re-add buffGameEventController to the player after initial spawn and any deaths,
 		as buffStatusCheck01 is called by the system on major events-->
-	<append xpath="/buffs/buff[starts-with(@name, 'buffStatusCheck01')]">
+	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
 		<effect_group>
 			<requirement name="!HasBuff" buff="buffGameEventController"/>
 				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffGameEventController"/>
 				<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>
 		</effect_group>
 	</append>
-
+<!--	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+		<effect_group>
+				<requirement name="!HasBuff" buff="buffProtectiveVehicles"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffProtectiveVehicles"/>
+					<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffProtectiveVehicles"/>
+		</effect_group>
+	</append>-->
+		
 	<!--set the jail breaker kandy to do instant unlock
 		'Instant' as much as possible - system stops working if 
 		unlock time set to 0. Set it to 0.03 instead-->

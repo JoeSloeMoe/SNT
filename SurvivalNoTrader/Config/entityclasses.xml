@@ -2,4 +2,5 @@
 	<!--lootbag time alive-->
 	<set xpath="/entity_classes/entity_class[@name='DroppedLootContainer']/property[@name='TimeStayAfterDeath']/@value">5800</set>
 	<set xpath="/entity_classes/entity_class[starts-with(@name, 'EntityLootContainer')]/property[@name='TimeStayAfterDeath']/@value">5800</set>
+	
  </configs>
