@@ -118,7 +118,7 @@ Added Hybrid Learn By Use Action Skills. Increase half of all Perk Damage, Stami
 Currently applies to the tools and weapons for the following Perks:
 
 Perception: DeadEye, SpearMaster, Salvage
-Strength: Bookstick, PummelPete, SkullCrusher, Miner69r/Motherload.
+Strength: Boomstick, PummelPete, SkullCrusher, Miner69r/Motherload.
 Fortitude: Brawler, MachineGunner
 Agility: Archery, Gunslinger, DeapCuts
 Intellect: Electrocutioner, Robotics
