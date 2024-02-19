@@ -1,4 +1,4 @@
-Survival No Trader (SNT) 7DTD XML mod.
+Survival No Trader (SNT) 7DTD XML mod. (JoeSLoeMoe)
 https://community.7daystodie.com/topic/34585-survival-no-trader/#comment-546720
 
 This mod removes the ability to trade and get quests from Traders. It balances the game to reflect no trading or trader-questing. 
@@ -133,3 +133,6 @@ Other changes:
 - Modified Random Gen for new generated maps. Increased number and size of towns and cities on default and large maps.
 
 //// end 1.1.0 changes/////
+
+1.1.1 19th Feb 2024
+Fixed Learn By Use damage progression bug for Gunslinger.
