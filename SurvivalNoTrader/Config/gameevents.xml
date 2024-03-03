@@ -39,7 +39,7 @@
 			this Event is called- this Event will then assign a quest whose sole goal 
 			is to spawn zombies and provide the contents of the container.
 		-->
-		<action_sequence name="eventMarysRevengeArtifactContainerOpenedeventMarysRevengeArtifactContainerOpened">
+		<action_sequence name="eventMarysRevengeArtifactContainerOpened">
 			<action class="AddQuest">
 				<property name="quest" value="questMarysRevengeArtifactContainerOpened" />
 			</action>
