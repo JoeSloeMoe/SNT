@@ -136,3 +136,45 @@ Other changes:
 
 1.1.1 19th Feb 2024
 Fixed Learn By Use damage progression bug for Gunslinger.
+
+1.1.2 
+- Fixed conflicting values shown for Stun Resistance on GrandPa's Gunbelt oil Sauce. 
+- Fixed syntax error in Localisation file.
+- Can now scrap Anvils and Crucibles.
+- Minor adjustment to airdrop loot.
+
+- Added Demolitions Expert to the Learn By Use tree. Molotovs & Timed Charges are slow at increasing level.
+  The best way to increase the Demolitions LBU perk is using grenades/rockets on large groups of zombies.
+
+- Fixed Learn By Use progress error after using Grandpa's Fergit'n Elixir. 
+  After using the Elixir, use any tool or weapon and a buff will restore all Learn By Use Perks' progress over a short period.
+  Progress Level will also be restored when there are any other Perk Level changes e.g. infection side effects. 
+  If you install this version over an existing install/game, you will see a message indicating the progress level is being verified, 
+  this is just your local variables being updated to the latest version.
+
+- Added Global Config variables so player can easily control the Learn-By-Use leveling curve for all Perks. 
+  See progression.xml, look for the line: "<!--change the values below to change the levelling curve...." for information 
+
+- Changed how some mods are found in the world. Some mods dont spawn independently in loot anymore, they can now 
+  only be found as attachements to items that spawn in loot. The mods can still be crafted with their respective schematics.
+  
+	These Weapon mods: 
+		Rad Remover, Suppressor, Drum Magazine, 8x Scope, Auto Trigger
+		NOTE: The Rad Remover mod can also be found in forced open Police Cars (e.g. with a pickaxe)
+	Will only spawn as attachments in loot for: 
+		Steel Spear, Steel Club, Steel Sledgehammer,Steel Knuckles, Machete, Stun Baton, 
+		SMG, Desert Vulture, Auto Shotgun, Sniper Rifle, Tactical AR, M60, Compound Bow, Compound Crossbow
+		
+	These Tool mods: 
+		Diamond Tip, Ergonomic Grip, Iron Breaker, Tempered Blade
+	Will only spawn as attachments in loot for: 
+		Steel Shovel, Steel Pickaxe, Steel Axe, SteelSledgehammer, Auger, Impact Driver
+		
+	These Clothes mods: 
+		modArmorCustomizedFittings,modArmorPlatingReinforced,modArmorAdvancedMuffledConnectors, modArmorBandolier
+	Will only spawn as attachments in loot for: 
+		Military Clothing, Steel Clothing, Swat Helmet
+		
+	Some mods like Ergonomic Grip, Rad Remover will spawn in items from both the weapons and tools lists above. 
+	Other random mods can also be found as attachments in the above weapons/tools/clothes but they spawn normally in the world as well.
+  

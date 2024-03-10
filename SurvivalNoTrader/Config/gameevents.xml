@@ -7,6 +7,9 @@
 			<action class="AddSkillPoints">
 				<property name="skill_points" value="1" />
 			</action>
+			<action class="PlaySound">
+				<property name="sound" value="quest_restore_power_complete" />
+			</action>
 			<action class="BeltTooltip">
 				<property name="text" value="Max Skill Level - free Skill Point!" />
 			</action>

@@ -1,6 +1,7 @@
 <configs>
 	<!-- Adding an additional mod slot to a select group of top tier equipment {Tools,Handweapons,Guns,Military Armour,Steel Armour,Swat Helmet} 
 		 Everything is the same as the base game except for (value=".,.,.,.,.,5" <==this value 5) in each line
+		 All of the item types listed here also have a chance to spawn with a mod (all levels T1 through T6) see loot.xml
 	-->
 	<!-- Tools -->
 	<append xpath="/items/item[starts-with(@name, 'meleeToolAxeT2SteelAxe')]/effect_group[starts-with(@name, 'meleeToolAxeT2SteelAxe')]">
@@ -117,9 +118,15 @@
 		
 	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
 	<set xpath="/items/item[@name='oldCash']/property[@name='FuelValue']/@value">30</set>
-<!--
-	<set xpath="/items/item[@name='armorMilitarySetParts']/property[@name='Material']/@value">Mmetal</set>
-	-->
+
+	<!--set anvil and crucilble to be scrappable (by setting the wieght - will scrap to 57% of the weight for diff materials)-->
+	<set xpath="/items/item[@name='toolAnvil']/property[@name='Weight']/@value">400</set>
+	<set xpath="/items/item[@name='toolForgeCrucible']/property[@name='Material']/@value">Msteel</set>
+	<append xpath="/items/item[@name='toolForgeCrucible']">
+		<property name="Weight" value="667"/>
+	</append>
+	
+	
 	<!--solar panels can be repaired as they dont always come out at full health in loot-->
 	<append xpath="/items/item[@name='solarCell']">
 		<property name="RepairTools" value="resourceRepairKit"/>
@@ -585,7 +592,7 @@
 				<property class="Action0">
 					<property name="Random_item" value="plantedPotato1,plantedCoffee1,plantedCorn1,plantedBlueberry1,plantedAloe1,plantedMushroom1,plantedYucca1,plantedHop1,plantedPumpkin1"/>
 					<property name="Random_item_count" value="1,1,1,1,1,1,1,1,1"/>  
-					<property name="Random_count" value="30"/>
+					<property name="Random_count" value="40"/>
 					<!--code below is required to stop 6000 stone being dropped-->
 					<property name="Create_item" value="resourceRockSmall"/>
 					<property name="Create_item_count" value="0"/>				
@@ -644,6 +651,26 @@
 					<property name="Create_item_count" value="0"/>
 				</property>
 		</item>	
+		<item name="airdropVehicleMagazineBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CustomIcon" value="bundleSolarBank"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="airdropSolarBankBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="bookVehicleAdventures"/>
+				<property name="Create_item_count" value="15"/>
+			</property>
+		</item>
+		<item name="airdropRepairKitBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CustomIcon" value="resourceRepairKit"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="airdropSolarBankBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceRepairKit"/>
+				<property name="Create_item_count" value="25"/>
+			</property>
+		</item>
 		<!--end Air Drop loot bundles -->	
 	</append>
 	
@@ -1339,5 +1366,26 @@
 	
 	</append>
 	
+	<!--The following mods will only spawn installed in items:
+		Weapon mods: modGunMeleeRadRemover, modGunSoundSuppressorSilencer,modGunDrumMagazineExtender, modGunScopeLarge, modGunTriggerGroupAutomatic,
+		Weapons the weapons mods will spawn in: Steel Spear, Steel Club, Steel Sledgehammer,Steel Knuckles, Machete, Stun Baton, 
+					SMG, Desert Vulture, Auto Shotgun, Sniper Rifle, Tactical AR, M60, Compound Bow, Compound Crossbow
+		
+		Tool mods: modMeleeDiamondTip,modMeleeErgonomicGrip, modMeleeIronBreaker,modMeleeTemperedBlade
+		Tools the tool mods will spawn in: Steel Shovel, Steel Pickaxe, Steel Axe, SteelSledgehammer, Auger, Impact Driver
+		
+		Clothes mods: modArmorCustomizedFittings,modArmorPlatingReinforced,modArmorAdvancedMuffledConnectors, modArmorBandolier
+		Clothes the clothes mods will spawn in: Military Clothing, Steel Clothing, Sawt Helmet
+		
+		Some tools mods like modMeleeErgonomicGrip may spawn in weapons
+		See also loot.xml as Loot Groups have changed as well (even if they are quest groups)
+		See also item_modifiers.xml for code that adds a tag to the mods to add them to spawned clothes/tools/weapons.
+	-->
+	<!--remove the mods from any item bundles-->
+	<set xpath="/items/item[@name='questRewardT2RangedModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modGunBarrelExtender,modGunCrippleEm,modGunBowArrowRest,modGunLaserSight,modGunReflexSight,modGunRetractingStock,modGunScopeMedium,modGunTriggerGroupBurst3</set>
+	<set xpath="/items/item[@name='questRewardT3RangedModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modGunBowPolymerString</set>	
+	<set xpath="/items/item[@name='questRewardT3MeleeModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modMeleeClubMetalSpikes,modMeleeClubMetalChain</set>
+
+
 	
 </configs>

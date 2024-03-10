@@ -7,16 +7,5 @@
 	<set xpath ="vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='tiltDampenThreshold']/@value">26</set><!--8-->
 	<set xpath ="vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='tiltUpForce']/@value">3</set><!--5-->
 	<set xpath ="vehicles/vehicle[@name='vehicleMotorcycle']/property[@name='hopForce']/@value">2,0.2</set><!--1,0.8-->
-	<!--
-	<append xpath ="vehicles/vehicle[@name='vehicleMotorcycle']">
-		<effect_group tiered="false">
 
-			<triggered_effect trigger="onSelfPrimaryActionStart" action="AddBuff" buff="buffProtectiveVehicles"/>
-			-->
-<!--<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buffProtectiveVehicles"/>-->
-
-			<!--<requirement name="HasBuff" target="player" buff="buffProtectiveVehicles"/>
-			<passive_effect name="HealthMax" operation="perc_add" value="3.5"/>
-		</effect_group>
-	</append>-->
 </configs>

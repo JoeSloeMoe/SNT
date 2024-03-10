@@ -89,4 +89,13 @@
 			<property name="Zoom_max_in" value="10"/>
 		</item_property_overrides>
 	</append>
+
+	<!--code for adding mods to items-->
+	<!--delete the <item_modifier name="modRadiationReady" item_modifier - its not used and interferes with 
+		allowing top tier items to spawn with a random modifiers (items can spawm with this modifier as well unless removed)
+		see loot.xml-->
+	<remove xpath="/item_modifiers/item_modifier[@name='modRadiationReady']"/>
+	<!--Add a tag to the rad remover to add it to items in loot.xml (the current tag is shared by other items not used)-->
+	<set xpath="/item_modifiers/item_modifier[@name ='modGunMeleeRadRemover']/@modifier_tags">SNT_RadRem,specialDamage</set>
+	<!--end code for adding mods to items-->
 </configs>

@@ -1,4 +1,4 @@
-Key,File,Type,UsedInMainMenu,NoTranslate,english
+6Key,File,Type,UsedInMainMenu,NoTranslate,english
 tutorialTipQuest01,Journal Tip,,,,"You are one of 4 siblings from the Harrington Clan out East. You run point for your crew.\nYour family is engaged in an extended war and the war brings you here. You're exploring this area to find new sources of weapons and supplies. \nYou've heard rumours that this area is rich for the pickings, with both the Duke's gang and the Traders moving in to sift through whatever remains of civilisation. \nYour objectives are:\n - establish a base that can withstand zombie attacks as a foothold in the territory.\n - disrupt the Duke's supply chain. Strip the good loot without tipping them off to your presence.\n - identify Trader locations. Map out the extent of their presence and capabilites. Determine if they are friend or foe."
 broodnest,Blocks,block,,,Brood Egg Nest
 broodnestInfo,Blocks,block,,,"Set up a comfy place for birds to nest in and lay eggs"
@@ -14,7 +14,7 @@ buffDrunkGrandpasThemsFightinWordsMoonshineDesc,buffs,Buff,,,"Grandpas Fightin' 
 buffDrunkGrandpasThemsFightinWordsMoonshineName,buffs,Buff,,,"Grandpas Fightin' Words Moonshine"
 buffDrunkGrandpasThemsFightinWordsMoonshineTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..,"
 drinkJarGrandpasThemsFightinWordsMoonshine,items,Food,,,Grandpas Fightin' Words Moonshine
-drinkJarGrandpasThemsFightinWordsMoonshineDesc,items,Food,,,"Grandpas Fightin' Words Moonshine\nMelee Damage +5%\nAttacks per min +5%\nResist:\n   Infection-Fatigue +10%\n   Laceration-Abrasions +10%\n   Stun-Strain-Bleeding +15%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nDamage Resistance +15%"
+drinkJarGrandpasThemsFightinWordsMoonshineDesc,items,Food,,,"Grandpas Fightin' Words Moonshine\nMelee Damage +5%\nAttacks per min +5%\nResist:\n   Infection-Fatigue +10%\n   Laceration-Abrasions +10%\n   Stun-Strain-Bleeding +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nDamage Resistance +15%"
 drinkJarGrandpasThemsFightinWordsMoonshinePromptDesc,items,Food,,,Drink?
 buffDrunkGrandpasGunbeltOilSauceDesc,buffs,Buff,,,"Grandpas Gunbelt Oil Sauce\nRanged Damage +5%\nRounds per min +5%\nWeapon Handling +10%\nReload Speed +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\n    Fire Resistance +25%\n    Explosion Resistance +25%"
 buffDrunkGrandpasGunbeltOilSauceName,buffs,Buff,,,"Grandpas Gunbelt Oil Sauce"
@@ -156,8 +156,8 @@ airdropTreasureLargeBundle,items,Item,,,Stack of 8 treasure maps.
 airdropTreasureLargeBundleDesc,items,Item,,,A stack of 8 treasure maps. \nUse this item to open and unpack it.
 airdropTreasureSmallBundle,items,Item,,,Stack of 4 treasure maps.
 airdropTreasureSmallBundleDesc,items,Item,,,A stack of 4 treasure maps. \nUse this item to open and unpack it.
-airdropSeedBundle,items,Item,,,Bundle of 30 random Seeds.
-airdropSeedBundleDesc,items,Item,,,Bundle of 30 random generic farming seeds. \n(No plants or supercorn)\nUse this item to open and unpack it.
+airdropSeedBundle,items,Item,,,Bundle of 40 random Seeds.
+airdropSeedBundleDesc,items,Item,,,Bundle of 40 random generic farming seeds (No plants or Supercorn).\nUse this item to open and unpack it.
 airdropAPAmmoBundle,items,Item,,,Bundle of 300 random AP Bullets.
 airdropAPAmmoBundleDesc,items,Item,,,Bundle of 300 random AP Bullets. \nAP 9mm\nAP 7.62\nAP 44\nSlugs\nUse this item to open and unpack it.
 airdropBookBundle,items,item,,,A couple of random books
@@ -230,6 +230,8 @@ lbu_SalvageName,progression,Perk,,,"Salvage Operation Skills"
 lbu_SalvageDesc,progression,Perk,,,"Learn by Use: [Perception] Use any Wrench, Ratchet or Impact Driver to upgrade half the Salvage skill points. Increases are applied cumulatively per Level. There are 2 StaminaLoss values shown below - the second one is for Power Attacks."
 lbu_DeadEyeName,progression,Perk,,,"Dead Eye Skills"
 lbu_DeadEyeDesc,progression,Perk,,,"Learn by Use: [Perception] Use any Rifle to upgrade half the DeadEye skill points. Increases are applied cumulatively per Level."
+lbu_DemolitionName,progression,Perk,,,"Demolitions Expert Skills"
+lbu_DemolitionDesc,progression,Perk,,,"Learn by Use: [Perception] Use any explosive weapons to upgrade half the Demolitions Expert skill points. Increases are applied cumulatively per Level."
 lbu_SpearMasterName,progression,Perk,,,"Spearmaster Skills"
 lbu_SpearMasterDesc,progression,Perk,,,"Learn by Use: [Perception] Use any Spear to upgrade half the Spearmaster skill points. Increases are applied cumulatively per Level. There are 2 StaminaLoss values shown below - the second one is for Power Attacks."
 lbu_BoomstickName,progression,Perk,,,"Boomstick Skills"
@@ -247,7 +249,7 @@ lbu_ArcheryDesc,progression,Perk,,,"Learn by Use: [Agility] Use any Bow to upgra
 lbu_GunslingerName,progression,Perk,,,"Gunslinger Skills"
 lbu_GunslingerDesc,progression,Perk,,,"Learn by Use: [Agility] Use any Handgun or SMG to upgrade half the Gunslinger skill points. Increases are applied cumulatively per Level."
 lbu_DeepCutsName,progression,Perk,,,"Deep Cuts Skills"
-lbu_DeepCutsDesc,progression,Perk,,,"Learn by Use: [Agility] Use any Bladed Weapon to upgrade half the DeapCuts skill points. Increases are applied cumulatively per Level. Killing blows grant from 1 to 15 stamina over levels 1-50. There are 2 StaminaLoss values shown below - the second one is for Power Attacks."
+lbu_DeepCutsDesc,progression,Perk,,,"Learn by Use: [Agility] Use any Bladed Weapon to upgrade half the DeepCuts skill points. Increases are applied cumulatively per Level. Killing blows grant from 1 to 15 stamina over levels 1-50. There are 2 StaminaLoss values shown below - the second one is for Power Attacks."
 lbu_ElectrocutionerName,progression,Perk,,,"Electrocutioner Skills"
 lbu_ElectrocutionerDesc,progression,Perk,,,"Learn by Use: [Intellect] Use any Baton to upgrade half the Electrocutioner skill points. Increases are applied cumulatively per Level. Killing blows grant from 1 to 15 stamina over levels 1-50. There are 2 StaminaLoss values shown below - the second one is for Power Attacks."
 lbu_RoboticsName,progression,Perk,,,"Robotics Skills"
@@ -283,6 +285,12 @@ perkDeadEyeRank3LongDesc,progression,perk Per,,,"You are now a marksman and can 
 perkDeadEyeRank4LongDesc,progression,perk Per,,,"You are now a sharpshooter. Rifles deal 20% more damage, aim 23% faster, reload 13% faster, and use 20% less stamina while aiming down the sights.\nKill Streak: Successive kills increase damage bonus by 20%, 30% to a maximum of 40%."
 perkDeadEyeRank5LongDesc,progression,perk Per,,,"Dead Eye: Through all the hard training and countless shooting, you are now a dead eye sniper. Rifles deal 25% more damage, aim 30% faster, reload 15% faster, and use 30% less stamina while aiming down the sights.\nKill Streak: Successive kills increase damage bonus by 30%, 40% up to a maximum of 50%."
 perkJavelinMasterDesc,progression,perk Per,,,"Learn to inflict more damage and slow your enemies with power attacks.\nCaters for half of the available increases for damage, stamina etc - increase the other half by Learn-By-Use."
+perkDemolitionsExpertDesc,progression,perk Per,,,"Specialize in explosive weapons to stun, cripple and dismember your foes.\nCaters for half of the available increases for damage, stamina etc - increase the other half by Learn-By-Use."
+perkDemolitionsExpertRank1LongDesc,progression,perk Per,,,"You are now a grenadier initiate, be careful with those explosives. Increase damage 5%, reload speed 8%, aim 5% faster, 50% chance to stun enemies and a 3% greater chance to dismember."
+perkDemolitionsExpertRank2LongDesc,progression,perk Per,,,"Increase damage by 10%, reload speed 10%, aim 10% faster, 100% chance to stun enemies, and a 5% greater chance to dismember."
+perkDemolitionsExpertRank3LongDesc,progression,perk Per,,,"You are now an explosives handler. Increase damage 15%, increase reload speed by 13%, aim 15% faster, have a 33% chance to cripple enemies and a 10% greater chance to dismember."
+perkDemolitionsExpertRank4LongDesc,progression,perk Per,,,"You are now a Rocket Man. Increase damage 20%, reload speed by 15%, aim 20% faster, have a 66% chance to cripple enemies and a 15% greater chance to dismember."
+perkDemolitionsExpertRank5LongDesc,progression,perk Per,,,"Demolitions expert. You make things go boom in a big way. Increase damage 25%, reload speed by 18%, aim 25% faster and a 23% greater chance to dismember. Stun lasts longer on enemies."
 perkJavelinMasterRank1LongDesc,progression,perk Per,,,"Sticks and stones can't break my bones, but if combined make a nice spear. Spears do 5% more damage and power attacks have a 10% chance to slow enemies. Stamina costs are reduced by 4% and 8% for power attacks. Find more spears and parts in loot."
 perkJavelinMasterRank2LongDesc,progression,perk Per,,,Spears inflict 10% more damage and power attacks have a 20% chance to slow enemies. Stamina costs are reduced by 8% and 15% for power attacks. Find more spears and parts in loot.
 perkJavelinMasterRank3LongDesc,progression,perk Per,,,Spears inflict 15% more damage and and power attacks have a 30% chance to slow enemies. Stamina costs are reduced by 10% and 20% for power attacks. Killing blows grant 10 stamina. Find more spears and parts in loot.
