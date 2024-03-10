@@ -137,7 +137,7 @@ Other changes:
 1.1.1 19th Feb 2024
 Fixed Learn By Use damage progression bug for Gunslinger.
 
-1.1.2 
+1.1.2 10th March 2024
 - Fixed conflicting values shown for Stun Resistance on GrandPa's Gunbelt oil Sauce. 
 - Fixed syntax error in Localisation file.
 - Can now scrap Anvils and Crucibles.
