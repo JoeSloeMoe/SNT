@@ -488,18 +488,18 @@
 	<!--assign the mods removed above to items (clothes,weapons,tools) in loot groups so that they spawn attached to the item-->
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupToolsT1ClawHammer']">
 		<lootgroup name="groupToolsT2" loot_quality_template="QLTemplateT2">
-			<item name="meleeToolShovelT2SteelShovel" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeWpnSledgeT3SteelSledgehammer" loot_prob_template="medLow" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolShovelT2SteelShovel" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeWpnSledgeT3SteelSledgehammer" loot_prob_template="medLow" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
 			<item name="meleeToolSalvageT2Ratchet"/> <!--dont care about this one-->
 		</lootgroup>
 		<!-- *** T3_Tool_Loot -->
 		<lootgroup name="groupToolsT3" loot_quality_template="QLTemplateT3">
 			<item name="meleeToolAxeT3Chainsaw"/><!--dont care about this one-->
-			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.3"/>
 			<item name="meleeToolRepairT3Nailgun"/><!--dont care about this one-->
-			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.3"/>
 		</lootgroup>
 	</insertAfter>
 	
@@ -509,17 +509,17 @@
 	
 	<insertBefore xpath="/lootcontainers/lootgroup[@name='groupQuestTools']">
 		<lootgroup name="groupQuestToolsT2" loot_quality_template="questT2QualTemplate">
-			<item name="meleeToolShovelT2SteelShovel" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeWpnSledgeT3SteelSledgehammer" loot_prob_template="medLow" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolShovelT2SteelShovel" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeWpnSledgeT3SteelSledgehammer" loot_prob_template="medLow" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
 			<item name="meleeToolSalvageT2Ratchet"/> <!--dont care about this one-->
 		</lootgroup>
 		<lootgroup name="groupQuestToolsT3" loot_quality_template="questT3QualTemplate">
 			<item name="meleeToolAxeT3Chainsaw"/> <!--dont care about this one-->
-			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.3"/>
 			<item name="meleeToolRepairT3Nailgun"/> <!--dont care about this one-->
-			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.3"/>
 		</lootgroup>
 	</insertBefore>
 
@@ -528,12 +528,12 @@
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupWeaponsT1_Melee']">
 		<!-- *** T2&T3_Melee_Weapons -->
 		<lootgroup name="groupWeaponsT2_Melee" loot_quality_template="QLTemplateT2">
-			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.5"/>
-			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,club" mod_chance="0.5"/><!--x-->
-			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.5"/>
-			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.5"/>
-			<item name="meleeWpnBladeT3Machete" mods="fire,durability,damage" mod_chance="0.5"/>
-			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.5"/>
+			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.3"/>
+			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,club" mod_chance="0.3"/><!--x-->
+			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.3"/>
+			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.3"/>
+			<item name="meleeWpnBladeT3Machete" mods="fire,durability,damage" mod_chance="0.3"/>
+			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.3"/>
 		</lootgroup>
 	</insertAfter>
 	
@@ -541,12 +541,12 @@
 	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsMeleeT2']"/>
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsMeleeT1']">
 		<lootgroup name="groupQuestWeaponsMeleeT2" loot_quality_template="questT2QualTemplate">
-			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.5"/>
-			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,shaft" mod_chance="0.5"/><!--x-->
-			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.5"/>
-			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.5"/>
-			<item name="meleeWpnBladeT3Machete" mods=",durability,damage" mod_chance="0.5"/>
-			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.5"/>
+			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.3"/>
+			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,shaft" mod_chance="0.3"/><!--x-->
+			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.3"/>
+			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.3"/>
+			<item name="meleeWpnBladeT3Machete" mods=",durability,damage" mod_chance="0.3"/>
+			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.3"/>
 		</lootgroup>
 	</insertAfter>
 
@@ -563,28 +563,28 @@
 	<!--replace with added mod code-->
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupWeapons_DemolitionistTPlus']">
 		<lootgroup name="groupWeaponsT3_Gunslinger01" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.5"/>
+			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupWeaponsT3_Gunslinger02" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunHandgunT3DesertVulture" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.5"/>
+			<item name="gunHandgunT3DesertVulture" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupWeaponsT3_Boomstick" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.5"/>
+			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupWeaponsT3_DeadEye" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.5"/>
+			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupWeaponsT2_Machinegunner" count="all" loot_quality_template="QLTemplateT2">
-			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.5"/>
+			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupWeaponsT3_Machinegunner" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.5"/>
+			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupWeaponsT3_Archery01" count="all" loot_quality_template="QLTemplateT2">
-			<item name="gunBowT3CompoundBow" mods="velocity,accuracy,health" mod_chance="0.5" /><!--x-->
+			<item name="gunBowT3CompoundBow" mods="velocity,accuracy,health" mod_chance="0.3" /><!--x-->
 		</lootgroup>
 		<lootgroup name="groupWeaponsT3_Archery02" count="all" loot_quality_template="QLTemplateT2">
-			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.5"/>
+			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.3"/>
 		</lootgroup>
 	</insertAfter>
 	
@@ -594,20 +594,20 @@
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsRangedT1']">
 		<lootgroup name="groupQuestWeaponsRangedT2" loot_quality_template="questT2QualTemplate">
 			<item name="gunRifleT2LeverActionRifle"/>  <!--Ignored for mod chance-->
-			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.5"/>
+			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.3"/>
 			<item name="gunShotgunT2PumpShotgun"/>  <!--Ignored for mod chance-->
 			<item name="gunHandgunT2Magnum44"/>  <!--Ignored for mod chance-->
 			<item name="gunBotT2JunkTurret"/>  <!--Ignored for mod chance-->
 			<!-- Some T3 items get treated as T2 -->
-			<item name="gunBowT3CompoundBow" mods="velocity,accuracy,health" mod_chance="0.5"/>
-			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.5"/>
+			<item name="gunBowT3CompoundBow" mods="velocity,accuracy,health" mod_chance="0.3"/>
+			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.3"/>
 		</lootgroup>
 		<lootgroup name="groupQuestWeaponsRangedT3" loot_quality_template="questT3QualTemplate">
-			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.5"/>
+			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.3"/>
 			<item name="gunExplosivesT3RocketLauncher"/>  <!--Ignored for mod chance-->
-			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.5"/>
-			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.5"/>
-			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.5"/>
+			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.3"/>
+			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.3"/>
+			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.3"/>
 			<item name="gunHandgunT3DesertVulture" mods="barrelAttachment,sideAttachment,scope,trigger" />
 			<item name="gunBotT3JunkDrone"/>  <!--Ignored for mod chance-->
 		</lootgroup>
@@ -619,9 +619,9 @@
 		<lootgroup name="groupHuntingRanged">
 			<item name="gunBowT0PrimitiveBow" loot_prob_template="ProbT0"/>  <!--Ignored for mod chance-->
 			<item name="gunBowT1WoodenBow" loot_prob_template="ProbT1"/>  <!--Ignored for mod chance-->
-			<item name="gunBowT3CompoundBow" loot_prob_template="ProbT3" mods="velocity,accuracy,health" mod_chance="0.5"/>
+			<item name="gunBowT3CompoundBow" loot_prob_template="ProbT3" mods="velocity,accuracy,health" mod_chance="0.3"/>
 			<item name="gunBowT1IronCrossbow" loot_prob_template="ProbT0"/>  <!--Ignored for mod chance-->
-			<item name="gunBowT3CompoundCrossbow" loot_prob_template="ProbT3" mods="SNT_RadRem,grips,scope,health" mod_chance="0.5"/>
+			<item name="gunBowT3CompoundCrossbow" loot_prob_template="ProbT3" mods="SNT_RadRem,grips,scope,health" mod_chance="0.3"/>
 			<item name="gunRifleT1HuntingRifle" loot_prob_template="ProbT1"/>  <!--Ignored for mod chance-->
 		</lootgroup>
 	</insertAfter>
@@ -630,17 +630,17 @@
 	<remove xpath="/lootcontainers/lootgroup[@name='groupArmorT2']"/>
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupArmorT1']">
 		<lootgroup name="groupArmorT2" loot_quality_template="QLTemplateT2">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.5"/>
-			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.5"/>
-			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelHelmet" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelGloves" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelChest" mods="movement,resistance,ammo" mod_chance="0.5"/>
-			<item name="armorSteelLegs" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelBoots" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSwatHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.5" prob=".4"/>
+			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.3"/>
+			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.3"/>
+			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelHelmet" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelGloves" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelChest" mods="movement,resistance,ammo" mod_chance="0.3"/>
+			<item name="armorSteelLegs" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelBoots" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSwatHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.3" prob=".4"/>
 		</lootgroup>
 	</insertAfter>
 	
@@ -649,11 +649,11 @@
 	<remove xpath="/lootcontainers/lootgroup[@name='groupMilitaryArmor']"/>
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupApparelHazmat']">
 		<lootgroup name="groupMilitaryGear">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.5"/>
-			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.5"/>
-			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.5"/>
+			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.3"/>
+			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.3"/>
+			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.3"/>
 			<item name="apparelArmyShirt"/>  <!--Ignored for mod chance-->
 			<item name="apparelArmyPants" mods="dye" mod_chance="0"/>  <!--Ignored for mod chance-->
 			<item name="armorMilitarySetParts" count="1,2" loot_prob_template="medLow"/>  <!--Ignored for mod chance-->
@@ -661,11 +661,11 @@
 		</lootgroup>
 		
 		<lootgroup name="groupMilitaryArmor">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.5"/>
-			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.5"/>
-			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.5"/>
+			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.3"/>
+			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.3"/>
+			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.3"/>
 			<item name="armorMilitarySetParts" count="1,2" loot_prob_template="medLow"/>  <!--Ignored for mod chance-->
 			<item name="apparelNightvisionGoggles" loot_prob_template="veryLow"/>  <!--Ignored for mod chance-->
 		</lootgroup>
@@ -675,18 +675,18 @@
 	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestArmorT2']"/>
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestArmorT1']">
 		<lootgroup name="groupQuestArmorT2" loot_quality_template="questT2QualTemplate">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.5"/>
-			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.5"/>
-			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelHelmet" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelGloves" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelChest" mods="movement,resistance,ammo" mod_chance="0.5"/>
-			<item name="armorSteelLegs" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSteelBoots" mods="movement,resistance,stealth" mod_chance="0.5"/>
-			<item name="armorSwatHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.5" loot_prob_template="medLow"/>
-			<item name="armorMiningHelmet" mods="modArmorHelmetLight" mod_chance="0.5"/>  <!--Ignored for mod chance-->
+			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.3"/>
+			<item name="armorMilitaryGloves" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryVest" mods="ammo,movement,resistance" mod_chance="0.3"/>
+			<item name="armorMilitaryLegs" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorMilitaryBoots" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelHelmet" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelGloves" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelChest" mods="movement,resistance,ammo" mod_chance="0.3"/>
+			<item name="armorSteelLegs" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSteelBoots" mods="movement,resistance,stealth" mod_chance="0.3"/>
+			<item name="armorSwatHelmet" mods="modArmorHelmetLight,resistance,waterPurifier" mod_chance="0.3" loot_prob_template="medLow"/>
+			<item name="armorMiningHelmet" mods="modArmorHelmetLight" mod_chance="0.3"/>  <!--Ignored for mod chance-->
 		</lootgroup>
 	</insertAfter>
 
@@ -694,29 +694,29 @@
 	<remove xpath="/lootcontainers/lootgroup[@name='groupInfestedT5MeleeRanged']"/>
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupHardenedChestT5']">
 		<lootgroup name="groupInfestedT5MeleeRanged" loot_quality_template="qualTwitchT6Template">
-			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.5"/>
-			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,club" mod_chance="0.5"/>
-			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.5"/>
-			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.5"/>
-			<item name="meleeWpnBladeT3Machete" mods="fire,durability,damage" mod_chance="0.5"/>
-			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.5"/>
-			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
-			<item name="meleeToolShovelT2SteelShovel"  mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.5"/>
+			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.3"/>
+			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,club" mod_chance="0.3"/>
+			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.3"/>
+			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.3"/>
+			<item name="meleeWpnBladeT3Machete" mods="fire,durability,damage" mod_chance="0.3"/>
+			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.3"/>
+			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
+			<item name="meleeToolShovelT2SteelShovel"  mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.3"/>
 			<item name="meleeToolAxeT3Chainsaw"/>  <!--Ignored for mod chance-->
-			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.5"/>
+			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.3"/>
 			<item name="meleeToolRepairT3Nailgun"/>  <!--Ignored for mod chance-->
-			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.5"/>
-			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.5"/>
+			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.3"/>
+			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.3"/>
 			<item name="gunRifleT2LeverActionRifle"/>  <!--Ignored for mod chance-->
-			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.5"/>
+			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.3"/>
 			<item name="gunShotgunT2PumpShotgun"/>  <!--Ignored for mod chance-->
 			<item name="gunHandgunT2Magnum44"/>  <!--Ignored for mod chance-->
-			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.5"/>
+			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.3"/>
 			<item name="gunExplosivesT3RocketLauncher"/>  <!--Ignored for mod chance-->
-			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.5"/>
-			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.5"/>
-			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.5"/>
+			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.3"/>
+			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.3"/>
+			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.3"/>
 			<item name="gunHandgunT3DesertVulture" mods="barrelAttachment,sideAttachment,scope,trigger"/>
 			<item name="gunBotT3JunkDrone"/>  <!--Ignored for mod chance-->
 			<item name="gunBotT2JunkTurret"/>  <!--Ignored for mod chance-->
