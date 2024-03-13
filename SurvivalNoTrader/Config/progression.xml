@@ -144,7 +144,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeadEye"/>
+				<requirement name="ItemHasTags" tags="perkDeadEye"/>
 				<requirement name="CVarCompare" cvar="lbu_DeadEye_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_DeadEye_Lvl" operation="LTE" value="0"/>
@@ -161,7 +161,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeadEye"/>
+				<requirement name="ItemHasTags" tags="perkDeadEye"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50" tags="perkDeadEye"/>
 					<passive_effect name="WeaponHandling" operation="perc_add" value=".01,0.3" level="1,50" tags="perkDeadEye"/>
 					<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.01,0.15" level="1,50" tags="perkDeadEye"/>
@@ -169,7 +169,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeadEye"/>
+				<requirement name="ItemHasTags" tags="perkDeadEye"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeadEye_XP" operation="add" value="10">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -179,7 +179,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeadEye"/>
+				<requirement name="ItemHasTags" tags="perkDeadEye"/>
 				<requirement name="CVarCompare" cvar="lbu_DeadEye_XP" operation="GTE" value="@lbu_DeadEye_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeadEye_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -304,7 +304,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkJavelinMaster"/>
+				<requirement name="ItemHasTags" tags="perkJavelinMaster"/>
 				<requirement name="CVarCompare" cvar="lbu_SpearMaster_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_SpearMaster_Lvl" operation="LTE" value="0"/>
@@ -321,7 +321,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkJavelinMaster"/>
+				<requirement name="ItemHasTags" tags="perkJavelinMaster"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkJavelinMaster"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,.25" level="1,50" tags="perkJavelinMaster"/>
 
@@ -331,7 +331,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkJavelinMaster"/>
+				<requirement name="ItemHasTags" tags="perkJavelinMaster"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_SpearMaster" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SpearMaster_XP" operation="add" value="6">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -341,7 +341,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkJavelinMaster"/>
+				<requirement name="ItemHasTags" tags="perkJavelinMaster"/>
 				<requirement name="CVarCompare" cvar="lbu_SpearMaster_XP" operation="GTE" value="@lbu_SpearMaster_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_SpearMaster" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SpearMaster_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -367,7 +367,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				<requirement name="ItemHasTags" tags="perkSalvageOperations"/>
 				<requirement name="CVarCompare" cvar="lbu_Salvage_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_Salvage_Lvl" operation="LTE" value="0"/>
@@ -385,7 +385,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				<requirement name="ItemHasTags" tags="perkSalvageOperations"/>
 					<passive_effect name="CraftingTime" operation="perc_add" value="-0.05,-.25" level="1,50" tags="salvageScrap"/><!-- does not work on scrapping -->
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkSalvageOperations"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50" tags="perkSalvageOperations"/>
@@ -396,7 +396,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				<requirement name="ItemHasTags" tags="perkSalvageOperations"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Salvage" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedBlock" action="ModifyCVar" cvar="lbu_Salvage_XP" operation="add" value="12"/>
 					<!-- add additional damage for destruction-->
@@ -405,7 +405,7 @@
 
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSalvageOperations"/>
+				<requirement name="ItemHasTags" tags="perkSalvageOperations"/>
 				<requirement name="CVarCompare" cvar="lbu_Salvage_XP" operation="GTE" value="@lbu_Salvage_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Salvage" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedBlock" action="ModifyCVar" cvar="lbu_Salvage_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -432,7 +432,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				<requirement name="ItemHasTags" tags="perkBoomstick"/>
 				<requirement name="CVarCompare" cvar="lbu_Boomstick_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_Boomstick_Lvl" operation="LTE" value="0"/>
@@ -449,7 +449,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>				
+				<requirement name="ItemHasTags" tags="perkBoomstick"/>				
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkBoomstick"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50" tags="perkBoomstick"/>
 					<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value=".01,.15" level="1,50" tags="perkBoomstick"/>
@@ -458,17 +458,17 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				<requirement name="ItemHasTags" tags="perkBoomstick"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Boomstick_XP" operation="add" value="6">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
 					</triggered_effect>
-					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_Boomstick_XP" operation="add" value="16"/> 
+					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_Boomstick_XP" operation="add" value="14"/> 
 			</effect_group>
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				<requirement name="ItemHasTags" tags="perkBoomstick"/>
 				<requirement name="CVarCompare" cvar="lbu_Boomstick_XP" operation="GTE" value="@lbu_Boomstick_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Boomstick_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -493,7 +493,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkPummelPete"/>
+				<requirement name="ItemHasTags" tags="perkPummelPete"/>
 				<requirement name="CVarCompare" cvar="lbu_PummelPete_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_PummelPete_Lvl" operation="LTE" value="0"/>
@@ -511,7 +511,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkPummelPete"/>
+				<requirement name="ItemHasTags" tags="perkPummelPete"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50"  tags="perkPummelPete"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50" tags="perkPummelPete"/>
 					<passive_effect name="EntityDamage" operation="perc_add"  value="0.01,1" level="1,50" tags="perkPummelPete">
@@ -526,7 +526,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkPummelPete"/>
+				<requirement name="ItemHasTags" tags="perkPummelPete"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_PummelPete" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_PummelPete_XP" operation="add" value="6">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -536,7 +536,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkPummelPete"/>
+				<requirement name="ItemHasTags" tags="perkPummelPete"/>
 				<requirement name="CVarCompare" cvar="lbu_PummelPete_XP" operation="GTE" value="@lbu_PummelPete_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_PummelPete" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_PummelPete_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -565,7 +565,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSkullCrusher"/>
+				<requirement name="ItemHasTags" tags="perkSkullCrusher"/>
 				<requirement name="CVarCompare" cvar="lbu_SkullCrusher_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_SkullCrusher_Lvl" operation="LTE" value="0"/>
@@ -583,7 +583,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSkullCrusher"/>
+				<requirement name="ItemHasTags" tags="perkSkullCrusher"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50"  tags="perkSkullCrusher"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50"  tags="perkSkullCrusher"/>
 					<passive_effect name="StaminaLoss" operation="perc_add" value="-.01,-.125" level="1,50"  tags="primary"/>
@@ -594,7 +594,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSkullCrusher"/>
+				<requirement name="ItemHasTags" tags="perkSkullCrusher"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_SkullCrusher" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SkullCrusher_XP" operation="add" value="8">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -604,7 +604,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkSkullCrusher"/>
+				<requirement name="ItemHasTags" tags="perkSkullCrusher"/>
 				<requirement name="CVarCompare" cvar="lbu_SkullCrusher_XP" operation="GTE" value="@lbu_SkullCrusher_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_SkullCrusher" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SkullCrusher_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -633,7 +633,7 @@
 		
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMiner69r,perkMotherLode"/>
+				<requirement name="ItemHasTags" tags="perkMiner69r,perkMotherLode"/>
 				<requirement name="CVarCompare" cvar="lbu_Miner69er_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_Miner69er_Lvl" operation="LTE" value="0"/>
@@ -651,7 +651,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMiner69r,perkMotherLode"/>
+				<requirement name="ItemHasTags" tags="perkMiner69r,perkMotherLode"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value="0.01,0.75" level="1,50" />
 					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
 					<passive_effect name="HarvestCount" operation="perc_add" value="0.01,0.5" level="1,50" />
@@ -661,7 +661,7 @@
 			
 			<!--apply any level xp gain for harvest trigger-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMiner69r,perkMotherLode"/>
+				<requirement name="ItemHasTags" tags="perkMiner69r,perkMotherLode"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="4"/> 
 					<!-- add additional damage for destruction-->
@@ -670,7 +670,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMiner69r,perkMotherLode"/>
+				<requirement name="ItemHasTags" tags="perkMiner69r,perkMotherLode"/>
 				<requirement name="CVarCompare" cvar="lbu_Miner69er_XP" operation="GTE" value="@lbu_Miner69er_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -697,7 +697,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBrawler"/>
+				<requirement name="ItemHasTags" tags="perkBrawler"/>
 				<requirement name="!ItemHasTags" tags="perkTurrets"/>
 				<requirement name="CVarCompare" cvar="lbu_Brawler_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
@@ -716,7 +716,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBrawler"/>
+				<requirement name="ItemHasTags" tags="perkBrawler"/>
 				<requirement name="!ItemHasTags" tags="perkTurrets"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkBrawler"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50" tags="perkBrawler"/>
@@ -730,7 +730,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBrawler"/>
+				<requirement name="ItemHasTags" tags="perkBrawler"/>
 				<requirement name="!ItemHasTags" tags="perkTurrets"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Brawler" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Brawler_XP" operation="add" value="6">
@@ -741,7 +741,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkBrawler"/>
+				<requirement name="ItemHasTags" tags="perkBrawler"/>
 				<requirement name="!ItemHasTags" tags="perkTurrets"/>
 				<requirement name="CVarCompare" cvar="lbu_Brawler_XP" operation="GTE" value="@lbu_Brawler_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Brawler" operation="LT" value="50"/>
@@ -771,7 +771,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+				<requirement name="ItemHasTags" tags="perkMachineGunner"/>
 				<requirement name="CVarCompare" cvar="lbu_MachineGunner_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_MachineGunner_Lvl" operation="LTE" value="0"/>
@@ -789,7 +789,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+				<requirement name="ItemHasTags" tags="perkMachineGunner"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkMachineGunner"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,0.25" level="1,50" tags="perkMachineGunner"/>
 					<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.01,0.12" level="1,50" tags="perkMachineGunner"/>
@@ -799,7 +799,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+				<requirement name="ItemHasTags" tags="perkMachineGunner"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_MachineGunner" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_MachineGunner_XP" operation="add" value="5">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -809,7 +809,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkMachineGunner"/>
+				<requirement name="ItemHasTags" tags="perkMachineGunner"/>
 				<requirement name="CVarCompare" cvar="lbu_MachineGunner_XP" operation="GTE" value="@lbu_MachineGunner_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_MachineGunner" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_MachineGunner_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -834,7 +834,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkArchery"/>
+				<requirement name="ItemHasTags" tags="perkArchery"/>
 				<requirement name="CVarCompare" cvar="lbu_Archery_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_Archery_Lvl" operation="LTE" value="0"/>
@@ -851,7 +851,7 @@
 
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkArchery"/>	
+				<requirement name="ItemHasTags" tags="perkArchery"/>	
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkArchery"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,.25" level="1,50" tags="perkArchery"/>
 					<passive_effect name="WeaponHandling" operation="perc_add" value=".01,.25" level="1,50" tags="perkArchery"/>
@@ -862,7 +862,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkArchery"/>
+				<requirement name="ItemHasTags" tags="perkArchery"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Archery_XP" operation="add" value="12">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -872,7 +872,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkArchery"/>
+				<requirement name="ItemHasTags" tags="perkArchery"/>
 				<requirement name="CVarCompare" cvar="lbu_Archery_XP" operation="GTE" value="@lbu_Archery_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Archery_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -897,7 +897,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkGunslinger"/>
+				<requirement name="ItemHasTags" tags="perkGunslinger"/>
 				<requirement name="CVarCompare" cvar="lbu_Gunslinger_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_Gunslinger_Lvl" operation="LTE" value="0"/>
@@ -915,7 +915,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkGunslinger"/>
+				<requirement name="ItemHasTags" tags="perkGunslinger"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value="0.01,0.5" level="1,50" tags="perkGunslinger"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,.25" level="1,50" tags="perkGunslinger"/>
 					<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.01,0.12" level="1,50" tags="perkGunslinger"/>
@@ -924,7 +924,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkGunslinger"/>
+				<requirement name="ItemHasTags" tags="perkGunslinger"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Gunslinger_XP" operation="add" value="6">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -934,7 +934,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkGunslinger"/>
+				<requirement name="ItemHasTags" tags="perkGunslinger"/>
 				<requirement name="CVarCompare" cvar="lbu_Gunslinger_XP" operation="GTE" value="@lbu_Gunslinger_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Gunslinger_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -959,7 +959,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+				<requirement name="ItemHasTags" tags="perkDeepCuts"/>
 				<requirement name="CVarCompare" cvar="lbu_DeepCuts_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_DeepCuts_Lvl" operation="LTE" value="0"/>
@@ -977,7 +977,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+				<requirement name="ItemHasTags" tags="perkDeepCuts"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkDeepCuts"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,.25" level="1,50" tags="perkDeepCuts"/>
 					
@@ -989,7 +989,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+				<requirement name="ItemHasTags" tags="perkDeepCuts"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeepCuts_XP" operation="add" value="6">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -999,7 +999,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkDeepCuts"/>
+				<requirement name="ItemHasTags" tags="perkDeepCuts"/>
 				<requirement name="CVarCompare" cvar="lbu_DeepCuts_XP" operation="GTE" value="@lbu_DeepCuts_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeepCuts_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
@@ -1028,7 +1028,7 @@
 
 			<!--initialise if first time-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkElectrocutioner"/>
+				<requirement name="ItemHasTags" tags="perkElectrocutioner"/>
 				<requirement name="CVarCompare" cvar="lbu_Electrocutioner_XP" operation="LTE" value="0"/>
 				<!--BCK var must be 0 in order to set the initial defaults-->
 				<requirement name="CVarCompare" cvar="lbu_Electrocutioner_Lvl" operation="LTE" value="0"/>
@@ -1046,7 +1046,7 @@
 			
 			<!--apply current effect as per level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkElectrocutioner"/>
+				<requirement name="ItemHasTags" tags="perkElectrocutioner"/>
 					<passive_effect name="BlockDamage" operation="perc_add" value=".01,0.5" level="1,50" tags="perkElectrocutioner"/>
 					<passive_effect name="EntityDamage" operation="perc_add" value=".01,.25" level="1,50" tags="perkElectrocutioner"/>
 					
@@ -1059,7 +1059,7 @@
 	
 			<!--apply any level xp gain for damage or kill triggers-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkElectrocutioner"/>
+				<requirement name="ItemHasTags" tags="perkElectrocutioner"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Electrocutioner_XP" operation="add" value="6">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
@@ -1069,7 +1069,7 @@
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
 			<effect_group>
-				<requirement name="HoldingItemHasTags" tags="perkElectrocutioner"/>
+				<requirement name="ItemHasTags" tags="perkElectrocutioner"/>
 				<requirement name="CVarCompare" cvar="lbu_Electrocutioner_XP" operation="GTE" value="@lbu_Electrocutioner_XPIncrement"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="LT" value="50"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Electrocutioner_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
