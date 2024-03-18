@@ -91,11 +91,42 @@
 	</append>
 
 	<!--code for adding mods to items-->
-	<!--delete the <item_modifier name="modRadiationReady" item_modifier - its not used and interferes with 
+	<!--The following mods will only spawn installed in items:
+		Weapon mods: modGunMeleeRadRemover, modGunSoundSuppressorSilencer,modGunDrumMagazineExtender, modGunScopeLarge, modGunTriggerGroupAutomatic,
+		Weapons the weapons mods will spawn in: Steel Spear, Steel Club, Steel Sledgehammer,Steel Knuckles, Machete, Stun Baton, 
+					SMG, Desert Vulture, Auto Shotgun, Sniper Rifle, Tactical AR, M60, Compound Bow, Compound Crossbow
+		
+		Tool mods: modMeleeDiamondTip,modMeleeErgonomicGrip, modMeleeIronBreaker,modMeleeTemperedBlade
+		Tools the tool mods will spawn in: Steel Shovel, Steel Pickaxe, Steel Axe, SteelSledgehammer, Auger, Impact Driver
+		
+		Clothes mods: modArmorCustomizedFittings,modArmorPlatingReinforced,modArmorAdvancedMuffledConnectors, modArmorBandolier
+		Clothes the clothes mods will spawn in: Military Clothing, Steel Clothing, Sawt Helmet
+		
+		The code uses the modifier_tags property for the item_modifiers.
+		See also items.xml and loot.xml as Loot Groups have changed as well (even if they are quest groups)
+	-->
+	<!--delete the modRadiationReady item_modifier - its not used and interferes with 
 		allowing top tier items to spawn with a random modifiers (items can spawm with this modifier as well unless removed)
 		see loot.xml-->
 	<remove xpath="/item_modifiers/item_modifier[@name='modRadiationReady']"/>
-	<!--Add a tag to the rad remover to add it to items in loot.xml (the current tag is shared by other items not used)-->
+	<!--Add a tag to the rad remover to add it to items in loot.xml (the current tag is shared by other items not used)
+		The following modifier_tags are added:
+		SNT_RadRem SNT_Suppressor SNT_DrumMag SNT_LargeScope SNT_TriggerAuto SNT_DiamondTip SNT_ErgoGrip SNT_IronBreaker
+		SNT_TemperedBlade SNT_CustomFit SNT_PlateArmour SNT_AdvMuff SNT_Bandolier
+	-->
 	<set xpath="/item_modifiers/item_modifier[@name ='modGunMeleeRadRemover']/@modifier_tags">SNT_RadRem,specialDamage</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modGunSoundSuppressorSilencer']/@modifier_tags">SNT_Suppressor,barrelAttachment</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modGunDrumMagazineExtender']/@modifier_tags">SNT_DrumMag,magazine</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modGunScopeLarge']/@modifier_tags">SNT_LargeScope,scoper</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modGunTriggerGroupAutomatic']/@modifier_tags">SNT_TriggerAuto,trigger</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modMeleeDiamondTip']/@modifier_tags">SNT_DiamondTip,durability</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modMeleeErgonomicGrip']/@modifier_tags">SNT_ErgoGrip,health</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modMeleeIronBreaker']/@modifier_tags">SNT_IronBreaker,damageIron</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modMeleeTemperedBlade']/@modifier_tags">SNT_TemperedBlade,damage</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modArmorCustomizedFittings']/@modifier_tags">SNT_CustomFit,movement</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modArmorPlatingReinforced']/@modifier_tags">SNT_PlateArmour,resistance</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modArmorAdvancedMuffledConnectors']/@modifier_tags">SNT_AdvMuff,stealth</set>
+	<set xpath="/item_modifiers/item_modifier[@name ='modArmorBandolier']/@modifier_tags">SNT_Bandolier,ammo</set>
+	
 	<!--end code for adding mods to items-->
 </configs>

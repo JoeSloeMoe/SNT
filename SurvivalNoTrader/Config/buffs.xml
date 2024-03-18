@@ -173,9 +173,22 @@
 			</effect_group>
 		</buff>
 		
+		<!-- this buff reduces stamina usage for ranged weapons while crouch ADS.
+			This is called by buffGameEventController when the player start aiming down the weapon sights.
+			It is removed by buffGameEventController when the player stops aiming down the weapon sights-->
+		<buff name="buffCrouchAimingStamina" hidden="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+				<requirement name="HoldingItemHasTags" tags="weapon,ranged"/>
+					<passive_effect name="StaminaChangeOT" operation="perc_add" value=".2" />
+			</effect_group>
+		</buff>
+		
 		<!-- this buff is given to the player when they start a game - see buff ADDCONTROLLERBUFF below -->
 		<!-- Keeps track of various game counters e.g. number of zombie kills.
-			 Uses this info to set off events in game e.g. Give player 'Mary's Revenge Bundle' for 3000 zombie kills -->
+			 Uses this info to set off events in game e.g. Give player 'Mary's Revenge Bundle' for 4000 zombie kills -->
 		<buff name="buffGameEventController" name_key="buffGameEventController" description_key="buffGameEventControllerDesc">
 			<stack_type value="replace"/>
 			<duration value="0"/>
@@ -198,12 +211,37 @@
 					<passive_effect name="LootStage" operation="base_add" value="7"/>
 			</effect_group>
 			
+			
+			<!--start crouching code.
+				Crouching improves ranged weapon aiming and handling etc. It also cuts down on stamin usage when aiming down sights
+			-->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+				<requirement name="HoldingItemHasTags" tags="weapon,ranged"/>
+					<passive_effect name="WeaponHandling" operation="perc_add" value=".13"/> <!--same as forgrip-->
+					<passive_effect name="SpreadMultiplierCrouching" operation="perc_add" value="-.15"/><!--same as forgrip-->
+					<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-.08"/> <!--same as bipod-->				
+					<passive_effect name="DamageFalloffRange" operation="perc_add" value=".1"/> <!--1/2 of gun barrel extender-->
+					<passive_effect name="MaxRange" operation="perc_add" value=".1"/><!--1/2 of gun barrel extender-->
+					<!--kickback same as forgrip-->
+					<passive_effect name="KickDegreesVerticalMin" operation="perc_add" value="-.5"/>
+					<passive_effect name="KickDegreesVerticalMax" operation="perc_add" value="-.5"/>
+					<passive_effect name="KickDegreesHorizontalMin" operation="perc_add" value="-.5"/>
+					<passive_effect name="KickDegreesHorizontalMax" operation="perc_add" value="-.5"/>				
+			</effect_group>
+			<!--add or remove the stamina buff for ADS-->
+			<effect_group>
+				<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" buff="buffCrouchAimingStamina"/>
+				<triggered_effect trigger="onSelfAimingGunStop" action="RemoveBuff" buff="buffCrouchAimingStamina"/> 
+			</effect_group>
+			<!--end crouching code-->
+			
 			<effect_group>
 				<!--handling the event for making the solarbank recipe available at level 50 -->
 				<requirement name="PlayerLevel" operation="Equals" value="50"/>
-				<requirement name="CVarCompare" cvar="$solarBankRecipeUnlocked" operation="LTE" value="0"/>
+				<requirement name="CVarCompare" cvar="solarBankRecipeUnlocked" operation="LTE" value="0"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="solarbank" operation="set" value="1"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$solarBankRecipeUnlocked" operation="add" value="1" />
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="solarBankRecipeUnlocked" operation="add" value="1" />
 					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="solarBankUnlocked"/>
 			</effect_group>
 			
@@ -214,18 +252,15 @@
 				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0" />
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
 				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0" />
-				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$burialSiteOneGiven1" operation="set" value="0"/>
-				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$burialSiteOneGiven1" operation="set" value="0" />				
-				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$solarBankRecipeUnlocked" operation="set" value="0"/>		
 			</effect_group>
 
 			<effect_group>			
 				<!-- check zombie death count - give reward if passed-->
 				<requirement name="CVarCompare" cvar="$numZombieKillsControl" operation="Equals" value="4000"/>
-				<requirement name="CVarCompare" cvar="$burialSiteOneGiven" operation="LTE" value="0"/>
+				<requirement name="CVarCompare" cvar="burialSiteOneGiven" operation="LTE" value="0"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="give_graveRobbingOneQuest"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="milestoneBundleZombieKill"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$burialSiteOneGiven" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="burialSiteOneGiven" operation="add" value="1"/>
 			</effect_group>
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGameEventControllerDuration" operation="add" value="1"/>
@@ -236,7 +271,6 @@
 			</effect_group>
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
-				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$burialSiteOneGiven" operation="set" value="0"/>
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGameEventControllerDuration" operation="set" value="0"/>
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
@@ -263,8 +297,8 @@
 	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
 		<effect_group>
 			<requirement name="!HasBuff" buff="buffGameEventController"/>
-				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffGameEventController"/>
-				<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffGameEventController"/>
+				<!--<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>-->
 		</effect_group>
 	</append>
 		
@@ -300,14 +334,16 @@
 		</buff>
 	</insertAfter>
 	
-	<!--this buff verifies that the players ProgressionLevel is the same as the backup progress level (for each Learn By Use Perk)
-		If a player drinks the forgetin Elixer it resets all Perks. A backup is kept to use this buff to restore after 
-		elixer consumption. To be safe the code verifies they are exactly the same-->
-	<!--Cant read a variable's value into SetProgressionLevel-<lbu_perk_name> (its a 'level' not a 'value') and also
-	    Cant write ProgressionLevel-<lbu_perk_name> to a variable.
-		Because of this a buff is used so that if any ProgressionLevels are different than the backup copy;
-		The buff will iterate over the value until they are equal-->
+
 	<append xpath="/buffs">
+		
+		<!--this buff verifies that the players ProgressionLevel is the same as the backup progress level (for each Learn By Use Perk)
+			If a player drinks the forgetin Elixer it resets all Perks. A backup is kept to use this buff to restore after 
+			elixer consumption. To be safe the code verifies they are exactly the same-->
+		<!--Cant read a variable's value into SetProgressionLevel-<lbu_perk_name> (its a 'level' not a 'value') and also
+			Cant write ProgressionLevel-<lbu_perk_name> to a variable.
+			Because of this a buff is used so that if any ProgressionLevels are different than the backup copy;
+			The buff will iterate over the value until they are equal-->			
 		<buff name="buffVerifyLBU_ProgressLevels" hidden="true" >
 			<stack_type value="ignore"/>
 			<duration value="0"/>
@@ -334,6 +370,14 @@
 			
 			<!--AGILITY-->
 			<effect_group>			
+			
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_HiddenStrike" level="1">
+					<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LT" value="@lbu_HiddenStrike_Lvl"/> 
+				</triggered_effect>	
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_HiddenStrike_Lvl" operation="add" value="1">
+					<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="GT" value="@lbu_HiddenStrike_Lvl"/> 
+				</triggered_effect>		
+		
 				<triggered_effect trigger="onSelfBuffUpdate" action="AddProgressionLevel" progression_name="lbu_DeepCuts" level="1">
 					<requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="LT" value="@lbu_DeepCuts_Lvl"/> 
 				</triggered_effect>	
@@ -450,11 +494,89 @@
 				<requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="EQ" value="@lbu_Archery_Lvl"/> 
 				<requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="EQ" value="@lbu_Gunslinger_Lvl"/> 
 				<requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="EQ" value="@lbu_DeepCuts_Lvl"/> 
+				<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="EQ" value="@lbu_HiddenStrike_Lvl"/> 
 				<requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="EQ" value="@lbu_Electrocutioner_Lvl"/> 
 				<requirement name="ProgressionLevel" progression_name="lbu_Robotics" operation="EQ" value="@lbu_Robotics_Lvl"/> 
 					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffVerifyLBU_ProgressLevels"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message="LEARN BY USE: Progress levels verified!"/>
 			</effect_group>
 		</buff>
+		
+		
+		<!--this buff performs the effects for the Hidden Strike LBU Perk - see progressions.xml
+			The code is different from other Perks because Hidden Strike applies to a more than one weapon/perk (e.g. sneak damage with any range weapon)
+		    The code doesnt differentiate between damage and a kill as the 'stealth kill' trigger only happens once.-->
+		<buff name="buffHiddenStrikeAction" hidden="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<effect_group>
+				<!--apply any level xp gain for damage or kill triggers-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="add" value="6">
+					<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="add" value="16"/> 
+				<!--<triggered_effect trigger="onSelfKilledOther" action="ShowToolbeltMessage" message="Hidden Strike onSelfKilledOther"/>-->
+			</effect_group>
+			
+			<effect_group>
+				<!--Increase ProgressLevel if xp greater than value for next level-->
+				<requirement name="CVarCompare" cvar="lbu_HiddenStrike_XP" operation="GTE" value="@lbu_HiddenStrike_XPIncrement"/>
+				<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LT" value="50"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
+						<!--taper off level xp increase at level 47 (xxx_XPIncrement about 4000). xxx_XPIncrement will grow to 4700  without the cap-->
+						<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LTE" value="@lbu_DefaultLevelCap"/>
+					</triggered_effect>   
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="lbu_HiddenStrike" level="1"/>
+					<!--Upadate BCK var in line with ProgressionLevel progress-->
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_Lvl" operation="add" value="1"/> 
+					<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Hidden Strike Skill Increased!"/>
+					<!--if max level then give free Skill Point-->
+					<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="lbu_action_give_points">
+						<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="EQ" value="50"/>
+					</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHiddenStrikeAction"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffHiddenStrikeActionKill" hidden="true" >
+			<stack_type value="effect"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="LEARN BY USE: buffHidden   Strike   ActionKill"/>
+			</effect_group>
+			
+			<effect_group>
+				<!--apply any level xp gain for damage or kill triggers-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="add" value="18"/> 
+				<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Hidden Strike onSelfKilledOther"/>
+			</effect_group>
+			
+			<effect_group>
+				<!--Increase ProgressLevel if xp greater than value for next level-->
+				<requirement name="CVarCompare" cvar="lbu_HiddenStrike_XP" operation="GTE" value="@lbu_HiddenStrike_XPIncrement"/>
+				<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LT" value="50"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XPIncrement" operation="multiply" value="@lbu_DefaultIncrementIncrease"> 
+						<!--taper off level xp increase at level 47 (xxx_XPIncrement about 4000). xxx_XPIncrement will grow to 4700  without the cap-->
+						<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="LTE" value="@lbu_DefaultLevelCap"/>
+					</triggered_effect>   
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_XP" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddProgressionLevel" progression_name="lbu_HiddenStrike" level="1"/>
+					<!--Upadate BCK var in line with ProgressionLevel progress-->
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="lbu_HiddenStrike_Lvl" operation="add" value="1"/> 
+					<triggered_effect trigger="onSelfBuffStart" action="ShowToolbeltMessage" message="Hidden Strike Skill Increased!"/>
+					<!--if max level then give free Skill Point-->
+					<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="lbu_action_give_points">
+						<requirement name="ProgressionLevel" progression_name="lbu_HiddenStrike" operation="EQ" value="50"/>
+					</triggered_effect>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffHiddenStrikeActionKill"/>
+			</effect_group>
+		</buff>
+		
 	</append>
 </configs>
