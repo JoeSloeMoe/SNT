@@ -182,7 +182,7 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
 				<requirement name="HoldingItemHasTags" tags="weapon,ranged"/>
-					<passive_effect name="StaminaChangeOT" operation="perc_add" value=".2" />
+					<passive_effect name="StaminaChangeOT" operation="perc_add" value=".5" />
 			</effect_group>
 		</buff>
 		
