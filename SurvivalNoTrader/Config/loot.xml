@@ -32,13 +32,14 @@
 		
 		<!--vehicle parts group-->
 		<lootgroup name="groupAirDropVehicles"> 
-			<item name="vehicleMotorcycleChassis" count="1"/>
-			<item name="vehicleMotorcycleHandlebars" count="1"/>
 			<item name="vehicleGyroCopterChassis" count="1"/>
 			<item name="vehicleGyroCopterAccessories" count="1"/>
+			<item name="vehicleMotorcycleChassis" count="1"/>
+			<item name="vehicleMotorcycleHandlebars" count="1"/>
 			<item name="vehicle4x4TruckChassis" count="1"/>
 			<item name="vehicle4x4TruckAccessories" count="1"/>
 		</lootgroup>
+		
 		<!--food group-->
 		<lootgroup name="groupAirDropConsumable"> 
 			<item name="foodSteakAndPotato" count="8,12"/>
@@ -86,18 +87,20 @@
 		<item name="resourceForgedSteel" count="250" prob="0.05" force_prob="true"/>
 		<item name="drugJailBreakers" count="10,15" prob="0.05" force_prob="true"/>
 		<item name="batterybank" count="1" prob="0.05" force_prob="true" />
-		<item name="vehiclesSkillMagazine" count="15" prob="0.05" force_prob="true" />
 		<item name="shotgunTurret" count="1" prob="0.05" force_prob="true" />
 		<item name="autoTurret" count="1" prob="0.05" force_prob="true" />
 		<item name="airdropAPAmmoBundle" count="1" prob="0.05" force_prob="true" />
 		<item name="airdropSteelDoorBundle" count="1" prob="0.05" force_prob="true" />
 		<item name="airdropSeedBundle" count="1" prob="0.05" force_prob="true" />
+		
 		<!--solar pack w random (level 2 and above) panel and bank-->
 		<item name="airdropSolarBankBundle" count="1" prob="0.05" force_prob="true" />
 		<!--couple of random level (level 2 and above) solar panels -->
 		<item group="groupAirDropSolarPanel" count="1" prob="0.05" force_prob="true" />
-		<item group="groupAirDropVehicles" count="1" prob="0.05" force_prob="true" />
 		
+		<item group="groupAirDropVehicles" count="1" prob="0.05" force_prob="true" />
+		<item name="airdropVehiclesMagazineBundle" count="1" prob="0.05" force_prob="true" />
+					 
 		<!-- guaranteed stuff -->
 		<item name="casinoCoin" count="1200,3000" />		
 		<item name="questRewardT1SkillMagazineBundle" count="2"/>
@@ -105,6 +108,20 @@
 		
 	</append>
 	<!--end airdrop loot settings-->
+	
+	<!-- Interloper story: loot containers, groups and items for the homing vulture/pigeon
+		STORY NOT IMPLEMENTED YET-->
+	<append xpath="/lootcontainers">
+		<!--lootgroup for the first delivery-->
+		<lootgroup name="groupHomingVultureDelivery1">
+			<item group="groupFoodUncommon" loot_prob_template="medHigh"/>
+		</lootgroup>
+		<!--lootcontainer for the first delivery (each delivery can have a different note)-->
+		<lootcontainer name="homingVultureDelivery1" count="1" size="6,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template" ignore_loot_abundance="true">
+			<item group="groupHomingVultureDelivery1"/>
+		</lootcontainer>
+	</append>
+	<!-- end Interloper story loot-->
 	
 	<!--set the storage size of the T4 & T5 hardened chests 
 			Default is 8,9.

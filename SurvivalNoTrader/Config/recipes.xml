@@ -59,6 +59,60 @@
 			<ingredient name="resourceRawDiamond" count="2"/>
 		</recipe>
 		
+		<!--recipies for scrapping tool and weapon parts-->
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="armorSteelSetParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapPolymers" count="25" craft_time="2">
+			<ingredient name="armorMilitarySetParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeToolAllSteelParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeWpnSledgeT3SteelSledgehammerParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeWpnClubT3SteelClubParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeWpnSpearT3SteelSpearParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeWpnBladeT3MacheteParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeWpnKnucklesT3SteelKnucklesParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeWpnBatonT2StunBatonParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="gunBotRoboticsParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="gunExplosivesT3RocketLauncherParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapPolymers" count="25" craft_time="2">
+			<ingredient name="gunBowT1WoodenBowParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="gunShotgunT1DoubleBarrelParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="gunRifleT1HuntingRifleParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="gunHandgunT1PistolParts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="gunMGT1AK47Parts" count="1"/>
+		</recipe>
+		<recipe name="resourceScrapIron" count="25" craft_time="2">
+			<ingredient name="meleeToolAxeT3ChainsawParts" count="1"/>
+		</recipe>
+		<!--end recipies for scrapping tool and weapon parts-->
+		
 		<!--these 3 mods are unlocked by modRagdollSpecialSchematic, modElectricSpecialSchematic,
 		modElectricRagdollSpecialSchematic: only modElectricRagdollSpecial is being used currently-->
 		<!--<recipe name="modRagdollSpecial" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">

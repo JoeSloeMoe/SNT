@@ -117,10 +117,11 @@ Large change to progression:
 Added Hybrid Learn By Use Action Skills. Increase half of all Perk Damage, Stamina, Harvesting etc. values by using tools and weapons. Upgrade the other half of the stats increases using the Perk Tree as normal. Receive a bonus skill point when each Skill maxes at level 50.
 Currently applies to the tools and weapons for the following Perks:
 
-Perception: DeadEye, SpearMaster, Salvage
+(Updated 4/4/2024)
+Perception: DeadEye, Demolition Expert, SpearMaster, Salvage
 Strength: Boomstick, PummelPete, SkullCrusher, Miner69r/Motherload.
 Fortitude: Brawler, MachineGunner
-Agility: Archery, Gunslinger, DeapCuts
+Agility: Archery, Gunslinger, DeapCuts, Hidden Strike
 Intellect: Electrocutioner, Robotics
 
 (The hybrid version is based on the Action Skill levelling algorithm from Khaine in the Darkness Falls mod://community.7daystodie.com/topic/4941-darkness-falls-they-mostly-come-out-at-night/ )
@@ -179,7 +180,7 @@ Fixed Learn By Use damage progression bug for Gunslinger.
 	Other random mods can also be found as attachments in the above weapons/tools/clothes but they spawn normally in the world as well.
   
 
-  1.1.3 17th March 2024
+  1.1.3 18th March 2024
    - Refactored controller code so that buffs are properly managed after death.
    - Code pass over mods spawning in weapons/tools/clothing. Except for one or two cases, only the specialised mods spawn in items.
    - Increased T4&T5 Hardened Chest storage from 10,10 to 11,10.
@@ -188,3 +189,19 @@ Fixed Learn By Use damage progression bug for Gunslinger.
    - Added Hidden Strike to the Learn By Use Perk Tree.	
    - Fixed issue where the Miner69r/Motherload Perk allowed the harvesting rate to be applied to plants/farming (e.g. shovels could get extra food from farm plot plants)
    - Slightly reduced Learn By Use Boomstick xp gain per target hit (shotty can hit multiple targets with a single shell).
+
+  1.1.4 7th April 2024
+   - Modified the firing sounds of the Pump and Auto shotguns.
+   - Can now recycle/scrap Tool and Weapon parts. 
+		Bow and Military Armour parts scrap to 25 Polymer.
+		All other Parts scrap to 25 Iron.
+		Select either Recipes->Iron or Recipes->Scrap Polymer, then the amount to scrap depending on the Part. 
+		(A key - select recipe - W key)
+		
+   - Learn By Use: Added config setting to turn off giving a free skill point when each Perk's Progress is maxed. (On by default)
+   - Learn By Use: Changes to perk level progression speeds - 
+						Increased Hidden Strike progression speed. 
+						Increased Dead Eye progression speed. 
+						Slightly increased Archery progression speed. 
+						Slightly decreased Miner69r progression speed. 
+						Decreased for Boomstick as each pellet adds experience.  

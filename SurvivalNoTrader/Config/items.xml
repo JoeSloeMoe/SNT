@@ -132,6 +132,13 @@
 		<property name="RepairTools" value="resourceRepairKit"/>
 	</append>
 	
+	<!--change the sound of the autoshotgun to the same sound as the side by side, no particular reason except
+	     I just kindof find it annoying compared to the other shotty sounds-->
+	<set xpath="/items/item[@name='gunShotgunT3AutoShotgun']/property[@class='Action0']/property[@name='Sound_start']/@value">SNT_auto_shotgun_fire</set>
+	<set xpath="/items/item[@name='gunShotgunT3AutoShotgun']/property[@class='Action0']/property[@name='Sound_loop']/@value">SNT_auto_shotgun_fire</set>	
+	<set xpath="/items/item[@name='gunShotgunT2PumpShotgun']/property[@class='Action0']/property[@name='Sound_start']/@value">SNT_pump_shotgun_s_fire</set>
+	
+	
 	<!--change the effect of cigars from trade specific to block damage
 		See also ui_display.xml-->
 	<set xpath="/items/item[@name='apparelCigar']">
@@ -584,6 +591,7 @@
 					<property name="Create_item_count" value="0"/>
 				</property>
 		</item>	
+		
 		<!--airdrop SeedBundle-->
 		<item name="airdropSeedBundle">
 				<property name="Extends" value="resourceRockSmallBundle"/>
@@ -598,6 +606,24 @@
 					<property name="Create_item_count" value="0"/>				
 				</property>
 		</item>	
+		
+		<!--airdrop vehicle magazine bundle-->
+		<item name="airdropVehiclesMagazineBundle">
+			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="CustomIcon" value="bookVehicleAdventures"/>
+			<property name="DescriptionKey" value="airdropVehiclesMagazineBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="vehiclesSkillMagazine"/>
+				<property name="Create_item_count" value="20"/>
+			</property>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		
+		<lootgroup name="groupVehiclesSkillMagazines"> 
+			<item name="vehiclesSkillMagazine" count="15" />
+		</lootgroup>
+		
 		<!--airdrop AP ammo bundle-->
 		<item name="airdropAPAmmoBundle">
 				<property name="Extends" value="resourceRockSmallBundle"/>
@@ -1386,6 +1412,43 @@
 	<set xpath="/items/item[@name='questRewardT3RangedModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modGunBowPolymerString</set>	
 	<set xpath="/items/item[@name='questRewardT3MeleeModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modMeleeClubMetalSpikes,modMeleeClubMetalChain</set>
 
-
+	<!--start Interloper challenge code - test code - story not implemented yet-->
+	<!--commInterface item-->
+	<append xpath="/items">
+		<item name="commInterface">
+			<property name="Tags" value="drone,attIntellect,perkTurrets,canHaveCosmetic,roboticsSkill"/>
+			<property name="DisplayType" value="droneTurret"/>
+			<property name="Group" value="Ammo/Weapons,Robotics"/>
+			<property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Junk Drone/junkDroneHeld_Prefab.prefab"/>
+			<property name="HoldType" value="78"/>
+			<property name="Material" value="MJunkTurretParts"/>
+			<property name="TintColor" value="227, 127, 13"/>
+			<property name="Weight" value="1"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="SoundDestroy" value="wooddestroy1"/>
+			<property name="RepairExpMultiplier" value="5.5"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="EconomicValue" value="700"/>
+			<property name="TraderStageTemplate" value="baseTier3"/>
+			<property name="UnlockedBy" value="craftingRobotics"/><!-- gunBotT3JunkDroneSchematic, -->
+			<property name="ShowQuality" value="true"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="TintColor" value="255,167,0"/>
+			<property name="SoundUnholster" value="weapon_unholster"/>
+			<property name="SoundHolster" value="weapon_holster"/>
+		  
+			<property class="Action1">
+				<property name="Class" value="SpawnTurret"/>
+				<!--<property name="Turret" value="npcCommsInterface"/>-->
+				<property name="Turret" value="entityCommsInterface"/>
+				<property name="PreviewSize" value="0.25,0.25,0.25"/>
+			</property>
+			<effect_group name="gunBotT3JunkDrone">
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+			</effect_group>
+		</item>
+	</append>
+	
+	<!--END Interloper challenge code-->
 	
 </configs>

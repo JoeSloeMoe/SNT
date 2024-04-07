@@ -33,6 +33,18 @@ foodPumpkinCheesecakeChangedDesc,items,Food,,,This pumpkin cheesecake tastes del
 quest_BasicStart,Quest,Quest Info,,,Fresh Start
 quest_BasicStart_subtitle,Quest,Quest Info,,,"You have 4 exp points"
 quest_BasicStart_description,Quest,Quest Info,,,"You have 4 exp points"
+quest_ScoutTraderWasteland,Quest,Quest Info,,,Scout Trader - Wasteland
+quest_ScoutTraderWasteland1,Quest,Quest Info,,,Scout Trader - Wasteland 1/1
+quest_ScoutTraderWasteland1_description,Quest,Quest Info,,,"Check out this Trader in the Wastelands. \nYou are thirsty for information. Snoop around, someone might dish some juice and spill the tea." 
+quest_ScoutTraderWasteland1_hint1,Quest,Quest Info,,,[FFB400]Follow the on-screen navigation icon and head towards the trader.[-]
+quest_ScoutTraderWasteland1_hint2,Quest,Quest Info,,,[FFB400]Follow the navigation icon to find the trader inside.\nTry checking the trader's inventory to complete this quest.[-]
+quest_ScoutTraderWasteland1_subtitle,Quest,Quest Info,,,Scout Trader
+quest_ScoutTraderSnow,Quest,Quest Info,,,Scout Trader - Snow
+quest_ScoutTraderSnow1,Quest,Quest Info,,,Scout Trader - Snow 1/1
+quest_ScoutTraderSnow1_description,Quest,Quest Info,,,"Recon the Trader living out in the snow biome. Scout out their location and see if you can pick up any interesting local chatter."
+quest_ScoutTraderSnow1_hint1,Quest,Quest Info,,,[FFB400]Follow the on-screen navigation icon and head towards the trader.[-]
+quest_ScoutTraderSnow1_hint2,Quest,Quest Info,,,[FFB400]Follow the navigation icon to find the trader inside.\Try checking the trader's inventory to complete this quest.[-]
+quest_ScoutTraderSnow1_subtitle,Quest,Quest Info,,,Scout Trader
 statMovementSpeedChanged,ui_display,Item stat,,,Movement Speed
 statGeneralDamageResist,ui_display,Item stat,,,Damage Resistance
 statReloadSpeedMultiplier,ui_display,Item stat,,,Reload Speed
@@ -158,6 +170,7 @@ airdropTreasureSmallBundle,items,Item,,,Stack of 4 treasure maps.
 airdropTreasureSmallBundleDesc,items,Item,,,A stack of 4 treasure maps. \nUse this item to open and unpack it.
 airdropSeedBundle,items,Item,,,Bundle of 40 random Seeds.
 airdropSeedBundleDesc,items,Item,,,Bundle of 40 random generic farming seeds (No plants or Supercorn).\nUse this item to open and unpack it.
+airdropVehiclesMagazineBundleDesc,items,Item,,,Bundle of Vehicle Skill magazines.\nUse this item to open and unpack it.
 airdropAPAmmoBundle,items,Item,,,Bundle of 300 random AP Bullets.
 airdropAPAmmoBundleDesc,items,Item,,,Bundle of 300 random AP Bullets. \nAP 9mm\nAP 7.62\nAP 44\nSlugs\nUse this item to open and unpack it.
 airdropBookBundle,items,item,,,A couple of random books
@@ -185,6 +198,9 @@ cntPoliceCar01Buried,blocks,block,,,Missing Patrol Car
 cntPoliceCar01AlarmLockedBuried,blocks,block,,,Locked Missing Patrol Car
 cntPoliceCar01AlarmUnlockedBuried,blocks,block,,,Unlocked Missing Patrol Car
 quest_buriedPatrolCarComplete,Quest,Quest Info,,,Patrol Car Unlocked
+animalHomingVultureOne,entityclasses,Entity,,,Puffy the homing pigeon
+animalHomingVultureTwo,entityclasses,Entity,,,CooCoo the homing pigeon
+animalHomingVultureThree,entityclasses,Entity,,,Plop the homing pigeon
 bookEnforcerIntimidation,items,perk book,,,Magnum Enforcer Vol 4
 perkEnforcerIntimidationDesc,progression,perk book,,,Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
 perkEnforcerIntimidationLongDesc,progression,perk book,,,Intimidation: Tired of getting shitty loot? Time to show the loot containers who's boss. Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
@@ -221,6 +237,7 @@ goLandClaimCount,,UI,Menu,KgNone,Claim Amount
 goLandClaimCountDesc,,UI,Menu,KgNone,The amount of land claim blocks a player can have active.
 goLandClaimCountValue,,UI,Menu,KgNone,{0} block
 goLandClaimCountValues,,UI,Menu,KgNone,{0} blocks	
+gunPartsGroupDesc,items,Gun,,,"Scrap advanced armor, tools and weapons to acquire these items. Use them to craft new items. \nSelect: Recipes->Iron to scrap"
 LearnByUse,progression,Attribute,,,"Learn By Use"
 LearnByUseDesc,progression,Attribute,,,"Increase half the Mining, Scavenging and Weapons stats (eg. Damage and Stamina) by using tools and weapons, increase the other half of the stats in the Perk Tree as normal. Gain an extra Skill Point at level 50 for each Perk."
 LearnByUseName,progression,Attribute,,,"Learn By Use"

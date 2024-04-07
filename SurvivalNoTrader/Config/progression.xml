@@ -107,6 +107,46 @@
 				<!-- lbu_DefaultLevelCap: the level cap to stop increasing the xp needed per level (stop accummulating interest after X years)--> 
 				<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultLevelCap" operation="set" value="46"/> <!--default: 46 -->
 				
+				<!-- lbu_DefaultGiveSkillPoint: whenever a lbu perk reaches max progress (50 points):
+												1 = give free Skill Point 
+												0 = dont give Skill Point 
+												This is used in buff.xml:buffLBU_GiveProgressSkillPoint --> 
+				<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultGiveSkillPoint" operation="set" value="1"/> <!--default: 1 -->
+				
+				<!--NOTES on the level cap of 50-->
+				<!--
+				Learn By Use increases up to 1/2 the Perk effects - the other half get increased by putting points into the corresponding 
+				Perk as normal. Because of this there is a fixed limit on how much any effect can be increased - see ** below.
+				
+				The max perk level of 50 is due to some Perks using range increments that dont scale well up to 100. It can be 
+				more thought of as, instead of 50 levels, its actually 100 levels but the code only counts every 2nd level. 
+				
+				For Example: 
+				In the code below, EntityDamage for spears is being % increased from 0.01 to 0.25 over levels 1 to 50.
+				(**The max increase value of 0.25 is fixed)
+					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
+				The damage is being increased by 0.005 every level.
+				
+				As the % increase of 0.25 is the max we can use, at 100 levels: 
+					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,100" />
+				the damage increase would be 0.0025 every level. 				
+				
+				The 7DTD code (the engine that reads the xml) only appears to use 3 decimal places, so a value of 0.0025 
+				would most likely introduce rounding or truncating errors at 4 decimal places. 
+				
+				======
+				
+				The actual max-level value of the '50' number is hard-coded in the code because its used in expressions that cant use 
+				a variable. (e.g. as part of a string)
+				For example:
+				In the code below, the number 50 at the end for the level (level="1,50") has to be a value, it cant be a variable:
+					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
+				The following doesn't work:
+					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,@SOMEVARIABLE" /> 
+					
+				So the max-level is written out wherever it is used. To change max-level you will need to edit every reference to '50' 
+				in progression.xml. 
+				-->
 			</effect_group>   	
 		</attribute>
 	</insertBefore>
@@ -168,10 +208,10 @@
 			<effect_group>
 				<requirement name="ItemHasTags" tags="perkDeadEye"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="LT" value="50"/>
-					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeadEye_XP" operation="add" value="8">
+					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeadEye_XP" operation="add" value="12">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
 					</triggered_effect>
-					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_DeadEye_XP" operation="add" value="20"/> 
+					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_DeadEye_XP" operation="add" value="24"/> 
 			</effect_group>
 			
 			<!--Increase ProgressLevel if xp greater than value for next level-->
@@ -189,7 +229,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_DeadEye_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Dead Eye Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_DeadEye" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -267,7 +307,7 @@
 					<triggered_effect trigger="onSelfExplosionDamagedOther" action="ModifyCVar" cvar="lbu_Demolition_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfExplosionDamagedOther" action="ShowToolbeltMessage" message="Demolitions Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfExplosionDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfExplosionDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Demolition" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -286,7 +326,7 @@
 					<triggered_effect trigger="onSelfExplosionMissEntity" action="ModifyCVar" cvar="lbu_Demolition_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfExplosionMissEntity" action="ShowToolbeltMessage" message="Demolitions Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfExplosionMissEntity" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfExplosionMissEntity" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Demolition" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -346,7 +386,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_SpearMaster_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Spearmaster Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_SpearMaster" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -406,7 +446,7 @@
 					<triggered_effect trigger="onSelfDamagedBlock" action="ModifyCVar" cvar="lbu_Salvage_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedBlock" action="ShowToolbeltMessage" message="Salvage Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedBlock" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedBlock" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Salvage" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -444,7 +484,8 @@
 			<effect_group>
 				<requirement name="ItemHasTags" tags="perkBoomstick"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="LT" value="50"/>
-					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Boomstick_XP" operation="add" value="5">
+					<!--this gets applied per pellet for shotties-->
+					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Boomstick_XP" operation="add" value="2">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
 					</triggered_effect>
 					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_Boomstick_XP" operation="add" value="12"/> 
@@ -465,7 +506,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Boomstick_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Boomstick Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Boomstick" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -534,7 +575,7 @@
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Pummel Pete Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_PummelPete" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -599,7 +640,7 @@
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Skull Crusher Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_SkullCrusher" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -638,7 +679,7 @@
 			<effect_group>
 				<requirement name="ItemHasTags" tags="perkMiner69r,perkMotherLode"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="LT" value="50"/>
-					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="4"/> 
+					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="3"/> 
 					<!-- add additional damage for destruction-->
 					<triggered_effect trigger="onSelfDestroyedBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="10"/> 
 			</effect_group>
@@ -658,7 +699,7 @@
 					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfHarvestBlock" action="ShowToolbeltMessage" message="Miner69r Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfHarvestBlock" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfHarvestBlock" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Miner69er" operation="EQ" value="50"/>
 					</triggered_effect>
 					
@@ -731,7 +772,7 @@
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Brawler Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Brawler" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -791,7 +832,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_MachineGunner_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Machinegunner Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_MachineGunner" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -830,7 +871,7 @@
 			<effect_group>
 				<requirement name="ItemHasTags" tags="perkArchery"/>
 				<requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="LT" value="50"/>
-					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Archery_XP" operation="add" value="12">
+					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Archery_XP" operation="add" value="14">
 						<requirement name="StatCompareCurrent" target="other" stat="health" operation="GT" value="0"/>
 					</triggered_effect>
 					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="lbu_Archery_XP" operation="add" value="24"/> 
@@ -851,7 +892,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Archery_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Archery Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Archery" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -910,7 +951,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Gunslinger_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Gunslinger Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Gunslinger" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -976,7 +1017,7 @@
 					</triggered_effect>		
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Deap Cuts Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_DeepCuts" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -1007,15 +1048,7 @@
 				<requirement name="!ItemHasTags" tags="perkSkullCrusher"/>
 					<passive_effect name="DamageBonus" operation="base_add" value="0.01,2" level="0,50" /> 
 					<passive_effect name="EntityDamage" operation="perc_add" value="0.01,1.5" level="0,50" />
-
-					<!--the above trigger (_crouching & _notalerted combo) is only ever properly trigerred once. 
-						'_notAlerted' can stay true even after the zombie is alert. I think this may be because after you have 
-						killed a zombie there may be other zombies that may not altered to you. So if you wound
-						a zombie (getting the 'not alerted' Hidden Strike bonus) and it attacks you while you are still crouching - you will
-						continue getting the 'not alerted' bonus even though the zombie is alerted. 
-						
-						All the code to deal with the HiddenStrike variables is now in a buff so that it all uses The
-						same correct trigger -->
+					
 					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffHiddenStrikeAction"/>
 					<triggered_effect trigger="onSelfKilledOther" action="AddBuff" buff="buffHiddenStrikeAction"/>
 						
@@ -1084,7 +1117,7 @@
 					</triggered_effect>
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Electrocutioner Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Electrocutioner" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>
@@ -1145,7 +1178,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="lbu_Robotics_Lvl" operation="add" value="1"/> 
 					<triggered_effect trigger="onSelfDamagedOther" action="ShowToolbeltMessage" message="Robotics Skill Increased!"/>
 					<!--if max level then give free Skill Point-->
-					<triggered_effect trigger="onSelfDamagedOther" action="CallGameEvent" event="lbu_action_give_points">
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffLBU_GiveProgressSkillPoint">
 						<requirement name="ProgressionLevel" progression_name="lbu_Robotics" operation="EQ" value="50"/>
 					</triggered_effect>
 			</effect_group>

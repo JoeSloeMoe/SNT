@@ -29,4 +29,44 @@
 		</faction>
 	</insertAfter>
 	
+	<!--begin Interloper challenge code- - test code - story not implemented yet-->
+	<append xpath="/npc">
+		
+		<!--<npc_info
+		id="NPCCommsInterface"
+		name="Junk Drone"
+		name_key="npc_junkDrone"
+		faction="trader"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		dialog_id="dialogCommsInterface"
+		stance="Like" voice_set="trader"
+		trader_id="33"/>-->
+		
+		<npc_info
+		id="NPCCommsInterface"
+		name="Junk Drone"
+		name_key="npc_junkDrone"
+		faction="trader"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		dialog_id="junkDrone"
+		stance="Like" voice_set="trader"
+		trader_id="1"/>
+		
+		<!--<npc_info
+		id="NPCCommsInterface"
+		name="Traitor Joel"
+		name_key="npc_traitorJoel"
+		faction="whiteriver"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		stance="Like" voice_set="trader"
+		trader_id="33" dialog_id="trader" quest_faction="1" 
+		localization_id="npcCommsInterface"
+		/>-->
+	</append>
+	
+	<!--END Interloper challenge code-->
+	
 </configs>

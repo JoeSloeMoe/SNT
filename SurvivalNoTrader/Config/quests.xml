@@ -13,8 +13,79 @@
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
 			<reward type="SkillPoints" value="4"/>
+			
+			<!--test code for interloper quests setup
+			<reward type="Quest" id="quest_ScoutTraderWasteland">
+					<property name="chainquest" value="false"/>
+			</reward>-->
+		
 		</quest>
 	</insertAfter>
+	
+	<!--Start Interloper challenge quest code-->
+	<!--test code for now-->
+	<insertAfter xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
+		<!--Scout a Trader in the wastland quest -->
+		<quest id="quest_ScoutTraderWasteland">
+			<property name="group_name_key" value="quest_ScoutTraderWasteland"/>
+			<property name="name_key" value="quest_ScoutTraderWasteland1"/>
+			<property name="subtitle_key" value="quest_ScoutTraderWasteland1_subtitle"/>
+			<property name="description_key" value="quest_ScoutTraderWasteland1_description"/>
+			<property name="icon" value="ui_game_symbol_map_trader"/>
+			<property name="category_key" value="quest"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<property name="quest_hints" value="quest_ScoutTraderWasteland1_hint1,quest_ScoutTraderWasteland1_hint2" />
+			
+			<action type="ShowTip" value="quest_quest_ScoutTraderWasteland1_description">
+				<property name="delay" value="3"/>
+			</action>
+			<objective type="Goto" id="trader" value="5" phase="1">
+				<property name="biome_filter_type" value="OnlyBiome" />
+				<property name="biome_filter" value="wasteland" />
+				<property name="nav_object" value="go_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="return_to_trader" />
+				<property name="use_closest" value="true" />
+			</objective>
+
+			<reward type="Exp" value="500"/>
+		</quest>
+		
+		<!--Scout a Trader in the wastland quest -->
+		<quest id="quest_ScoutTraderSnow">
+			<property name="group_name_key" value="quest_ScoutTraderSnow"/>
+			<property name="name_key" value="quest_ScoutTraderSnow1"/>
+			<property name="subtitle_key" value="quest_ScoutTraderSnow1_subtitle"/>
+			<property name="description_key" value="quest_ScoutTraderSnow1_description"/>
+			<property name="icon" value="ui_game_symbol_map_trader"/>
+			<property name="category_key" value="quest"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<property name="quest_hints" value="quest_ScoutTraderSnow1_hint1,quest_ScoutTraderSnow1_hint2" />
+			
+			<action type="ShowTip" value="quest_ScoutTraderSnow1_description">
+				<property name="delay" value="3"/>
+			</action>
+			<objective type="Goto" id="trader" value="5" phase="1">
+				<property name="biome_filter_type" value="OnlyBiome" />
+				<property name="biome_filter" value="snow" />
+				<property name="nav_object" value="go_to_trader" />
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="return_to_trader" />
+				<property name="use_closest" value="true" />
+			</objective>
+
+			<reward type="Exp" value="500"/>
+		</quest>
+	</insertAfter>
+	<!--end Interloper challenge quest code-->
 	
 	<insertAfter xpath="/quests/quest[@id='treasure_raphael']">
 	

@@ -7,5 +7,29 @@
 			<!-- no response statements - no trades or quests -->
 			</statement>
 		</dialog>
+		
+		<!--Start Interloper challenge code - test code - story not implemented yet-->
+		<!--communications dialog -->
+		<dialog id="dialogCommsInterface" startstatementid="start">
+			
+			<statement id="start" text="start start start">
+				<response_entry id="jobshave1" />
+				<response_entry id="done" />
+			</statement>
+			<statement id="currentjobs" text="Do any of these tasks sound like something you can do?">
+				<quest_entry id="tier1_fetch" type="add" listindex="0" />
+				<response_entry id="nevermind" />
+			</statement>
+			
+			<response id="jobshave1" text="dialog_trader_response_jobshave" nextstatementid="currentjobs" >
+			<requirement type="QuestStatus" value="NotStarted" requirementtype="Hide" />
+			<requirement type="QuestTierHighest" value="1" requirementtype="Hide" />
+			<action type="AddJournalEntry" id="questTip" />
+			</response>
+		
+			<response id="nevermind" text="dialog_trader_response_nevermind" nextstatementid="start" />
+			<response id="done" text="dialog_trader_response_nevermind" />
+		</dialog>
+		<!--End Interloper challenge code-->
 	</insertAfter>
 </configs>

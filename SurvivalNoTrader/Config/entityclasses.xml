@@ -3,4 +3,253 @@
 	<set xpath="/entity_classes/entity_class[@name='DroppedLootContainer']/property[@name='TimeStayAfterDeath']/@value">5800</set>
 	<set xpath="/entity_classes/entity_class[starts-with(@name, 'EntityLootContainer')]/property[@name='TimeStayAfterDeath']/@value">5800</set>
 	
+	<!--begin Interloper challenge code-->
+	
+	<append xpath="/entity_classes">
+	
+		<!--homing vulture code THIS IS TEST CODE - NOT IMPLEMENTED YET-->
+		<!-- In the Interloper story this entity comes from the player's clan back east.
+			Its one of the players pet homing pigeons - but it gets infected.
+			The clan keeps sending them thinking they are ok. Player cant send pigeon carrier response 
+			back 'cause its now a zombie. They carry notes which drop on death (the notes dont matter to the story).
+			Storywise, eventually the player will have to build a shortwave radio to communicate with their Clan back East.
+		-->
+		<!-- Loot bag for the first homing vulture/pigeon. To drop a different loot bag we need another 
+			 entity defined, so they are numbered. This is EntityLootContainerHomingVulture1 with 
+			 lootbag homingVultureDelivery1-->
+		<entity_class name="EntityLootContainerHomingVulture1">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<!--<property name="Mesh" value="@:Entities/LootContainers/backpack_droppedPrefab.prefab"/>-->
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="LootListOnDeath" value="homingVultureDelivery1"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		
+		
+		<!-- Homing pigeon/vulture base class/template and derived classes-->
+		
+		<!-- This vulture drops the first delivery package
+			 Need a different vulture defined for each different delivery-->
+		<entity_class name="homingVultureTemplate" extends="animalZombieVulture">
+			<property name="UserSpawnType" value="None"/>
+			<property name="Tags" value="entity,animal,zombie,hostile,vulture"/>
+			<property name="Mass" value="25"/> <!--35-->
+			<property name="SizeScale" value="0.45"/> <!--0.7-->
+			<property name="ParticleOnSpawn" value="ParticleEffects/RadiatedParticlesOnMesh" param1="SetShapeToMesh0"/>
+
+			<property name="MoveSpeed" value="1"/><!--1-->
+			<property name="MoveSpeedAggro" value="2.3, 2.3"/> <!--2.1,2.1-->
+			<property name="MaxTurnSpeed" value="150"/> <!--190-->
+
+			<property name="ExperienceGain" value="1200"/>
+			
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="ApproachAndAttackTarget" data="class=EntityPlayer,100"/> 
+			<property name="AITask-3" value="ApproachSpot"/>
+			<property name="AITask-4" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,22,20"/>
+			<property name="AITarget-4" value=""/>
+			
+			<!--default lootdrop - should be overidden by derived classes-->
+			<property name="LootDropEntityClass" value="EntityLootContainerHomingVulture1"/>
+			<property name="LootDropProb" value="1"/>
+			
+			<property name="DeadBodyHitPoints" value="150"/> <!--175-->
+			
+			<effect_group name="Base Effects">
+				<!--weaker than regular vulture - not supposed to be a fighting enemy - just a note delivery pigeon-->
+				<passive_effect name="HealthMax" operation="base_set" value="15"/> <!--30-->
+				<!--can use trigger for something else as well maybe, code left as example-->
+				<!--<triggered_effect trigger="onOtherKilledSelf" action="AddBuff" target="self" buff="buffDropHomingPigeonNote"/>-->
+			</effect_group>
+		</entity_class>
+		
+		<!-- This vulture drops the first delivery package
+			 Need a different vulture defined for each different loot delivery-->
+		<entity_class name="animalHomingVultureOne" extends="homingVultureTemplate">
+			<property name="LootDropEntityClass" value="EntityLootContainerHomingVulture1"/>
+		</entity_class>
+		<!--end homing vulture code-->
+	
+	
+		<!--begin shortwave radio interface THIS CODE IS TEST CODE - NOT IMPLEMENTED YET -->
+		<!-- The player will need to build a short wave radio at some point in the story.
+			The shortwave radio is actually a trader underneath so the interaction between the 
+			Player and their Clan out East can have some interaction-->
+		<entity_class name="entityCommsInterface">
+			<property name="Class" value="EntityTrader"/>
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,npc,trader"/>
+			<property name="Parent" value="NPC"/>
+			<!--<property name="Mesh" value="@:Other/Items/Weapons/Ranged/Junk Drone/junkDrone_Prefab.prefab"/>-->
+			<property name="Mesh" value="@:Entities/LootContainers/crate_store_ShotgunPrefab.prefab"/>
+			<property name="Prefab" value="NPC"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="SurfaceCategory" value="metal"/>
+			<property name="SizeScale" value="0.25"/>
+
+			<property name="LootListAlive" value="roboticDrone"/>	
+			<property name="TimeStayAfterDeath" value="3600"/>	
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="Faction" value="none"/>
+			<property name="NPCID" value="NPCCommsInterface"/>
+			<property name="MapIcon" value="ui_game_symbol_map_player_arrow"/>
+			<property name="NavObject" value="NOJunkDrone" />
+			
+			<!--added-->
+			<property name="Weight" value="70"/>
+			<property name="EntityType" value="Player"/>
+			<!-- end added-->
+			
+			<property name="MaxDistance" value="15"/>
+			<property name="RaySpread" value="5"/>
+			
+			<property name="BurstRoundCount" value="3"/>
+			<property name="BurstFireRate" value="0.2"/>
+			<property name="CooldownTime" value="1"/>
+			<property name="EntityDamage" value="5"/>
+
+			<property name="StunActionTime" value="1"/>
+			<property name="StunCooldown" value="14"/>
+			<property name="HealActionTime" value="2"/>
+			<property name="HealCooldown" value="15"/>
+			<property name="HealDamageThreshold" value="50"/>
+
+			<effect_group>
+				<passive_effect name="HealthMax" operation="base_set" value="100"/>
+				<passive_effect name="StaminaMax" operation="base_set" value="100"/>
+				<passive_effect name="WaterMax" operation="base_set" value="100"/>
+				<passive_effect name="BuffResistance" operation="base_set" value="1" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingOne,buffInjuryBleedingTwo,buffInjuryBleeding,buffBurningZombie,buffBurningElement,buffBurningEnvironment,buffBurningEnvironmentHack,buffBurningFlamingArrow,buffBurningMolotov,buffIsOnFire,buffShocked,buffPerkCharismaticNature,buffRadiationPool"/>
+			</effect_group>
+		  
+		</entity_class>
+
+
+		<entity_class name="npcCommsTemplate">
+			<property name="Class" value="EntityTrader"/>
+			<property name="UserSpawnType" value="None"/>
+			<property name="Tags" value="entity,npc,human"/>
+			<property name="EntityType" value="Player"/>
+			<property name="Faction" value="trader"/>
+			<property name="Mesh" value="Player/Male/player_maleRagdoll"/>
+			<!--<property name="AvatarController" value="AvatarNpcController"/>-->
+			<!--<property name="ModelType" value="Npc"/>-->
+			<property name="ModelType" value="Custom"/>
+			<property name="HasRagdoll" value="false"/>
+			<property name="Prefab" value="Item"/>
+			<!--<property name="Prefab" value="NPC"/>-->
+			<property name="Parent" value="Misc"/>
+			<!--<property name="Parent" value="Players"/>-->
+			<!--<property name="PhysicsBody" value="Player"/>-->
+			<property name="Weight" value="70"/>
+			<property name="LookAtAngle" value="60"/>
+			
+			<property name="MaxViewAngle" value="180"/>
+			
+			<property name="LootListAlive" value="traderNPC"/>
+			<property name="ExperienceGain" value="130"/>
+			<property name="TimeStayAfterDeath" value="30"/>
+			<property name="DeadBodyHitPoints" value="251"/>
+
+			<property name="NavObject" value="trader" />
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="10"/>
+			</effect_group>
+		</entity_class>
+		
+		<!--
+	
+		<entity_class name="npcCommsTemplate">
+			<property name="Class" value="EntityTrader"/>
+			<property name="UserSpawnType" value="None"/>
+			<property name="Tags" value="entity,npc,human"/>
+			<property name="EntityType" value="Player"/>
+			<property name="Faction" value="trader"/>
+			<property name="Mesh" value="Player/Male/player_maleRagdoll"/>
+			<property name="AvatarController" value="AvatarNpcController"/>
+			<property name="ModelType" value="Npc"/>
+			<property name="HasRagdoll" value="false"/>
+			<property name="Prefab" value="NPC"/>
+			<property name="Parent" value="Players"/>
+			<property name="PhysicsBody" value="Player"/>
+			<property name="Weight" value="70"/>
+			<property name="LookAtAngle" value="60"/>
+
+			<property name="AITask-1" value="ApproachAndAttackTarget" data="class=EntityAlive"/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityAlive"/>
+
+			<property name="NPCID" value="traderric"/>
+			<property name="IsEnemyEntity" value="true"/>
+			<property name="WalkType" value="7"/>
+			<property name="SurfaceCategory" value="organic"/>
+			<property name="ParticleOnDeath" value="blood_death"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="SoundRandomTime" value="200.0"/>
+			<property name="Archetype" value="TraderJoel"/>
+			<property name="SoundHurt" value="Player_Male/player1painlg"/>
+			<property name="SoundHurtSmall" value="Player_Male/player1painsm"/>
+			<property name="SoundDeath" value="Player_Male/player1death"/>
+			<property name="SoundStamina" value="Player_Male/player1stamina"/>
+			<property name="SoundDrownPain" value="Player_Male/player1drownpain"/>
+			<property name="SoundWaterSurface" value="Player_Male/player1drownsurface"/>
+			<property name="SoundDrownDeath" value="Player_Male/player1drowndeath"/>
+			<property name="SoundJump" value="Player_Male/player1Jump"/>
+			<property name="SoundLandSoft" value="Player_Male/player1LandSoft"/>
+			<property name="SoundLandHard" value="Player_Male/player1LandHard"/>
+			<property name="SoundPlayerLandThump" value="PlayerLandThump"/>
+			
+			<property name="MaxViewAngle" value="180"/>
+
+			<property name="LootListAlive" value="traderNPC"/>
+
+			<property name="MoveSpeed" value="0.75"/>
+			<property name="MoveSpeedAggro" value="1.15, 1.15"/>
+			<property name="MoveSpeedPanic" value="1.35"/>
+			<property name="CanClimbLadders" value="true"/>
+
+			
+			<property name="ExperienceGain" value="130"/>
+			<property name="TimeStayAfterDeath" value="30"/>
+			<property name="DeadBodyHitPoints" value="251"/>
+
+			<property name="NavObject" value="trader" />
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="100000"/>
+				<passive_effect name="BuffResistance" operation="base_set" value="1" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffInfectionCatch,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingOne,buffInjuryBleedingTwo,buffInjuryBleeding,buffBurningZombie,buffBurningElement,buffBurningEnvironment,buffBurningEnvironmentHack,buffBurningFlamingArrow,buffBurningMolotov,buffIsOnFire,buffShocked,buffRadiationPool"/>
+			</effect_group>
+		</entity_class>
+		-->
+		<!--<entity_class name="npcCommsInterface" extends="npcCommsTemplate">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,npc,human,trader"/>
+			<property name="Mesh" value="@:Entities/Traders/Prefabs/TraderJoel.prefab"/>
+			<property name="NPCID" value="traitorjoel"/>
+			<property name="DanceType" value="1" />
+		</entity_class>
+		-->
+
+		<entity_class name="npcCommsInterface" extends="npcCommsTemplate">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,npc,trader"/>
+			<!--<property name="Mesh" value="@:Entities/Traders/Prefabs/TraderJoel.prefab"/>-->
+			<property name="Mesh" value="@:Entities/LootContainers/crate_store_ShotgunPrefab.prefab"/>
+			<property name="NPCID" value="NPCCommsInterface"/>
+			<property name="DanceType" value="1" />
+		</entity_class>
+		
+		<!--END shortwave radio interface -->
+		
+		
+	</append>
+	<!-- END Interloper challenge code-->
  </configs>
