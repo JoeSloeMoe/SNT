@@ -1390,6 +1390,74 @@
 		</item>
 		<!--end generic items for visuals in coffin and patrol car loot slots-->
 	
+		<!--generic items for pigeon lootbags (Interloper storyline)-->
+		<item name="resourcePigeonPoop">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreHumanSkull"/>
+			<property name="CustomIconTint" value="242,242,242"/>
+			<property name="DescriptionKey" value="resourcePigeonPoop"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--each pigeon has its own ID Band-->
+		<item name="resourcePigeonBand1">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="utilityInsulator"/>
+			<property name="CustomIconTint" value="240,163,37"/>
+			<property name="DescriptionKey" value="resourcePigeonBand1"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourcePigeonBand2">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="utilityInsulator"/>
+			<property name="CustomIconTint" value="240,163,37"/>
+			<property name="DescriptionKey" value="resourcePigeonBand2"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourcePigeonBand3">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="utilityInsulator"/>
+			<property name="CustomIconTint" value="240,163,37"/>
+			<property name="DescriptionKey" value="resourcePigeonBand3"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--Notes that the pigeons drop-->
+		<item name="homingPigeonNote1">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="homingPigeonNote1"/>
+			<property name="CustomIcon" value="challengeQuestMaster"/>
+		</item>
+		<item name="homingPigeonNote2">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="homingPigeonNote2"/>
+			<property name="CustomIcon" value="challengeQuestMaster"/>
+		</item>
+		<item name="homingPigeonNote3">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="homingPigeonNote3"/>
+			<property name="CustomIcon" value="challengeQuestMaster"/>
+		</item>
+		<!-- END generic items for pigeon lootbags (Interloper storyline) goreHumanSkull rubblePileBricks(tick) utilityInsulator(ID band CFF 32 45 27 13822771)  rubblePileBricksLong(slug) groundDecalTornPaper groundDecalBurntPaper decals3 emberPileDeco8 garbage_decor3 glassBrokenCapRight glassDebris01-->
+		
 	</append>
 	
 	<!--The following mods will only spawn installed in items:

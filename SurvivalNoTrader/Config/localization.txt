@@ -193,14 +193,21 @@ resourceLetterN,items,Item,,,N
 resourceLetterG,items,Item,,,G
 resourceLetterC,items,Item,,,C
 resourceLetterA,items,Item,,,A
+resourcePigeonPoop,items,Item,,,Bird shit
+resourcePigeonBand1,items,Item,,,Puffy's ID band CFF 32 45 27 13822771
+resourcePigeonBand2,items,Item,,,CooCoo's ID band CFF 32 45 17 17203J21
+resourcePigeonBand3,items,Item,,,Plop's ID band CFF 32 45 32 4279HR04
+homingPigeonNote1,items,Encrypted Note,,,"Something seems familiar to you; half a Dual Key Encryption salt you recognise: R2K5/JH.\nThe decrypted message reads:"
+homingPigeonNote2,items,Encrypted Note,,,"Splattered in blood, the encryption salt is barely legible, but you can just make it out as: 9/TTT384.\nThe decrypted message reads:"
+homingPigeonNote3,items,Encrypted Note,,,"Another encrypted message along with the salt: M23/[12].\nThe decrypted message reads:"
+animalHomingPigeonOne,entityclasses,Entity,,,Puffy the homing pigeon
+animalHomingPigeonTwo,entityclasses,Entity,,,CooCoo the homing pigeon
+animalHomingPigeonThree,entityclasses,Entity,,,Plop the homing pigeon
 cntPoliceCar01BuriedDesc,blocks,block,,,Missing Patrol Car
 cntPoliceCar01Buried,blocks,block,,,Missing Patrol Car
 cntPoliceCar01AlarmLockedBuried,blocks,block,,,Locked Missing Patrol Car
 cntPoliceCar01AlarmUnlockedBuried,blocks,block,,,Unlocked Missing Patrol Car
 quest_buriedPatrolCarComplete,Quest,Quest Info,,,Patrol Car Unlocked
-animalHomingVultureOne,entityclasses,Entity,,,Puffy the homing pigeon
-animalHomingVultureTwo,entityclasses,Entity,,,CooCoo the homing pigeon
-animalHomingVultureThree,entityclasses,Entity,,,Plop the homing pigeon
 bookEnforcerIntimidation,items,perk book,,,Magnum Enforcer Vol 4
 perkEnforcerIntimidationDesc,progression,perk book,,,Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
 perkEnforcerIntimidationLongDesc,progression,perk book,,,Intimidation: Tired of getting shitty loot? Time to show the loot containers who's boss. Looting with any .44 weapon drawn gives you a +7 base lootstage boost.

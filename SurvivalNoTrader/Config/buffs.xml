@@ -186,6 +186,18 @@
 			</effect_group>
 		</buff>
 		
+		<!--buff that manages the Interloper storyline-->
+		<buff name="buffInterloperStory" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<!--begin the story somewhere between the player's 10 - 20th level-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="InterloperBeginLevel" operation="set" value="randomint(10,20)"/>
+			</effect_group>
+		</buff>
+		<!--END buff that manages the Interloper storyline-->
+		
+		
 		<!-- this buff is given to the player when they start a game - see buff ADDCONTROLLERBUFF below -->
 		<!-- Keeps track of various game counters e.g. number of zombie kills.
 			 Uses this info to set off events in game e.g. Give player 'Mary's Revenge Bundle' for 4000 zombie kills -->
@@ -193,7 +205,8 @@
 			<stack_type value="replace"/>
 			<duration value="0"/>
 			<display_value value=".buffGameEventControllerDisplay"/>
-			<!-- this buff is a background buff and isnt shown on the hud so no display value format-->
+			<!-- this buff is a background buff and isnt shown on the hud so no display value format 
+				(its not completely hidden though and can be seen in the players 'current buffs' window-->
 			<!--<display_value_format value="time"/>-->
 			<effect_group>
 				<!--update number of zombie kills when onSelfKilledOther event received-->
@@ -290,17 +303,86 @@
 		</buff>
 	</append>
 	
-	<!--ADDCONTROLLERBUFF adds the background buff to the player 
-		This will auto re-add buffGameEventController to the player after initial spawn and any deaths,
-		as buffStatusCheck01 is called by the system on major events-->
+	<!--ADDCONTROLLERBUFF adds the background buffs to the player 
+		This will auto re-add buffGameEventController to the player after initial spawn and any deaths.-->
 	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
 		<effect_group>
+			<!-- auto add buffGameEventController to the player after initial spawn and any deaths.
+				It gets deleted on death as the Number of Zombie Kills counter gets reset on death-->
 			<requirement name="!HasBuff" buff="buffGameEventController"/>
 				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffGameEventController"/>
 				<!--<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>-->
 		</effect_group>
+		<effect_group>
+			<!--buffInterloperStory will only be added once doesnt get deleted on death-->
+			<requirement name="!HasBuff" buff="buffInterloperStory"/>	
+				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffInterloperStory"/>
+		</effect_group>
+		<effect_group>   
+			<!-- The learn by use levelling curve (the amount of xp needed per level) is a basic compound interest curve
+				There are 3 variables for compound interest: the initial deposit (lbu_DefaultInitialIncrement), the interest per year (per lbu level),
+						the number of years (50 levels - kindof hard set, requires editing in the individual perk code below). 
+				There are websites that can show compound interest curves to show values per level (year) and help visualise
+				changes you might make -->
+				
+			<!--change the values below to change the levelling curve for the learn-By-Use algorithm.
+				There is an option for a cap on the total amount of xp required per level -->
+			
+			<!-- lbu_DefaultInitialIncrement: the initial increment value, xp required for 1st levelup (deposit amount)-->
+			<!-- Changes to lbu_DefaultInitialIncrement only effect new games as its an initial value -->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultInitialIncrement" operation="set" value="500"/> <!--default: 500-->
+			
+			<!-- lbu_DefaultIncrementIncrease: the percent increase added to lbu_DefaultInitialIncrement each level (interest per year)-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultIncrementIncrease" operation="set" value="1.045"/> <!--default: 1.045 (4.5%)-->
+			
+			<!-- lbu_DefaultLevelCap: the level cap to stop increasing the xp needed per level (stop accummulating interest after X years)--> 
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultLevelCap" operation="set" value="46"/> <!--default: 46 -->
+			
+			<!-- lbu_DefaultGiveSkillPoint: whenever a lbu perk reaches max progress (50 points):
+											1 = give free Skill Point 
+											0 = dont give Skill Point 
+											This is used in buff.xml:buffLBU_GiveProgressSkillPoint --> 
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="lbu_DefaultGiveSkillPoint" operation="set" value="1"/> <!--default: 1 -->
+			
+			<!--NOTES on the level cap of 50-->
+			<!--
+			Learn By Use increases up to 1/2 the Perk effects - the other half get increased by putting points into the corresponding 
+			Perk as normal. Because of this there is a fixed limit on how much any effect can be increased - see ** below.
+			
+			The max perk level of 50 is due to some Perks using range increments that dont scale well up to 100. It can be 
+			more thought of as, instead of 50 levels, its actually 100 levels but the code only counts every 2nd level. 
+			
+			For Example: 
+			In the code below, EntityDamage for spears is being % increased from 0.01 to 0.25 over levels 1 to 50.
+			(**The max increase value of 0.25 is fixed)
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
+			The damage is being increased by 0.005 every level.
+			
+			As the % increase of 0.25 is the max we can use, at 100 levels: 
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,100" />
+			the damage increase would be 0.0025 every level. 				
+			
+			The 7DTD code (the engine that reads the xml) only appears to use 3 decimal places, so a value of 0.0025 
+			would most likely introduce rounding or truncating errors at 4 decimal places. 
+			
+			======
+			
+			The actual max-level value of the '50' number is hard-coded in the code because its used in expressions that cant use 
+			a variable. (e.g. as part of a string)
+			For example:
+			In the code below, the number 50 at the end for the level (level="1,50") has to be a value, it cant be a variable:
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,50" />
+			The following doesn't work:
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.01,0.25" level="1,@SOMEVARIABLE" /> 
+				
+			So the max-level is written out wherever it is used. To change max-level you will need to edit every reference to '50' 
+			in progression.xml. 
+			-->
+		</effect_group>   
 	</append>
 		
+	
+	
 	<!--set the jail breaker kandy to do instant unlock
 		'Instant' as much as possible - system stops working if 
 		unlock time set to 0. Set it to 0.03 instead-->

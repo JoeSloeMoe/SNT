@@ -109,17 +109,42 @@
 	</append>
 	<!--end airdrop loot settings-->
 	
-	<!-- Interloper story: loot containers, groups and items for the homing vulture/pigeon
+	<!-- Interloper story: loot containers, groups and items for the homing vulture/pigeon.
+		See entityClasses EntityLootContainerHomingPigeon1 comments for description of use of these containers  
 		STORY NOT IMPLEMENTED YET-->
 	<append xpath="/lootcontainers">
 		<!--lootgroup for the first delivery-->
-		<lootgroup name="groupHomingVultureDelivery1">
-			<item group="groupFoodUncommon" loot_prob_template="medHigh"/>
+		<lootgroup name="groupHomingPigeonDelivery1">
+			<item name="resourcePigeonPoop" count="1" />
+			<item name="homingPigeonNote1" count="1" />
+			<item name="resourcePigeonBand1" count="1" />
 		</lootgroup>
+		<!--Second delivery lootgroup -->
+		<lootgroup name="groupHomingPigeonDelivery2">
+			<item name="resourcePigeonPoop" count="1" />
+			<item name="homingPigeonNote2" count="1" />
+			<item name="resourcePigeonBand2" count="1" />
+		</lootgroup>
+		<!--Third delivery lootgroup -->
+		<lootgroup name="groupHomingPigeonDelivery3">
+			<item name="resourcePigeonPoop" count="1" />
+			<item name="homingPigeonNote3" count="1" />
+			<item name="resourcePigeonBand3" count="1" />
+		</lootgroup>
+		
 		<!--lootcontainer for the first delivery (each delivery can have a different note)-->
-		<lootcontainer name="homingVultureDelivery1" count="1" size="6,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template" ignore_loot_abundance="true">
-			<item group="groupHomingVultureDelivery1"/>
+		<lootcontainer name="homingPigeonDelivery1" count="1" size="1,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupHomingPigeonDelivery1"/>
 		</lootcontainer>
+		<!--lootcontainer for the second delivery -->
+		<lootcontainer name="homingPigeonDelivery2" count="1" size="1,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupHomingPigeonDelivery2"/>
+		</lootcontainer>
+		<!--lootcontainer for the third delivery -->
+		<lootcontainer name="homingPigeonDelivery3" count="1" size="1,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupHomingPigeonDelivery3"/>
+		</lootcontainer>
+		
 	</append>
 	<!-- end Interloper story loot-->
 	

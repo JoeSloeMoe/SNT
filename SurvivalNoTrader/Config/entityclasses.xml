@@ -11,13 +11,17 @@
 		<!-- In the Interloper story this entity comes from the player's clan back east.
 			Its one of the players pet homing pigeons - but it gets infected.
 			The clan keeps sending them thinking they are ok. Player cant send pigeon carrier response 
-			back 'cause its now a zombie. They carry notes which drop on death (the notes dont matter to the story).
-			Storywise, eventually the player will have to build a shortwave radio to communicate with their Clan back East.
+			back 'cause its now a zombie. They carry notes or other stuff which drop in loot bags on death.
+			Storywise, eventually the player will have to build a shortwave radio to communicate with their 
+			Clan back East.
 		-->
-		<!-- Loot bag for the first homing vulture/pigeon. To drop a different loot bag we need another 
-			 entity defined, so they are numbered. This is EntityLootContainerHomingVulture1 with 
-			 lootbag homingVultureDelivery1-->
-		<entity_class name="EntityLootContainerHomingVulture1">
+		<!--
+			There are 3 or more 'pigeons'. Each pigeon is unique because each bag dropped is a one-off specific
+			drop not random. The loot containers are defined first. Each container has its own lootbag (defined in loot.xml).
+		-->
+		<!-- Loot bag for the first homing vulture/pigeon. 
+			 EntityLootContainerHomingPigeon1 with lootbag homingPigeonDelivery1 (defined in loot.xml)-->
+		<entity_class name="EntityLootContainerHomingPigeon1">
 			<property name="Class" value="EntityLootContainer"/>
 			<property name="UserSpawnType" value="Console"/>
 			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
@@ -27,28 +31,24 @@
 			<property name="Parent" value="Backpack"/>
 			<property name="IsEnemyEntity" value="false"/>
 			<property name="TimeStayAfterDeath" value="6000"/>
-			<property name="LootListOnDeath" value="homingVultureDelivery1"/>
+			<property name="LootListOnDeath" value="homingPigeonDelivery1"/>
 			<property name="Faction" value="none"/>
 		</entity_class>
 		
 		
 		<!-- Homing pigeon/vulture base class/template and derived classes-->
 		
-		<!-- This vulture drops the first delivery package
-			 Need a different vulture defined for each different delivery-->
-		<entity_class name="homingVultureTemplate" extends="animalZombieVulture">
-			<property name="UserSpawnType" value="None"/>
-			<property name="Tags" value="entity,animal,zombie,hostile,vulture"/>
+		<!-- Template as there needs to be a different pigeon defined for each different note delivery-->
+		<entity_class name="homingPigeonTemplate" extends="animalZombieVulture">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,animal,zombie,hostile,vulture,pigeon"/>
 			<property name="Mass" value="25"/> <!--35-->
-			<property name="SizeScale" value="0.45"/> <!--0.7-->
+			<property name="SizeScale" value="0.42"/> <!--0.7-->
 			<property name="ParticleOnSpawn" value="ParticleEffects/RadiatedParticlesOnMesh" param1="SetShapeToMesh0"/>
-
 			<property name="MoveSpeed" value="1"/><!--1-->
 			<property name="MoveSpeedAggro" value="2.3, 2.3"/> <!--2.1,2.1-->
 			<property name="MaxTurnSpeed" value="150"/> <!--190-->
-
-			<property name="ExperienceGain" value="1200"/>
-			
+			<property name="ExperienceGain" value="5000"/> <!--extra experience-->
 			<property name="AITask-1" value="BreakBlock"/>
 			<property name="AITask-2" value="ApproachAndAttackTarget" data="class=EntityPlayer,100"/> 
 			<property name="AITask-3" value="ApproachSpot"/>
@@ -59,25 +59,36 @@
 			<property name="AITarget-4" value=""/>
 			
 			<!--default lootdrop - should be overidden by derived classes-->
-			<property name="LootDropEntityClass" value="EntityLootContainerHomingVulture1"/>
+			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon1"/>
 			<property name="LootDropProb" value="1"/>
 			
-			<property name="DeadBodyHitPoints" value="150"/> <!--175-->
+			<property name="DeadBodyHitPoints" value="120"/> <!--175-->
 			
 			<effect_group name="Base Effects">
 				<!--weaker than regular vulture - not supposed to be a fighting enemy - just a note delivery pigeon-->
 				<passive_effect name="HealthMax" operation="base_set" value="15"/> <!--30-->
-				<!--can use trigger for something else as well maybe, code left as example-->
-				<!--<triggered_effect trigger="onOtherKilledSelf" action="AddBuff" target="self" buff="buffDropHomingPigeonNote"/>-->
+				<!--can use death trigger for something else as well maybe, code left for fiddling-->
+				<!--<triggered_effect trigger="onOtherKilledSelf" action="AddBuff" target="self" buff="buff"/>-->
 			</effect_group>
 		</entity_class>
 		
-		<!-- This vulture drops the first delivery package
-			 Need a different vulture defined for each different loot delivery-->
-		<entity_class name="animalHomingVultureOne" extends="homingVultureTemplate">
-			<property name="LootDropEntityClass" value="EntityLootContainerHomingVulture1"/>
+		<!-- Pigeon to drop the first delivery package
+			 Need a different pigeon defined for each different delivery drop-->
+		<entity_class name="animalHomingPigeonOne" extends="homingPigeonTemplate">
+			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon1"/>
 		</entity_class>
-		<!--end homing vulture code-->
+		<!-- Second pigeon with next delivery package -->
+		<entity_class name="animalHomingPigeonTwo" extends="homingPigeonTemplate">
+			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon2"/>
+		</entity_class>
+		<!-- Second pigeon with next delivery package -->
+		<entity_class name="animalHomingPigeonThree" extends="homingPigeonTemplate">
+			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon3"/>
+		</entity_class>
+		<!-- End Homing pigeon/vulture base class/template and derived classes-->
+		
+		
+		<!--end homing pigeon code-->
 	
 	
 		<!--begin shortwave radio interface THIS CODE IS TEST CODE - NOT IMPLEMENTED YET -->

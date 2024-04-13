@@ -205,3 +205,7 @@ Fixed Learn By Use damage progression bug for Gunslinger.
 						Slightly increased Archery progression speed. 
 						Slightly decreased Miner69r progression speed. 
 						Decreased for Boomstick as each pellet adds experience.  
+						
+  1.1.5 13th April 2024
+   - Decreased yeald from scrapping Weapon and Tool Parts
+   - Learn By Use: Potential fix for running in Multiplayer
