@@ -24,7 +24,6 @@
 			<response id="jobshave1" text="dialog_trader_response_jobshave" nextstatementid="currentjobs" >
 			<requirement type="QuestStatus" value="NotStarted" requirementtype="Hide" />
 			<requirement type="QuestTierHighest" value="1" requirementtype="Hide" />
-			<action type="AddJournalEntry" id="questTip" />
 			</response>
 		
 			<response id="nevermind" text="dialog_trader_response_nevermind" nextstatementid="start" />

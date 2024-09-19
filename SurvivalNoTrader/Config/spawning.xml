@@ -13,14 +13,14 @@
 		<spawn maxcount="3" respawndelay="0.1" time="Night" entitygroup="ZombiesForestDowntownNight" tags="downtown" />
 
 		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
-	
 		<spawn maxcount="1" respawndelay="1" time="Night" entitygroup="WildGameForestNight" spawnDeadChance="0" />
 		<spawn maxcount="1" respawndelay="3.2" time="Night" entitygroup="EnemyAnimalsForest" spawnDeadChance="0" />
 		
 		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
-		<spawn maxcount="1" respawndelay="3.5" time="Any" entitygroup="EnemyBearChanged" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyBearChanged" spawnDeadChance="0" />
 
 	</set>
+	
 	
 	<set xpath="/spawning/biome[@name='desert']">
 		<spawn maxcount="1" respawndelay="2.7" time="Any" entitygroup="ZombiesAll" notags="commercial,industrial,downtown" />
@@ -38,9 +38,31 @@
 		<spawn maxcount="1" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
 		<spawn maxcount="1" respawndelay="3.5" time="Any" entitygroup="EnemyAnimalsDesert" spawnDeadChance="0" />	
 		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
-		<spawn maxcount="1" respawndelay="3.5" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
 	</set>
+	
+	<set xpath="/spawning/biome[@name='burnt_forest']">
+		<spawn maxcount="1" respawndelay="2.8" time="Day" entitygroup="ZombiesBurntForest" />
+		<spawn maxcount="1" respawndelay="3.2" time="Night" entitygroup="ZombiesNight" />
 		
+		<!-- orig <spawn maxcount="3" respawndelay="0.25" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" /> -->
+		<spawn maxcount="4" respawndelay="0.25" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
+		<!--<spawn maxcount="3" respawndelay="0.15" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />-->
+		<spawn maxcount="4" respawndelay="0.15" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
+
+		<!-- orig <spawn maxcount="3" respawndelay="0.15" time="Day" entitygroup="ZombiesDowntown" tags="downtown" /> -->
+		<spawn maxcount="4" respawndelay="0.15" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn maxcount="4" respawndelay="0.1" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
+			
+		<spawn maxcount="1" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="1.1" time="Any" entitygroup="EnemyAnimalsBurntForestAny" spawnDeadChance="0" />
+		<spawn maxcount="1" respawndelay="1" time="Night" entitygroup="WildGameForestNight" spawnDeadChance="0" />
+		
+		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
+		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
+	</set>
+	
+	
 	<set xpath="/spawning/biome[@name='snow']">
 		<spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="SnowZombies" notags="downtown" />
 		<spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="ZombiesNight" notags="commercial,industrial,downtown" />
@@ -57,6 +79,10 @@
 
 		<spawn maxcount="1" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
 		<spawn maxcount="1" respawndelay="3.1" time="Any" entitygroup="EnemyAnimalsSnow" spawnDeadChance="0" />	
+		
+		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
+		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyZombieBearChanged" spawnDeadChance="0" />
+		
 	</set>
 	
 	<set xpath="/spawning/biome[@name='wasteland']">

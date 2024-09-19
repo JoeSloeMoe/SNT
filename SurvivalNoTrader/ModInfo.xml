@@ -2,8 +2,8 @@
 <xml>
     <Name value="SurvivalNoTrader" /> 
     <DisplayName value="SurvivalNoTrader" />
-    <Version value="1.1.5.0" /> 
-    <Description value="Survival No Trader (SNT)" /> 
+	<Description value="Survival No Trader (SNT)" /> 
+    <Version value="1.0.0.1" /> 
     <Author value="JoeSloeMoe" /> 
     <Website value="" /> 
 </xml>

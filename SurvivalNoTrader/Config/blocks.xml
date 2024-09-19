@@ -1,25 +1,25 @@
 <configs>
-	<!-- Set crops seed drop probability to 75% -->
-	<set xpath ="blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='plantedCoffee1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='plantedGoldenrod1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='plantedAloe1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='plantedBlueberry1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='plantedPotato1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='plantedChrysanthemum1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='plantedCorn1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='plantedGraceCorn1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0.75</set>
-	<set xpath ="blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0.75</set>
+	<!-- Set crops seed drop probability to 50% -->
+	<set xpath ="blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='plantedCoffee1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='plantedGoldenrod1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='plantedAloe1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='plantedBlueberry1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='plantedPotato1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='plantedChrysanthemum1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='plantedCorn1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='plantedGraceCorn1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0.5</set>
 	
-	<!--change the descritpion text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops)-->
+	<!--change the description text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops)-->
 	<set xpath ="blocks/block[@name='solarbank']/property[@name='DescriptionKey']/@value">electicPowerSourceDesc</set>
 
 	<!--spotlights can be rotated in any axis-->
 	<set xpath ="blocks/block[@name='spotlightPlayer']/property[@name='OnlySimpleRotations']/@value">false</set>
-	
+
 	<!-- Brood Nest for farming eggs -->
 	<append xpath="/blocks">
 		<block name="broodnest">
@@ -415,6 +415,75 @@
 	
 	<!--end allow for the T4 and T5 chests to be picked up-->
 
+	<!--gyrocopter stuff-->
+	<append xpath ="/blocks">
+		
+		<!--destroying (eg. with a pickaxe) a wrecked gyro will return either Chassis or Accessories-->
+		<block name="gyrocopterWreckTemplate">
+			<property name="CreativeMode" value="None"/>
+			<property name="Class" value="CarExplodeLoot"/>
+			<property name="LootList" value="lootGyroWreck"/>
+			<property name="DescriptionKey" value="gyrocopterWreck"/>
+			
+			<property class="Explosion">
+				<property name="ParticleIndex" value="5"/> 
+				<property name="RadiusBlocks" value="3.5"/> 
+				<property name="BlockDamage" value="500"/> 
+				<property name="RadiusEntities" value="5"/> 
+				<property name="EntityDamage" value="250"/>
+			</property>
+			
+			<property name="TintColor" value="132,105,84"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/Vehicles/TraderVehicles/traderGyrocopterStaticPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="MultiBlockDim" value="1,1,4"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>-->
+
+			<!--<property name="DowngradeBlock" value="gyrocopterFrameworkForcedOpen"/>
+			<property name="DowngradeEvent" value="block_car_alarm_start" />-->
+			
+			<property name="Place" value="TowardsPlacer"/>
+			<property name="PlacementDistance" value="6"/>
+			<property name="BigDecorationRadius" value="5"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<property name="MaxDamage" value="100"/>
+			<property name="PassThroughDamage" value="true"/>
+			
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="4,10" tag="salvageHarvest"/>
+			<drop event="Harvest" name="ammoGasCan" count="50,200" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceOil" count="0,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="5" prob="0.5" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest"/>
+			
+			<property name="ShowModelOnFall" value="false"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="SortOrder1" value="B967"/>
+			<property name="SortOrder2" value="0101"/>
+			
+		</block>
+
+		<!-- Gyro Chassis dropped on Destroy -->
+		<block name="gyrocopterWreckChassis">
+			<property name="Extends" value="gyrocopterWreckTemplate" />
+			<drop event="Destroy" name="vehicleGyroCopterChassis" count="1"/>
+		</block>
+		
+		<!-- Gyro Accessories dropped on Destroy -->
+		<block name="gyrocopterWreckAccessories">
+			<property name="Extends" value="gyrocopterWreckTemplate" />
+			<drop event="Destroy" name="vehicleGyroCopterAccessories" count="1"/>
+		</block>
+
+	</append>
+	<!--END gyrocopter stuff-->
+	
+	<!--Mary's Revenge Story-->
 	<!--player can make explosive barrels that do a lot of Zombie damage and little block damage-->
 	<insertAfter xpath ="blocks/block[@name='cntBarrelGasSingle45']">	
 		<block name="playerExplosiveBarrel">
@@ -425,7 +494,7 @@
 				<property name="RadiusBlocks" value="4"/>
 				<property name="BlockDamage" value="20"/>
 				<property name="RadiusEntities" value="7"/>
-				<property name="EntityDamage" value="1600"/>
+				<property name="EntityDamage" value="1800"/>
 				<property name="BlastPower" value="120"/> 
 			</property>
 			<property name="MaxDamage" value="20"/>
@@ -441,7 +510,7 @@
 			<property name="Path" value="solid"/>
 			<property name="IsTerrainDecoration" value="true"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
-			<drop event="Harvest" name="resourceScrapIron" count="3,6" tag="allToolsHarvest"/>
+			<drop event="Harvest" name="playerExplosiveBarrel" count="1" tag="allToolsHarvest"/>
 			<drop event="Destroy" count="0"/>
 			<drop event="Fall" name="scrapMetalPile" count="1,5" prob="0.75" stick_chance="1"/>
 			<property name="Tags" value="barrelExplosive"/>
@@ -450,6 +519,125 @@
 			<property name="SortOrder2" value="0500"/>
 		</block>		
 	</insertAfter>
+	<!--end Mary's Revenge Story-->
 	
+	<!--Pigeons Carry Diseases story-->
 	
+	<!-- tags for story items - see also items.xml for other tag additions -->
+	<!--add tags to cobblestone, concrete and steel blocks to support the item_modifiers.xml:modShotgunBlockDamage mod-->
+	<append xpath ="/blocks/block[@name='cobblestoneShapes']">
+		<property name="Tags" value="shotgunBlockDamage"/>
+	</append>
+	<append xpath ="/blocks/block[@name='concreteShapes']">
+		<property name="Tags" value="shotgunBlockDamage"/>
+	</append>
+	<append xpath ="/blocks/block[@name='steelShapes']">
+		<property name="Tags" value="shotgunBlockDamage"/>
+	</append>
+	<!--end tags for story items-->
+
+	<!--end Pigeons Carry Diseases story-->
+	
+	<!--Interloper story code -->
+	<!--
+	breakerBoxBroken (transmitter)
+	cntbinTrashRollingWhite (wheely bin) 1*2
+	cntFancyGarbageCan
+	cntNewsDispenseFreeOrange
+	cntPostMailbox
+	satelliteUnitLarge satelliteUnitSmallFloor satelliteUnitSmallWall
+	
+				<property name="Class" value="ActivateSingle">
+			<property name="ActivateSound" value="keyrack"/>
+			<property name="ActivationDistance" value="2"/>
+			</property>
+			<property name="Class" value="Switch"/>
+	<property name="TriggerType" value="Switch"/>
+	
+	-->
+	
+	<append xpath="/blocks">
+		<!-- receiver block:
+			interloperReceiverBlock that gets paired with a interloperTransmitterBlock block.
+			In the interloper story, the player places one of these at their base to listen for signal sfrom 
+			the interloperTransmitterBlock spy device-->
+		<block name="interloperReceiverBlock">
+			<property name="Extends" value="satelliteUnitSmallWall" />
+			<property name="DescriptionKey" value="interloperReceiverBlockDesc"/>
+			<property name="CustomIcon" value="satelliteUnitSmallWall"/>
+			<property name="Class" value="GameEvent"/>
+			<!--will call an action event when activated. The event checks for any transmissions received.
+				Either puts the msg in the players inventory or displays a 'no messages received' toolbelt message.-->
+			<property name="ActivateEvent" value="interloperCheckMessageReceivedAction"/>
+			
+			<property name="Material" value="Miron"/>
+			<property class="RepairItems">
+				<property name="resourceForgedSteel" value="10"/>
+			</property>
+			<drop event="Harvest" name="resourceScrapPolymers" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceForgedIron" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="2,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="2,4" tag="salvageHarvest"/>
+			<property name="SortOrder1" value="B116"/>
+			<property name="SortOrder2" value="0400"/>
+			<property name="FilterTags" value="MC_building"/>
+		</block>
+
+		<!-- transmitter block:
+			interloperTransmitterBlock that gets paired with a interloperReceiverBlock block.
+			In the interloper story, the player places one of these at a Trader to listen to local chatter.
+			Send any msgs to the above (msg are created and managed in buff.xml - see around buffInterloperMessageReceiver 
+			and interloperCheckMessageReceivedAction in gameevents.xml) 
+			In actuality this block doesnt really do anything but placing it progresses the story-->
+		<block name="interloperTransmitterBlock">
+			<property name="Extends" value="cntDomedTrashCanEmpty" />
+			<property name="DescriptionKey" value="interloperTransmitterBlockDesc"/>
+			<!--the transmitter block is not lootable (empty) but for a listening device disguised as a rubbish bin, the open (full)
+				TrashCan looks much better. So use the model and Icon of a Full trashcan.-->
+			<property name="Model" value="@:Entities/LootContainers/domedTrashCanFullPrefab.prefab"/>
+			<property name="CustomIcon" value="cntDomedTrashCanFull"/>
+			<property name="CustomIconTint" value="808080"/>
+			<property name="TintColor" value="808080"/>
+			
+			<property name="Material" value="Miron"/>		
+			<property class="RepairItems">
+				<property name="resourceForgedSteel" value="10"/>
+			</property>
+			<drop event="Harvest" name="resourceScrapPolymers" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceForgedIron" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="2,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="2,4" tag="salvageHarvest"/>
+			<property name="SortOrder1" value="B113"/>
+			<property name="SortOrder2" value="0400"/>
+			<property name="FilterTags" value="MC_building"/>
+		</block>
+
+		<!--Block used to wrap the Supply Crate magazines, used in quests:quest_Interloper_Epilogue 
+			They build this Block using the Special Supply Crate magazine bundle. (items.xml:interloperSupplyCrateMagazineBundle)
+			They then place this block (deliver the goods via a drop) at a random place and then go 
+			pick up the book bundle they get in return trade for the magazines.
+			This block doesnt do anything in particular.-->
+		<block name="interloperTradeDropBag">
+			<property name="DescriptionKey" value="interloperTradeDropBagDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="Material" value="Mcloth"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/LootContainers/backpack03Prefab.prefab"/>
+			<property name="CustomIcon" value="cntBackpack03"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="GndAlign" value="1"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="Collide" value="melee,bullet,arrow,rocket"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="MaxDamage" value="1000"/>
+			<drop event="Harvest" name="resourceCloth" count="2" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceCloth" count="1"/>
+			<property name="SortOrder1" value="B113"/>
+			<property name="SortOrder2" value="1700"/>
+			<property name="FilterTags" value="MC_building,SC_loot"/>
+		</block>
+	</append>
+	<!--end Interloper story code-->
 </configs>

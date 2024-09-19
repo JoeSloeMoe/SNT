@@ -80,7 +80,26 @@
 	<!--change the effect of cigars from trade spcific to block damage
 		See also items.xml-->
 	<set xpath="/ui_display_info/item_display/item_display_info[@display_type='clothingCigar']">
-			<display_entry name="bAttributeLevel" tags="attStrength" title_key="statShowStrength" display_leading_plus="true"/>
-			<display_entry name="bBlockDamage" display_type="Percent" title_key="statBlockDamage" display_leading_plus="true"/>
+			<display_entry name="AttributeLevel" tags="attStrength" title_key="statShowStrength" display_leading_plus="true"/>
+			<display_entry name="dBlockDamage" display_type="Percent" title_key="statBlockDamage" />
 	</set>
+	
+	<!--display changes for armour pieces that are changed to remove bartering effects-->
+	<!--ranger helmet-->
+	<set xpath="/ui_display_info/item_display/item_display_info[@display_type='armorRangerHelmet']">
+		<display_entry name="dLootProb" title_key="statBonusRanger" display_type="Percent" display_leading_plus="true"/>
+	</set>
+	<!--athletic helmet-->
+	<set xpath="/ui_display_info/item_display/item_display_info[@display_type='armorAthleticHelmet']">
+		<display_entry name="dLootProb" title_key="statBonusAthletic" display_type="Percent" display_leading_plus="true"/>
+	</set>
+	<!--preacher helmet-->
+	<set xpath="/ui_display_info/item_display/item_display_info[@display_type='armorPreacherHelmet']">
+		<display_entry name="dLootProb" title_key="statBonusPreacher" display_type="Percent" display_leading_plus="true"/>
+	</set>
+	<!--enforcer helmet-->
+	<set xpath="/ui_display_info/item_display/item_display_info[@display_type='armorEnforcerHelmet']">
+		<display_entry name="dLootProb" title_key="statBonusEnforcer" display_type="Percent" display_leading_plus="true"/>
+	</set>
+	
 </configs>

@@ -1,0 +1,85 @@
+ <configs>
+ 
+	<append xpath="/gamestages">
+		<!--interloper story code-->
+		<!--spawns the supply crate for the interloper:quest_Interloper_InterceptTheSupplies chapter-->
+		<spawner name="InterloperDropSpawner">
+			<!--if only the first gamestage used, then it will cascade to all gamestages-->
+			<gamestage stage="1">
+				<spawn group="InterloperDrop" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="InterloperDropSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="InterloperDropSpawner" count="1"/>
+		</group>
+		
+		<!--spawns the supply crate for the interloper:quest_InterloperEpilogueSpawn chapter-->
+		<spawner name="InterloperEpilogueSpawner">
+			<gamestage stage="1">
+				<spawn group="InterloperEpilogue" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="InterloperEpilogueSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="InterloperEpilogueSpawner" count="1"/>
+		</group>
+		<!--END interloper story code-->
+		
+		<!--pigeon spawners for PigeonsCarryDiseases story-->
+		<!--first pigeon-->
+		<spawner name="PigeonOneSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonOneSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonOneSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonOneSpawner" count="1"/>
+		</group>
+		<!--Second pigeon-->
+		<spawner name="PigeonTwoSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonTwoSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonTwoSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonTwoSpawner" count="1"/>
+		</group>
+		<!--third pigeon-->
+		<spawner name="PigeonThreeSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonThreeSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonThreeSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonThreeSpawner" count="1"/>
+		</group>
+		<!--fourth pigeon-->
+		<spawner name="PigeonFourSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonFourSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonFourSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonFourSpawner" count="1"/>
+		</group>
+		<!--spawner for final chapter 'boss'-->
+		<spawner name="PigeonFinalBossSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonFinalBossSpawnerGroup" num="1" maxAlive="1" duration="10"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonFinalBossSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonFinalBossSpawner" count="1"/>
+		</group>
+		<!--spawner for the final (above) boss's flock of pigeons-->
+		<spawner name="PigeonFinalFlockSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonFinalFlockSpawnerGroup" num="1" maxAlive="1" duration="10"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonFinalFlockSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonFinalFlockSpawner" count="1"/>
+		</group>
+		
+		<!--END pigeons carry diseases story code-->
+	</append>
+ </configs>

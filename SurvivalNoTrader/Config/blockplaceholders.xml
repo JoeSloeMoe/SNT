@@ -1,0 +1,69 @@
+<configs>
+
+	<!--placeholder for the Gyro in the world - use the Working stiffs truck placeholder as its spawns less than cars-->
+	<set xpath="/blockplaceholders/placeholder[@name='cntServiceTruckWorkingStiffToolsRandomLootHelper']">
+		<block name="air" prob=".67"/>
+		<block name="gyrocopterWreckChassis" prob="0.03"/> <!--default 0.01-->
+		<block name="gyrocopterWreckAccessories" prob="0.03"/> <!--default 0.01-->
+		<block name="cntServiceTruckWorkingStiffTools" prob=".27"/>
+	</set> 
+	
+	<!--code for testing replaces almost all vehicle spawns with whatever is listed below-->
+	<!--
+	<set xpath="/blockplaceholders/placeholder[@name='carsRandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='carWrecksRandomHelper']">	
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntCar03SedanDamage0RandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+		<block name="air" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntCar03SedanDamage1RandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+		<block name="air" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSedan01RandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSedan01AirRandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+		<block name="air" prob="1"/>	
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntMinivan01RandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntMinivan01AirRandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+		<block name="air" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSUV01RandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSUV01AirRandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+		<block name="air" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntPickupTruck01RandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntPickupTruck01AirRandomHelper']">
+		<block name="gyrocopterWreckChassis" prob="0.5"/>
+		<block name="gyrocopterWreckAccessories" prob="0.5"/>
+		<block name="air" prob="1"/>
+	</set>
+	-->
+	<!--END test code-->
+</configs>

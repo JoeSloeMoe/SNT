@@ -7,60 +7,112 @@
 	
 	<append xpath="/entity_classes">
 	
-		<!--homing vulture code THIS IS TEST CODE - NOT IMPLEMENTED YET-->
-		<!-- In the Interloper story this entity comes from the player's clan back east.
-			Its one of the players pet homing pigeons - but it gets infected.
-			The clan keeps sending them thinking they are ok. Player cant send pigeon carrier response 
-			back 'cause its now a zombie. They carry notes or other stuff which drop in loot bags on death.
-			Storywise, eventually the player will have to build a shortwave radio to communicate with their 
-			Clan back East.
-		-->
+		<!--pigeon carry diseases code-->
 		<!--
 			There are 3 or more 'pigeons'. Each pigeon is unique because each bag dropped is a one-off specific
 			drop not random. The loot containers are defined first. Each container has its own lootbag (defined in loot.xml).
 		-->
+		<!--pigeon delivery drop code-->
 		<!-- Loot bag for the first homing vulture/pigeon. 
 			 EntityLootContainerHomingPigeon1 with lootbag homingPigeonDelivery1 (defined in loot.xml)-->
-		<entity_class name="EntityLootContainerHomingPigeon1">
+		<entity_class name="EntityHomingPigeon1">
 			<property name="Class" value="EntityLootContainer"/>
 			<property name="UserSpawnType" value="Console"/>
 			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
-			<!--<property name="Mesh" value="@:Entities/LootContainers/backpack_droppedPrefab.prefab"/>-->
 			<property name="ModelType" value="Custom"/>
 			<property name="Prefab" value="Backpack"/>
 			<property name="Parent" value="Backpack"/>
 			<property name="IsEnemyEntity" value="false"/>
 			<property name="TimeStayAfterDeath" value="6000"/>
-			<property name="LootListOnDeath" value="homingPigeonDelivery1"/>
 			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="homingPigeonDelivery1"/>
+		</entity_class>
+
+		<!-- Loot bag for the second homing vulture/pigeon. 
+			 EntityLootContainerHomingPigeon2 with lootbag homingPigeonDelivery2 (defined in loot.xml)-->
+		<entity_class name="EntityHomingPigeon2">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="homingPigeonDelivery2"/>
 		</entity_class>
 		
+		<!-- Loot bag for the third homing vulture/pigeon. 
+			 EntityLootContainerHomingPigeon3 with lootbag homingPigeonDelivery3 (defined in loot.xml)-->
+		<entity_class name="EntityHomingPigeon3">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="homingPigeonDelivery3"/>
+		</entity_class>
+		<!-- Loot bag for the fourth homing vulture/pigeon. 
+			 EntityLootContainerHomingPigeon4 with lootbag homingPigeonDelivery4 (defined in loot.xml)-->
+		<entity_class name="EntityHomingPigeon4">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="homingPigeonDelivery4"/>
+		</entity_class>
+		<!--end pigeon delivery drop code-->
+		
+		<!-- Loot bag for the final boss 'pigeonFinalBoss' in this file. -->
+		<entity_class name="EntityPigeonBossLoot">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="pigeonFinalBossLoot"/>
+		</entity_class>
 		
 		<!-- Homing pigeon/vulture base class/template and derived classes-->
 		
 		<!-- Template as there needs to be a different pigeon defined for each different note delivery-->
-		<entity_class name="homingPigeonTemplate" extends="animalZombieVulture">
+		<!--basic pigeon-->
+		<!-- Template as there needs to be a different pigeon defined for each different note delivery-->
+		<entity_class name="basicPigeonTemplate" extends="animalZombieVulture">
 			<property name="UserSpawnType" value="Menu"/>
 			<property name="Tags" value="entity,animal,zombie,hostile,vulture,pigeon"/>
+			
 			<property name="Mass" value="25"/> <!--35-->
-			<property name="SizeScale" value="0.42"/> <!--0.7-->
-			<property name="ParticleOnSpawn" value="ParticleEffects/RadiatedParticlesOnMesh" param1="SetShapeToMesh0"/>
+			<property name="SizeScale" value="0.40"/> <!--0.7-->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
 			<property name="MoveSpeed" value="1"/><!--1-->
 			<property name="MoveSpeedAggro" value="2.3, 2.3"/> <!--2.1,2.1-->
-			<property name="MaxTurnSpeed" value="150"/> <!--190-->
+			<property name="MaxTurnSpeed" value="220"/> <!--190-->
 			<property name="ExperienceGain" value="5000"/> <!--extra experience-->
+			<property name="AIFeralSense" value="1.6"/>
 			<property name="AITask-1" value="BreakBlock"/>
-			<property name="AITask-2" value="ApproachAndAttackTarget" data="class=EntityPlayer,100"/> 
-			<property name="AITask-3" value="ApproachSpot"/>
-			<property name="AITask-4" value=""/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
 			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
 			<property name="AITarget-2" value="BlockingTargetTask"/>
-			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,22,20"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
 			<property name="AITarget-4" value=""/>
-			
-			<!--default lootdrop - should be overidden by derived classes-->
-			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon1"/>
-			<property name="LootDropProb" value="1"/>
 			
 			<property name="DeadBodyHitPoints" value="120"/> <!--175-->
 			
@@ -70,27 +122,172 @@
 				<!--can use death trigger for something else as well maybe, code left for fiddling-->
 				<!--<triggered_effect trigger="onOtherKilledSelf" action="AddBuff" target="self" buff="buff"/>-->
 			</effect_group>
+	
+		</entity_class>
+		
+		<!--homing pigeon template. the homing pigeons are individual pigeons and each has its own loot drop.-->
+		<entity_class name="homingPigeonTemplate" extends="basicPigeonTemplate">
+			<!--default lootdrop - should be overidden by different pigeons-->
+			<property name="LootDropEntityClass" value="EntityHomingPigeon1"/>
+			<!--homing pigeons have a particle effect on them so they are noticable to the player-->
+			<property name="LootDropProb" value="1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfFirstSpawn" action="AttachParticleEffectToEntity" particle="RadiatedParticlesOnMesh" local_offset="0,0,0" parent_transform="LOD0" shape_mesh="true"/>
+			</effect_group>
 		</entity_class>
 		
 		<!-- Pigeon to drop the first delivery package
 			 Need a different pigeon defined for each different delivery drop-->
 		<entity_class name="animalHomingPigeonOne" extends="homingPigeonTemplate">
-			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon1"/>
+			<property name="LootDropEntityClass" value="EntityHomingPigeon1"/>
 		</entity_class>
 		<!-- Second pigeon with next delivery package -->
 		<entity_class name="animalHomingPigeonTwo" extends="homingPigeonTemplate">
-			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon2"/>
+			<property name="LootDropEntityClass" value="EntityHomingPigeon2"/>
 		</entity_class>
-		<!-- Second pigeon with next delivery package -->
+		<!-- third pigeon with next delivery package -->
 		<entity_class name="animalHomingPigeonThree" extends="homingPigeonTemplate">
-			<property name="LootDropEntityClass" value="EntityLootContainerHomingPigeon3"/>
+			<property name="LootDropEntityClass" value="EntityHomingPigeon3"/>
+		</entity_class>
+		<!-- Fourth pigeon with next delivery package -->
+		<entity_class name="animalHomingPigeonFour" extends="homingPigeonTemplate">
+			<property name="LootDropEntityClass" value="EntityHomingPigeon4"/>
+		</entity_class>
+		
+		<!-- This is for a flock of pigeons - they dont drop anything - used for the final chapter of the story-->
+		<entity_class name="animalPigeonFlock" extends="basicPigeonTemplate">
+			<property name="ExperienceGain" value="500"/> <!--there's a flock so reduced xp per bird-->
+			<property name="SizeScale" value="0.3"/> <!--smaller than regular pigeon-->
 		</entity_class>
 		<!-- End Homing pigeon/vulture base class/template and derived classes-->
 		
+		<!--the final Pigeons Carry Diseases Boss-->
+		<entity_class name="pigeonFinalBoss" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,walker,feral,radiated"/> 
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZTomClark.prefab"/> <!--tom's skin-->
+			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
+			<!--Sounds like a pigeon-->
+			<property name="SoundRandom" value="Animals/Vulture/vultureroam"/>
+			<property name="SoundAlert" value="Animals/Vulture/vulturealert"/>
+			<property name="SoundHurt" value="Animals/Vulture/vulturepain"/>
+			<property name="SoundDeath" value="Animals/Vulture/vulturedeath"/>
+			<property name="SoundAttack" value="Animals/Vulture/vultureattack"/>
+			<property name="SoundSense" value="Animals/Vulture/vulturesense"/>
+			<property name="SoundGiveUp" value="Animals/Vulture/vulturegiveup"/>
+	
+			<property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep"/>   <!--same as hawaiian-->
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="2"/>  <!--wight walk type-->
+			<property name="Mass" value="250"/>
+			<property name="PhysicsBody" value="zombieFat"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+
+			<property name="SizeScale" value="1.6"/>
+			<property name="DismemberMultiplierLegs" value="0"/>
+			<property name="LegCrawlerThreshold" value="0"/>
+			<property name="LegCrippleThreshold" value="0"/>
+			<property name="KnockdownProneDamageThreshold" value="0"/>
+			<property name="KnockdownKneelDamageThreshold" value="0"/>
+	
+			<property name="LegsExplosionDamageMultiplier" value=".5"/>
+			<property name="ArmsExplosionDamageMultiplier" value=".5"/>
+			<property name="HeadExplosionDamageMultiplier" value=".5"/>
+			<property name="ChestExplosionDamageMultiplier" value=".5"/>
+			
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+	 
+			<property name="DismemberMultiplierHead" value=".4"/>
+			<property name="DismemberMultiplierArms" value=".4"/>
+			<property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="HandItem" value="meleeHandZombieCopRadiated"/> <!--cop hands-->
+			<property name="ExperienceGain" value="8000"/><!-- XP strong radiated -->
+			<property name="LootDropEntityClass" value="EntityPigeonBossLoot"/>
+			<property name="LootDropProb" value="1"/>
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/> <!-- fit, feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="4000"/> <!--same as zombie bear-->
+				<!--<passive_effect name="EntityDamage" operation="perc_add" value="0"/>--> <!-- Feral damage -->
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="9"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+				<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfFirstSpawn" action="AttachParticleEffectToEntity" particle="RadiatedParticlesOnMesh" local_offset="0,0,0" parent_transform="Head" shape_mesh="true"/>
+			</effect_group>
+		</entity_class>
 		
-		<!--end homing pigeon code-->
+		<!--end pigeon carry diseases code-->
+
+		<!--interloper story code-->
+		<!--airdrop entity for the secret supply drop-->
+		<entity_class name="interloperSecretDrop">
+			<property name="Class" value="EntitySupplyCrate"/>
+			<property name="Parent" value="SupplyCrates"/>
+			<property name="Prefab" value="SupplyCrate"/>
+			<property name="Mesh" value="SupplyCrate/SupplyCrateEntityPrefab"/>
+			<property name="ModelType" value="SupplyCrate"/>
+			<property name="TintColor" value="00a9FF"/>
+			<property name="Faction" value="none"/>
+			<property name="MaxHealth" value="1200"/>
+			<property name="Weight" value="100"/>
+			<property name="HasRagdoll" value="false"/>
+			<property name="SurfaceCategory" value="wood"/>
+			<property name="ParticleOnDeath" value="supply_crate_gib_Prefab"/>
+			<property name="LootListAlive" value="interloperSecretDrop"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="SoundParachuteOpen" value="SupplyDrops/Parachute_Opens"/>
+			<property name="SoundLanding" value="SupplyDrops/Supply_Crate_Land"/>
+			<property name="TimeStayAfterDeath" value="0"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="1200"/>
+			</effect_group>
+			<property name="NavObject" value="supply_drop" />
+			<!-- If set this entity shows on the map -->
+			<property name="MapIcon" value="map_supply_crate"/> 
+		</entity_class>
+		<!--end airdrop entity for the secret supply drop-->
 	
-	
+		<!--supply drop entity for the interloper epilogue magazine-for-books trade drop-->
+		<entity_class name="interloperTradeDrop">
+			<property name="Class" value="EntitySupplyCrate"/>
+			<property name="Parent" value="SupplyCrates"/>
+			<property name="Prefab" value="SupplyCrate"/>
+			<property name="Mesh" value="SupplyCrate/SupplyCrateEntityPrefab"/>
+			<property name="ModelType" value="SupplyCrate"/>
+			<property name="TintColor" value="00a9FF"/>
+			<property name="Faction" value="none"/>
+			<property name="MaxHealth" value="1200"/>
+			<property name="Weight" value="100"/>
+			<property name="HasRagdoll" value="false"/>
+			<property name="SurfaceCategory" value="wood"/>
+			<property name="ParticleOnDeath" value="supply_crate_gib_Prefab"/>
+			<property name="LootListAlive" value="interloperTradeDrop"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="SoundParachuteOpen" value="SupplyDrops/Parachute_Opens"/>
+			<property name="SoundLanding" value="SupplyDrops/Supply_Crate_Land"/>
+			<property name="TimeStayAfterDeath" value="0"/>
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="1200"/>
+			</effect_group>
+			<property name="NavObject" value="supply_drop" />
+			<!-- If set this entity shows on the map -->
+			<property name="MapIcon" value="map_supply_crate"/> 
+		</entity_class>
+		<!--end airdrop entity for the secret supply drop-->
+		
 		<!--begin shortwave radio interface THIS CODE IS TEST CODE - NOT IMPLEMENTED YET -->
 		<!-- The player will need to build a short wave radio at some point in the story.
 			The shortwave radio is actually a trader underneath so the interaction between the 
@@ -258,9 +455,39 @@
 			<property name="DanceType" value="1" />
 		</entity_class>
 		
-		<!--END shortwave radio interface -->
+		<!--END shortwave radio interface TEST CODE-->
 		
 		
 	</append>
 	<!-- END Interloper challenge code-->
+	
+	<!--IMPROVED HORDES CODE-->
+	<!-- Allows the animal hordes to work properly -->
+	<remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-1']"/>
+	<remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-2']"/>
+	<remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-3']"/>
+	<remove xpath="/entity_classes/entity_class[@name='animalTemplateTimid']/property[@name='AITask-4']"/>
+	
+	<append xpath="/entity_classes/entity_class[@name='animalTemplateTimid']">
+		<property name="AITask-1" value="RunawayWhenHurt"/>
+		<property name="AITask-2" value="RunawayFromEntity" data="class=EntityPlayer,EntityZombie,EntityEnemyAnimal"/>
+		<property name="AITask-3" value="ApproachSpot"/>
+		<property name="AITask-4" value="Look"/>
+		<property name="AITask-5" value="Wander"/>
+	</append>
+	
+	<!-- Same for rabbits -->
+	<remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-1']"/>
+	<remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-2']"/>
+	<remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-3']"/>
+	<remove xpath="/entity_classes/entity_class[@name='animalRabbit']/property[@name='AITask-4']"/>
+	
+	<append xpath="/entity_classes/entity_class[@name='animalRabbit']">
+		<property name="AITask-1" value="RunawayWhenHurt"/>
+		<property name="AITask-2" value="RunawayFromEntity" data="class=EntityPlayer,EntityZombie,EntityEnemyAnimal;safeDistance=20"/>
+		<property name="AITask-3" value="ApproachSpot"/>
+		<property name="AITask-4" value="Look"/>
+		<property name="AITask-5" value="Wander"/>
+	</append>
+	<!--END IMPROVED HORDES CODE-->
  </configs>

@@ -1,4 +1,19 @@
 <configs>
+	
+	<!--Learn by use code-->
+	<!--add a tag (lbu_demo) to the molotov so that it can be properly identified in progression.xml:lbu_Demolition perk to allocate the correct xp per hit.
+	The tag is added to treat it differently than grenades. The grenade explosion gets xp for all effected zombies, while the moly fire only get xp for 
+	the zombie that was hit by the molotov, all other zombie on fire are ignored-->
+	<set xpath ="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Tags']/@value">lbu_DemoMolotov,ammo,weapon,attPerception,perkDemolitionsExpert,explosivesSkill</set> 
+	
+	<!--Reset the tags for ammoCrossbowBoltExploding. The tags added are exactly the same as it already has in its definition. 
+		perkDemolitionsExpert doesnt return true for requirements statements if the tags are not re-added. (not sure why)
+		e.g. <requirement name="ItemHasTags" tags="perkDemolitionsExpert"/> : returns false for ammoCrossbowBoltExploding even though it has the tag perkDemolitionsExpert in the default code definition-->
+	<set xpath ="/items/item[@name='ammoCrossbowBoltExploding']/property[@name='Tags']/@value">ammo,ranged,attAgility,perkArchery,perkPenetrator,perkDemolitionsExpert</set> 
+	
+	<!--end learn by use code-->
+	
+	
 	<!-- Adding an additional mod slot to a select group of top tier equipment {Tools,Handweapons,Guns,Military Armour,Steel Armour,Swat Helmet} 
 		 Everything is the same as the base game except for (value=".,.,.,.,.,5" <==this value 5) in each line
 		 All of the item types listed here also have a chance to spawn with a mod (all levels T1 through T6) see loot.xml
@@ -66,56 +81,365 @@
 		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,3,4,5" tier="1,2,3,4,5,6"/>
 	</append>	
 	
-	<!-- Military Armour -->
-	<append xpath="/items/item[starts-with(@name, 'armorMilitaryHelmet')]/effect_group[starts-with(@name, 'military armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>		
-	<append xpath="/items/item[starts-with(@name, 'armorMilitaryVest')]/effect_group[starts-with(@name, 'military armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorMilitaryGloves')]/effect_group[starts-with(@name, 'military armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorMilitaryLegs')]/effect_group[starts-with(@name, 'military armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorMilitaryBoots')]/effect_group[starts-with(@name, 'military armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorMilitaryStealthBoots')]/effect_group[starts-with(@name, 'military without penalties')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>		
+	<!-- Clothings sets. All Legendary clothing (except primative) has an extra mod slot (5). 
+			Increase slots from  value="1,1,2,2,3,4" per tier="1,2,3,4,5,6" TO value="1,1,2,3,4,5" per tier="1,2,3,4,5,6"-->
+		<append xpath="/items/item[starts-with(@name, 'armorLumberjackHelmet')]/effect_group[starts-with(@name, 'LumberjackHelmet')]">
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorLumberjackOutfit')]/effect_group[starts-with(@name, 'LumberjackOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorLumberjackGloves')]/effect_group[starts-with(@name, 'LumberjackGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorLumberjackBoots')]/effect_group[starts-with(@name, 'LumberjackBoots')]">		
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<!--The Preacher helmet is coded below this as the whole Helmet is replaced-->
+	<append xpath="/items/item[starts-with(@name, 'armorPreacherOutfit')]/effect_group[starts-with(@name, 'PreacherOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorPreacherGloves')]/effect_group[starts-with(@name, 'PreacherGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorPreacherBoots')]/effect_group[starts-with(@name, 'PreacherBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorRogueHelmet')]/effect_group[starts-with(@name, 'RogueHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRogueOutfit')]/effect_group[starts-with(@name, 'RogueOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRogueGloves')]/effect_group[starts-with(@name, 'RogueGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRogueBoots')]/effect_group[starts-with(@name, 'RogueBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+		
+	<!--The Athletic helmet modslots are coded below this as the whole Helmet is replaced-->
+	<append xpath="/items/item[starts-with(@name, 'armorAthleticOutfit')]/effect_group[starts-with(@name, 'AthleticOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorAthleticGloves')]/effect_group[starts-with(@name, 'AthleticGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorAthleticBoots')]/effect_group[starts-with(@name, 'AthleticBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<!--The Ranger helmet is coded below this as the whole Helmet is replaced-->
+	<append xpath="/items/item[starts-with(@name, 'armorEnforcerOutfit')]/effect_group[starts-with(@name, 'EnforcerOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorEnforcerGloves')]/effect_group[starts-with(@name, 'EnforcerGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorEnforcerBoots')]/effect_group[starts-with(@name, 'EnforcerBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorFarmerHelmet')]/effect_group[starts-with(@name, 'FarmerHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorFarmerOutfit')]/effect_group[starts-with(@name, 'FarmerOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorFarmerGloves')]/effect_group[starts-with(@name, 'FarmerGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorFarmerBoots')]/effect_group[starts-with(@name, 'FarmerBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorBikerHelmet')]/effect_group[starts-with(@name, 'BikerHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorBikerOutfit')]/effect_group[starts-with(@name, 'BikerOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorBikerGloves')]/effect_group[starts-with(@name, 'BikerGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorBikerBoots')]/effect_group[starts-with(@name, 'BikerBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorScavengerHelmet')]/effect_group[starts-with(@name, 'ScavengerHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorScavengerOutfit')]/effect_group[starts-with(@name, 'ScavengerOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorScavengerGloves')]/effect_group[starts-with(@name, 'ScavengerGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorScavengerBoots')]/effect_group[starts-with(@name, 'ScavengerBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<!--The Ranger helmet is coded below this as the whole Helmet is replaced-->
+	<append xpath="/items/item[starts-with(@name, 'armorRangerOutfit')]/effect_group[starts-with(@name, 'RangerOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRangerGloves')]/effect_group[starts-with(@name, 'RangerGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRangerBoots')]/effect_group[starts-with(@name, 'RangerBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorCommandoHelmet')]/effect_group[starts-with(@name, 'CommandoHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorCommandoOutfit')]/effect_group[starts-with(@name, 'CommandoOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorCommandoGloves')]/effect_group[starts-with(@name, 'CommandoGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorCommandoBoots')]/effect_group[starts-with(@name, 'CommandoBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorAssassinHelmet')]/effect_group[starts-with(@name, 'AssassinHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorAssassinOutfit')]/effect_group[starts-with(@name, 'AssassinOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorAssassinGloves')]/effect_group[starts-with(@name, 'AssassinGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorAssassinBoots')]/effect_group[starts-with(@name, 'AssassinBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorMinerHelmet')]/effect_group[starts-with(@name, 'MinerHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorMinerOutfit')]/effect_group[starts-with(@name, 'MinerOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorMinerGloves')]/effect_group[starts-with(@name, 'MinerGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorMinerBoots')]/effect_group[starts-with(@name, 'MinerBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorNomadHelmet')]/effect_group[starts-with(@name, 'NomadHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorNomadOutfit')]/effect_group[starts-with(@name, 'NomadOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorNomadGloves')]/effect_group[starts-with(@name, 'NomadGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorNomadBoots')]/effect_group[starts-with(@name, 'NomadBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorNerdHelmet')]/effect_group[starts-with(@name, 'NerdHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorNerdOutfit')]/effect_group[starts-with(@name, 'NerdOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorNerdGloves')]/effect_group[starts-with(@name, 'NerdGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorNerdBoots')]/effect_group[starts-with(@name, 'NerdBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		
+	<append xpath="/items/item[starts-with(@name, 'armorRaiderHelmet')]/effect_group[starts-with(@name, 'RaiderHelmet')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRaiderOutfit')]/effect_group[starts-with(@name, 'RaiderOutfit')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRaiderGloves')]/effect_group[starts-with(@name, 'RaiderGloves')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<append xpath="/items/item[starts-with(@name, 'armorRaiderBoots')]/effect_group[starts-with(@name, 'RaiderBoots')]">	
+		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+	<!--end mod slot changes-->
 	
-	<!-- Steel Armour -->	
-	<append xpath="/items/item[starts-with(@name, 'armorSteelHelmet')]/effect_group[starts-with(@name, 'steel armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorSteelChest')]/effect_group[starts-with(@name, 'steel armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorSteelGloves')]/effect_group[starts-with(@name, 'steel armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>	
-	<append xpath="/items/item[starts-with(@name, 'armorSteelLegs')]/effect_group[starts-with(@name, 'steel armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>
-	<append xpath="/items/item[starts-with(@name, 'armorSteelBoots')]/effect_group[starts-with(@name, 'steel armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="3,3,3,4,4,5" tier="1,2,3,4,5,6"/>
-	</append>
+	<!--swap out Preacher, Athletic, Enforcer & Ranger Helmets Bartering bonus 
+	and replace with something not-trader-->
 	
-	<!-- Swat Helmet -->
-	<append xpath="/items/item[starts-with(@name, 'armorSwatHelmet')]/effect_group[starts-with(@name, 'steel armor')]">
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/>
-	</append>
+	<!--remove trading stuff from the Athletic Helmet. Replace with a change to find cement-->
+	<!--add a ID tag to the resourceCement for reference-->
+	<set xpath ="/items/item[@name='foodHoney']/property[@name='Tags']/@value">SNT_honey,food,medical,medicalSkill,fitness</set> 
+	
+	<!--remove the helmet-->
+	<remove xpath="/items/item[@name='armorAthleticHelmet']"/>
+	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
+		is in, is not a NAMED element so cant be addressed individually-->
+	<insertAfter xpath="/items/item[@name='armorRogueBoots']">
+		<item name="armorAthleticHelmet">
+			<property name="Extends" value="armorLightMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="armorAthleticHelmetDesc"/>
+			<property name="DisplayType" value="armorAthleticHelmet"/>
+			<property name="ArmorGroup" value="groupAthletic"/>
+			<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+			<property name="EquipSlot" value="Head"/>
+			<property name="SoundPickup" value="headwear_cloth_grab"/>
+			<property name="SoundPlace" value="headwear_cloth_place"/>
+			<effect_group name="AthleticHelmet">
+				<!--change the mod slots-->
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="8,12.3" tier="1,6" tags="heat,electrical"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
+				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
+				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>
+			</effect_group>
+
+			<!--change the effect from bartering to finding honey-->
+			<effect_group>
+				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_honey"/>
+				<display_value name="dLootProb" value=".02,.04,.06,.08,.1,.2" tier="1,2,3,4,5,6"/> 	
+			</effect_group>
+
+			<property class="SDCS">
+				<property name="HeadGearName" value="Fitness"/>
+				<property name="TransformName" value="head"/>
+				<property name="Excludes" value=""/>
+				<property name="HairMaskType" value="Hat"/>
+			</property>
+		</item>
+	</insertAfter>
+	<!--END remove trading stuff from Athletic Helmet. -->
+	
+	<!--remove trading stuff from the Preacher Helmet. Replace with a chance to find acid-->
+	<!--add a ID tag to the resourceAcid for reference-->
+	<insertAfter xpath ="/items/item[@name='resourceAcid']/property[@name='Material']">
+			<property name="Tags" value="SNT_acid"/> 
+	</insertAfter>
+	<!--remove the helmet-->
+	<remove xpath="/items/item[@name='armorPreacherHelmet']"/>
+	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
+		is in, is not a NAMED element so cant be addressed individually-->
+	<insertAfter xpath="/items/item[@name='armorLumberjackBoots']">
+		<item name="armorPreacherHelmet">
+			<property name="Extends" value="armorLightMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="armorPreacherHelmetDesc"/>
+			<property name="DisplayType" value="armorPreacherHelmet"/>
+			<property name="ArmorGroup" value="groupPreacher"/>
+			<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorPrecherHelmetCritChance"/>
+			<property name="EquipSlot" value="Head"/>
+			<property name="SoundPickup" value="headwear_cloth_grab"/>
+			<property name="SoundPlace" value="headwear_cloth_place"/>
+			<effect_group name="PreacherHelmet">
+				<!--change the mod slots-->
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="8,12.3" tier="1,6" tags="heat,electrical"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
+				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
+				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>		
+			</effect_group>
+			<!--change the effect from bartering to acid -->
+			<effect_group>
+				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_acid"/>
+				<display_value name="dLootProb" value=".02,.04,.06,.08,.1,.2" tier="1,2,3,4,5,6"/> 	
+			</effect_group>
+
+			<property class="SDCS">
+				<property name="TransformName" value="head"/>
+				<property name="HeadGearName" value="Preacher"/>
+				<property name="Excludes" value=""/>
+				<property name="HairMaskType" value="Hat"/>
+			</property>
+		</item>
+	</insertAfter>
+	<!--END remove trading stuff from the Preacher Helmet. Replace with a chance to find acid-->
+	
+	<!--remove trading stuff from the Enforcer Helmet. Replace with a change -->
+	<!--add a ID tag to the resourceCement for reference-->
+	<insertAfter xpath ="/items/item[@name='resourceCement']/property[@name='Material']">
+			<property name="Tags" value="SNT_cement"/> 
+	</insertAfter>
+	<!--remove the helmet-->
+	<remove xpath="/items/item[@name='armorEnforcerHelmet']"/>
+	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
+		is in, is not a NAMED element so cant be addressed individually-->
+	<insertAfter xpath="/items/item[@name='armorLumberjackBoots']">
+		<item name="armorEnforcerHelmet">
+			<property name="Extends" value="armorLightMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="armorEnforcerHelmetDesc"/>
+			<property name="DisplayType" value="armorEnforcerHelmet"/>
+			<property name="ArmorGroup" value="groupEnforcer"/>
+			<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+			<property name="EquipSlot" value="Head"/>
+			<property name="SoundPickup" value="headwear_sunglasses_grab"/>
+			<property name="SoundPlace" value="headwear_sunglasses_place"/>
+			<effect_group name="EnforcerHelmet">
+				<!--change the mod slots-->
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="8,12.3" tier="1,6" tags="heat,electrical"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
+				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
+				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>
+			</effect_group>
+
+			<!--change the effect from bartering to cement-->
+			<effect_group>
+				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_cement"/>
+				<display_value name="dLootProb" value=".02,.04,.06,.08,.1,.2" tier="1,2,3,4,5,6"/> 	
+			</effect_group>
+
+			<property class="SDCS">
+				<property name="HeadGearName" value="Enforcer"/>
+				<property name="TransformName" value="head"/>
+				<property name="Excludes" value=""/>
+				<property name="HairMaskType" value="Full"/>
+			</property>
+		</item>
+	</insertAfter>
+	<!--END remove trading stuff from the Enforcer Helmet. Replace with a chance to find -->
+	<!--END remove trading stuff from the Enforcer Helmet. Replace with a chance to find -->
+	
+	<!--remove trading stuff from Ranger's Helmet. Replace with chance to find glue-->
+	<!--add a ID tag to the existing 'junk' tag of the glue for reference-->
+	<set xpath ="/items/item[@name='resourceGlue']/property[@name='Tags']/@value">junk,SNT_glue</set> 
+	<!--remove the helmet-->
+	<remove xpath="/items/item[@name='armorRangerHelmet']"/>
+	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
+		is in, is not a NAMED element so cant be addressed individually-->
+	<insertAfter xpath="/items/item[@name='armorScavengerBoots']">
+		<item name="armorRangerHelmet">
+			<property name="Extends" value="armorMediumMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="armorRangerHelmetDesc"/>
+			<property name="DisplayType" value="armorRangerHelmet"/>
+			<property name="ArmorGroup" value="groupRanger"/>
+			<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,armorRangerBonus"/>
+			<property name="EquipSlot" value="Head"/>
+			<property name="SoundPickup" value="headwear_cloth_grab"/>
+			<property name="SoundPlace" value="headwear_cloth_place"/>
+			<effect_group name="RangerHelmet">
+				<!--change the mod slots-->
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="13,17.3" tier="1,6"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="13,17.3" tier="1,6" tags="heat,electrical"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="0.043,0.053" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="mediumArmorDeg"/>
+				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
+				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>
+				
+				<passive_effect name="Mobility" operation="perc_add" value="-.049"/> <!-- Set .001 lower to resolve floating point rounding issues -->
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="-.0281" tags="walking"/>
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="-.0562" tags="running"/>
+				<display_value name="dStaminaChangeOT" value="-.56"/>
+				<passive_effect name="NoiseMultiplier" operation="perc_add" value=".1"/>
+				<display_value name="dNoiseMultiplier" value=".1"/>
+			</effect_group>
+
+			<!--change the effect from bartering to finding glue -->
+			<effect_group>
+				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_glue"/>
+				<display_value name="dLootProb" value=".02,.04,.06,.08,.1,.2" tier="1,2,3,4,5,6"/> 
+			</effect_group>
+
+			<property class="SDCS">
+				<property name="HeadGearName" value="Ranger"/>
+				<property name="TransformName" value="head"/>
+				<property name="Excludes" value=""/>
+				<property name="HairMaskType" value="Hat"/>
+			</property>
+		</item>
+	</insertAfter> 
+	<!--END remove trading stuff from Ranger's Helmet. -->
+	
+	<!--END swap out Preacher, Athletic, Enforcer & Ranger Helmets -->
+		
+	<!--END clothing sets-->
+	
 	<!-- end adding mod slot section -->
 	
+	<!-- tags for story items - see also blocks.xml for other tag additions -->
 	<!--add a tag (bookMagnumV4) for magnum 44 and desert vulture for the '44 Magnum vol 4 book' logic
 		(Mary's Revenge is added as well in the weapons definition further down in this file)
 		(7% added to base lootstage if holding 44 weapon when looting) 
 		see buff.xml:buffGameEventController-->
 	<set xpath ="/items/item[@name='gunHandgunT2Magnum44']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,revolver,barrelAttachments,sideAttachments,smallTopAttachments,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
 	<set xpath ="/items/item[@name='gunHandgunT3DesertVulture']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,revolver,holdBreathAiming,reloadPenalty,gun,shortRange,pistol,barrelAttachments,sideAttachments,smallTopAttachments,magazine,firingMode,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
-		
+	<!--the expanded drum mag dropped in the pigeons have diseases story - the mod can only be placed on the M60 so need to a specifc tag 'expandedDrumMag' to the M60 for it-->
+	<set xpath ="/items/item[@name='gunMGT3M60']/property[@name='Tags']/@value">expandedDrumMag,weapon,ranged,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,magazine,drumMagazine,bottomAttachments,mediumTopAttachments,attFortitude,perkMachineGunner,perkBookAutoWeapons,attachmentsIncluded,canHaveCosmetic,machinegunSkill</set> 
+	<!--end tags for story items-->
+
 	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
 	<set xpath="/items/item[@name='oldCash']/property[@name='FuelValue']/@value">30</set>
 
@@ -138,43 +462,8 @@
 	<set xpath="/items/item[@name='gunShotgunT3AutoShotgun']/property[@class='Action0']/property[@name='Sound_loop']/@value">SNT_auto_shotgun_fire</set>	
 	<set xpath="/items/item[@name='gunShotgunT2PumpShotgun']/property[@class='Action0']/property[@name='Sound_start']/@value">SNT_pump_shotgun_s_fire</set>
 	
-	
-	<!--change the effect of cigars from trade specific to block damage
-		See also ui_display.xml-->
-	<set xpath="/items/item[@name='apparelCigar']">
-		<!--<item name="apparelCigar">-->
-		<property name="Tags" value="head,clothing,noMods"/>
-		<property name="DisplayType" value="clothingCigar"/>
-		<property name="UnlockedBy" value="perkUrbanCombatCigar"/> <!-- BOOK_PERK -->
-		<property name="Material" value="Mplants"/>
-		<property name="Stacknumber" value="1"/>
-		<property name="DegradationBreaksAfter" value="false"/>
-		<property name="EconomicValue" value="500"/>
-		<property name="TraderStageTemplate" value="armorTier2"/>
-		<property name="HoldType" value="45"/>
-		<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
-		<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
-		<property name="Group" value="Clothing,TCClothing"/>
-		<property name="EquipSlot" value="Face"/>
-		<property class="UMA">
-			<property name="Mesh" value="gear_cigar"/>
-			<property name="Overlay0" value="gear_cigar"/>
-			<property name="Layer" value="1"/>
-			<property name="UISlot" value="Face"/>
-		</property>
-		<effect_group tiered="false">
-			<display_value name="bAttributeLevel" value="1"/>
-			<display_value name="bBlockDamage" value="0.1"/>
-			<passive_effect name="ModSlots" operation="base_set" value="0"/>
-			<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="1"/>
-			<passive_effect name="BlockDamage" operation="perc_add" value="0.1"/>
-		</effect_group>
-	</set>
-	
 	<!--remove tint colour from grenades-->
-	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='CustomIconTint']"/>
-	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='TintColor']"/>
-	<remove xpath="/items/item[@name='thrownGrenade']/property[@name='CustomIconTint']"/>
+	<remove xpath="/items/item[@name='thrownGrenadeContact']/property[@name='TintColor']"/>>
 	<remove xpath="/items/item[@name='thrownGrenade']/property[@name='TintColor']"/>
 		
 	<!-- adding several kinds of drinks -->
@@ -236,7 +525,7 @@
 			<property name="Stacknumber" value="10"/> 
 			<property name="DisplayType" value="waterGrandpasThemsFightinWordsMoonshine"/>
 			<property name="CustomIcon" value="drinkJarGrandpasMoonshine"/>
-			<property name="CustomIconTint" value="0,171,255"/>
+			<property name="CustomIconTint" value="0,171,255"/> 
 			<property name="CraftingIngredientTime" value="15"/>
 			<property name="EconomicValue" value="500"/>
 			<property name="Group" value="Food/Cooking,CFDrink/Cooking"/>
@@ -279,7 +568,7 @@
 			<property name="DescriptionKey" value="drinkJarGrandpasGunbeltOilSauceDesc"/>
 			<property name="Stacknumber" value="10"/> 
 			<property name="CustomIcon" value="drinkJarGrandpasAwesomeSauce"/>
-			<property name="CustomIconTint" value="0,255,171"/>
+			<property name="CustomIconTint" value="0,255,171"/> 
 			<property name="DisplayType" value="waterGrandpasGunbeltOilSauce"/>
 			<property name="CraftingIngredientTime" value="15"/>
 			<property name="EconomicValue" value="500"/>
@@ -388,11 +677,17 @@
 	
 	<!--adding different resource bundles and stacks -->
 	<append xpath="/items">	
-		<item name="ammoGasCanBundleChanged">
+		<!--set a default bundle icon-->
+		<item name="SNTBundleTemplate">
 			<property name="Extends" value="resourceRockSmallBundle"/>
+			<property name="ItemTypeIcon" value="bundle"/> <!--set a default bundle icon-->
+		</item>	
+		<item name="ammoGasCanBundleChanged">
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammoGasCan"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
 			<property name="DescriptionKey" value="ammoGasCanBundleChangedDesc"/>
+			<property name="ItemTypeIcon" value="bundle"/>
 			<property class="Action0">
 				<property name="Create_item" value="ammoGasCan"/>
 				<property name="Create_item_count" value="10000"/>
@@ -400,7 +695,7 @@
 			<property name="Group" value="Resources,Chemicals,CFChemicals"/>
 		</item>	
 		<item name="resourceDuctTapeBundleChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="resourceDuctTape"/>
 			<property name="DescriptionKey" value="resourceDuctTapeBundleChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -411,7 +706,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="resourceDuctTapeBundleLargeChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="resourceDuctTape"/>
 			<property name="DescriptionKey" value="resourceDuctTapeBundleLargeChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -422,7 +717,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="resourceGlueBundleChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="resourceGlue"/>
 			<property name="DescriptionKey" value="resourceGlueBundleChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -433,7 +728,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="resourceGlueBundleLargeChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="resourceGlue"/>
 			<property name="DescriptionKey" value="resourceGlueBundleLargeChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -444,7 +739,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="resourceWoodBlockBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="woodMaster"/>
 			<property name="DescriptionKey" value="resourceWoodBlockBundleDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -456,7 +751,7 @@
 		</item>
 
 		<item name="thrownAmmoMolotovCocktailBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="thrownAmmoMolotovCocktail"/>
 			<property name="DescriptionKey" value="thrownAmmoMolotovCocktailBundleDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -467,7 +762,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="thrownGrenadeBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="thrownGrenade"/>
 			<property name="DescriptionKey" value="thrownGrenadeBundleDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -478,7 +773,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="thrownGrenadeContactBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="thrownGrenadeContact"/>
 			<property name="DescriptionKey" value="thrownGrenadeContactBundleDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -491,7 +786,7 @@
 		
 		<!--small stacks see recipes -->
 		<item name="cobblestoneShapesBundleChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="cobblestoneMaster"/>
 			<property name="DescriptionKey" value="cobblestoneShapesBundleChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -502,7 +797,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="concreteShapesBundleChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="concreteMaster"/>
 			<property name="DescriptionKey" value="concreteShapesBundleChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/>
@@ -513,7 +808,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="steelShapesBundleChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="steelMaster"/>
 			<property name="DescriptionKey" value="steelShapesBundleChangedDesc"/>
 			<property name="UnlockedBy" value="perkDaringAdventurer"/> 
@@ -526,7 +821,7 @@
 		
 		<!-- large stacks see recipes -->
 		<item name="cobblestoneShapesBundleLargeChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="cobblestoneMaster"/>
 			<property name="CustomIconTint" value="151,151,151"/>
 			<property name="DescriptionKey" value="cobblestoneShapesBundleLargeChangedDesc"/>
@@ -538,7 +833,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="concreteShapesBundleLargeChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="concreteMaster"/>
 			<property name="CustomIconTint" value="151,151,151"/>
 			<property name="DescriptionKey" value="concreteShapesBundleLargeChangedDesc"/>
@@ -550,7 +845,7 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="steelShapesBundleLargeChanged">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="steelMaster"/>
 			<property name="CustomIconTint" value="151,151,151"/>
 			<property name="DescriptionKey" value="steelShapesBundleLargeChangedDesc"/>
@@ -561,12 +856,153 @@
 			</property>
 			<property name="Group" value="Resources"/>
 		</item>
+		
+		<!-- Ammo stacks - see recipes.xml as well-->
+		<!--9mm-->
+		<item name="9mmBundlebox">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo9mmBulletBall"/>
+			<property name="DescriptionKey" value="9mmBundleboxDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo9mmBulletBall"/> 
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="9mmBundleboxAP">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo9mmBulletAP"/>
+			<property name="DescriptionKey" value="9mmBundleboxAPDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo9mmBulletAP"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="9mmBundleboxHP">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo9mmBulletHP"/>
+			<property name="DescriptionKey" value="9mmBundleboxHPDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo9mmBulletHP"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<!--44-->
+		<item name="44Bundlebox">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo44MagnumBulletBall"/>
+			<property name="DescriptionKey" value="44BundleboxDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo44MagnumBulletBall"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="44BundleboxAP">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo44MagnumBulletAP"/>
+			<property name="DescriptionKey" value="44BundleboxAPDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo44MagnumBulletAP"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="44BundleboxHP">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo44MagnumBulletHP"/>
+			<property name="DescriptionKey" value="44BundleboxHPDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo44MagnumBulletHP"/>
+				<property name="Create_item_count" value="100"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<!--762-->
+		<item name="762Bundlebox">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo762mmBulletBall"/>
+			<property name="DescriptionKey" value="762BundleboxDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo762mmBulletBall"/>
+				<property name="Create_item_count" value="150"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="762BundleboxAP">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo762mmBulletAP"/>
+			<property name="DescriptionKey" value="762BundleboxAPDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo762mmBulletAP"/>
+				<property name="Create_item_count" value="150"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="762BundleboxHP">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammo762mmBulletHP"/>
+			<property name="DescriptionKey" value="762BundleboxHPDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammo762mmBulletHP"/>
+				<property name="Create_item_count" value="150"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<!--shotgun ammo--> 
+		<item name="ShotgunBundlebox">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammoShotgunShell"/>
+			<property name="DescriptionKey" value="ShotgunBundleboxDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammoShotgunShell"/>
+				<property name="Create_item_count" value="150"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="ShotgunBundleboxSlug">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammoShotgunSlug"/>
+			<property name="DescriptionKey" value="ShotgunBundleboxSlugDesc"/> 
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammoShotgunSlug"/>
+				<property name="Create_item_count" value="150"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="ShotgunBundleboxBreaching">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammoShotgunBreachingSlug"/>
+			<property name="DescriptionKey" value="ShotgunBundleboxBreachingDesc"/>
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="ammoShotgunBreachingSlug"/>
+				<property name="Create_item_count" value="150"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
 	</append>
+	<!--end Ammo stacks - see recipes.xml as well-->
 	
 	<append xpath="/items">	
+
+		
 		<!--Air Drop loot bundle for treasure maps - see loot.xml for full airdrop loot -->
 		<item name="airdropTreasureLargeBundle">
-				<property name="Extends" value="resourceRockSmallBundle"/>
+				 <property name="Extends" value="SNTBundleTemplate"/>
 				<property name="CustomIcon" value="treasureQuestMaster"/>
 				<property name="DescriptionKey" value="airdropTreasureLargeBundleDesc"/>
 				<property class="Action0">
@@ -579,7 +1015,7 @@
 				</property>
 		</item>	
 		<item name="airdropTreasureSmallBundle">
-				<property name="Extends" value="resourceRockSmallBundle"/>
+				 <property name="Extends" value="SNTBundleTemplate"/>
 				<property name="CustomIcon" value="treasureQuestMaster"/>
 				<property name="DescriptionKey" value="airdropTreasureSmallBundleDesc"/>
 				<property class="Action0">
@@ -594,7 +1030,7 @@
 		
 		<!--airdrop SeedBundle-->
 		<item name="airdropSeedBundle">
-				<property name="Extends" value="resourceRockSmallBundle"/>
+				 <property name="Extends" value="SNTBundleTemplate"/>
 				<property name="CustomIcon" value="plantedYucca3Harvest"/>
 				<property name="DescriptionKey" value="airdropSeedBundleDesc"/>
 				<property class="Action0">
@@ -606,10 +1042,10 @@
 					<property name="Create_item_count" value="0"/>				
 				</property>
 		</item>	
-		
+
 		<!--airdrop vehicle magazine bundle-->
 		<item name="airdropVehiclesMagazineBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="bookVehicleAdventures"/>
 			<property name="DescriptionKey" value="airdropVehiclesMagazineBundleDesc"/>
 			<property class="Action0">
@@ -626,7 +1062,7 @@
 		
 		<!--airdrop AP ammo bundle-->
 		<item name="airdropAPAmmoBundle">
-				<property name="Extends" value="resourceRockSmallBundle"/>
+				 <property name="Extends" value="SNTBundleTemplate"/>
 				<property name="CustomIcon" value="ammo762mmBulletAP"/>
 				<property name="CustomIconTint" value="163,301,240"/> 
 				<property name="DescriptionKey" value="airdropAPAmmoBundleDesc"/>
@@ -640,7 +1076,7 @@
 				</property>
 		</item>
 		<item name="airdropBookBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="bundleBooks"/>
 			<property name="ItemTypeIcon" value="bundle"/>
 			<property name="DescriptionKey" value="airdropBookBundleDesc"/>
@@ -665,8 +1101,8 @@
 			</property>
 		</item>
 		<item name="airdropSteelDoorBundle">
-				<property name="Extends" value="resourceRockSmallBundle"/>
-				<property name="CustomIcon" value="treasureQuestMaster"/>
+				 <property name="Extends" value="SNTBundleTemplate"/>
+				<property name="CustomIcon" value="vaultDoor01"/>
 				<property name="DescriptionKey" value="airdropSteelDoorBundleDesc"/>
 				<property class="Action0">
 					<property name="Random_item" value="vaultDoor01,vaultDoor01Double,vaultHatch01,vaultDoor01_Powered,vaultDoor01Double_Powered,vaultHatch01_Powered"/>
@@ -677,16 +1113,7 @@
 					<property name="Create_item_count" value="0"/>
 				</property>
 		</item>	
-		<item name="airdropVehicleMagazineBundle">
-			<property name="Extends" value="questRewardBundleMaster"/>
-			<property name="CustomIcon" value="bundleSolarBank"/>
-			<property name="ItemTypeIcon" value="bundle"/>
-			<property name="DescriptionKey" value="airdropSolarBankBundleDesc"/>
-			<property class="Action0">
-				<property name="Create_item" value="bookVehicleAdventures"/>
-				<property name="Create_item_count" value="15"/>
-			</property>
-		</item>
+
 		<item name="airdropRepairKitBundle">
 			<property name="Extends" value="questRewardBundleMaster"/>
 			<property name="CustomIcon" value="resourceRepairKit"/>
@@ -702,12 +1129,13 @@
 	
 	
 	<!--adding bundles to scrap different kinds of ammo 
-		All bundles assume bundles of 50 when calculating scrap returns
+		All bundles assume bundles of 50 when calculating scrap returns exccept TimedCharges (which uses bundle of 5 and 80% return)
 		and generally return 75% (38 per 50) of the intial bullet recipe -->
 	<append xpath="/items">	
+		
 		<!--7.62 ammo-->
 		<item name="scrap762AmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo762mmBulletBall"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap762AmmoBundleDesc"/>
@@ -718,7 +1146,7 @@
 			</property>
 		</item>	
 		<item name="scrap762HPAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo762mmBulletHP"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap762HPAmmoBundleDesc"/>
@@ -729,7 +1157,7 @@
 			</property>
 		</item>	
 		<item name="scrap762APAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo762mmBulletAP"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap762APAmmoBundleDesc"/>
@@ -742,7 +1170,7 @@
 		<!--end 7.62 ammo -->
 		<!--9mm ammo-->
 		<item name="scrap9mmAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo9mmBulletBall"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap9mmAmmoBundleDesc"/>
@@ -753,7 +1181,7 @@
 			</property>
 		</item>	
 		<item name="scrap9mmHPAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo9mmBulletHP"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap9mmHPAmmoBundleDesc"/>
@@ -764,7 +1192,7 @@
 			</property>
 		</item>	
 		<item name="scrap9mmAPAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo9mmBulletAP"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap9mmAPAmmoBundleDesc"/>
@@ -777,7 +1205,7 @@
 		<!--end 9mm ammo -->
 		<!--44 ammo-->
 		<item name="scrap44AmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo44MagnumBulletBall"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap44AmmoBundleDesc"/>
@@ -788,7 +1216,7 @@
 			</property>
 		</item>	
 		<item name="scrap44HPAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo44MagnumBulletHP"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap44HPAmmoBundleDesc"/>
@@ -799,7 +1227,7 @@
 			</property>
 		</item>	
 		<item name="scrap44APAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammo44MagnumBulletAP"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrap44APAmmoBundleDesc"/>
@@ -812,7 +1240,7 @@
 		<!--end 45 ammo -->
 		<!--shotgun ammo-->
 		<item name="scrapShotgunAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammoShotgunShell"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrapShotgunAmmoBundleDesc"/>
@@ -823,7 +1251,7 @@
 			</property>
 		</item>		
 		<item name="scrapShotgunBreachingAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammoShotgunBreachingSlug"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrapShotgunBreachingAmmoBundleDesc"/>
@@ -834,7 +1262,7 @@
 			</property>
 		</item>	
 		<item name="scrapShotgunSlugAmmoBundle">
-			<property name="Extends" value="resourceRockSmallBundle"/>
+			 <property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="ammoShotgunSlug"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="scrapShotgunSlugAmmoBundleDesc"/>
@@ -845,6 +1273,64 @@
 			</property>
 		</item>	
 		<!--end shotgun ammo -->
+		<!--explosives etc-->
+		<item name="scrapMolotovCocktailBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="thrownAmmoMolotovCocktail"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapMolotovCocktailBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceCloth,ammoGasCan,resourceOil"/>
+				<property name="Create_item_count" value="15,1125,4"/> <!--create recipe is 4,300,1 per moly-->
+			</property>
+		</item>	
+		<item name="scrapPipeBombBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="thrownAmmoPipeBomb"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapPipeBombBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceYuccaFibers,resourceGunPowder,resourceMetalPipe"/>
+				<property name="Create_item_count" value="4,45,4"/> <!--create recipe is 1,12,1 per pipe bomb-->
+			</property>
+		</item>	
+		<item name="scrapthrownGrenadeBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="thrownGrenade"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapthrownGrenadeBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceMechanicalParts,resourceGunPowder,resourceForgedIron,resourceSpring"/>
+				<property name="Create_item_count" value="4,53,15,4"/> <!--create recipe is 1,14,4,1 per grenade-->
+			</property>
+		</item>	
+		<item name="scrapthrownGrenadeContactBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="thrownGrenadeContact"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapthrownGrenadeContactBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceMechanicalParts,resourceGunPowder,resourceForgedIron,resourceSpring"/>
+				<property name="Create_item_count" value="8,53,15,4"/> <!--create recipe is 2,14,4,1 per bullet-->
+			</property>
+		</item>	
+		<!--Timed Charges-->
+		<item name="scrapTimedChargesBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="thrownTimedCharge"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapTimedChargesBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceScrapIron,resourceGunPowder,resourceElectricParts"/>
+				<property name="Create_item_count" value="80,40,4"/>  <!--create recipe is 20,10,1 per bullet-->
+			</property>
+		</item>	
+		<!--end explosives etc.-->
 	</append>
 	<!--end adding bundles to scrap different kinds of ammo -->
 	
@@ -906,10 +1392,9 @@
 		</effect_group>
 	</set>
 	<!--end modify the Kandy bars to be able to be unlocked and group them-->
-
-
-	<!--books, mags etc for quests-->
+	
 	<insertAfter xpath ="items/item[@name='qt_raphael']">
+		<!--books, mags etc for quests-->
 		<item name="playerExplosiveBarrelSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
 			<property name="CreativeMode" value="Player"/>
@@ -943,6 +1428,8 @@
 			</property>
 		</item>
 		
+		
+		
 		<!--recipe books for the armour mods -->
 		<item name="modRagdollSpecialSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
@@ -967,27 +1454,30 @@
 			</effect_group>
 		</item>
 		<!--combined - this is the only one being used -->
-		<item name="modElectricRagdollSpecialSchematic">
+		<item name="modCrowdControlSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
 			<property name="CreativeMode" value="Player"/>
 			<property name="CustomIcon" value="modMeleeStunBatonRepulsor"/>
 			<property name="CustomIconTint" value="255,152,152"/>
-			<property name="Unlocks" value="modElectricRagdollSpecial"/>
+			<property name="Unlocks" value="modCrowdControl"/>
 			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modElectricRagdollSpecial" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="modCrowdControl" operation="set" value="1"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
 			</effect_group>
 		</item>
 		<!--end recipe books for the armour mods-->
 		
+		<!--END books, mags etc for quests-->
+		
+		
 		<!--items for CrowdControl (MissingPatrolCar) mod recipes-->
 		<item name="hafniumHydrideMagnet">
 			<property name="HoldType" value="45"/>
-			<property name="Tags" value="modElectricRagdollSpecial"/>
+			<property name="Tags" value="modCrowdControl"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="CustomIcon" value="helipad"/>
-			<property name="CustomIconTint" value="142,213,249"/>
+			<property name="CustomIconTint" value="0,200,255"/> 
 			<property name="Weight" value="1"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="Stacknumber" value="10"/> <!-- STK loot -->
@@ -997,11 +1487,11 @@
 		
 		<item name="advancedClothingMesh">
 			<property name="HoldType" value="45"/>
-			<property name="Tags" value="modElectricRagdollSpecial"/>
+			<property name="Tags" value="modCrowdControl"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
-			<property name="CustomIcon" value="cntClothesRackWallFlat"/>
-			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="CustomIcon" value="tarpHangingWhite"/>
+			<property name="CustomIconTint" value="46,189,141"/>
 			<property name="Weight" value="1"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="Stacknumber" value="10"/> <!-- STK loot -->
@@ -1010,13 +1500,13 @@
 		</item>	
 
 		<!--nicad battery -->
-		<item name="chargedNiCdBattery" >
+		<item name="chargedNiCdBattery" > 
 			<property name="HoldType" value="45"/>
-			<property name="Tags" value="modElectricRagdollSpecial"/>
+			<property name="Tags" value="modCrowdControl"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
-			<property name="CustomIcon" value="modGunMeleeNiCdBattery"/>
-			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="CustomIcon" value="waterHeaterWhite"/> <!--resourceScopeLens-->
+			<property name="CustomIconTint" value="255,150,150"/>
 			<property name="Weight" value="1"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="Stacknumber" value="10"/> <!-- STK loot -->
@@ -1032,7 +1522,7 @@
 			Add tag (bookMagnumV4) for the '44 Magnum vol 4 book' logic.
 			-->
 		<item name="marysRevengeHomemadeRifle">
-			<property name="Tags" value="bookMagnumV4,weapon,noSilencer,firingMode,modGunShotgunTubeExtenderMagazine,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,largeTopAttachments,stock,bottomAttachments,attPerception,perkDeadEye,attachmentsIncluded,canHaveCosmetic,rifleSkill"/>
+			<property name="Tags" value="bookMagnumV4,weapon,firingMode,modGunShotgunTubeExtenderMagazine,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,mediumTopAttachments,largeTopAttachments,stock,bottomAttachments,attPerception,perkDeadEye,attachmentsIncluded,canHaveCosmetic,rifleSkill"/>
 			<property name="HoldType" value="85"/>
 			<property name="Meshfile" value="@:Other/Items/Weapons/Ranged/LeverActionRifle/leverActionRiflePrefab.prefab"/>
 			<property name="Material" value="MRifleParts"/>
@@ -1048,8 +1538,8 @@
 			<property name="DegradationBreaksAfter" value="false"/>
 			<property name="SoundJammed" value="weapon_jam"/>
 			<property name="Attachments" value="meleeToolFlashlight02"/>
-			<property name="CrosshairOnAim" value="false"/> <!-- aimTest **-->
-			<property name="CrosshairUpAfterShot" value="false"/> <!-- aimTest -->
+			<property name="CrosshairOnAim" value="true"/> <!-- aimTest **-->
+			<property name="CrosshairUpAfterShot" value="true"/> <!-- aimTest -->
 			<property name="Sound_Sight_In" value="rifle_sight_in"/>
 			<property name="Sound_Sight_Out" value="rifle_sight_out"/>
 			<property name="LightSource" value="lightSource"/> <!-- Start: Needed for the attachment flashlight -->
@@ -1059,7 +1549,6 @@
 			<property name="RepairExpMultiplier" value="10.8"/>
 			<property name="LightValue" value=".45"/>
 			<property name="EconomicValue" value="2000"/>
-			<property name="TraderStageTemplate" value="baseTier2"/>
 			<property name="ShowQuality" value="true"/>
 			<property name="SoundUnholster" value="weapon_unholster"/>
 			<property name="SoundHolster" value="weapon_holster"/>
@@ -1069,8 +1558,12 @@
 				<property name="Delay" value=".4"/> <!-- obsolete if rounds per minute exists -->
 				<property name="Magazine_items" value="ammo44MagnumBulletBall,ammo44MagnumBulletHP,ammo44MagnumBulletAP"/>
 				<property name="Reload_time" value="1.8"/>
-				<property name="Sound_start" value="sniperrifle_s_fire"/>   <!-- silencer stuff -->
-				<property name="Sound_loop" value="sniperrifle_s_fire"/>
+				<!-- silencer stuff -->
+				<!--<property name="Sound_start" value="sniperrifle_s_fire"/>   
+				<property name="Sound_loop" value="sniperrifle_s_fire"/>-->
+				<property name="Sound_start" value="lever_action_rifle_fire"/>
+				<property name="Sound_loop" value="lever_action_rifle_fire"/>
+				
 				<property name="Sound_repeat" value=""/>
 				<property name="Sound_end" value="silencefiller"/>
 				<property name="Sound_empty" value="dryfire"/>
@@ -1133,28 +1626,21 @@
 			</effect_group>
 			
 			<!-- silencer stuff -->			
-			<property name="BarrelOffset" value="0,-.02,.2182"/>
+			<!--<property name="BarrelOffset" value="0,-.02,.2182"/>
 			<property name="BarrelScale" value=".88,.88,.88"/>
+			<property name="BarrelOffset" value="0,0,0"/>
+			<property name="BarrelScale" value="1,1,1"/>
 			<effect_group tiered="false" name="internal attachment prefab (A19)">
 				<requirement name="HoldingItemHasTags" tags="attachmentsIncluded"/>
 					<triggered_effect trigger="onSelfHoldingItemCreated" action="SetTransformActive" active="true" parent_transform="#HeldItemRoot" transform_path="silencer"/>
+			</effect_group-->
+			
+			<!--chance for complete bleed out -->
+			<effect_group>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/> <!--default 20-->
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffMarysRevengeBleedingTerminal"/>
 			</effect_group>
 			
-			<!-- chance to cripple target-->
-			<effect_group tiered="false">
-				<requirement name="EntityTagCompare" target="other" tags="walker"/>
-				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/>
-					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffInjuryCrippled01"/>
-			</effect_group>
-			
-			<!--very small chance to knockdown, this is just added to provide some 
-				variance to zombie behaviour on hit and isnt intended to do much. 
-				It doesnt last long and doesnt have much force -->
-			<effect_group tiered="false">
-				<requirement name="EntityTagCompare" target="other" tags="walker"/>
-				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
-					<triggered_effect trigger="onOtherDamagedSelf" action="Ragdoll" target="other" duration="1.8" force="275"/>		
-			</effect_group>
 		</item>
 		<!-- end Mary's Revenge  - special homemade rifle-->
 		
@@ -1169,7 +1655,7 @@
 			<property name="Extends" value="questRewardBundleMaster"/>
 			<property name="Tags" value="graveRobbingOneCoffin"/>
 			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="cntSecureStorageChest"/>
+			<property name="CustomIcon" value="cntWoodenChestRottenClosed"/>
 			<property name="CustomIconTint" value="239,200,162"/>
 			<property name="ItemTypeIcon" value="bundle"/>
 			<property name="DescriptionKey" value="rewardMarysRevengeBundleDesc"/>
@@ -1390,28 +1876,550 @@
 		</item>
 		<!--end generic items for visuals in coffin and patrol car loot slots-->
 	
-		<!--generic items for pigeon lootbags (Interloper storyline)-->
+	
+		<!--Interloper story -->
+		<!--Start Interloper story - this is started during the Pigeons Carry Diseases story and comes from a pigeon note-->
+		<!-- this will start the first 'scout trader' -->
+		<item name="qt_InterloperStoryNote">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,180,255"/>
+			<property name="DescriptionKey" value="qt_InterloperStoryNoteDesc"/>
+			<property class="Action0">
+				<!--scouting a desert trader is the start of the Interloper story-->
+				<property name="QuestGiven" value="quest_Interloper_ScoutTraderOne"/> 
+			</property>
+			<!--when the quest starts the player can then create the quest note again with a recipe, so they can repeat the story if they fail-->
+			<!--<effect_group tiered="false">
+			  <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="qt_InterloperStoryNote" operation="set" value="1"/>
+			</effect_group>-->
+		</item>
+		<!-- note to start the second scout trader - follows qt_InterloperStoryNote-->
+		<item name="qt_InterloperStoryNote2">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+			<property name="DescriptionKey" value="qt_InterloperStoryNote2Desc"/>
+			<property class="Action0">
+				<!--scouting a snow trader-->
+				<property name="QuestGiven" value="quest_Interloper_ScoutTraderTwo"/> 
+			</property>
+
+		</item>
+		<!--Sound of Silence chapter:
+			note to start the creation of a transmitter and receiver to spy on Traders
+			Follows qt_InterloperStoryNote2.-->
+		<item name="qt_InterloperStoryNoteMaliciousActor">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+			<property name="DescriptionKey" value="qt_InterloperStoryNoteMaliciousActorDesc"/>
+			<property class="Action0">
+				<!--build and plant spyware device to listen in on Traders-->
+				<property name="QuestGiven" value="quest_Interloper_MaliciousActor"/> 
+			</property>
+		</item>
+		
+		<!--note given to player after completion of Interloper_MaliciousActor (receiver and transmitter 
+			have been placed and waiting for any msg interception.)
+			This note indicates the current end of the story - the story picks up later automatically
+			when a transmission is received-->
+		<item name="interloperSpywareSetupCompleteNote">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="interloperSpywareSetupCompleteNoteDesc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+		</item>
+		
+		<!--First Transmission Note given to the player when received at the Transmission Receiver.
+			(Timing of receipt is determined by buffs.xml:buffInterloperStory)-->
+		<item name="qt_InterloperFirstTransmissionReceived">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="qt_InterloperFirstTransmissionReceivedDesc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+		</item>
+		
+		<!-- Second transmittion note received.
+			 This starts the InterceptSupplyCrate chapter of Interloper 
+			 (Timing of receipt is determined by buffs.xml:buffInterloperStory)-->
+		<item name="qt_InterloperSecondTransmissionReceived">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+			<property name="DescriptionKey" value="qt_InterloperSecondTransmissionReceivedDesc"/>
+			<property class="Action0">
+				<!--go find that supply crate-->
+				<!--<property name="QuestGiven" value="quest_Interloper_InterceptTheSupplies"/> -->
+				<property name="QuestGiven" value="quest_Interloper_InterceptTheSupplies"/> 
+			</property>
+		</item>
+		
+		<!-- Third transmittion note received.
+			 This starts the final EpilogueTradeOff chapter of Interloper 
+			 (Timing of receipt is determined by buffs.xml:buffInterloperStory)-->
+		<item name="qt_InterloperThirdTransmissionReceived">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+			<property name="DescriptionKey" value="qt_InterloperThirdTransmissionReceivedDesc"/>
+			<property class="Action0">
+				<!--start the last chapter-->
+				<property name="QuestGiven" value="quest_Interloper_Epilogue"/> 
+			</property>
+		</item>
+		
+		<!--End chapter InterceptSupplyCrate Note, given to the player on completion of InterceptSupplyCrate
+			This note generally updates the player on the story. Keep the special package and wait a bit to 
+			consider what to do with it.-->
+		<item name="interloperInterceptSupplyCrateComplete">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="interloperInterceptSupplyCrateCompleteDesc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="255,180,0"/>
+		</item>
+		
+		<!--magazine bundle for special supply drop loot
+			This bundle containes the magazines the player will trade-->
+		<item name="interloperSupplyCrateMagazineBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="bookSouthernFarming"/>
+			<property name="CustomIconTint" value="250,180,0"/>
+			<property name="DescriptionKey" value="interloperSupplyCrateMagazineBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<!--one reward book and 4 special magazines that are part of the storyline-->
+				<property name="Create_item" value="interloperSpecialMagOne,interloperSpecialMagTwo,interloperSpecialMagThree,interloperSpecialMagFour"/>
+				<property name="Create_item_count" value="1,1,1,1"/> 
+			</property>
+		</item>	
+		
+		
+		<!--special supply drop loot bundle - this is the main loot that is in the Special Supply Drop.
+			The player opens this bundle to get the story specific rewards. 
+			This bundle contains the interloperSupplyCrateMagazineBundle which is part of the storyline.
+			It also has specific weaponry and other stuff.
+			
+			The process goes:
+				Player finishes the Interloper:InterceptSupplyCrate chapter.
+				Player gets the interloperSupplyCrateDukesBundle from the Supply drop as well as some typical reward stuff
+					Opening interloperSupplyCrateDukesBundle will trigger a buff to be added that sets a countdown var.
+					This countdown will trigger the last chapter of the Interloper story when it runs down.
+				The interloperSupplyCrateDukesBundle contains interloperSupplyCrateMagazineBundle as well as other general rewards stuff.
+				The interloperSupplyCrateMagazineBundle can be opened by the player if opened, it can be re-bundled to use in the rest of the story.
+				-->
+				
+		<!--player gets this bundle in the supply drop of the interloper story chapter: Intercept The Supplies. 
+			The player gets this bundle from the supply crate (Intercept the supplies story) 
+			A bundle is used so that a buff can be started when opened - the buff tells the code that the interloper story is completed.-->
+		<item name="interloperSupplyCrateDukesBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="cntFetchQuestSatchel"/>
+			<!--<property name="CustomIconTint" value="255,152,152"/>-->
+			<property name="DescriptionKey" value="interloperSupplyCrateDukesBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<!--dukes stash-->
+				<property name="Create_item" value="interloperSupplyCrateMagazineBundle,interloperSpecialTissues,drinkCanMegaCrush"/>
+				<property name="Create_item_count" value="1,3,3"/> 
+			</property>
+			<!--add a buff to start the countdown of the final chapter of the interloper story -->
+			<effect_group tiered="false">		
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperStoryFinalCountdown"/>
+			</effect_group>
+		</item>	
+		<!--In addition to the Duke's bundle above, the player also get ammo in the supply crate.
+			THis is a bundle of the basic ammo. See loot.xml:interloperSecretDrop lootcontianer for full contents-->
+		<item name="interloperSupplyCrateAmmoBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="bundleAmmo"/>
+			<!--<property name="CustomIconTint" value="255,152,152"/>-->
+			<property name="DescriptionKey" value="interloperSupplyCrateAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<!--dukes stash-->
+				<property name="Create_item" value="ammo9mmBulletAP,ammo44MagnumBulletAP,ammo762mmBulletAP,ammoRocketFrag,thrownGrenadeContact,thrownGrenade,thrownAmmoMolotovCocktail,ammoBundle44MagnumBulletBall,ammoBundle762mmBulletBall,ammoBundle9mmBulletBall,ammoShotgunShell"/>
+				<property name="Create_item_count" value="150-350,150-350,150-350,20,6-25,6-25,6-25,8-12,13-17,3-17,8-12"/> 
+			</property>
+		</item>		
+		
+		<!--player gets this bundle in the Last drop of the interloper story. The player is trading 'special' magazines for 
+			Plissken Survival Technique books. The books are in the interloperSupplyCrateDukesBundle bundle. A bundle is 
+			used so that a buff can be started when opened - the buff tells the code that the interloper story is completed.-->
+		<item name="interloperEpilogueRewardBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="cntBackpack01"/>
+			<!--<property name="CustomIconTint" value="255,152,152"/>-->
+			<property name="DescriptionKey" value="interloperEpilogueRewardBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<!--drop the Plissken survival books-->
+				<property name="Create_item" value="interloperRewardBookOne,interloperRewardBookTwo,interloperRewardBookThree,interloperRewardBookFour"/>
+				<property name="Create_item_count" value="1,1,1,1"/>  
+			</property>
+			<!--add a buff to end the final chapter of the interloper story and shut down the storyline as its complete-->
+			<effect_group tiered="false">		
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperStoryFinished"/>
+				<!--trigger final reward for completing the Interloper story-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperStoryFinishedReward"/>
+			</effect_group>
+		</item>	
+		
+		<!--this bundle wraps the interloperSpywareSetupCompleteNote item above. 
+			This is what is given to the player once the transmitter/spyware is planted at a Trader.
+			The note is wrapped in a bundle so that an buff can be called on receipt (opening) and update the buff managing the Interloper story.
+			The buff needs to know this part of the story is complete as it will start the part of the story where
+			msgs are being received at the Receiver from the Trasmitter
+			NO LONGER USED-->
+		<item name="interloperMaliciousActorSpywareNoteBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="cntBookPile13"/>
+			<property name="CustomIconTint" value="239,200,162"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="interloperMaliciousActorSpywareNoteBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="interloperSpywareSetupCompleteNote"/>
+				<property name="Create_item_count" value="1"/>
+			</property>
+		</item>
+		
+		<!-- Interloper:InterceptSupplyCrate 
+			The different 'special' magazines making up the Special Supply crate bundle-->
+		<!--special magazines, they are just story items and they dont do anything-->
+		<item name="interloperSpecialMagOne">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="bookSouthernFarming"/>
+			<property name="CustomIconTint" value="212,243,228"/>
+			<property name="DescriptionKey" value="interloperSpecialMagOneDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="interloperSpecialMagTwo">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="bookSouthernFarming"/>
+			<property name="CustomIconTint" value="212,243,228"/>
+			<property name="DescriptionKey" value="interloperSpecialMagTwoDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="interloperSpecialMagThree">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="bookSouthernFarming"/>
+			<property name="CustomIconTint" value="212,243,228"/>
+			<property name="DescriptionKey" value="interloperSpecialMagThreeDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="interloperSpecialMagFour">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="bookSouthernFarming"/>
+			<property name="CustomIconTint" value="212,243,228"/>
+			<property name="DescriptionKey" value="interloperSpecialMagFourDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--END special magazines, they are just story items and they dont do anything-->
+		<!--microphone for the SignalReceiver recipe. From the Sund of Silence chapter-->
+		<item name="interloperMicrophone">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="CustomIcon" value="microphoneDesk"/>
+			<property name="DescriptionKey" value="interloperMicrophoneDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--generic item - box of tissues-->
+		<item name="interloperSpecialTissues">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="tableCommunion"/> 
+			<property name="CustomIconTint" value="212,243,228"/>
+			<property name="DescriptionKey" value="interloperSpecialTissuesDesc"/>
+			<property name="Stacknumber" value="5"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<!--These are interloper reward story books, reading each book add a permanent buff that
+			changes the players stats in some way.-->
+		<!--see the descriptions in Localization.xml for and buffs:buffInterloperRewardBookXX for info on what each book does-->
+		<item name="interloperRewardBookOne">
+			<property name="Extends" value="schematicMaster"/>
+			<!--the book uses the same description as the buff that is received by reading the book-->
+			<property name="DescriptionKey" value="buffInterloperRewardBookOneDesc"/>
+			<property name="CustomIcon" value="cntBookPile05"/>
+			<property name="CustomIconTint" value="42C234"/>
+			<property name="Stacknumber" value="1"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookOne"/>
+			</effect_group>
+		</item>
+		<item name="interloperRewardBookTwo">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="DescriptionKey" value="buffInterloperRewardBookTwoDesc"/>
+			<property name="CustomIcon" value="cntBookPile07"/>
+			<property name="CustomIconTint" value="42C234"/>
+			<property name="Stacknumber" value="1"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookTwo"/>
+			</effect_group>
+		</item>
+		<item name="interloperRewardBookThree">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="DescriptionKey" value="buffInterloperRewardBookThreeDesc"/>
+			<property name="CustomIcon" value="cntBookPile11"/>
+			<property name="CustomIconTint" value="42C234"/>
+			<property name="Stacknumber" value="1"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookThree"/>
+			</effect_group>
+		</item>
+		<item name="interloperRewardBookFour">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="DescriptionKey" value="buffInterloperRewardBookFourDesc"/>
+			<property name="CustomIcon" value="cntBookPile14"/>
+			<property name="CustomIconTint" value="42C234"/>
+			<property name="Stacknumber" value="1"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookFour"/>
+			</effect_group>
+		</item>
+		<item name="interloperRewardBookFive">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="DescriptionKey" value="buffInterloperRewardBookFiveDesc"/>
+			<property name="CustomIcon" value="cntBookPile13"/>
+			<property name="CustomIconTint" value="42C234"/>
+			<property name="Stacknumber" value="1"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookFive"/>
+			</effect_group>
+		</item>
+		<!--END These are interloper reward story-->
+		
+		<!--Book to spawn the supply drop thats intercepted in the Interloper story
+		TEST CODE -->
+		<item name="interloperSupplyDropSpawn">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="cntBookPile08"/>
+			<!--<property name="CustomIconTint" value="255,152,152"/>-->
+			<property name="DescriptionKey" value="interloperSupplyDropSpawnDesc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="quest_InterloperSupplySpawn"/>
+			</property>
+		</item>
+
+		<!--END Interloper story items -->
+		
+		<!--START Pigeans Carry Diseases story items-->
+		<!--modArmorStoragePocket
+			questMaster resourcePaper waterHeaterWhite
+		-->
+		
+		<!--The last pigeon chapter-->
+		<item name="qt_PigeonFinal">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,180,255"/>
+			<property name="DescriptionKey" value="homingPigeonNote4Desc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="quest_PigeonsEpilogue"/> 
+			</property>	
+		</item>        
+		
+		<item name="qt_PigeonFinalLootNote">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="qt_PigeonFinalLootNoteDesc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,180,255"/>
+		</item>
+		
+		<!--The message tube for the first pigeon (actually a bundle)-->
+		<item name="homingPigeonContainer1">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="pipeSmallWallCap"/>
+			<property name="CustomIconTint" value="240,163,37"/>
+			<property name="DescriptionKey" value="homingPigeonContainerDesc"/>
+			<property class="Action0">
+				<!--the first note is just an intro note, bringing the pigeons into the player's game, talks about the precious pigeons-->
+				<property name="Create_item" value="homingPigeonNote1"/>
+				<property name="Create_item_count" value="1"/>  
+			</property>
+			<effect_group tiered="false">
+				<!--notify the buffs.xml:buffFirstPigeonDelivery buff that the first note has been delviered to the players inventory-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_homingPigeonNote1Trigger"/>
+			</effect_group>
+		</item>	
+		
+		<!--The message tube for the second pigeon (actually a bundle)-->
+		<item name="homingPigeonContainer2">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="pipeSmallWallCap"/>
+			<property name="CustomIconTint" value="0,255,171"/>
+			<property name="DescriptionKey" value="homingPigeonContainerDesc"/>
+			<property class="Action0">
+				<!--the second note vents about someone killing the pigeons, mentions loot and rumours of a big thing -->
+				<property name="Create_item" value="homingPigeonNote2,resourceRawDiamond"/>
+				<property name="Create_item_count" value="1,2"/> 
+			</property>
+			<effect_group tiered="false">
+				<!--notify the buffs.xml:buffSecondPigeonDelivery buff that the second note has been delivered to the players inventory-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_homingPigeonNote2Trigger"/>
+			</effect_group>
+		</item>	
+		<!--The message tube for the third pigeon (actually a bundle)-->
+		<item name="homingPigeonContainer3">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="pipeSmallWallCap"/>
+			<property name="CustomIconTint" value="0,171,255"/>
+			<property name="DescriptionKey" value="homingPigeonContainerDesc"/>
+			<property class="Action0">
+				<!--The third note complains again about someone killing the pigeons, pigeons have a tracker now, 
+					big loot rumours confirmed and Interloper story started-->
+				<property name="Create_item" value="qt_InterloperStoryNote"/>
+				<property name="Create_item_count" value="1"/>  
+			</property>
+			<effect_group tiered="false">
+				<!--notify the buffs.xml:buffThirdPigeonDelivery buff that the third note has been delivered to the players inventory-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_homingPigeonNote3Trigger"/>
+				<!--start the interloper story background buff-->
+				<!--the buff managing the interloper story is added at this point in the story. 
+				The buff will manage (simulate) msgs being transmitted from the Transmitter to the Receiver 
+				at random (ish) periods once the player has compelted quest_Interloper_MaliciousActor quest above-->		
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperStory"/>
+			</effect_group>
+		</item>	
+		<!--The message tube for the fourth pigeon (actually a bundle)-->
+		<item name="homingPigeonContainer4">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="pipeSmallWallCap"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="homingPigeonContainerDesc"/>
+			<property class="Action0">
+				<!--fourth note sets up the epilogue -->
+				<property name="Create_item" value="qt_PigeonFinal"/>
+				<property name="Create_item_count" value="1"/>  
+			</property>
+			<!--this will add a background buff to monitor the final epilogue. The player kills the Final 'pigeon' boss
+				and opens a reward bundle. Opening the bundle tells the buff buffPigeonOnFinalBoss below that the 
+				last chapter is completed succesfully. If the player doesnt the finish the chapter the 
+				the buffPigeonsCarryDiseasesStory buff will re-spawn the boss at random times (up to 5 times).-->
+			<effect_group tiered="false">
+				<!--notify the buffs.xml:buffFourthPigeonDelivery buff that the fourth note has been delivered to the players inventory-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_homingPigeonNote4Trigger"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffPigeonOnFinalBoss"/>
+			</effect_group>	
+		</item>	
+		<!--the final pigeon boss loot bundle-->
+		<item name="pigeonFinalBossBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="bedroll"/>
+			<property name="CustomIconTint" value="210,210,33"/>
+			<property name="DescriptionKey" value="pigeonFinalBossBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="qt_PigeonFinalLootNote,modShotgunBlockDamage,modM60DrumMagazine,drinkJarGrandpasWheelchairRacingElixir,drinkJarGrandpasThemsFightinWordsMoonshine,drinkJarGrandpasGunbeltOilSauce,drinkJarGrandpasForgettingElixir"/>
+				<property name="Create_item_count" value="1,1,1,3,3,3,1"/>  
+			</property>
+			<effect_group tiered="false">
+				<!--notify the buffs.xml:buffPigeonOnFinalBoss buff that the final boss loot has been delivered to the players inventory.
+				This ends the Pigeons Carry Diseases Story-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_homingPigeonBossFinalTrigger"/> 
+				<!--call the reward event as the story is finished-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffPigeonsStoryFinishedReward"/> 
+			</effect_group>	
+		</item>	
+		
+		<!--generic items for pigeon lootbags (Pigeons Carry Diseases storyline)-->
 		<item name="resourcePigeonPoop">
 			<property name="HoldType" value="45"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
-			<property name="CustomIcon" value="goreHumanSkull"/>
+			<property name="CustomIcon" value="emberPileDeco6"/>
 			<property name="CustomIconTint" value="242,242,242"/>
 			<property name="DescriptionKey" value="resourcePigeonPoop"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
+		<item name="resourcePigeonLice">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="glassDebris01"/><!--glassDebris01-->
+			<property name="CustomIconTint" value="242,242,242"/>
+			<property name="DescriptionKey" value="resourcePigeonLice"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourcePigeonMush">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreHumanSkull"/>
+			<property name="CustomIconTint" value="196,72,72"/>
+			<property name="DescriptionKey" value="resourcePigeonMush"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourcePigeonTracker">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="waterHeaterWhite"/>
+			<property name="CustomIconTint" value="9,99,3"/>
+			<property name="DescriptionKey" value="resourcePigeonTrackerDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>  
+		<item name="resourcePigeonBossMarker">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="poiPartHelper"/>
+			<property name="CustomIconTint" value="151,58,71"/>
+			<property name="DescriptionKey" value="resourcePigeonBossMarkerDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>  
 		<!--each pigeon has its own ID Band-->
 		<item name="resourcePigeonBand1">
 			<property name="HoldType" value="45"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
-			<property name="CustomIcon" value="utilityInsulator"/>
+			<property name="CustomIcon" value="pipeSmallWallOutsideCorner"/>
 			<property name="CustomIconTint" value="240,163,37"/>
-			<property name="DescriptionKey" value="resourcePigeonBand1"/>
+			<property name="DescriptionKey" value="resourcePigeonBandDesc1"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
@@ -1421,9 +2429,9 @@
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
-			<property name="CustomIcon" value="utilityInsulator"/>
-			<property name="CustomIconTint" value="240,163,37"/>
-			<property name="DescriptionKey" value="resourcePigeonBand2"/>
+			<property name="CustomIcon" value="pipeSmallWallOutsideCorner"/>
+			<property name="CustomIconTint" value="0,255,171"/>
+			<property name="DescriptionKey" value="resourcePigeonBandDesc2"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
@@ -1433,9 +2441,21 @@
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
-			<property name="CustomIcon" value="utilityInsulator"/>
-			<property name="CustomIconTint" value="240,163,37"/>
-			<property name="DescriptionKey" value="resourcePigeonBand3"/>
+			<property name="CustomIcon" value="pipeSmallWallOutsideCorner"/>
+			<property name="CustomIconTint" value="0,171,255"/>
+			<property name="DescriptionKey" value="resourcePigeonBandDesc3"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourcePigeonBand4">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="pipeSmallWallOutsideCorner"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="resourcePigeonBandDesc4"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
@@ -1443,44 +2463,31 @@
 		<!--Notes that the pigeons drop-->
 		<item name="homingPigeonNote1">
 			<property name="Extends" value="blankNoteMaster"/>
-			<property name="DescriptionKey" value="homingPigeonNote1"/>
-			<property name="CustomIcon" value="challengeQuestMaster"/>
+			<property name="DescriptionKey" value="homingPigeonNote1Desc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,180,255"/>
 		</item>
 		<item name="homingPigeonNote2">
 			<property name="Extends" value="blankNoteMaster"/>
-			<property name="DescriptionKey" value="homingPigeonNote2"/>
-			<property name="CustomIcon" value="challengeQuestMaster"/>
+			<property name="DescriptionKey" value="homingPigeonNote2Desc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,180,255"/>
 		</item>
-		<item name="homingPigeonNote3">
+		<!--homingPigeonNote3 is actually qt_InterloperStoryNote (defined above) because it starts a quest.
+			So is ignored here-->
+		<item name="homingPigeonNote4">
 			<property name="Extends" value="blankNoteMaster"/>
-			<property name="DescriptionKey" value="homingPigeonNote3"/>
-			<property name="CustomIcon" value="challengeQuestMaster"/>
+			<property name="DescriptionKey" value="homingPigeonNote4Desc"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,180,255"/>
 		</item>
 		<!-- END generic items for pigeon lootbags (Interloper storyline) goreHumanSkull rubblePileBricks(tick) utilityInsulator(ID band CFF 32 45 27 13822771)  rubblePileBricksLong(slug) groundDecalTornPaper groundDecalBurntPaper decals3 emberPileDeco8 garbage_decor3 glassBrokenCapRight glassDebris01-->
 		
+		<!--END Pigeans Carry Diseases story items-->
+		
 	</append>
 	
-	<!--The following mods will only spawn installed in items:
-		Weapon mods: modGunMeleeRadRemover, modGunSoundSuppressorSilencer,modGunDrumMagazineExtender, modGunScopeLarge, modGunTriggerGroupAutomatic,
-		Weapons the weapons mods will spawn in: Steel Spear, Steel Club, Steel Sledgehammer,Steel Knuckles, Machete, Stun Baton, 
-					SMG, Desert Vulture, Auto Shotgun, Sniper Rifle, Tactical AR, M60, Compound Bow, Compound Crossbow
-		
-		Tool mods: modMeleeDiamondTip,modMeleeErgonomicGrip, modMeleeIronBreaker,modMeleeTemperedBlade
-		Tools the tool mods will spawn in: Steel Shovel, Steel Pickaxe, Steel Axe, SteelSledgehammer, Auger, Impact Driver
-		
-		Clothes mods: modArmorCustomizedFittings,modArmorPlatingReinforced,modArmorAdvancedMuffledConnectors, modArmorBandolier
-		Clothes the clothes mods will spawn in: Military Clothing, Steel Clothing, Sawt Helmet
-		
-		Some tools mods like modMeleeErgonomicGrip may spawn in weapons
-		See also loot.xml as Loot Groups have changed as well (even if they are quest groups)
-		See also item_modifiers.xml for code that adds a tag to the mods to add them to spawned clothes/tools/weapons.
-	-->
-	<!--remove the mods from any item bundles-->
-	<set xpath="/items/item[@name='questRewardT2RangedModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modGunBarrelExtender,modGunCrippleEm,modGunBowArrowRest,modGunLaserSight,modGunReflexSight,modGunRetractingStock,modGunScopeMedium,modGunTriggerGroupBurst3</set>
-	<set xpath="/items/item[@name='questRewardT3RangedModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modGunBowPolymerString</set>	
-	<set xpath="/items/item[@name='questRewardT3MeleeModsBundle']/property[@class='Action0']/property[@name='Random_item']/@value">modMeleeClubMetalSpikes,modMeleeClubMetalChain</set>
-
-	<!--start Interloper challenge code - test code - story not implemented yet-->
+	<!--start Interloper challenge code - test code - -->
 	<!--commInterface item-->
 	<append xpath="/items">
 		<item name="commInterface">
@@ -1518,5 +2525,260 @@
 	</append>
 	
 	<!--END Interloper challenge code-->
+
+	<!--CHALLENGES code -->
 	
+	<append xpath="/items">
+		<!--loot bundle for Challenge Group rewards. The default Challenge Group rewards are removed as they 
+		require a visit to the trader. Those quests are changed to drop this loot-->
+		
+		<!--basic most common reward bundles-->
+		<!--bundle that will give a random bundle from {questRewardT1SkillMagazineBundle,SchematicModsCommon,PerkBooks} bundles -->
+		<item name="groupChallengeRewardBasicBundle">
+				 <property name="Extends" value="SNTBundleTemplate"/>
+				<property name="CustomIcon" value="bundleBooks"/>
+				<property name="CustomIconTint" value="169,220,230"/> 
+				<property name="DescriptionKey" value="groupChallengeRewardBasicBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="challengeRewardSkillMagBundle,challengeRewardSchematicBundle,challengeRewardPerkBookBundle"/>
+					<property name="Random_item_count" value="1,1,1"/>
+					<property name="Random_count" value="2"/>
+					<property name="Unique_random_only" value="true"/>
+				
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>
+				</property>
+		</item>	
+		<!--Create bundles for Schematics and Perk Books for use in challenge rewards-->
+		<item name="challengeRewardSchematicBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="bundleBooks"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardSchematicBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardSchematicSNT"/>
+			</property>
+		</item>
+		
+		<item name="challengeRewardPerkBookBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="bundleBooks"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardPerkBookBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardPerkBooksSNT"/>
+			</property>
+		</item>
+		<item name="challengeRewardSkillMagBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="bundleBooks"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardSkillMagBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardSkillMagsSNT"/>
+			</property>
+		</item>
+		<!--END basic most common reward bundles-->
+		
+		<!--other challenge reward bundles-->
+		<item name="groupChallengeRewardBasicAmmoBundle">
+				 <property name="Extends" value="SNTBundleTemplate"/>
+				<property name="CustomIcon" value="bundleAmmo"/>
+				<property name="CustomIconTint" value="FFFF00"/> 
+				<property name="DescriptionKey" value="groupChallengeRewardBasicAmmoBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="ammoBundle762mmBulletBall,ammoBundleArrowIron,ammoBundle9mmBulletBall,ammoBundleShotgunShell,ammoBundleJunkTurretRegular"/>
+					<property name="Random_item_count" value="2,1,2,1,1"/>
+					<property name="Random_count" value="10"/><!--6-->
+					<!--<property name="Unique_random_only" value="true"/>-->
+				
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>
+				</property>
+		</item>	
+		
+		<item name="groupChallengeRewardAPAmmoBundle">
+				 <property name="Extends" value="SNTBundleTemplate"/>
+				<property name="CustomIcon" value="bundleAmmo"/>
+				<property name="CustomIconTint" value="169,220,230"/> 
+				<property name="DescriptionKey" value="groupChallengeRewardAPAmmoBundleDesc"/>
+				<property class="Action0">
+					<property name="Random_item" value="ammoBundleArrowSteelAP,ammoBundle9mmBulletAP,ammoBundleShotgunSlug,ammoBundle762mmBulletAP,ammoBundleJunkTurretAP"/>
+					<property name="Random_item_count" value="1,2,1,2,1"/>
+					<property name="Random_count" value="10"/><!--6-->
+					<!--<property name="Unique_random_only" value="true"/>-->
+				
+					<property name="Create_item" value="resourceRockSmall"/>
+					<property name="Create_item_count" value="0"/>
+				</property>
+		</item>	
+		
+		<!--individual reward items bundles-->
+		<item name="challengeRewardBasicAmmoBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="bundleAmmo"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardBasicAmmoBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardBasicAmmoSNT"/>
+			</property>
+		</item>
+		<item name="challengeRewardAPAmmoBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="bundleAmmo"/>
+			<property name="CustomIconTint" value="169,220,230"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardAPAmmoBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardAPAmmoSNT"/>
+			</property>
+		</item>	
+		<item name="challengeRewardThrownAmmoBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="bundleExplosives"/>
+			<property name="CustomIconTint" value="169,220,230"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardThrownAmmoBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardThrownAmmoSNT"/>
+			</property>
+		</item>				
+		<item name="challengeRewardArmorModBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="modArmorImpactBracing"/>
+			<property name="CustomIconTint" value="169,220,230"/> 
+			<property name="DescriptionKey" value="challengeRewardArmorModBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="modArmorCigar,modArmorHelmetLight,modArmorBandolier,modArmorTripleStoragePocket,modArmorImpactBracing"/>
+				<property name="Random_item_count" value="1,1,1,1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+			
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>	
+		<item name="challengeRewardGunModBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="bundleShotgun"/>
+			<property name="CustomIconTint" value="169,220,230"/> 
+			<property name="DescriptionKey" value="challengeRewardGunModBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="modGunCrippleEm,modGunSoundSuppressorSilencer,modGunShotgunTubeExtenderMagazine,modGunDrumMagazineExtender,modGunMeleeRadRemover"/>
+				<property name="Random_item_count" value="1,1,1,1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+			
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>	
+		<item name="challengeRewardClothingModBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="modArmorWaterPurifier"/>
+			<property name="CustomIconTint" value="169,220,230"/> 
+			<property name="DescriptionKey" value="challengeRewardClothingModBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="modArmorStealthBoots,modArmorWaterPurifier,modArmorQuadStoragePocket,modArmorTreasureHunter,modArmorNightVision"/>
+				<property name="Random_item_count" value="1,1,1,1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+			
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>	
+		<item name="challengeRewardPerkModBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="modArmorPerception"/>
+			<property name="CustomIconTint" value="169,220,230"/> 
+			<property name="DescriptionKey" value="challengeRewardPerkModBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="modArmorPerception,modArmorStrength,modArmorFortitude,modArmorAgility,modArmorIntellect"/>
+				<property name="Random_item_count" value="1,1,1,1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+			
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>	
+		<item name="challengeRewardGoodStuffBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="resourceWaterFilter"/>
+			<property name="CustomIconTint" value="169,220,230"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardGoodStuffBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardGoodStuffSNT"/>
+			</property>
+		</item>				
+		<item name="challengeRewardLegendaryMeleeWeaponBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="bundleMeleeMods"/>
+			<property name="CustomIconTint" value="232,103,103"/> 
+			<property name="DescriptionKey" value="challengeRewardLegendaryMeleeWeaponBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="questRewardLegendarySteelSpearCraftingBundle,questRewardLegendarySteelClubCraftingBundle,questRewardLegendarySteelKnuckleCraftingBundle,questRewardLegendaryMacheteCraftingBundle,questRewardLegendaryBatonCraftingBundle"/>
+				<property name="Random_item_count" value="1,1,1,1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+			
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>	 
+		<item name="challengeRewardLegendaryRangedWeaponBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="bundleRangedMods"/>
+			<property name="CustomIconTint" value="232,103,103"/> 
+			<property name="DescriptionKey" value="challengeRewardLegendaryRangedWeaponBundleDesc"/>
+			<property class="Action0">
+				<property name="Random_item" value="questRewardLegendaryRifleCraftingBundle,questRewardLegendaryShotgunCraftingBundle,questRewardLegendaryMachineGunCraftingBundle,questRewardLegendaryHandgunCraftingBundle,questRewardLegendaryRoboticsCraftingBundle"/>
+				<property name="Random_item_count" value="1,1,1,1,1"/>
+				<property name="Random_count" value="2"/>
+				<property name="Unique_random_only" value="true"/>
+			
+				<property name="Create_item" value="resourceRockSmall"/>
+				<property name="Create_item_count" value="0"/>
+			</property>
+		</item>	
+		<!--END individual reward items bundles-->
+		
+		<!--END other challenge reward bundles-->
+	
+	</append>
+	<!--END CHALLENGES code -->
 </configs>

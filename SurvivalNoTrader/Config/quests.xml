@@ -1,9 +1,10 @@
 <configs>
-	<remove xpath="/quests/quest[@id='quest_BasicSurvival1']"/>
-
-	<insertAfter xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
+	<!--<remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']"/>-->
+	<remove xpath="/quests/quest[@id='challengegroup_reward_homesteading']"/>
+	
+	<insertBefore xpath="/quests/quest[@id='challengegroup_reward_advanced_survival']">
 		<!--starter quest now just gives 4 skill points-->
-		<quest id="quest_BasicSurvival1">
+		<!--<quest id="quest_whiteRiverCitizen1">
 			<property name="group_name_key" value="quest_BasicStart"/>
 			<property name="name_key" value="quest_BasicStart"/>
 			<property name="subtitle_key" value="quest_BasicStart_subtitle"/>
@@ -11,25 +12,45 @@
 			<property name="icon" value="ui_game_symbol_map_trader"/>
 			<property name="category_key" value="quest"/>
 			<property name="difficulty" value="medium"/>
-			<property name="shareable" value="false"/>
+			<property name="shareable" value="false"/>	
+			<property name="add_to_tier_complete" value="false"/>	
 			<reward type="SkillPoints" value="4"/>
-			
-			<!--test code for interloper quests setup
-			<reward type="Quest" id="quest_ScoutTraderWasteland">
-					<property name="chainquest" value="false"/>
-			</reward>-->
 		
+		</quest>-->
+
+		<quest id="challengegroup_reward_homesteading">
+			<property name="name_key" value="homesteading_name" param1="name"/>
+			<property name="subtitle_key" value="homesteading_subtitle" param1="subtitle"/>
+			<property name="description_key" value="homesteading_desc" param1="description"/>
+			<property name="icon" value="ui_game_symbol_challenge"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="challenge"/>
+			<property name="add_to_tier_complete" value="false"/>
+			<property name="difficulty_tier" value="0" param1="difficulty"/>
+			<property name="allow_remove" value="false" />
+			<property name="reward_choices_count" value="5"/>
+
+			<reward type="Exp" value="1000"/>
+			
+			<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+			<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+			<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
 		</quest>
-	</insertAfter>
 	
-	<!--Start Interloper challenge quest code-->
-	<!--test code for now-->
+	</insertBefore>
+	
+	
 	<insertAfter xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
-		<!--Scout a Trader in the wastland quest -->
+		<!--Start Interloper story code-->
+		
+		<!--Scout a Trader in the wasteland - works but not used -->
 		<quest id="quest_ScoutTraderWasteland">
 			<property name="group_name_key" value="quest_ScoutTraderWasteland"/>
 			<property name="name_key" value="quest_ScoutTraderWasteland1"/>
 			<property name="subtitle_key" value="quest_ScoutTraderWasteland1_subtitle"/>
+			<property name="offer_key" value="quest_ScoutTraderWasteland" param1="offer" />
 			<property name="description_key" value="quest_ScoutTraderWasteland1_description"/>
 			<property name="icon" value="ui_game_symbol_map_trader"/>
 			<property name="category_key" value="quest"/>
@@ -37,9 +58,9 @@
 			<property name="shareable" value="false"/>
 			<property name="quest_hints" value="quest_ScoutTraderWasteland1_hint1,quest_ScoutTraderWasteland1_hint2" />
 			
-			<action type="ShowTip" value="quest_quest_ScoutTraderWasteland1_description">
+			<!--<action type="ShowTip" value="quest_quest_ScoutTraderWasteland1_description">
 				<property name="delay" value="3"/>
-			</action>
+			</action>-->
 			<objective type="Goto" id="trader" value="5" phase="1">
 				<property name="biome_filter_type" value="OnlyBiome" />
 				<property name="biome_filter" value="wasteland" />
@@ -55,11 +76,12 @@
 			<reward type="Exp" value="500"/>
 		</quest>
 		
-		<!--Scout a Trader in the wastland quest -->
+		<!--Scout a Trader in the snow - works but not used-->
 		<quest id="quest_ScoutTraderSnow">
 			<property name="group_name_key" value="quest_ScoutTraderSnow"/>
 			<property name="name_key" value="quest_ScoutTraderSnow1"/>
 			<property name="subtitle_key" value="quest_ScoutTraderSnow1_subtitle"/>
+			<property name="offer_key" value="quest_ScoutTraderSnow" param1="offer" />
 			<property name="description_key" value="quest_ScoutTraderSnow1_description"/>
 			<property name="icon" value="ui_game_symbol_map_trader"/>
 			<property name="category_key" value="quest"/>
@@ -67,9 +89,9 @@
 			<property name="shareable" value="false"/>
 			<property name="quest_hints" value="quest_ScoutTraderSnow1_hint1,quest_ScoutTraderSnow1_hint2" />
 			
-			<action type="ShowTip" value="quest_ScoutTraderSnow1_description">
+			<!--<action type="ShowTip" value="quest_ScoutTraderSnow1_description">
 				<property name="delay" value="3"/>
-			</action>
+			</action>-->
 			<objective type="Goto" id="trader" value="5" phase="1">
 				<property name="biome_filter_type" value="OnlyBiome" />
 				<property name="biome_filter" value="snow" />
@@ -84,20 +106,528 @@
 
 			<reward type="Exp" value="500"/>
 		</quest>
-	</insertAfter>
-	<!--end Interloper challenge quest code-->
+		
+		<!--Scout the first trader scout out the trader for info on a special supply drop. Traders wont talk.-->
+		<quest id="quest_Interloper_ScoutTraderOne">
+			<property name="group_name_key" value="quest_Interloper_ScoutTraderOne"/>
+			<property name="name_key" value="quest_Interloper_ScoutTraderOneName"/>
+			<property name="offer_key" value="quest_Interloper_ScoutTraderOne" param1="offer" />
+			<property name="subtitle_key" value="quest_Interloper_ScoutTraderOne_subtitle"/>
+			<property name="description_key" value="quest_Interloper_ScoutTraderOne_description"/>
+			<property name="icon" value="ui_game_symbol_map_trader"/>
+			<property name="category_key" value="quest"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			<property name="repeatable" value="true"/>
+			<property name="quest_hints" value="quest_Interloper_ScoutTraderOne_hint1,quest_Interloper_ScoutTraderOne_hint2" />
+			
+			<!--trader anywhere but pine forest-->
+			<objective type="Goto" id="trader" value="5" phase="1">				
+				<property name="biome_filter_type" value="ExcludeBiome" /> 
+				<property name="biome_filter" value="pine_forest" />
+				<property name="nav_object" value="go_to_trader" />
+			</objective>
+			
+			<objective type="InteractWithNPC">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="return_to_trader" />
+				<property name="use_closest" value="true" />
+			</objective>
+			
+			<!-- go to a random place - call event when the player gets there (checks the rally point)-->
+			<!--
+			<objective type="RandomGoto" value="50-100" phase="2">
+				<property name="completion_distance" value="10"/>
+				<property name="nav_object" value="quest" />
+			</objective>
+			
+			<objective type="RallyPoint">
+				<property name="phase" value="3" />
+				<property name="nav_object" value="rally" />
+				<property name="complete_event" value="lbu_action_max_level" />  - event calling needs testing
+			</objective>-->
+			
+			<!--player can either get next story part as a note to initiate in their own time-->
+			<!--<reward type="Item" id="qt_InterloperStoryNote2" value="1"/>-->
+			<!--OR player can get assigned the quest directly - comment out whichever not used-->
+			<reward type="Quest" id="quest_Interloper_ScoutTraderTwo"/> 
+			
+		</quest>
 	
-	<insertAfter xpath="/quests/quest[@id='treasure_raphael']">
+		<!--Scout a second trader  - same as the first one - visit trader for info, but trader wont talk.
+			This initiates quest_Interloper_MaliciousActor (Sound of Silence chapter) when the player cant 
+			get a response from the traders and decides to plant a listening device-->
+		<quest id="quest_Interloper_ScoutTraderTwo">
+			<property name="name_key" value="quest_Interloper_ScoutTraderTwoName"/>
+			<property name="offer_key" value="quest_Interloper_ScoutTraderTwo" param1="offer" />
+			<property name="subtitle_key" value="quest_Interloper_ScoutTraderTwo_subtitle"/>
+			<property name="description_key" value="quest_Interloper_ScoutTraderTwo_description"/>
+			<property name="icon" value="ui_game_symbol_map_trader"/>
+			<property name="category_key" value="quest"/>
+			<property name="difficulty" value="5"/>
+			<property name="shareable" value="true"/>
+			<property name="repeatable" value="true"/>
+			<property name="quest_hints" value="quest_Interloper_ScoutTraderTwo_hint1,quest_Interloper_ScoutTraderTwo_hint2" />	
+			
+			<!--trader anywhere but pine forest-->
+			<objective type="Goto" id="trader" value="5" phase="1">				
+				<property name="biome_filter_type" value="ExcludeBiome" /> 
+				<property name="biome_filter" value="pine_forest" />
+				<property name="nav_object" value="go_to_trader" />
+			</objective>
+			
+			<objective type="InteractWithNPC">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="return_to_trader" />
+				<property name="use_closest" value="true" />
+			</objective>
+			
+			<!--player can either get next story part as a note to initiate in their own time-->
+			<!--<reward type="Item" id="qt_InterloperStoryNoteMaliciousActor" value="1"/>-->
+			<!--OR player can get assigned the quest directly - comment out whichever not used-->
+			<reward type="Quest" id="quest_Interloper_MaliciousActor"/>
+			
+		</quest>
+		
+		<!--Intercept communications around trader using spyware.
+			Player gets nowhere visiting traders for info. Decides to make an evedropping device to maybe learn more.
+			Must create a local receiver, place it (at home - but the code cant control where it gets placed really). 
+			Then create a transmitter/spy-device and place near a trader in the wasteland.
+			Later msgs will come through the receiver (just notes placed in inventory or give quest directly - dont have any block/item to 
+				dispence notes on command in xml code)-->
+		<quest id="quest_Interloper_MaliciousActor">
+			<property name="name_key" value="quest_Interloper_MaliciousActorName"/>
+			<property name="offer_key" value="quest_Interloper_MaliciousActor_description" param1="offer" />
+			<property name="subtitle_key" value="quest_Interloper_MaliciousActor_subtitle"/>
+			<property name="description_key" value="quest_Interloper_MaliciousActor_description"/>
+			<property name="quest_hints" value="quest_Interloper_MaliciousActor_hint1,quest_Interloper_MaliciousActor_hint2,quest_Interloper_MaliciousActor_hint3,quest_Interloper_MaliciousActor_hint4,quest_Interloper_MaliciousActor_hint5" />	
+			
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			
+			<!--gather the Receiver, Receiver recipe is available by default. Only crafted in the workbench - see comment below-->
+			<objective type="FetchKeep" id="interloperReceiverBlock" value="1" phase="1"/>
+			<!-- place the Receiver - because Receiver is crafted in the workbench there is a good chance they 
+				will plaace the receiver in their base, which fits with the story-->
+			<objective type="BlockPlace" id="interloperReceiverBlock" value="1" phase="2"/>
+			
+			
+			<!--gather the transmitter - recipe available by default-->
+			<objective type="FetchKeep" id="interloperTransmitterBlock" value="1" phase="3"/>
+			
+			<!--go to trader in the wastland -->
+			<objective type="Goto" id="trader" value="5" phase="4">
+				<property name="biome_filter_type" value="OnlyBiome" />
+				<property name="biome_filter" value="wasteland" />
+				<property name="nav_object" value="go_to_trader" />
+			</objective>
+			
+			<!--place the spyware device near the trader - we cant guarantee where the player will put the spyware device.
+				Just encourage placing near a trader for the story-->
+			<objective type="BlockPlace" id="interloperTransmitterBlock" value="1" phase="5"/>
+			<!-- give the player a note updating the story. Player will get the next part of the story later.
+				The player gets a note so that the buff managing the storyline can tell when this part of the story is complete. 
+				It will start a countdown to the player receiving the next part of the story.-->
+			<action type="SetCVar">
+				<property name="cvar" value="spywareSetupComplete" />
+				<property name="value" value="1" />
+				<property name="on_complete" value="true"/>
+			</action>
+			<reward type="Item" id="interloperSpywareSetupCompleteNote" value="1"/>
+		</quest>
+		
+		<!--Spawn the Supply drop - called by quest_Interloper_InterceptTheSupplies below-->
+		<quest id="quest_InterloperSupplySpawn">
+			<property name="name_key" value="interloperSupplyDropSpawn" param1="name" />
+			<property name="offer_key" value="interloperSupplyDropSpawn" param1="offer" />
+			<property name="description_key" value="interloperSupplyDropSpawn" param1="offer" />
+			<property name="subtitle_key" value="interloperSupplyDropSpawnSubtitle"/>
+			<property name="group_name_key" value="quest_Interloper_InterceptTheSuppliesName"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			<action type="SpawnGSEnemy">
+					<!--see gamestages.xml:InterloperDropSpawner for definition and
+						see loot.xml:interloperSecretDrop and loot.xml:groupSecretDrop for loot items-->-->
+					<property name="gamestage_list" value="InterloperDropSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+			<!--gather the special personal supply package from the Supply Crate dropped above (InterloperDropSpawner)-->
+			<objective type="FetchKeep" id="interloperSupplyCrateDukesBundle" value="1" phase="1"/>
+		</quest>
+		
+		<!--intercept the supplies - calls quest_InterloperSupplySpawn above on success-->
+		<quest id="quest_Interloper_InterceptTheSupplies">
+			<property name="name_key" value="quest_Interloper_InterceptTheSuppliesName"/>
+			<property name="offer_key" value="quest_Interloper_InterceptTheSupplies_description" param1="offer" />
+			<property name="description_key" value="quest_Interloper_InterceptTheSupplies_description"/>
+			<property name="subtitle_key" value="quest_Interloper_InterceptTheSupplies_subtitle"/>
+			<property name="group_name_key" value="quest_Interloper_InterceptTheSuppliesName"/>
+			<property name="icon" value="quest"/>
+			<property name="track_distance" value="6000"/>
+			<property name="category_key" value="quest"/>
+			<property name="shareable" value="false"/>
+			<property name="quest_hints" value="quest_Interloper_InterceptTheSupplies_hint1,quest_Interloper_InterceptTheSupplies_hint2" />
+			<property name="difficulty_tier" value="6" param1="difficulty" />
+			<property name="difficulty" value="6"/>
+			<property name="extra_tags" value="infested" param1="extra_tags" />
+			<property name="spawn_multiplier" value="2" param1="spawn_multiplier" />
+			<property name="gamestage_mod" value="0.8" param1="gamestage_mod" />
+			<property name="gamestage_bonus" value="300" param1="gamestage_bonus" />
+			<property name="poi_tier" value="5" />
+			
+			<!--goto a tier 5 infested poi in the wasteland
+				The map icon for this will only show if the player is within 2km the poi. -->
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="OnlyBiome" />
+				<property name="biome_filter" value="wasteland" />
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="5" param1="poi_tier" />
+			</objective>
+			
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+				
+				<!--this story isnt intended to be a murder fest but can set to only run at night if feeling inclined.
+					Should up reward if doing so - see loot.xml:interloperSecretDrop and loot.xml:groupSecretDrop-->
+				<!--<property name="allowed_start_hour" value="22" /> 
+				<property name="allowed_end_hour" value="1" />-->
+				
+				<property name="complete_event" value="quest_poi_lights_off" />
+			</objective>
+			
+			<!--If using ClearSleepers, the poi-quest-engine doesnt intialise properly: the game wont red dot identify zombies 
+				and its incredibly difficult to clear the poi. Also the end yellow dot for last zombie does show but it isnt accurate. 
+				Cant use FetchFromContainer - throws an error as no Trader identified because this quest doesnt come from a Trader and the 
+				poi-quest-engine needs to know which Trader to return the fetched container to.
+				So am using the POIBlockActivate - which seems to work out ok.-->
+			<objective type="POIBlockActivate" >
+				<property name="phase" value="3" />
+				<property name="block_index" value="QuestRestorePower" />
+				<property name="nav_object" value="restore_power" />
+
+				<property name="complete_event" value="quest_poi_lights_on" />
+			</objective>
+			
+			<objective type="POIStayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="25"/>
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="4"/>
+			</action>
+			<!--complete - spawn the supplies - cant spawn from within this quest for some reason-->
+			<reward type="Quest" id="quest_InterloperSupplySpawn"/>
+		</quest>
+		
+		
+		<!--Spawn the Epilogue final Supply drop - called by quest_Interloper_Epilogue below.
+		This supply drop spawn gives the bundle of survival books that the player traded a magazine bundle for-->
+		<quest id="quest_InterloperEpilogueSpawn">
+			<property name="name_key" value="quest_InterloperEpilogueSpawnName" param1="name" />
+			<property name="offer_key" value="quest_InterloperEpilogueSpawnOffer" param1="offer" />
+			<property name="description_key" value="quest_InterloperEpilogueSpawnDesc" param1="offer" />
+			<property name="subtitle_key" value="quest_InterloperEpilogueSpawnName"/>
+			<property name="group_name_key" value="quest_InterloperStoryEpilogue"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			<!--<action type="GameEvent" event="spawn_chicken" delay="3" phase="2">-->
+			<action type="SpawnGSEnemy">
+					<!--see gamestages.xml:InterloperEpilogueSpawner definition and
+						see loot.xml:interloperTradeDrop and loot.xml:groupTradeDrop for loot items-->-->
+					<property name="gamestage_list" value="InterloperEpilogueSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		
+		<!--epilogue: trade the supply crate magazines for a set of survival books-->
+		<quest id="quest_Interloper_Epilogue">
+			<property name="name_key" value="quest_Interloper_EpilogueName"/>
+			<property name="offer_key" value="quest_Interloper_Epilogue_description" param1="offer" />
+			<property name="subtitle_key" value="quest_Interloper_Epilogue_subtitle"/>
+			<property name="description_key" value="quest_Interloper_Epilogue_description"/>
+			<property name="quest_hints" value="quest_Interloper_Epilogue_hint1,quest_Interloper_Epilogue_hint2,quest_Interloper_Epilogue_hint3,quest_Interloper_Epilogue_hint4,quest_Interloper_Epilogue_hint5" />
+			<property name="group_name_key" value="quest_InterloperStoryEpilogue"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			
+			<!--gather the interloperTradeDropBag that contains the magazines from the Special Supply Drop. Will trade them-->
+			<objective type="FetchKeep" id="interloperTradeDropBag" value="1" phase="1"/>			
+			
+			<!--go to a random point in the desert-->
+			<!--go to trader in the wastland -->
+			<objective type="Goto" id="trader" value="5" phase="2">
+				<property name="biome_filter_type" value="OnlyBiome" />
+				<property name="biome_filter" value="desert" />
+				<property name="nav_object" value="go_to_trader" />
+			</objective>
+
+			<!--place the magazine drop. -->
+			<objective type="BlockPlace" id="interloperTradeDropBag" value="1" phase="3"/>
+			
+			<!--After the drop, the player goes to another local random location to pick up the trade.
+				Which spawn in as another supply drop.-->
+			<objective type="RandomGoto" value="250-450" phase="4">
+				<property name="completion_distance" value="5"/>
+				<property name="nav_object" value="quest" />
+			</objective>	
 	
-		<!--this is called when the person opens the artifact box from at the first burial site -->
-		<quest id="questMarysRevengeArtifactContainerOpened">
-			<property name="name_key" value="questMarysRevengeArtifactContainerOpened" param1="name" />
+			<!-- call quest to spawn epilogue supply drop - have to use new quest for this, same as quest_Interloper_InterceptTheSupplies-->
+			<reward type="Quest" id="quest_InterloperEpilogueSpawn"/>
+		</quest>
+		
+		
+		<!--end interloper code-->
+			
+			
+		<!--The PigeonsCarryDiseases story-->
+				
+		<!--marker quest for homing pigeon spawns - can only spawn from a quest so this is called	
+			When needed to spawn the first homing pigeon -->
+		<quest id="quest_SpawnHomingPigeon1">
+			<property name="name_key" value="quest_SpawnHomingPigeon1Name" param1="name" />
+			<property name="offer_key" value="quest_SpawnHomingPigeon1Desc" param1="offer" />
+			<property name="description_key" value="quest_SpawnHomingPigeon1Desc" param1="offer" />
 			<property name="repeatable" value="true"/>
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieScreamerRadiated" />-->
+					<property name="gamestage_list" value="PigeonOneSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		<!--second homing pigeon-->
+		<quest id="quest_SpawnHomingPigeon2">
+			<property name="name_key" value="quest_SpawnHomingPigeon2Name" param1="name" />
+			<property name="offer_key" value="quest_SpawnHomingPigeon2Desc" param1="offer" />
+			<property name="description_key" value="quest_SpawnHomingPigeon2Desc" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="PigeonTwoSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		<!--third homing pigeon-->
+		<quest id="quest_SpawnHomingPigeon3">
+			<property name="name_key" value="quest_SpawnHomingPigeon3Name" param1="name" />
+			<property name="offer_key" value="quest_SpawnHomingPigeon3Desc" param1="offer" />
+			<property name="description_key" value="quest_SpawnHomingPigeon3Desc" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="PigeonThreeSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		<!--fourth homing pigeon-->
+		<quest id="quest_SpawnHomingPigeon4">
+			<property name="name_key" value="quest_SpawnHomingPigeon4Name" param1="name" />
+			<property name="offer_key" value="quest_SpawnHomingPigeon4Desc" param1="offer" />
+			<property name="description_key" value="quest_SpawnHomingPigeon4Desc" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="PigeonFourSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		
+		<!--Spawn the Epilogue final Pigeons Carry Diseases story fight - called by quest_PigeonsEpilogue below.
+			This will spawn a boss and minions. The owner of the pigeons that the player has been killing and their pet pigeons.
+			On death the Boss drops a special loot bag. Minions are puposefully easy to kill, they are only pigeons and are
+			meant to be annoying more than anything. The Boss is beafy.-->
+		<quest id="quest_PigeonsEpilogueSpawn">
+			<property name="name_key" value="quest_PigeonsEpilogueSpawnName" param1="name" />
+			<property name="offer_key" value="quest_PigeonsEpilogueSpawn" param1="offer" />
+			<property name="description_key" value="quest_PigeonsEpilogueSpawnDesc" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			<property name="quest_hints" value="quest_PigeonsEpilogueSpawn_hint1"/>
+			<!--spawn the Boss (the owner of the pigeons that the player has been killing).
+				Boss will drop special loot-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="PigeonFinalBossSpawner"/> 
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+			<!--spawn his flock of pet pigeons, these are more annoying than anything else-->
+			<!--<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="PigeonFinalFlockSpawner"/>  
+					<property name="count" value="3" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>-->
+		</quest>
+		
+		<!--final chapter: player goes to see whats going on at a house, its a trap by the person who owns the pigeons, 
+			wanting to get revenge for the player killing thier pigeons -->
+		<quest id="quest_PigeonsEpilogue">
+			<property name="name_key" value="quest_PigeonsEpilogueName"/>
+			<property name="offer_key" value="quest_PigeonsEpilogue_offer" param1="offer" />
+			<property name="subtitle_key" value="quest_PigeonsEpilogue_subtitle"/>
+			<property name="description_key" value="quest_PigeonsEpilogue_description"/>
+			<property name="quest_hints" value="quest_PigeonsEpilogue_hint1,quest_PigeonsEpilogue_hint2" />
+			
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			
+			<property name="icon" value="quest"/>
+			<property name="shareable" value="false"/>
+			
+			<property name="difficulty_tier" value="2" param1="difficulty" />
+			<property name="difficulty" value="medium"/>
+			<property name="extra_tags" value="infested" param1="extra_tags" />
+			<property name="spawn_multiplier" value="4" param1="spawn_multiplier" />
+			<property name="poi_tier" value="1" />
+			<property name="gamestage_mod" value="0.8" param1="gamestage_mod" />
+			<property name="gamestage_bonus" value="600" param1="gamestage_bonus" />
+			
+			<!--goto a local tier 1-->
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1" param1="poi_tier" />
+			</objective>
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+			</objective>
+
+			<objective type="POIStayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="25"/>
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="4"/>
+			</action>
+			
+			<!--Its a trap.-->
+			<!-- The buff managing the storyline responds to this trigger. (buffs.xml:buffPigeonOnFinalBoss)
+				The buff can tell when this part of the story is complete and 
+				it will start a countdown to the player receiving the final piece of the story.
+				(Pigeon boss will spawn, it will spawn a number of times over days until 
+				the player kills it and gets the Boss's loot)-->
+			<action type="SetCVar">
+				<property name="cvar" value="spawnPigeonBossTrigger" />
+				<property name="value" value="1" />
+				<property name="on_complete" value="true"/>
+			</action>
+		</quest>
+
+
+
+		<quest id="quest_PigeonsEpilogueTest">
+			<property name="name_key" value="quest_PigeonsEpilogueName"/>
+			<property name="offer_key" value="quest_PigeonsEpilogue" param1="offer" />
+			<property name="subtitle_key" value="quest_PigeonsEpilogue_subtitle"/>
+			<property name="description_key" value="quest_PigeonsEpilogue_description"/>
+			<property name="quest_hints" value="quest_PigeonsEpilogue_hint1,quest_PigeonsEpilogue_hint2" />
+			
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			
+			<property name="icon" value="quest"/>
+			<property name="shareable" value="false"/>
+			
+			<!--none of the setting below are used , the original code had a Tier 1 infested clear. 
+				Have left it here in case code is reverted.-->
+			<property name="difficulty_tier" value="2" param1="difficulty" />
+			<property name="difficulty" value="medium"/>
+			<property name="extra_tags" value="infested" param1="extra_tags" />
+			<!--very small number of zombies-->
+			<property name="spawn_multiplier" value="0.05" param1="spawn_multiplier" />
+			<property name="poi_tier" value="1" />
+			<!--but still hard even though small number of zombies-->
+			<property name="gamestage_mod" value="0.8" param1="gamestage_mod" />
+			<property name="gamestage_bonus" value="300" param1="gamestage_bonus" />
+			<!--END none of the setting below are used -->
+			
+			<!--goto a local tier 1-->
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="1" param1="poi_tier" />
+			</objective>
+			
+			<!--Its a trap. Will call quest to spawn enemies-->
+			
+			<!--
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+			</objective>-->
+
+			<!--the sleepers wont be marked with a red dot due to how the game works with non-trader derived quests.
+				So make the poi have minimal number of zombies so is easier to finish clear-->
+			<!--<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+			</objective>
+
+			<objective type="POIStayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="25"/>
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value=""/>
+			</action>
+			-->
+			<!-- call quest to spawn the pigeon owner and their pigeons - they will drop special loot-->
+			<reward type="Quest" id="quest_PigeonsEpilogueSpawn"/>
+		</quest>
+		
+		<!--end PigeonsCarryDiseases story-->
+		
+		
+		<!--Mary's revenge-->
+		<!--This is called when the person opens the artifact box from the first burial site -->
+		<quest id="questMarysRevengeArtifactContainerOpened">
+			<property name="name_key" value="questMarysRevengeArtifactContainerOpened" param1="name" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="offer_key" value="questMarysRevengeArtifactContainerOpened" param1="offer" />
+			<property name="description_key" value="questMarysRevengeArtifactContainerOpenedDesc"/>
+			
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamerRadiated" />
 					<property name="count" value="3" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
@@ -117,8 +647,8 @@
 			<reward type="Item" id="ammo44MagnumBulletAP" value="300"/>
 				
 		</quest>
-	
-		<!--main quest to find the first burial site.
+		
+		<!--quest to find the first burial site.
 			Coffin at site contains a cursed artifact 
 				- see questMarysRevengeArtifactContainerOpened in this file and 
 				marysRevengeArtifactContainer in items.xml-->
@@ -154,7 +684,9 @@
 			
 			
 		</quest>
-				
+		<!--END Mary's revenge-->		
+		
+		<!--Missing Patrol Car story-->
 		<!-- the search for the buried patrol car - part of the CrowdControl schematic quest-->
 		<quest id="buriedPatrolCar">
 			<property name="name_key" value="buriedPatrolCar" param1="name" />
@@ -192,35 +724,423 @@
 			Called from Gameevents.xml:block_car_alarm_start_PatrolCar-->
 		<quest id="quest_buriedPatrolCarComplete">
 			<property name="name_key" value="quest_buriedPatrolCarComplete" param1="name" />
+			<property name="subtitle_key" value="buriedPatrolCar" param1="name" />
+			<property name="description_key" value="buriedPatrolCar_offer" param1="offer" />
 			<property name="repeatable" value="true"/>
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieFatCopFeral" />-->
+					<property name="gamestage_list" value="zombieFatCopFeral" />
 					<property name="count" value="1" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieSpiderFeral" />-->
+					<property name="gamestage_list" value="zombieSpiderFeral" />
 					<property name="count" value="2" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieSoldierRadiated" />-->
+					<property name="gamestage_list" value="zombieSoldierRadiated" />
 					<property name="count" value="2" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieFatCopRadiated" />-->
+					<property name="gamestage_list" value="zombieFatCopRadiated" />
 					<property name="count" value="1" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombiePartyGirlFeral" />-->
+					<property name="gamestage_list" value="zombiePartyGirlFeral" />
 					<property name="count" value="2" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 		</quest>
+		<!--END Missing Patrol Car story-->
 	</insertAfter>
+	
+	
+	<!--no trader code-->
+	<!--replaces challenge rewards that require a Trader visit.
+		Those rewards give a choice of rewards at a trader and some xp.
+		Code below changes this. The quests will drop random rewards into inventory as
+		either a bundle or stacks of the same item. (so that rewards only take up one inventory slot)-->
+	<!--first remove all the default reward quests-->
+	<remove xpath="/quests/quest[@id='challengegroup_reward_homesteading']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_advanced_survival']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_crafting']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_trader_quests']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_harvesting']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_gatherer']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_farmer']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_healer']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_survivor']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_rabbit_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_chicken_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_coyote_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_deer_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_snake_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_boar_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_wolf_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_lion_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_bear_hunter']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_any_animal_hunter']"/>
+	<remove xpath="/quests/quest[@id='challengegroup_reward_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_any_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_vulture_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_lumberjack_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_spider_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_bigmama_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_tourist_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_mutated_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_cop_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_wight_zombie_slayer']"/>
+	<remove xpath="/quests/quest[@id='quest_reward_demolition_zombie_slayer']"/>
+	
+	<!--add them back with the ammended rewards and No Trader visit required-->
+	<insertBefore xpath="/quests/quest[@id='treasure_taylor']">	
+		<!--*** CHALLENGES_PAGE_01 -->
+		<quest id="challengegroup_reward_homesteading">
+			<property name="name_key" value="homesteading_name" param1="name"/>
+			<property name="subtitle_key" value="homesteading_subtitle" param1="subtitle"/>
+			<property name="description_key" value="homesteading_desc" param1="description"/>
+			<property name="icon" value="ui_game_symbol_challenge"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="challenge"/>
+			<property name="add_to_tier_complete" value="false"/>
+			<property name="difficulty_tier" value="0" param1="difficulty"/>
+			<property name="allow_remove" value="false" />
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+
+		</quest>
+		
+		<quest id="challengegroup_reward_advanced_survival" template="challengegroup_reward_homesteading">
+			<variable name="name" value="advanced_survival_name"/>
+			<variable name="subtitle" value="advanced_survival_subtitle"/>
+			<variable name="description" value="advanced_survival_desc"/>
+			<property name="completion_key" value="advanced_survival_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+		<quest id="challengegroup_reward_crafting" template="challengegroup_reward_homesteading">
+			<variable name="name_key" value="crafting_name"/>
+			<variable name="subtitle_key" value="crafting_subtitle"/>
+			<variable name="description_key" value="crafting_desc"/>
+			<property name="completion_key" value="crafting_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+		<quest id="challengegroup_reward_trader_quests" template="challengegroup_reward_homesteading">
+			<variable name="name" value="trader_quests_name"/>
+			<variable name="subtitle" value="trader_quests_subtitle"/>
+			<variable name="description" value="trader_quests_desc"/>
+			<property name="completion_key" value="trader_quests_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+		<quest id="challengegroup_reward_harvesting" template="challengegroup_reward_homesteading">
+			<variable name="name" value="harvesting_name"/>
+			<variable name="subtitle" value="harvesting_subtitle"/>
+			<variable name="description" value="harvesting_desc"/>
+			<property name="completion_key" value="harvesting_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- *** CHALLENGES_PAGE_02 -->
+		<quest id="challengegroup_reward_gatherer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="gatherer_name"/>
+			<variable name="subtitle" value="gatherer_subtitle"/>
+			<variable name="description" value="gatherer_desc"/>
+			<property name="completion_key" value="gatherer_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+		<quest id="challengegroup_reward_farmer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="farmer_name"/>
+			<variable name="subtitle" value="farmer_subtitle"/>
+			<variable name="description" value="farmer_desc"/>
+			<property name="completion_key" value="farmer_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+		<quest id="challengegroup_reward_healer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="healer_name"/>
+			<variable name="subtitle" value="healer_subtitle"/>
+			<variable name="description" value="healer_desc"/>
+			<property name="completion_key" value="healer_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+		<quest id="challengegroup_reward_survivor" template="challengegroup_reward_homesteading">
+			<variable name="name" value="survivor_name"/>
+			<variable name="subtitle" value="survivor_subtitle"/>
+			<variable name="description" value="survivor_desc"/>
+			<property name="completion_key" value="survivor_completion"/>
+			
+			<reward type="Exp" value="1000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+
+	<!-- *** ANIMAL_HUNTER_REWARDS -->
+		<quest id="challengegroup_reward_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name"/>
+			<variable name="subtitle" value="hunter_subtitle"/>
+			<variable name="description" value="hunter_desc"/>
+			<property name="completion_key" value="hunter_completion"/>
+			
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardHunterBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Rabbits_Challenge_Reward -->
+		<quest id="quest_reward_rabbit_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_rabbit"/>
+			<variable name="subtitle" value="hunter_subtitle_rabbit"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Chickens_Challenge_Reward -->
+		<quest id="quest_reward_chicken_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_chicken"/>
+			<variable name="subtitle" value="hunter_subtitle_chicken"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Coyotes_Challenge_Reward -->
+		<quest id="quest_reward_coyote_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_coyote"/>
+			<variable name="subtitle" value="hunter_subtitle_coyote"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Deer_Challenge_Reward -->
+		<quest id="quest_reward_deer_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_deer"/>
+			<variable name="subtitle" value="hunter_subtitle_deer"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Snakes_Challenge_Reward -->
+		<quest id="quest_reward_snake_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_snake"/>
+			<variable name="subtitle" value="hunter_subtitle_snake"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Boar_Challenge_Reward -->
+		<quest id="quest_reward_boar_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_boar"/>
+			<variable name="subtitle" value="hunter_subtitle_boar"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Wolves_Challenge_Reward -->
+		<quest id="quest_reward_wolf_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_wolf"/>
+			<variable name="subtitle" value="hunter_subtitle_wolf"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Lions_Challenge_Reward -->
+		<quest id="quest_reward_lion_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_lion"/>
+			<variable name="subtitle" value="hunter_subtitle_lion"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Bear_Challenge_Reward -->
+		<quest id="quest_reward_bear_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_bear"/>
+			<variable name="subtitle" value="hunter_subtitle_bear"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Any_Animal_Challenge_Reward -->
+		<quest id="quest_reward_any_animal_hunter" template="challengegroup_reward_homesteading">
+			<variable name="name" value="hunter_name_any_animal"/>
+			<variable name="subtitle" value="hunter_subtitle_any_animal"/>
+			<variable name="description" value="hunter_desc"/>
+			<variable name="completion" value="hunter_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
+		</quest>
+
+
+	<!-- *** ZOMBIE_SLAYER_REWARDS -->
+		<quest id="challengegroup_reward_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<property name="completion_key" value="zombie_slayer_completion"/>
+			
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="groupChallengeRewardAPAmmoBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Any_Zombies_Challenge_Reward -->
+		<quest id="quest_reward_any_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_any_zombies"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_any_zombies"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardRegAmmo if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardBasicAmmoBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Vulture_Challenge_Reward -->
+		<quest id="quest_reward_vulture_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_vulture"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_vulture"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardRegAmmo if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardAPAmmoBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Lumberjack_Challenge_Reward -->
+		<quest id="quest_reward_lumberjack_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_lumberjack"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_lumberjack"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardExplosives if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardThrownAmmoBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Spider_Challenge_Reward -->
+		<quest id="quest_reward_spider_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_spider"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_spider"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardArmorModBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Big_Mama_Challenge_Reward -->
+		<quest id="quest_reward_bigmama_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_big_mama"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_big_mama"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardGunModBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Tourist_Challenge_Reward -->
+		<quest id="quest_reward_tourist_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_tourist"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_tourist"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardClothingModBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Mutated_Challenge_Reward -->
+		<quest id="quest_reward_mutated_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_mutated"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_mutated"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardPerkModBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Cop_Challenge_Reward -->
+		<quest id="quest_reward_cop_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_cop"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_cop"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardRareItems if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardGoodStuffBundle" value="1"/>
+		</quest>
+
+	<!-- Kill_Wight_Challenge_Reward -->
+		<quest id="quest_reward_wight_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_wight"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_wight"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardLegendary if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardLegendaryMeleeWeaponBundle" value="1"/>
+		</quest>
+
+		<!-- Kill_Demolition_Challenge_Reward -->
+		<quest id="quest_reward_demolition_zombie_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name_demolition"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle_demolition"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<variable name="completion" value="zombie_slayer_completion"/>
+			<!-- Challenge Rewards are localized. Update challengeKillRewardLegendary if this list is changed. -->
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="challengeRewardLegendaryRangedWeaponBundle" value="1"/>
+		</quest>
+	</insertBefore>
+	<!--END no trader code-->	
 </configs> 

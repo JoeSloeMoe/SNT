@@ -1,11 +1,5 @@
 <config>
-	<!--set parts to be scrapable
-	<remove xpath="/recipes/recipe[@name='armorMilitarySetParts']"/>
-	<insertBefore xpath="/recipes/recipe[@name='resourceRockSmallBundle']">
-		<recipe name="armorMilitarySetParts" count="1" > 
-		<ingredient name="resourceForgedIron" count="25"/>
-		</recipe>
-	</insertBefore>-->
+
 	<append xpath="/recipes">
 	
 		<!-- solar bank recipe -->
@@ -16,14 +10,65 @@
 			<ingredient name="glassBulletproofBlockVariantHelper" count="4"/>
 		</recipe>
 
-		<!--playerExplosiveBarrels-->
+		<!--playerExplosiveBarrels - mary's revenge story-->
 		<recipe name="playerExplosiveBarrel" count="1" craft_time="30" craft_area="workbench" tags="workbenchCrafting,learnable">
 			<ingredient name="resourceForgedIron" count="4"/>
 			<ingredient name="thrownTimedCharge" count="1"/>
 			<ingredient name="ammoGasCan" count="100"/>
-			<ingredient name="resourceNail" count="50"/>
+			<ingredient name="resourceNail" count="50"/> 
 			<ingredient name="resourceRockSmall" count="50"/>
 		</recipe>
+		
+		<!--interloper story-->
+		
+		<!--when the interloper story starts the player can then create the Story note again with a recipe, so they can repeat the story if they fail-->
+		<!--<recipe name="qt_InterloperStoryNote" count="1" craft_time="12" tags="learnable">
+			<ingredient name="resourceRockSmall" count="50"/>
+		</recipe>-->
+		<!--see blocks.xml:interloperReceiverBlock for info-->
+		<recipe name="interloperReceiverBlock" count="1" craft_time="30" craft_area="workbench">
+			<ingredient name="resourceForgedIron" count="6"/>
+			<ingredient name="resourceElectricParts" count="18"/>
+			<ingredient name="resourceScrapPolymers" count="16"/>
+			<ingredient name="speaker" count="1"/>
+			<ingredient name="carBattery" count="1"/>
+			
+		</recipe>
+		<!--items.xml:interloperMicrophone- used in the Interloper:Sound of Silence chapter.
+		Ingredient for the interloperTransmitterBlock recipe below -->
+		<recipe name="interloperMicrophone" count="1" craft_time="10" craft_area="workbench">
+			<ingredient name="resourceForgedIron" count="5"/>
+			<ingredient name="resourceElectricParts" count="6"/>
+			<ingredient name="resourceScrapPolymers" count="2"/>	
+		</recipe>
+		<!--see blocks.xml:interloperTransmitterBlock for info-->
+		<recipe name="interloperTransmitterBlock" count="1" craft_time="30" craft_area="workbench">
+			<ingredient name="resourceForgedIron" count="12"/>
+			<ingredient name="resourceElectricParts" count="18"/>
+			<ingredient name="resourceScrapPolymers" count="8"/>
+			<ingredient name="interloperMicrophone" count="1"/>
+			<ingredient name="carBattery" count="1"/>
+		</recipe>
+		
+		<!--the special magazine delivery from Interloper:InterceptSupplyCrate - if the player opens the bundle
+			they can recreate the bundle using this recipe.
+			Used in the interloperTradeDropBag recipe below. -->
+		<recipe name="interloperSupplyCrateMagazineBundle" count="1" craft_time="10">
+			<ingredient name="interloperSpecialMagOne" count="1"/>
+			<ingredient name="interloperSpecialMagTwo" count="1"/>
+			<ingredient name="interloperSpecialMagThree" count="1"/>
+			<ingredient name="interloperSpecialMagFour" count="1"/>
+		</recipe>	
+	
+		<!--Magazine drop bag - this bag is created when the player is trading the magazines found in the Special Supply Crate 
+			for Plissken's Survival Techniques books-->
+		<recipe name="interloperTradeDropBag" count="1" craft_time="15">
+			<ingredient name="interloperSupplyCrateMagazineBundle" count="1"/>
+			<ingredient name="resourceCloth" count="25"/>
+			<ingredient name="resourceLeather" count="2"/>
+		</recipe>	
+		
+		<!--END interloper story recipes-->
 		
 		<!-- nest area for birds to lay eggs - see blocks.xml -->
 		<recipe name="broodnest">
@@ -60,12 +105,13 @@
 		</recipe>
 		
 		<!--recipies for scrapping tool and weapon parts-->
+		<!--
 		<recipe name="resourceScrapIron" count="15" craft_time="2">
 			<ingredient name="armorSteelSetParts" count="1"/>
 		</recipe>
 		<recipe name="resourceScrapPolymers" count="15" craft_time="2">
 			<ingredient name="armorMilitarySetParts" count="1"/>
-		</recipe>
+		</recipe>-->
 		<recipe name="resourceScrapIron" count="15" craft_time="2">
 			<ingredient name="meleeToolAllSteelParts" count="1"/>
 		</recipe>
@@ -114,14 +160,14 @@
 		<!--end recipies for scrapping tool and weapon parts-->
 		
 		<!--these 3 mods are unlocked by modRagdollSpecialSchematic, modElectricSpecialSchematic,
-		modElectricRagdollSpecialSchematic: only modElectricRagdollSpecial is being used currently-->
+		modCrowdControlSchematic: only modCrowdControl is being used currently-->
 		<!--<recipe name="modRagdollSpecial" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
 			<ingredient name="resourceForgedIron" count="1"/>
 		</recipe>
 		<recipe name="modElectricSpecial" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
 			<ingredient name="resourceForgedIron" count="1"/>
 		</recipe>-->
-		<recipe name="modElectricRagdollSpecial" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
+		<recipe name="modCrowdControl" count="1" craft_time="30" craft_area="workbench" tags="learnable,workbenchCrafting">
 			<ingredient name="hafniumHydrideMagnet" count="1"/>
 			<ingredient name="advancedClothingMesh" count="1"/>
 			<ingredient name="chargedNiCdBattery" count="1"/>
@@ -196,51 +242,109 @@
 			<ingredient name="resourceSpring" count="1"/>
 		</recipe>
 	
-
+		<!--ammo storage boxes-->
+		<!--9mm box of bullets-->
+		<recipe name="ammoBundle9mmBulletBall" count="1" craft_time="3" >
+			<ingredient name="ammo9mmBulletBall" count="100"/>
+		</recipe>
+		<recipe name="ammoBundle9mmBulletAP" count="1" craft_time="3" >
+			<ingredient name="ammo9mmBulletAP" count="100"/>
+		</recipe>
+		<recipe name="ammoBundle9mmBulletHP" count="1" craft_time="3" >
+			<ingredient name="ammo9mmBulletHP" count="100"/>
+		</recipe>
+		<!--44 Magnum box of bullets-->
+		<recipe name="ammoBundle44MagnumBulletBall" count="1" craft_time="3" >
+			<ingredient name="ammo44MagnumBulletBall" count="100"/> 
+		</recipe>
+		<recipe name="ammoBundle44MagnumBulletAP" count="1" craft_time="3" >
+			<ingredient name="ammo44MagnumBulletAP" count="100"/>
+		</recipe>
+		<recipe name="ammoBundle44MagnumBulletHP" count="1" craft_time="3" >
+			<ingredient name="ammo44MagnumBulletHP" count="100"/>
+		</recipe>
+		<!--7.62 box of bullets-->
+		<recipe name="ammoBundle762mmBulletBall" count="1" craft_time="3" >
+			<ingredient name="ammo762mmBulletBall" count="100"/>
+		</recipe>
+		<recipe name="ammoBundle762mmBulletAP" count="1" craft_time="3" >
+			<ingredient name="ammo762mmBulletAP" count="100"/>
+		</recipe>
+		<recipe name="ammoBundle762mmBulletHP" count="1" craft_time="3" >
+			<ingredient name="ammo762mmBulletHP" count="100"/>
+		</recipe>
+		<!--box of shotgun shells-->
+		<recipe name="ammoBundleShotgunShell" count="1" craft_time="3" >
+			<ingredient name="ammoShotgunShell" count="100"/>
+		</recipe>
+		<recipe name="ammoBundleShotgunSlug" count="1" craft_time="3" >
+			<ingredient name="ammoShotgunSlug" count="100"/>
+		</recipe>
+		<recipe name="ammoShotgunBreachingSlug" count="1" craft_time="3" >
+			<ingredient name="ammoShotgunBreachingSlug" count="100"/>
+		</recipe>
+		<!--end ammo storage boxes-->
+		
 		<!--ammo scrapping bundle recipies -->
-		<!--Craft time is slightly different because of 
-			the ammo type and different returned resources when opening the bundle.
-			See items.xml for the bundle info -->
+		<!-- See items.xml for the bundle info -->
+
 		<!--7.62 -->
-		<recipe name="scrap762AmmoBundle" count="1" craft_area="workbench"  craft_time="113" tags="workbenchCrafting">
+		<recipe name="scrap762AmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo762mmBulletBall" count="50"/>
 		</recipe>
-		<recipe name="scrap762HPAmmoBundle" count="1" craft_area="workbench"  craft_time="133" tags="workbenchCrafting">
+		<recipe name="scrap762HPAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo762mmBulletHP" count="50"/>
 		</recipe>	
-		<recipe name="scrap762APAmmoBundle" count="1" craft_area="workbench"  craft_time="123" tags="workbenchCrafting">
+		<recipe name="scrap762APAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo762mmBulletAP" count="50"/>
 		</recipe>			
 		<!--9mm -->
-		<recipe name="scrap9mmAmmoBundle" count="1" craft_area="workbench"  craft_time="103" tags="workbenchCrafting">
+		<recipe name="scrap9mmAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo9mmBulletBall" count="50"/>
 		</recipe>
-		<recipe name="scrap9mmHPAmmoBundle" count="1" craft_area="workbench"  craft_time="123" tags="workbenchCrafting">
+		<recipe name="scrap9mmHPAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo9mmBulletHP" count="50"/>
 		</recipe>	
-		<recipe name="scrap9mmAPAmmoBundle" count="1" craft_area="workbench"  craft_time="113" tags="workbenchCrafting">
+		<recipe name="scrap9mmAPAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo9mmBulletAP" count="50"/>
 		</recipe>
 		<!-- 44 Magnum -->
-		<recipe name="scrap44AmmoBundle" count="1" craft_area="workbench"  craft_time="123" tags="workbenchCrafting">
+		<recipe name="scrap44AmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo44MagnumBulletBall" count="50"/>
 		</recipe>
-		<recipe name="scrap44HPAmmoBundle" count="1" craft_area="workbench"  craft_time="143" tags="workbenchCrafting">
+		<recipe name="scrap44HPAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo44MagnumBulletHP" count="50"/>
 		</recipe>	
-		<recipe name="scrap44APAmmoBundle" count="1" craft_area="workbench"  craft_time="133" tags="workbenchCrafting">
+		<recipe name="scrap44APAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammo44MagnumBulletAP" count="50"/>
 		</recipe>
 		<!--Shotgun -->
-		<recipe name="scrapShotgunAmmoBundle" count="1" craft_area="workbench"  craft_time="113" tags="workbenchCrafting">
+		<recipe name="scrapShotgunAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammoShotgunShell" count="50"/>
 		</recipe>
-		<recipe name="scrapShotgunSlugAmmoBundle" count="1" craft_area="workbench"  craft_time="133" tags="workbenchCrafting">
+		<recipe name="scrapShotgunSlugAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammoShotgunSlug" count="50"/>
 		</recipe>
-		<recipe name="scrapShotgunBreachingAmmoBundle" count="1" craft_area="workbench"  craft_time="123" tags="workbenchCrafting">
+		<recipe name="scrapShotgunBreachingAmmoBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
 				<ingredient name="ammoShotgunBreachingSlug" count="50"/>
 		</recipe>	
+		
+		<recipe name="scrapMolotovCocktailBundle" count="1" craft_time="30">
+				<ingredient name="thrownAmmoMolotovCocktail" count="5"/>
+		</recipe>	
+		<recipe name="scrapPipeBombBundle" count="1" craft_time="30">
+				<ingredient name="thrownAmmoPipeBomb" count="5"/>
+		</recipe>	
+		<recipe name="scrapthrownGrenadeBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
+				<ingredient name="thrownGrenade" count="5"/>
+		</recipe>	
+		<recipe name="scrapthrownGrenadeContactBundle" count="1" craft_area="workbench"  craft_time="30" tags="workbenchCrafting">
+				<ingredient name="thrownGrenadeContact" count="5"/>
+		</recipe>	
+		<!--Timed Charges-->
+		<recipe name="scrapTimedChargesBundle" count="1"  craft_time="30">
+				<ingredient name="thrownTimedCharge" count="5"/>
+		</recipe>
 		<!-- end ammo bundles -->
 		
 		<!--Kandy bars-->
@@ -326,6 +430,21 @@
 			<ingredient name="resourceAnimalFat" count="1"/>
 			<ingredient name="resourceYuccaFibers" count="5"/>
 			<ingredient name="casinoCoin" count="40"/>
+		</recipe>
+		
+		<!-- Mega Crush recipe-->
+		<recipe name="drinkCanMegaCrush" count="3" craft_time="62" craft_area="campfire" craft_tool="toolBeaker" tags="perkBetterBarter,learnable">
+			<ingredient name="resourceAcid" count="1"/>
+			<ingredient name="foodCropMushrooms" count="3"/>
+			<ingredient name="resourcePotassiumNitratePowder" count="30"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
+		</recipe>
+
+		<recipe name="drinkCanMegaCrush" count="4" craft_time="62" craft_area="chemistryStation" tags="perkBetterBarter,learnable">
+			<ingredient name="resourceAcid" count="1"/>
+			<ingredient name="foodCropMushrooms" count="3"/>
+			<ingredient name="resourcePotassiumNitratePowder" count="30"/>
+			<ingredient name="drinkJarBoiledWater" count="1"/>
 		</recipe>
 	</append>
 </config>

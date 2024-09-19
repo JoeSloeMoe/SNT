@@ -2,13 +2,137 @@
 		
 	<!-- Dew collector filter drop  -->
 	<append xpath="/lootcontainers/lootgroup[@name='groupDewCollector']">
-			<item name="resourceWaterFilter" prob="0.75" force_prob="true" />
+			<item name="resourceWaterFilter" prob="0.10" force_prob="true" />
 	</append>
 	
+	<!--set the storage size of the T4 & T5 hardened chests 
+			Default is 8,9.
+			see also xui.xml and windows.xml-->
+	<!--max size can be 11,10 in the ui visually-->
+	<set xpath="/lootcontainers/lootcontainer[@name='hardenedChestT4']/@size">11,10</set>
+	<set xpath="/lootcontainers/lootcontainer[@name='hardenedChestT5']/@size">11,10</set>
+
+	<!--reduce Legendary parts loot drop chance-->
+	<!--create very low prop template-->
+	<insertBefore xpath="/lootcontainers/lootprobtemplates/lootprobtemplate[@name='veryLow']">
+		<lootprobtemplate name="veryVeryLowDelayed">
+			<loot level="0,21" prob="0"/> <!--is 0,14 in game code-->
+			<loot level="22,999999" prob=".03"/> <!--is 15,9999 & prob 0.05 in game code-->
+		</lootprobtemplate>
+	</insertBefore>
+	<!--overwrite eisitng prop templates for legendary parts with above template-->
+	<set xpath="/lootcontainers/lootgroup[@name='groupArmorParts']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
+	<set xpath="/lootcontainers/lootgroup[@name='groupArmorPartsChests']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
+	<!--END reduce Legendary parts loot drop chance-->
+
+	<!--medical, food and small water tweeks-->
+	<!-- remove some medical containers--> 
+	<remove xpath="/lootcontainers/lootcontainer[@name='popnpillsCrate']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='popnpillsShelves']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='medicalPillCase']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='medicineCabinet']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='ambulance']"/>
+	<!-- remove some water containers -->
+	<remove xpath="/lootcontainers/lootcontainer[@name='waterCooler']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='sodaFountain']"/>
+	<!-- remove some food containers -->
+	<remove xpath="/lootcontainers/lootcontainer[@name='cupboard']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='armyTruck']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileSmall']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileMed']"/>
+	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileLarge']"/>
+
+	<!-- add changed contianers for food/water/medical-->
+	<append xpath="/lootcontainers">
+	
+		<!--medical stuff-->
+		<!-- pop n pills -->
+		<lootcontainer name="popnpillsCrate" count="1,3" size="6,4" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case" loot_quality_template="qualBaseTemplate">
+			<item group="groupPopNPillsCrate" />
+		</lootcontainer>
+		<!-- cntPillCase -->
+		<lootcontainer name="popnpillsShelves" count="1,2" size="6,2" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard" loot_quality_template="qualBaseTemplate">
+			<item group="groupPopnpillsShelves" />
+		</lootcontainer>
+		<!-- cntPillCaseClosed -->
+		<lootcontainer name="medicalPillCase" count="1,3" size="6,2" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case" loot_quality_template="qualBaseTemplate">
+			<item group="groupMedicalPileLarge" />
+		</lootcontainer>
+		<!-- medicine cabinets -->
+		<lootcontainer name="medicineCabinet" count="2" size="6,2" sound_open="UseActions/open_medicine_cabinet" sound_close="UseActions/close_medicine_cabinet" loot_quality_template="qualBaseTemplate">
+			<item group="groupMedicineCabinet" />
+		</lootcontainer>
+		<!--Ambulance -->
+		<lootcontainer name="ambulance" count="1,3" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+			<item group="groupAmbulance" />
+		</lootcontainer>
+
+		<!--water-->
+		<!-- cntWaterCoolerFull -->
+		<lootcontainer name="waterCooler" count="1,2" size="6,2" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="qualBaseTemplate">
+			<item name="drinkJarRiverWater" count="1,2"/>
+		</lootcontainer>	
+		<!-- cntSodaFountain -->
+		<lootcontainer name="sodaFountain" count="1,2" size="6,1" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="qualBaseTemplate">
+			<item group="groupSodaFountain"/>
+			<item name="drinkJarRiverWater" count="1,2"/>
+		</lootcontainer>
+		
+		<!--food-->
+		<!-- canned or dry food -->
+		<lootcontainer name="cupboard"  size="6,3" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard" loot_quality_template="qualBaseTemplate">
+			<item group="groupCupboard"/>
+			<item group="cannedfood" count="1,3" prob="0.20"/>
+		</lootcontainer>
+
+		<!-- army truck-->
+		<lootcontainer name="armyTruck"  size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
+			<item group="groupArmyTruck"/>
+			<item group="cannedfood" count="1,3" prob="0.20"/>
+		</lootcontainer>		
+
+		<!-- cntFoodPileSmall -->
+		<lootcontainer name="foodPileSmall" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupFoodPileSmall"/>
+			<item group="cannedfood" count="1,2" prob="0.20"/>
+		</lootcontainer>
+
+		<!-- cntFoodPileMedium -->
+		<lootcontainer name="foodPileMed"  size="6,2" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupFoodPileMed"/>
+			<item group="cannedfood" count="1,3" prob="0.20"/>
+		</lootcontainer>
+
+		<!-- cntFoodPileLarge -->
+		<lootcontainer name="foodPileLarge"  size="6,3" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupFoodPileLarge"/>
+			<item group="cannedfood" count="1,4" prob="0.20"/>
+		</lootcontainer>
+	</append>
+	<!-- end add changed contianers for food/water/medical-->
+	<!--end medical, food and small water tweeks-->
+	
+	<!-- Brood Nest stuff -->
+	<!-- add a lootgroup for the BroodNest item -->
+	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupBirdNest02']">
+		<lootgroup name="groupBroodNest" count="all">
+			<item name="foodEgg" count="0,3" prob="1" force_prob="true"/>
+			<item name="resourceFeather" count="2,3" prob="1"/>
+		</lootgroup>
+	</insertAfter>
+	<!-- add the Brood Nest Container -->
+	<append xpath="/lootcontainers">
+		<!-- Farmed Birds Nest - for the Broodnest in blocks.xml-->
+		<lootcontainer name="farmBirdnest" size="3,3"  sound_open="UseActions/nest_open" sound_close="UseActions/nest_shut" destroy_on_close="empty">
+			<item group="groupBroodNest"/>
+		</lootcontainer>
+	</append>
+	<!-- End Brood Nest stuff -->
+	
 	<!--begin airdrop loot settings-->
-	<!--Quality template for the solar panels - used in airdrop & police car loot-->
 	<insertBefore xpath="/lootcontainers/lootgroup[@name='empty']">
 		<lootqualitytemplates>
+			<!--Quality template for the solar panels - used in airdrop & police car loot-->
 			<lootqualitytemplate name="solarPanelTemplate">
 				<qualitytemplate level="0,999999" default_quality="3">
 					<loot quality="2" prob="0.2"/>
@@ -16,6 +140,14 @@
 					<loot quality="4" prob="0.2"/>
 					<loot quality="5" prob="0.2"/>
 					<loot quality="6" prob="0.2"/>
+				</qualitytemplate>
+			</lootqualitytemplate>
+			
+			<!--Quality template dropping level 6 items. Used for the solar panel challenge reward and
+				RocketLauncher loot drop in the Interloper:InterceptSupplyDrop story chapter final loot-->
+			<lootqualitytemplate name="SNT_level6QualityTemplate">
+				<qualitytemplate level="0,999999" default_quality="6">
+					<loot quality="6" prob="1"/>
 				</qualitytemplate>
 			</lootqualitytemplate>
 		</lootqualitytemplates>
@@ -36,8 +168,8 @@
 			<item name="vehicleGyroCopterAccessories" count="1"/>
 			<item name="vehicleMotorcycleChassis" count="1"/>
 			<item name="vehicleMotorcycleHandlebars" count="1"/>
-			<item name="vehicle4x4TruckChassis" count="1"/>
-			<item name="vehicle4x4TruckAccessories" count="1"/>
+			<item name="vehicleTruck4x4Chassis" count="1"/>
+			<item name="vehicleTruck4x4Accessories" count="1"/>
 		</lootgroup>
 		
 		<!--food group-->
@@ -92,6 +224,7 @@
 		<item name="airdropAPAmmoBundle" count="1" prob="0.05" force_prob="true" />
 		<item name="airdropSteelDoorBundle" count="1" prob="0.05" force_prob="true" />
 		<item name="airdropSeedBundle" count="1" prob="0.05" force_prob="true" />
+		<item name="resourceLegendaryParts" count="5" prob="0.05" force_prob="true" />
 		
 		<!--solar pack w random (level 2 and above) panel and bank-->
 		<item name="airdropSolarBankBundle" count="1" prob="0.05" force_prob="true" />
@@ -109,51 +242,63 @@
 	</append>
 	<!--end airdrop loot settings-->
 	
-	<!-- Interloper story: loot containers, groups and items for the homing vulture/pigeon.
+	<!-- Pigeon carry diseases: loot containers, groups and items for the homing vulture/pigeon.
 		See entityClasses EntityLootContainerHomingPigeon1 comments for description of use of these containers  
-		STORY NOT IMPLEMENTED YET-->
+		-->
 	<append xpath="/lootcontainers">
 		<!--lootgroup for the first delivery-->
-		<lootgroup name="groupHomingPigeonDelivery1">
+		<lootgroup name="groupHomingPigeonDelivery1" count="all">
 			<item name="resourcePigeonPoop" count="1" />
-			<item name="homingPigeonNote1" count="1" />
+			<item name="homingPigeonContainer1" count="1" />
 			<item name="resourcePigeonBand1" count="1" />
 		</lootgroup>
 		<!--Second delivery lootgroup -->
-		<lootgroup name="groupHomingPigeonDelivery2">
-			<item name="resourcePigeonPoop" count="1" />
-			<item name="homingPigeonNote2" count="1" />
+		<lootgroup name="groupHomingPigeonDelivery2" count="all">
+			<item name="resourcePigeonLice" count="1" />
+			<item name="homingPigeonContainer2" count="1" />
 			<item name="resourcePigeonBand2" count="1" />
 		</lootgroup>
 		<!--Third delivery lootgroup -->
-		<lootgroup name="groupHomingPigeonDelivery3">
-			<item name="resourcePigeonPoop" count="1" />
-			<item name="homingPigeonNote3" count="1" />
+		<lootgroup name="groupHomingPigeonDelivery3" count="all">
+			<item name="resourcePigeonTracker" count="1" />
+			<item name="homingPigeonContainer3" count="1" />
 			<item name="resourcePigeonBand3" count="1" />
 		</lootgroup>
-		
+		<!--Fourth delivery lootgroup -->
+		<lootgroup name="groupHomingPigeonDelivery4" count="all">
+			<item name="resourcePigeonMush" count="1" />
+			<item name="homingPigeonContainer4" count="1" />
+			<item name="resourcePigeonBand4" count="1" />
+		</lootgroup>
 		<!--lootcontainer for the first delivery (each delivery can have a different note)-->
-		<lootcontainer name="homingPigeonDelivery1" count="1" size="1,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+		<lootcontainer name="homingPigeonDelivery1" count="3" size="3,1" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
 			<item group="groupHomingPigeonDelivery1"/>
 		</lootcontainer>
 		<!--lootcontainer for the second delivery -->
-		<lootcontainer name="homingPigeonDelivery2" count="1" size="1,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+		<lootcontainer name="homingPigeonDelivery2" count="3" size="3,1" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
 			<item group="groupHomingPigeonDelivery2"/>
 		</lootcontainer>
 		<!--lootcontainer for the third delivery -->
-		<lootcontainer name="homingPigeonDelivery3" count="1" size="1,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+		<lootcontainer name="homingPigeonDelivery3" count="3" size="3,1" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
 			<item group="groupHomingPigeonDelivery3"/>
 		</lootcontainer>
+		<!--lootcontainer for the fourth delivery -->
+		<lootcontainer name="homingPigeonDelivery4" count="3" size="3,1" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupHomingPigeonDelivery4"/>
+		</lootcontainer>
 		
+		
+		<!--lootgroup for the final pigeon boss entityclasses.xml:pigeonFinalBoss -->
+		<lootgroup name="groupPigeonFinalBossLoot" count="all"> 
+			<item name="pigeonFinalBossBundle" count="1" />
+		</lootgroup>
+		<!--lootcontainer for the final pigeon boss entityclasses.xml:pigeonFinalBoss -->
+		<lootcontainer name="pigeonFinalBossLoot" count="1" size="6,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupPigeonFinalBossLoot"/>
+		</lootcontainer>
 	</append>
-	<!-- end Interloper story loot-->
+	<!-- end Pigeon carry diseases-->
 	
-	<!--set the storage size of the T4 & T5 hardened chests 
-			Default is 8,9.
-			see also xui.xml and windows.xml-->
-	<!--max size can be 11,10 in the ui visually-->
-	<set xpath="/lootcontainers/lootcontainer[@name='hardenedChestT4']/@size">11,10</set>
-	<set xpath="/lootcontainers/lootcontainer[@name='hardenedChestT5']/@size">11,10</set>
 
 	<!--begin police car loot settings-->
 	<!--add the specialist recipe ingredients for the CrowdControl mod to PoliceCar loot drops
@@ -223,7 +368,7 @@
 			<item name="resourceGoreBlockHumanCorpse2" count="1"/>
 			<item name="cntLuggageBigOpen" count="1"/>
 			<item name="resourceHubcap" count="1"/>
-			<item name="modElectricRagdollSpecialSchematic" count="1"/>
+			<item name="modCrowdControlSchematic" count="1"/>
 			<item name="resourceConeConstruction" count="1"/>
 			<item name="resourceYoDawg" count="1"/>
 			<item name="resourceCobweb" count="1"/>
@@ -234,109 +379,6 @@
 	</insertAfter>	
 	<!--end loot group and container for the buried Patrol Car treasure quest-->
 	<!--end police car loot settings-->
-	
-	<!--medical, food and small water tweeks-->
-	<!-- remove some medical containers--> 
-	<remove xpath="/lootcontainers/lootcontainer[@name='popnpillsCrate']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='popnpillsShelves']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='medicalPillCase']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='medicineCabinet']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='ambulance']"/>
-	<!-- remove some water containers -->
-	<remove xpath="/lootcontainers/lootcontainer[@name='waterCooler']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='sodaFountain']"/>
-	<!-- remove some food containers -->
-	<remove xpath="/lootcontainers/lootcontainer[@name='cupboard']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='armyTruck']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileSmall']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileMed']"/>
-	<remove xpath="/lootcontainers/lootcontainer[@name='foodPileLarge']"/>
-
-	<!-- add changed contianers for food/water/medical-->
-	<append xpath="/lootcontainers">
-	
-		<!--medical stuff-->
-		<!-- pop n pills -->
-		<lootcontainer name="popnpillsCrate" count="1,4" size="6,4" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case" loot_quality_template="qualBaseTemplate">
-			<item group="groupPopNPillsCrate" />
-		</lootcontainer>
-		<!-- cntPillCase -->
-		<lootcontainer name="popnpillsShelves" count="1,3" size="6,2" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard" loot_quality_template="qualBaseTemplate">
-			<item group="groupPopnpillsShelves" />
-		</lootcontainer>
-		<!-- cntPillCaseClosed -->
-		<lootcontainer name="medicalPillCase" count="1,3" size="6,2" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case" loot_quality_template="qualBaseTemplate">
-			<item group="groupMedicalPileLarge" />
-		</lootcontainer>
-		<!-- medicine cabinets -->
-		<lootcontainer name="medicineCabinet" count="1,4" size="6,2" sound_open="UseActions/open_medicine_cabinet" sound_close="UseActions/close_medicine_cabinet" loot_quality_template="qualBaseTemplate">
-			<item group="groupMedicineCabinet" />
-		</lootcontainer>
-		<!--Ambulance -->
-		<lootcontainer name="ambulance" count="1,3" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
-			<item group="groupAmbulance" />
-		</lootcontainer>
-
-		<!--water-->
-		<!-- cntWaterCoolerFull -->
-		<lootcontainer name="waterCooler" count="1,3" size="6,2" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="qualBaseTemplate">
-			<item name="drinkJarRiverWater" count="1,2"/>
-		</lootcontainer>	
-		<!-- cntSodaFountain -->
-		<lootcontainer name="sodaFountain" count="1,3" size="6,1" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler" loot_quality_template="qualBaseTemplate">
-			<item group="groupSodaFountain"/>
-			<item name="drinkJarRiverWater" count="1,3"/>
-		</lootcontainer>
-		
-		<!--food-->
-		<!-- canned or dry food -->
-		<lootcontainer name="cupboard"  size="6,3" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard" loot_quality_template="qualBaseTemplate">
-			<item group="groupCupboard"/>
-			<item group="cannedfood" count="1,3" prob="0.25"/>
-		</lootcontainer>
-
-		<!-- army truck-->
-		<lootcontainer name="armyTruck"  size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
-			<item group="groupArmyTruck"/>
-			<item group="cannedfood" count="1,3" prob="0.25"/>
-		</lootcontainer>		
-
-		<!-- cntFoodPileSmall -->
-		<lootcontainer name="foodPileSmall" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
-			<item group="groupFoodPileSmall"/>
-			<item group="cannedfood" count="1,2" prob="0.25"/>
-		</lootcontainer>
-
-		<!-- cntFoodPileMedium -->
-		<lootcontainer name="foodPileMed"  size="6,2" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
-			<item group="groupFoodPileMed"/>
-			<item group="cannedfood" count="1,3" prob="0.25"/>
-		</lootcontainer>
-
-		<!-- cntFoodPileLarge -->
-		<lootcontainer name="foodPileLarge"  size="6,3" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
-			<item group="groupFoodPileLarge"/>
-			<item group="cannedfood" count="1,4" prob="0.25"/>
-		</lootcontainer>
-	</append>
-	<!-- end add changed contianers for food/water/medical-->
-	<!--end medical, food and small water tweeks-->
-	
-	<!-- Brood Nest stuff -->
-	<!-- add a lootgroup for the BroodNest item -->
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupBirdNest02']">
-		<lootgroup name="groupBroodNest" count="all">
-			<item name="foodEgg" count="0,3" prob="1" force_prob="true"/>
-			<item name="resourceFeather" count="2,3" prob="1"/>
-		</lootgroup>
-	</insertAfter>
-	<!-- add the Brood Nest Container -->
-	<append xpath="/lootcontainers">
-		<!-- Farmed Birds Nest - for the Broodnest in blocks.xml-->
-		<lootcontainer name="farmBirdnest" size="3,3"  sound_open="UseActions/nest_open" sound_close="UseActions/nest_shut" destroy_on_close="empty">
-			<item group="groupBroodNest"/>
-		</lootcontainer>
-	</append>
 	
 	<!--loot container for Burial Site Coffins - Mary's Revenge-->
 	<append xpath="/lootcontainers">
@@ -353,10 +395,10 @@
 			
 			<item name="resourceGoreBlockHumanBones" count="1"/>
 			<item name="coffinClockBroken" count="1"/>
-			<item name="cntBarrelGasOld" count="1"/>
-			<item name="playerExplosiveBarrelSchematic" count="1"/>
 			<item name="coffinWoodSpikes" count="1"/>
 			<item name="resourcegGraveStone" count="1"/>
+			<item name="playerExplosiveBarrel" count="8"/>
+			<item name="playerExplosiveBarrelSchematic" count="1"/>
 			<item name="marysRevengeArtifactContainer" count="1"/>
 		</lootgroup>
 		<lootcontainer name="burialSiteCoffins" count="1" size="9,2" sound_open="UseActions/coffin_wood_open" sound_close="UseActions/coffin_wood_close" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
@@ -364,6 +406,38 @@
 		</lootcontainer>
 	</append>
 	<!--end loot container for Burial Site Coffins -->
+	
+	<!-- interloper story loot -->
+	
+	<append xpath="/lootcontainers">
+
+		<!--drop a level 6 rocket launcher-->
+		<lootgroup name="groupSecretDropWeapon" count="all" loot_quality_template="SNT_level6QualityTemplate" > 
+			<item name="gunExplosivesT3RocketLauncher" count="1" /> 
+		</lootgroup>
+
+		<lootgroup name="groupSecretDrop" count="all">
+			<item name="interloperSupplyCrateDukesBundle" count="1"/>
+			<item name="interloperSupplyCrateAmmoBundle" count="1"/>
+			<item name="modMilitaryStructuralBrace" count="1"/>
+			<item group="groupSecretDropWeapon" count="1"/>
+		</lootgroup>
+		
+		<lootcontainer name="interloperSecretDrop" count="1" size="8,4" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate" loot_quality_template="qualBaseTemplate" ignore_loot_abundance="true">
+			<item group="groupSecretDrop"/>
+		</lootcontainer>
+		
+		<!--loot for the book-for-magazine trade drop dropped during the interloper:quest_Interloper_Epilogue chapter-->
+		<lootgroup name="groupTradeDrop" count="all">
+			<item name="interloperEpilogueRewardBundle" count="1"/>
+		</lootgroup>
+		
+		<lootcontainer name="interloperTradeDrop" count="1" size="8,4" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate" loot_quality_template="qualBaseTemplate" ignore_loot_abundance="true">
+			<item group="groupTradeDrop"/>
+		</lootcontainer>
+		
+	</append>
+	<!-- end interloper story loot-->
 	
 	<!-- set probability of gold, silver and diamonds 
 		They are used in the added grandpa recipes 
@@ -423,354 +497,186 @@
 	<!--lootgroups: groupPOIStorageBox02,groupMorticianDrawer02,groupChem01, coffins and caskets - are all set to 'verylow' so are ignored-->
 	<!--END gold, silver and diamond block changes : see blocks.xml for other drop probability changes-->
 	
-	
-	
-	<!-- BEGIN: Some Mods only spawn as attachments to items -->
-	
-	<!-- Higher level items (e.g. military and steel armour or auto-shotty) have a chance to spawn with a mod.
-		 The list of Items that can spawn with a mod are the same as the items whose T6 level versions have an extra mod slot
-		 (see items.xml) -->
-	
-	<!--For each item that has a chance of spawning with a mod: 
-		- change its ITEM entry in all the relevant loot groups to reflect the mod chance
-		Assume this will change for clothing in A22 -->
-	
-	<!-- All the tags that are used to specify which mods to attach to items when they spawn.
-		This comment is here just for easy lookup.
-
-		<TAG> : <mods with that tag>
-		club: modMeleeClubBarbedWire, modMeleeClubMetalSpikes, modMeleeClubMetalChain
-		fire: modMeleeClubBurningShaft
-
-		damageDirt: modMeleeFiremansAxeMod, modMeleeGraveDigger
-		damageStone: modMeleeFiremansAxeMod, modMeleeBunkerBuster
-		damageIron: modMeleeFiremansAxeMod, modMeleeIronBreaker
-		damageWood: modMeleeWoodSplitter
-		damage: modMeleeTemperedBlade, modMeleeSerratedBlade, modMeleeWeightedHead
-		durability: modMeleeStructuralBrace, modMeleeDiamondTip
-		health: modMeleeErgonomicGrip, modMeleeFortifyingGrip
-		
-		//guns and bows
-		accuracy: modGunBipod, modGunBowArrowRest
-		barrelAttachment: extender, muzzle brake, silencer		
-		grips: foregrip
-		crippling: modGunCrippleEm
-		magazine: modGunMagazineExtender, modGunDrumMagazineExtender, modGunShotgunTubeExtenderMagazine
-		sideAttachment: lasersight, torch
-		scope:  scopes
-		trigger: semi,burst,auto
-		velocity: modGunBowPolymerString
-		
-		//clothing
-		ammo: modArmorBandolier
-		modArmorHelmetLight: modArmorHelmetLight
-		movement: modArmorImprovedFittings, modArmorCustomizedFittings
-		resistance: modArmorPlatingBasic, modArmorPlatingReinforced, [also modRadiationReady - dont want this one see item_modifiers.xml for removal code]
-		stealth: modArmorMuffledConnectors, modArmorAdvancedMuffledConnectors
-		waterPurifier: waterPurifier
-	-->
-	
-	<!--The following mods will only spawn installed in items:
-		Weapon mods: modGunMeleeRadRemover, modGunSoundSuppressorSilencer,modGunDrumMagazineExtender, modGunScopeLarge, modGunTriggerGroupAutomatic,
-		Weapons the weapons mods will spawn in: Steel Spear, Steel Club, Steel Sledgehammer,Steel Knuckles, Machete, Stun Baton, 
-					SMG, Desert Vulture, Auto Shotgun, Sniper Rifle, Tactical AR, M60, Compound Bow, Compound Crossbow
-		
-		Tool mods: modMeleeDiamondTip,modMeleeErgonomicGrip, modMeleeIronBreaker,modMeleeTemperedBlade
-		Tools the tool mods will spawn in: Steel Shovel, Steel Pickaxe, Steel Axe, SteelSledgehammer, Auger, Impact Driver
-		
-		Clothes mods: modArmorCustomizedFittings,modArmorPlatingReinforced,modArmorAdvancedMuffledConnectors, modArmorBandolier
-		Clothes the clothes mods will spawn in: Military Clothing, Steel Clothing, Sawt Helmet
-		
-		Some tools mods like modMeleeErgonomicGrip may spawn in weapons
-		See also items.xml where the mods have been removed from bundles as well (even if they are quest bundles)
-		First delete the item_mods from any loot groups they are in - replace with something else if loot group has little left in it
-		
-		List of modifiers tags added in item_modifiers.xml for the above listed mods 
-		SNT_RadRem SNT_Suppressor SNT_DrumMag SNT_LargeScope SNT_TriggerAuto SNT_DiamondTip SNT_ErgoGrip SNT_IronBreaker
-		SNT_TemperedBlade SNT_CustomFit SNT_PlateArmour SNT_AdvMuff SNT_Bandolier
-	-->
-	<!--BEGIN remove individual items from lootgroups-->
-	<remove xpath="/lootcontainers/lootgroup[@name='modGunT2']/item[@name='modGunSoundSuppressorSilencer']"/>
-	
-	<remove xpath="/lootcontainers/lootgroup[@name='modGunT3']/item[@name='modGunScopeLarge']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='modGunT3']/item[@name='modGunTriggerGroupAutomatic']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='modGunT3']/item[@name='modGunDrumMagazineExtender']"/>
-	<!--add something back-->
-	<append xpath="/lootcontainers/lootgroup[@name='modGunT3']">
-		<item name="modGunRetractingStock"/>
-		<item name="modGunScopeMedium"/>
-		<item name="modGunTriggerGroupBurst3"/>
+	<!--loot container for the gyrocopter-->
+	<append xpath="/lootcontainers">
+		<lootcontainer name="lootGyroWreck" count="1" size="8,5" sound_open="UseActions/open_fridge" sound_close="UseActions/close_fridge" loot_quality_template="qualPlus1Template" ignore_loot_abundance="true">
+			<item group="groupSmallSafeLoot"/>
+		</lootcontainer>
 	</append>
 	
-	<remove xpath="/lootcontainers/lootgroup[@name='modMeleeT3']/item[@name='modMeleeErgonomicGrip']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='modMeleeT3']/item[@name='modMeleeTemperedBlade']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='modMeleeT3']/item[@name='modMeleeIronBreaker']"/>
-	<!--add something back-->
-	<append xpath="/lootcontainers/lootgroup[@name='modMeleeT3']">
-		<item name="modMeleeBunkerBuster"/>
-	</append>
-	
-	<remove xpath="/lootcontainers/lootgroup[@name='modArmorT2']/item[@name='modArmorPlatingReinforced']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='modArmorT2']/item[@name='modArmorCustomizedFittings']"/>
-
-	<remove xpath="/lootcontainers/lootgroup[@name='modArmorT3']/item[@name='modArmorBandolier']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='modArmorT3']/item[@name='modArmorAdvancedMuffledConnectors']"/>
-	<!--add something back-->
-	<append xpath="/lootcontainers/lootgroup[@name='modMeleeT3']">
-		<item name="modArmorWaterPurifier"/>
-		<item name="modArmorImpactBracing"/>
-		<item name="modArmorMuffledConnectors"/>
-	</append>
-	
-	<remove xpath="/lootcontainers/lootgroup[@name='modGunMeleeT3']/item[@name='modGunMeleeRadRemover']"/>
-	<!--END remove individual items from lootgroups-->
-	
-	<!--BEGIN remove whole lootgroups, replace with same groups but with possibility of mods-->
-	<!-- remove and replace groupToolsT2/T3 for tools  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupToolsT2']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupToolsT3']"/>
-
-	<!--assign the mods removed above to items (clothes,weapons,tools) in loot groups so that they spawn attached to the item-->
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupToolsT1ClawHammer']">
-		<lootgroup name="groupToolsT2" loot_quality_template="QLTemplateT2">
-			<item name="meleeToolShovelT2SteelShovel" mods="SNT_TemperedBlade,SNT_ErgoGrip" mod_chance="0.20"/>
-			<item name="meleeToolPickT2SteelPickaxe" mods="SNT_IronBreaker" mod_chance="0.20"/>
-			<item name="meleeToolAxeT2SteelAxe" mods="SNT_DiamondTip,SNT_ErgoGrip" mod_chance="0.20"/>
-			<item name="meleeWpnSledgeT3SteelSledgehammer" loot_prob_template="medLow" mods="SNT_RadRem" mod_chance="0.20"/>
-			<item name="meleeToolSalvageT2Ratchet"/> <!--dont care about this one-->
-		</lootgroup>
-		<!-- *** T3_Tool_Loot -->
-		<lootgroup name="groupToolsT3" loot_quality_template="QLTemplateT3">
-			<item name="meleeToolAxeT3Chainsaw"/><!--dont care about this one-->
-			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,SNT_TemperedBlade" mod_chance="0.20"/>
-			<item name="meleeToolRepairT3Nailgun"/><!--dont care about this one-->
-			<item name="meleeToolSalvageT3ImpactDriver" mods="SNT_IronBreaker" mod_chance="0.20"/>
-		</lootgroup>
-	</insertAfter>
-	
-	<!-- remove and replace groupQuestToolsT2 for tools - this is for quests, added even though no trader -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestToolsT2']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestToolsT3']"/>
-	
-	<insertBefore xpath="/lootcontainers/lootgroup[@name='groupQuestTools']">
-		<lootgroup name="groupQuestToolsT2" loot_quality_template="questT2QualTemplate">
-			<item name="meleeToolShovelT2SteelShovel" mods="SNT_TemperedBlade,SNT_ErgoGrip" mod_chance="0.20"/>
-			<item name="meleeToolPickT2SteelPickaxe" mods="SNT_IronBreaker" mod_chance="0.20"/>
-			<item name="meleeToolAxeT2SteelAxe" mods="SNT_DiamondTip,SNT_ErgoGrip" mod_chance="0.20"/>
-			<item name="meleeWpnSledgeT3SteelSledgehammer" loot_prob_template="medLow" mods="SNT_RadRem" mod_chance="0.20"/>
-			<item name="meleeToolSalvageT2Ratchet"/> <!--dont care about this one-->
-		</lootgroup>
-		<lootgroup name="groupQuestToolsT3" loot_quality_template="questT3QualTemplate">
-			<item name="meleeToolAxeT3Chainsaw"/> <!--dont care about this one-->
-			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,SNT_TemperedBlade" mod_chance="0.20"/>
-			<item name="meleeToolRepairT3Nailgun"/> <!--dont care about this one-->
-			<item name="meleeToolSalvageT3ImpactDriver" mods="SNT_IronBreaker" mod_chance="0.20"/>
-		</lootgroup>
-	</insertBefore>
+	<!--Challenges lootgroups for rewards-->
+	<append xpath="/lootcontainers">
+		<!--random loot drop for per books-->
 		
-	<!-- remove and replace groupWeaponsT2_Melee for melee weapons  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT2_Melee']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupWeaponsT1_Melee']">
-		<!-- *** T2&T3_Melee_Weapons -->
-		<lootgroup name="groupWeaponsT2_Melee" loot_quality_template="QLTemplateT2">
-			<item name="meleeWpnSpearT3SteelSpear" mods="SNT_RadRem" mod_chance="0.20"/>
-			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,SNT_ErgoGrip" mod_chance="0.20"/><!--x-->
-			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="SNT_ErgoGrip" mod_chance="0.20"/>
-			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="SNT_IronBreaker" mod_chance="0.20"/>
-			<item name="meleeWpnBladeT3Machete" mods="fire,SNT_ErgoGrip,damage" mod_chance="0.20"/>
-			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.20"/>
-		</lootgroup>
-	</insertAfter>
-	
-	<!-- remove and replace groupQuestWeaponsMeleeT2 for melee weapons  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsMeleeT2']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsMeleeT1']">
-		<lootgroup name="groupQuestWeaponsMeleeT2" loot_quality_template="questT2QualTemplate">
-			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.20"/>
-			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,SNT_ErgoGrip" mod_chance="0.20"/><!--x-->
-			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="SNT_ErgoGrip" mod_chance="0.20"/>
-			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="SNT_IronBreaker" mod_chance="0.20"/>
-			<item name="meleeWpnBladeT3Machete" mods="fire,SNT_ErgoGrip,damage" mod_chance="0.20"/>
-			<item name="meleeWpnSpearT3SteelSpear" mods="SNT_RadRem" mod_chance="0.20"/>
-		</lootgroup>
-	</insertAfter>
+		<!--main basic reward grouping - see items.xml for the bundles e.g. challengeRewardSkillMagBundle that use the loot groups-->
+		<!--perk books loot grouping-->
+		<lootgroup name="challengeRewardPerkBooksLootgroupSNT" count="2">
+			<item group="perkBooks" count="2"/> <!--perkBooks already exists as a group of a available perk books-->
+		</lootgroup>	
+		
+		<!--need to make own group for schematics.
+			list combined from loot groups schematicsModsAndGeneralT0, 
+			schematicsModsAndGeneralT1 & schematicsModsAndGeneralT2-->
+		<lootgroup name="challengeRewardSchematicsLootgroupSNT" count="2">
+			<item name="modArmorCoolingMeshSchematic"/>
+			<item name="modArmorImprovedFittingsSchematic"/>
+			<item name="modArmorInsulatedLinerSchematic"/>
+			<item name="modArmorMuffledConnectorsSchematic"/>
+			<item name="modArmorPlatingBasicSchematic"/>
+			<item name="modArmorStoragePocketSchematic"/>
+			<item name="modGunBarrelExtenderSchematic"/>
+			<item name="modGunDuckbillSchematic"/>
+			<item name="modGunFlashlightSchematic"/>
+			<item name="modGunForegripSchematic"/>
+			<item name="modGunMeleeTheHunterSchematic"/>
+			<item name="modGunRetractingStockSchematic"/>
+			<item name="modGunScopeSmallSchematic"/>
+			<item name="modGunTriggerGroupSemiSchematic"/>
+			<item name="modMeleeClubBurningShaftSchematic"/>
+			<item name="modMeleeErgonomicGripSchematic"/>
+			<item name="modMeleeGraveDiggerSchematic"/>
+			<item name="modMeleeStructuralBraceSchematic"/>
+			<item name="modMeleeTemperedBladeSchematic"/>
+			<item name="modMeleeWeightedHeadSchematic"/>
+			<item name="modMeleeWoodSplitterSchematic"/>
+			<item name="modShotgunSawedOffBarrelSchematic"/>
 
-	<!-- remove and replace individual lootgroups for weapons  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_Gunslinger01']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_Gunslinger02']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_Boomstick']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_DeadEye']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT2_Machinegunner']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_Machinegunner']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_Archery01']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupWeaponsT3_Archery02']"/>
+			<item name="modArmorBandolierSchematic"/>
+			<item name="modArmorDoubleStoragePocketSchematic"/>
+			<item name="modArmorHelmetLightSchematic"/>
+			<item name="modFuelTankSmallSchematic"/>
+			<item name="modGunBipodSchematic"/>
+			<item name="modGunBowArrowRestSchematic"/>
+			<item name="modGunChokeSchematic"/>
+			<item name="modGunCrippleEmSchematic"/>
+			<item name="modGunMagazineExtenderSchematic"/>
+			<item name="modGunMuzzleBrakeSchematic"/>
+			<item name="modGunReflexSightSchematic"/>
+			<item name="modGunScopeMediumSchematic"/>
+			<item name="modGunTriggerGroupBurst3Schematic"/>
+			<item name="modMeleeBunkerBusterSchematic"/>
+			<item name="modMeleeClubBarbedWireSchematic"/>
+			<item name="modMeleeFortifyingGripSchematic"/>
+			<item name="modMeleeIronBreakerSchematic"/>
+			<item name="modMeleeSerratedBladeSchematic"/>
 
-	<!--replace with added mod code-->
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupWeapons_DemolitionistTPlus']">
-		<lootgroup name="groupWeaponsT3_Gunslinger01" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunHandgunT3SMG5" mods="SNT_Suppressor,SNT_TriggerAuto" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupWeaponsT3_Gunslinger02" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunHandgunT3DesertVulture" mods="SNT_Suppressor,SNT_RadRem" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupWeaponsT3_Boomstick" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunShotgunT3AutoShotgun" mods="SNT_DrumMag,SNT_RadRem" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupWeaponsT3_DeadEye" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunRifleT3SniperRifle" mods="SNT_LargeScope" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupWeaponsT2_Machinegunner" count="all" loot_quality_template="QLTemplateT2">
-			<item name="gunMGT2TacticalAR" mods="SNT_LargeScope,SNT_TriggerAutor" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupWeaponsT3_Machinegunner" count="all" loot_quality_template="QLTemplateT3">
-			<item name="gunMGT3M60" mods="SNT_DrumMag,SNT_Suppressor" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupWeaponsT3_Archery01" count="all" loot_quality_template="QLTemplateT2">
-			<item name="gunBowT3CompoundBow" mods="SNT_ErgoGrip,accuracy" mod_chance="0.20" /><!--x-->
-		</lootgroup>
-		<lootgroup name="groupWeaponsT3_Archery02" count="all" loot_quality_template="QLTemplateT2">
-			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope" mod_chance="0.20"/>
-		</lootgroup>
-	</insertAfter>
-	
-	<!-- remove and replace lootgroups for ranged weapons  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsRangedT2']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsRangedT3']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestWeaponsRangedT1']">
-		<lootgroup name="groupQuestWeaponsRangedT2" loot_quality_template="questT2QualTemplate">
-			<item name="gunRifleT2LeverActionRifle"/>  <!--Ignored for mod chance-->
-			<item name="gunMGT2TacticalAR" mods="SNT_LargeScope,SNT_RadRem,SNT_TriggerAutor" mod_chance="0.20"/>
-			<item name="gunShotgunT2PumpShotgun"/>  <!--Ignored for mod chance-->
-			<item name="gunHandgunT2Magnum44"/>  <!--Ignored for mod chance-->
-			<item name="gunBotT2JunkTurret"/>  <!--Ignored for mod chance-->
-			<!-- Some T3 items get treated as T2 -->
-			<item name="gunBowT3CompoundBow" mods="SNT_ErgoGrip,accuracy" mod_chance="0.20"/>
-			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope" mod_chance="0.20"/>
-		</lootgroup>
-		<lootgroup name="groupQuestWeaponsRangedT3" loot_quality_template="questT3QualTemplate">
-			<item name="gunRifleT3SniperRifle" mods="SNT_LargeScope" mod_chance="0.20"/>
-			<item name="gunExplosivesT3RocketLauncher"/>  <!--Ignored for mod chance-->
-			<item name="gunShotgunT3AutoShotgun" mods="SNT_DrumMag,SNT_RadRem" mod_chance="0.20"/>
-			<item name="gunMGT3M60" mods="SNT_DrumMag,SNT_Suppressor" mod_chance="0.20"/>
-			<item name="gunHandgunT3SMG5" mods="SNT_Suppressor,SNT_TriggerAuto" mod_chance="0.20"/>
-			<item name="gunHandgunT3DesertVulture" mods="SNT_Suppressor,SNT_RadRem" />
-			<item name="gunBotT3JunkDrone"/>  <!--Ignored for mod chance-->
-		</lootgroup>
-	</insertAfter>
-	
-	<!-- remove and replace lootgroup for bow weapons  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupHuntingRanged']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupSavageCountryBooks']">	
-		<lootgroup name="groupHuntingRanged">
-			<item name="gunBowT0PrimitiveBow" loot_prob_template="ProbT0"/>  <!--Ignored for mod chance-->
-			<item name="gunBowT1WoodenBow" loot_prob_template="ProbT1"/>  <!--Ignored for mod chance-->
-			<item name="gunBowT3CompoundBow" loot_prob_template="ProbT3" mods="SNT_ErgoGrip,accuracy" mod_chance="0.20"/>
-			<item name="gunBowT1IronCrossbow" loot_prob_template="ProbT0"/>  <!--Ignored for mod chance-->
-			<item name="gunBowT3CompoundCrossbow" loot_prob_template="ProbT3" mods="SNT_RadRem,grips,scope" mod_chance="0.20"/>
-			<item name="gunRifleT1HuntingRifle" loot_prob_template="ProbT1"/>  <!--Ignored for mod chance-->
-		</lootgroup>
-	</insertAfter>
-
-	<!-- remove and replace lootgroup for military and steel armour  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupArmorT2']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupArmorT1']">
-		<lootgroup name="groupArmorT2" loot_quality_template="QLTemplateT2">
-			<item name="armorMilitaryHelmet" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryGloves" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryVest" mods="SNT_CustomFit,SNT_PlateArmour,SNT_Bandolier" mod_chance="0.20"/>
-			<item name="armorMilitaryLegs" mods="SNT_Bandolier,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryBoots" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelHelmet" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelGloves" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelChest" mods="SNT_Bandolier,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelLegs" mods="SNT_CustomFit,SNT_PlateArmour,SNT_Bandolier" mod_chance="0.20"/>
-			<item name="armorSteelBoots" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSwatHelmet" mods="modArmorHelmetLight,SNT_PlateArmour,SNT_CustomFit,SNT_AdvMuff" mod_chance="0.20" prob=".4"/>
-		</lootgroup>
-	</insertAfter>
-	
-	<!-- remove and replace more lootgroups for military and steel armour  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupMilitaryGear']"/>
-	<remove xpath="/lootcontainers/lootgroup[@name='groupMilitaryArmor']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupApparelHazmat']">
-		<lootgroup name="groupMilitaryGear">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryGloves" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryVest" mods="SNT_CustomFit,SNT_Bandolier,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryLegs" mods="SNT_Bandolier,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryBoots" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="apparelArmyShirt"/>  <!--Ignored for mod chance-->
-			<item name="apparelArmyPants" mods="dye" mod_chance="0"/>  <!--Ignored for mod chance-->
-			<item name="armorMilitarySetParts" count="1,2" loot_prob_template="medLow"/>  <!--Ignored for mod chance-->
-			<item name="apparelNightvisionGoggles" loot_prob_template="veryLow"/>  <!--Ignored for mod chance-->
+			<item name="modArmorAdvancedMuffledConnectorsSchematic"/>
+			<item name="modArmorCustomizedFittingsSchematic"/>
+			<item name="modArmorImpactBracingSchematic"/>
+			<item name="modArmorPlatingReinforcedSchematic"/>
+			<item name="modArmorTripleStoragePocketSchematic"/>
+			<item name="modArmorQuadStoragePocketSchematic" loot_prob_template="low"/>
+			<item name="modArmorWaterPurifierSchematic"/>
+			<item name="modFuelTankLargeSchematic"/>
+			<item name="modGunBowPolymerStringSchematic"/>
+			<item name="modGunLaserSightSchematic"/>
+			<item name="modGunMeleeRadRemoverSchematic"/>
+			<item name="modGunScopeLargeSchematic"/>
+			<item name="modGunSoundSuppressorSilencerSchematic"/>
+			<item name="modGunTriggerGroupAutomaticSchematic"/>
+			<item name="modGunTriggerGroupAutomaticSchematic"/>
+			<item name="modMeleeClubMetalSpikesSchematic"/>
+			<item name="modRoboticDroneCargoModSchematic" loot_prob_template="med"/>
+			<item name="modRoboticDroneMedicModSchematic" loot_prob_template="med"/>
+			<item name="modRoboticDroneHeadlampModSchematic" loot_prob_template="med"/>
+			<item name="modRoboticDroneArmorPlatingModSchematic" loot_prob_template="med"/>
+			<item name="modRoboticDroneMoraleBoosterModSchematic" loot_prob_template="med"/>
+			<!-- <item name="modRoboticDroneWeaponModSchematic" loot_prob_template="med"/> -->
 		</lootgroup>
 		
-		<lootgroup name="groupMilitaryArmor">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryGloves" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryVest" mods="SNT_CustomFit,SNT_PlateArmour,SNT_Bandolier" mod_chance="0.20"/>
-			<item name="armorMilitaryLegs" mods="SNT_CustomFit,SNT_Bandolier,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryBoots" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitarySetParts" count="1,2" loot_prob_template="medLow"/>  <!--Ignored for mod chance-->
-			<item name="apparelNightvisionGoggles" loot_prob_template="veryLow"/>  <!--Ignored for mod chance-->
-		</lootgroup>
-	</insertAfter>
-	
-	<!-- remove and replace another lootgroup for military and steel armour  -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupQuestArmorT2']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupQuestArmorT1']">
-		<lootgroup name="groupQuestArmorT2" loot_quality_template="questT2QualTemplate">
-			<item name="armorMilitaryHelmet" mods="modArmorHelmetLight,SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryGloves" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryVest" mods="SNT_Bandolier,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorMilitaryLegs" mods="SNT_CustomFit,SNT_PlateArmour,SNT_Bandolier" mod_chance="0.20"/>
-			<item name="armorMilitaryBoots" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelHelmet" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelGloves" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelChest" mods="SNT_CustomFit,SNT_Bandolier,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelLegs" mods="SNT_Bandolier,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSteelBoots" mods="SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20"/>
-			<item name="armorSwatHelmet" mods="modArmorHelmetLight,SNT_CustomFit,SNT_PlateArmour,SNT_AdvMuff" mod_chance="0.20" loot_prob_template="medLow"/>
-			<item name="armorMiningHelmet" mods="modArmorHelmetLight" mod_chance="0.20"/>  <!--Ignored for mod chance-->
-		</lootgroup>
-	</insertAfter>
+		<!--make own loot group for skill magazines -->
+		<lootgroup name="challengeRewardSkillMagsLootgroupSNT" count="1">
+			<item name="bowsSkillMagazine" count="2"/>
+			<item name="spearsSkillMagazine" count="2"/>
+			<item name="clubsSkillMagazine" count="2"/>
+			<item name="sledgehammersSkillMagazine" count="2"/>
+			<item name="harvestingToolsSkillMagazine" count="2"/>
+			<item name="knucklesSkillMagazine" count="2"/>
+			<item name="bladesSkillMagazine" count="2"/>
+			<item name="repairToolsSkillMagazine" count="2"/>
+			<item name="salvageToolsSkillMagazine" count="2"/>
 
-	<!-- remove and replace groupInfestedT5MeleeRanged for tools and weapons - this is for infested quests, added even though no trader 
-		 Maybe can do something with it in the future -->
-	<remove xpath="/lootcontainers/lootgroup[@name='groupInfestedT5MeleeRanged']"/>
-	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupHardenedChestT5']">
-		<lootgroup name="groupInfestedT5MeleeRanged" loot_quality_template="qualTwitchT6Template">
-			<item name="meleeWpnSpearT3SteelSpear" mods="fire,durability,damage" mod_chance="0.20"/>
-			<item name="meleeWpnClubT3SteelClub" mods="SNT_RadRem,damage,club" mod_chance="0.20"/>
-			<item name="meleeWpnSledgeT3SteelSledgehammer" mods="durability,health,damage" mod_chance="0.20"/>
-			<item name="meleeWpnKnucklesT3SteelKnuckles" mods="damage,durability,damageStone" mod_chance="0.20"/>
-			<item name="meleeWpnBladeT3Machete" mods="fire,durability,damage" mod_chance="0.20"/>
-			<item name="meleeWpnBatonT2StunBaton" mods="durability,damage" mod_chance="0.20"/>
-			<item name="meleeToolAxeT2SteelAxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.20"/>
-			<item name="meleeToolPickT2SteelPickaxe" mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.20"/>
-			<item name="meleeToolShovelT2SteelShovel"  mods="durability,damageDirt,damageStone,damageIron,damageWood" mod_chance="0.20"/>
-			<item name="meleeToolAxeT3Chainsaw"/>  <!--Ignored for mod chance-->
-			<item name="meleeToolPickT3Auger" mods="SNT_RadRem,damageIron,damageStone,damageWood" mod_chance="0.20"/>
-			<item name="meleeToolRepairT3Nailgun"/>  <!--Ignored for mod chance-->
-			<item name="meleeToolSalvageT3ImpactDriver" mods="damageIron,damageStone,damageWood" mod_chance="0.20"/>
-			<item name="gunBowT3CompoundCrossbow" mods="SNT_RadRem,grips,scope,health" mod_chance="0.20"/>
-			<item name="gunRifleT2LeverActionRifle"/>  <!--Ignored for mod chance-->
-			<item name="gunMGT2TacticalAR" mods="barrelAttachment,SNT_RadRem,scope,trigger" mod_chance="0.20"/>
-			<item name="gunShotgunT2PumpShotgun"/>  <!--Ignored for mod chance-->
-			<item name="gunHandgunT2Magnum44"/>  <!--Ignored for mod chance-->
-			<item name="gunRifleT3SniperRifle" mods="barrelAttachment,sideAttachment,scope,trigger" mod_chance="0.20"/>
-			<item name="gunExplosivesT3RocketLauncher"/>  <!--Ignored for mod chance-->
-			<item name="gunShotgunT3AutoShotgun" mods="SNT_RadRem,barrelAttachment,sideAttachment,magazine,trigger" mod_chance="0.20"/>
-			<item name="gunMGT3M60" mods="barrelAttachment,grips,accuracy,trigger" mod_chance="0.20"/>
-			<item name="gunHandgunT3SMG5" mods="barrelAttachment,magazine,scope,trigger" mod_chance="0.20"/>
-			<item name="gunHandgunT3DesertVulture" mods="barrelAttachment,sideAttachment,scope,trigger"/>
-			<item name="gunBotT3JunkDrone"/>  <!--Ignored for mod chance-->
-			<item name="gunBotT2JunkTurret"/>  <!--Ignored for mod chance-->
-			<item name="gunBotT1JunkSledge"/>  <!--Ignored for mod chance-->
-		</lootgroup>
-	</insertAfter>
-	<!--END remove whole lootgroups, replace with same groups but with possibility of mods-->
-	
-	<!-- END: Some Mods only spawn as attachments to items -->
+			<item name="handgunsSkillMagazine" count="2"/>
+			<item name="shotgunsSkillMagazine" count="2"/>
+			<item name="riflesSkillMagazine" count="2"/>
+			<item name="machineGunsSkillMagazine" count="2"/>
+			<item name="explosivesSkillMagazine" count="2"/>
+			<item name="armorSkillMagazine" count="2"/>
+			<item name="roboticsSkillMagazine" count="2"/>
 
+			<item name="workstationSkillMagazine" count="2"/>
+			<item name="medicalSkillMagazine" count="2"/>
+			<item name="foodSkillMagazine" count="2"/>
+			<item name="seedSkillMagazine" count="2"/>
+			<item name="vehiclesSkillMagazine" count="2"/>
+			<item name="electricianSkillMagazine" count="2"/>
+			<item name="trapsSkillMagazine" count="2"/>
+		</lootgroup>
+		<!--End main basic reward bundle-->
+		<!--other reward bundle lootgroups-->
+		<lootgroup name="challengeRewardBasicAmmoLootgroupSNT" count="2">
+			<item name="ammoArrowIron" count="150"/>
+			<item name="ammo9mmBulletBall" count="300"/>
+			<item name="ammoShotgunShell" count="150"/>
+			<item name="ammo762mmBulletBall" count="150"/>
+			<item name="ammoJunkTurretRegular" count="1000"/>
+		</lootgroup>
+		<lootgroup name="challengeRewardBasicAPAmmoLootgroupSNT" count="2">
+			<item name="ammoArrowSteelAP" count="150"/>
+			<item name="ammo9mmBulletAP" count="300"/>
+			<item name="ammoShotgunSlug" count="150"/>
+			<item name="ammo762mmBulletAP" count="150"/>
+			<item name="ammoJunkTurretAP" count="1000"/>
+		</lootgroup>
+		<lootgroup name="challengeRewardThrownAmmoLootgroupSNT" count="2">
+			<item name="thrownAmmoMolotovCocktail" count="20"/>
+			<item name="thrownGrenade" count="25"/>
+			<item name="thrownGrenadeContact" count="25"/>
+			<item name="thrownTimedCharge" count="10"/>
+			<item name="mineAirFilter" count="10"/>
+		</lootgroup>
+		<!--3 solar cells - uses its own lootgroup for control of the quality etc.
+		See beginning of this file for loot_quality_template:SNT_level6QualityTemplate definition -->
+		<lootgroup name="groupRewardSolarPanelSNT" loot_quality_template="SNT_level6QualityTemplate"> 
+			<item name="solarCell"/>
+		</lootgroup>
+		<!--a grouping of Legendary parts-->
+		<lootgroup name="groupRewardLegendaryPartsSNT" count="all"> 
+			<item name="resourceLegendaryParts" count="4"/>
+		</lootgroup>
+		
+		<lootgroup name="challengeRewardGoodStuffLootgroupSNT" count="2">
+			<item group="groupRewardSolarPanelSNT" count="1"/>
+			<item name="vehicleTruck4x4Chassis" count="1"/>
+			<item name="plantedGraceCorn1Schematic" count="1"/>
+			<item name="vehicleGyroCopterAccessories" count="1"/>
+			<item group="groupRewardLegendaryPartsSNT" count="1"/>
+		</lootgroup>
+		<!--END other reward bundle lootgroups-->
+		
+		<!--the respective loot containers for the above loot groups-->
+		<lootcontainer name="challengeRewardSkillMagsSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardSkillMagsLootgroupSNT"/>
+		</lootcontainer>     
+		<lootcontainer name="challengeRewardSchematicSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardSchematicsLootgroupSNT"/>
+		</lootcontainer>
+		<lootcontainer name="challengeRewardPerkBooksSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardPerkBooksLootgroupSNT"/>
+		</lootcontainer>
+		
+		<lootcontainer name="challengeRewardBasicAmmoSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardBasicAmmoLootgroupSNT"/>
+		</lootcontainer>
+		<lootcontainer name="challengeRewardAPAmmoSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardBasicAPAmmoLootgroupSNT"/>
+		</lootcontainer>
+		<lootcontainer name="challengeRewardThrownAmmoSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardThrownAmmoLootgroupSNT"/>
+		</lootcontainer>
+		<lootcontainer name="challengeRewardGoodStuffSNT" count="1" size="6,1" sound_open="UseActions/open_garbage" sound_close="silencefiller" loot_quality_template="qualBaseTemplate" destroy_on_close="empty" unique_item="true" ignore_loot_abundance="true">
+			<item group="challengeRewardGoodStuffLootgroupSNT"/>
+		</lootcontainer>
+	</append>
+	<!--END Challenges lootgroups for rewards-->
 </config>
