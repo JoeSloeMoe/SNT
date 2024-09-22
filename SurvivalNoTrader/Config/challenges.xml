@@ -1,5 +1,16 @@
 <configs>
-
+	<!--change the gathererPrecious challenge to reduce the number of precious stones required as they are more rare in the mod-->
+	<remove xpath="challenges/challenge[@name='gathererPrecious']"/>
+	<insertAfter xpath="challenges/challenge[@name='gathererOilShale']">
+		<challenge name="gathererPrecious" title_key="challengeGathererPrecious" icon="ui_game_symbol_mining" group="Gatherer"
+			short_description_key="challengeGathererPreciousShort" description_key="challengeGathererPreciousDesc"
+			reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
+				<objective type="Harvest" item="resourceSilverNugget" count="8" block_tag="ore"/>
+				<objective type="Harvest" item="resourceGoldNugget" count="8" block_tag="ore"/>
+				<objective type="Harvest" item="resourceRawDiamond" count="8" block_tag="ore"/>
+		</challenge>		
+	</insertAfter>
+	
 	<!-- remove all but the very first challenge -'open challenges'-->
 	<remove xpath="challenges/challenge[@name='gatherResources']"/>
 	<remove xpath="challenges/challenge[@name='craftStoneAxe']"/>
