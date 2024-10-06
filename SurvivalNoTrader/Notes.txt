@@ -89,6 +89,6 @@ Version 1.2 - V1.0 release.
 1.2.1 - 5th Oct 2024
  - Added sound effect and tweaked timing for final Interloper Story interaction to improve immersion.
  - Several minor localisation changes to improve Grim Tales storyline context.
- - Added conditional to Pigeons Carry Deseases code to prevent timing issues for a specific use case. 
+ - Added conditional to Pigeons Carry Diseases code to prevent timing issues for a specific use case. 
  - Minor modifications to one or two Challenges for balancing.
  - Changed the Preacher Helmet bonus for consistency across headgear.
