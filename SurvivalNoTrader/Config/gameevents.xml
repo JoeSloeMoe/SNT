@@ -91,7 +91,17 @@
 		<!--END Learn By Use Event code-->
 		
 		<!--Interloper story events-->
-	
+
+		<!--called when the interloper story final supply crate is dropped - airplane sound.
+			Cant adjust volume so no fade effect at end-->
+		<action_sequence name="action_AirplaneSoundStart">
+			<action class="PlaySound">
+				<property name="sound" value="Interloper_Supply_Crate_Plane" />
+				<property name="loop_duration" value="20"/>
+				<property name="phase" value="1" />
+			</action>
+		</action_sequence>
+		
 		<!--called at the end of the interloper story - reward for completion-->
 		<action_sequence name="action_InterloperFinishReward">
 			<action class="AddXP">
@@ -185,6 +195,7 @@
 			</action>
 		
 		</action_sequence>
+		
 		
 		<!--End Interloper story code -->
 			

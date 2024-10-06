@@ -559,6 +559,7 @@
 				Up to a max pigeonSpawnAttempts number of times-->
 			<effect_group>
 				<requirement name="PlayerLevel" operation="GTE" value="@secondPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="firstPigeonDeliveryComplete" operation="GTE" value="1"/>
 				<requirement name="CVarCompare" cvar="secondPigeonDeliveryComplete" operation="LT" value="1"/> 
 				<requirement name="!HasBuff" buff="buffSecondPigeonDelivery"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSecondPigeonDelivery"/>
@@ -568,6 +569,7 @@
 				Up to a max pigeonSpawnAttempts number of times-->
 			<effect_group>
 				<requirement name="PlayerLevel" operation="GTE" value="@thirdPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="secondPigeonDeliveryComplete" operation="GTE" value="1"/> 
 				<requirement name="CVarCompare" cvar="thirdPigeonDeliveryComplete" operation="LT" value="1"/>
 				<requirement name="!HasBuff" buff="buffThirdPigeonDelivery"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffThirdPigeonDelivery"/>
@@ -577,6 +579,7 @@
 				Up to a max pigeonSpawnAttempts number of times-->
 			<effect_group>
 				<requirement name="PlayerLevel" operation="GTE" value="@fourthPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="thirdPigeonDeliveryComplete" operation="GTE" value="1"/> 
 				<requirement name="CVarCompare" cvar="fourthPigeonDeliveryComplete" operation="LT" value="1"/>
 				<requirement name="!HasBuff" buff="buffFourthPigeonDelivery"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffFourthPigeonDelivery"/>
@@ -616,7 +619,7 @@
 			</effect_group>
 			
 			<!--the first boss spawn happens when the quest_PigeonsEpilogue quest is completed. The rest of the boss spawns
-				are from a countdown. IF the boss's loot is picked up by the player before the countdown expires it is assumed
+				are from a countdown. IF the boss's loot isnt picked up by the player before the countdown expires it is assumed
 				something failed and the boss will be spawned again up to a max pigeonSpawnAttempts (config var) number if times-->
 			<effect_group>
 				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="LT" value="1"/> 
@@ -680,7 +683,7 @@
 		
 		
 		<!--START interloper buffs-->
-		
+
 		<!--player gets this buff when the first msg is received at the Receiver (blocks.xml:buffInterloperMessageReceiver)
 			It sets a couple of vars then removes itself. Called from buffInterloperStory -->
 			
@@ -737,7 +740,7 @@
 				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffInterloperSecondSpyMessageReceived" >
 					<requirement name="HasBuff" buff="buffInterloperSecondSpyMessageReceived"/>
 				</triggered_effect>
-				<!--mark the first msg as being available at the Receiver-->
+				<!--mark the third msg as being available at the Receiver-->
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperThirdSpyMsgReceived" operation="add" value="1"/>
 			</effect_group>
 			
@@ -958,6 +961,15 @@
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffInterloperThirdSpyMessageReceived" />
 			</effect_group>
 			
+			<!--listen for the final Supply crate spawn - play airplane sound to simulate airdrop-->
+			<!--Plays an airplane sound for X number of seconds: see gamevents.xml:action_AirplaneSoundStart to adjust duration played-->-->
+			<effect_group> 
+				<requirement name="CVarCompare" cvar="playSupplyCrateAirplaneSound" operation="GTE" value="1"/>
+					<!--reset the trigger-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="playSupplyCrateAirplaneSound" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_AirplaneSoundStart"/>	
+			</effect_group>
+			
 			<!--countdown stuff-->
 			<effect_group>
 				<!--Once the spyware setup is complete there is a countdown to sending the first transmission.-->
@@ -971,7 +983,7 @@
 			</effect_group>
 			<!--final chapter countdown-->
 			<effect_group>
-				<!--countdown to sending the second transmission.-->
+				<!--countdown to sending the final transmission.-->
 				<requirement name="CVarCompare" cvar="interloperStoryFinalCountdown" operation="GT" value="0"/> 
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperStoryFinalCountdown" operation="subtract" value="@$MetabolismDuration"/>
 			</effect_group>

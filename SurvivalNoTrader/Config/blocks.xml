@@ -572,7 +572,7 @@
 			
 			<property name="Material" value="Miron"/>
 			<property class="RepairItems">
-				<property name="resourceForgedSteel" value="10"/>
+				<property name="resourceForgedIron" value="10"/>
 			</property>
 			<drop event="Harvest" name="resourceScrapPolymers" count="1,3" tag="allHarvest"/>
 			<drop event="Harvest" name="resourceForgedIron" count="1,3" tag="allHarvest"/>

@@ -318,10 +318,9 @@
 	<!--END remove trading stuff from the Preacher Helmet. Replace with a chance to find acid-->
 	
 	<!--remove trading stuff from the Enforcer Helmet. Replace with a change -->
-	<!--add a ID tag to the resourceCement for reference-->
-	<insertAfter xpath ="/items/item[@name='resourceCement']/property[@name='Material']">
-			<property name="Tags" value="SNT_cement"/> 
-	</insertAfter>
+	<!--add a ID tag to the drinkJarBeer for reference-->
+	<set xpath ="/items/item[@name='foodHoney']/property[@name='Tags']/@value">SNT_beer,drinks,foodSkill,fitness</set> 
+	
 	<!--remove the helmet-->
 	<remove xpath="/items/item[@name='armorEnforcerHelmet']"/>
 	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
@@ -353,7 +352,7 @@
 
 			<!--change the effect from bartering to cement-->
 			<effect_group>
-				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_cement"/>
+				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_beer"/>
 				<display_value name="dLootProb" value=".02,.04,.06,.08,.1,.2" tier="1,2,3,4,5,6"/> 	
 			</effect_group>
 
@@ -2215,6 +2214,17 @@
 			<effect_group tiered="false">
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookFive"/>
 			</effect_group>
+		</item>
+		<!--This calls the quest that spawn the final Interloper Loot Crate.
+			TEST CODE-->
+		<item name="qt_spawnFinalInterloperLootDrop">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="schematicMaster"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="qt_spawnFinalInterloperLootDropDesc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="quest_InterloperEpilogueSpawn"/>
+			</property>
 		</item>
 		<!--END These are interloper reward story-->
 		

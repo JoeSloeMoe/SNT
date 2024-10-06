@@ -340,12 +340,22 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
-			<!--<action type="GameEvent" event="spawn_chicken" delay="3" phase="2">-->
-			<action type="SpawnGSEnemy">
+			<!--trigger the call to play the airplane sound gameevent.
+				The buffInterloperStory buff monitors the playSupplyCrateAirplaneSound var
+				and adds the buffPlayAirplaneSound when this var is set.-->
+			<action type="SetCVar">
+				<property name="cvar" value="playSupplyCrateAirplaneSound" />
+				<property name="value" value="1" />
+			</action>
+			<!--spawn the supply crate-->
+			<action type="SpawnGSEnemy" >
 					<!--see gamestages.xml:InterloperEpilogueSpawner definition and
-						see loot.xml:interloperTradeDrop and loot.xml:groupTradeDrop for loot items-->-->
+						see loot.xml:interloperTradeDrop and loot.xml:groupTradeDrop for loot items.
+						The 'delay' is set to 5 seconds to allow for the airplane sounds to run before
+						the supply crate is 'dropped'-->
 					<property name="gamestage_list" value="InterloperEpilogueSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="delay" value="7"/>
 					<property name="phase" value="1" />
 			</action>
 		</quest>

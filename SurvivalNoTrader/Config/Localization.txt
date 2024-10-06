@@ -44,7 +44,7 @@ armorPreacherHelmet,items,Clothes,,,Preacher Hat
 armorPreacherHelmetDesc,items,Clothes,,,"Light Armor\nThe cold stare of holy retribution in the Preachers eyes burns like acid. Increases chance to find acid.\n\nFull Set Bonus: Reduces the chance of critical injuries."
 statBonusEnforcer,ui_display,Item stat,,,Cement Loot Bonus
 armorEnforcerHelmet,items,Clothes,,,Enforcer Sunglasses
-armorEnforcerHelmetDesc,items,Clothes,,,"Light Armor\nAlways looking to enforce and reinforce. Increases chance to find cement.\n\nFull Set Bonus: .44 ammo does more damage and .44 Magnum and Desert Vulture reloads faster."
+armorEnforcerHelmetDesc,items,Clothes,,,"Light Armor\nAlways looking to enforce and reinforce. Increases chance to find beer.\n\nFull Set Bonus: .44 ammo does more damage and .44 Magnum and Desert Vulture reloads faster."
 foodPumpkinCheesecakeChanged,items,Food,,,Pumpkin Cheesecake.
 foodPumpkinCheesecakeChangedDesc,items,Food,,,This pumpkin cheesecake tastes delicious and grants you a +5% Lootstage Bonus.
 statMovementSpeedChanged,ui_display,Item stat,,,Movement Speed
@@ -230,6 +230,17 @@ challengeRewardLegendaryRangedWeaponBundle,items,Reward,,,Reward Ranged Parts Bu
 challengeRewardLegendaryRangedWeaponBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Legendary Ranged Weapons Crafting Bundle.
 challengeRewardGoodStuffBundle,items,Reward,,,Reward Select Items Bundle.
 challengeRewardGoodStuffBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Select Item Bundle.
+advanced_survival_desc,Quests,Quest Info,,,Good job survivor! You've completed the Advanced Survival Challenge Group.
+crafting_desc,Quests,Quest Info,,,Good job survivor! You've completed the Crafting Challenge Group.
+farmer_desc,Quests,Quest Info,,,Good job survivor! You've completed the Farmer Challenge Group.
+gatherer_desc,Quests,Quest Info,,,Good job survivor! You've completed the Gatherer Challenge Group.
+harvesting_desc,Quests,Quest Info,,,Good job survivor! You've completed the Harvesting Challenge Group.
+healer_desc,Quests,Quest Info,,,Good job survivor! You've completed the Healer Challenge Group.
+homesteading_desc,Quests,Quest Info,,,Good job survivor! You've completed the Homesteading Challenge Group.
+hunter_desc,Quests,Quest Info,,,Good job survivor! You've completed one of the Hunter Challenges.
+survivor_desc,Quests,Quest Info,,,Good job survivor! You've completed the Survivor Challenge Group.
+trader_quests_desc,Quests,Quest Info,,,Good job survivor! You've completed the Trader Quests Challenge Group.
+zombie_slayer_desc,Quests,Quest Info,,,Good job survivor! You've completed one of the Zombie Slayer Challenges.
 marysRevengeHomemadeRifle,items,Gun,,,Mary's Revenge - Homemade bush rifle.
 marysRevengeHomemadeRifleDesc,items,Gun,,,"Mary's Revenge.\nBorne from the dark depths of vengeance. Has flawed barrel rifling that causes sporadic bullet tumble - 20% chance of inflicting lethal bleed out.\nUses .45 ammo\n300% Headshot damage\nMod with Shotgun Barrel Extender.\n8X Scope attachments have full focus range."
 rewardMarysRevengeBundle,items,Item,,,Mary's Revenge
@@ -323,12 +334,12 @@ quest_PigeonsEpilogue_subtitle,Quest,Pigeon Fancier,,,Steal the cache
 quest_PigeonsEpilogue_hint1,Quest,Pigeon Fancier,,,[00B4FF]Steal the cache[-]
 quest_PigeonsEpilogue_hint2,Quest,Pigeon Fancier,,,[00B4FF]Steal the cache[-]
 quest_PigeonsEpilogueSpawn,items,Interloper,,,"You're being hunted! Kill the Pigeon Fancier!"
-quest_PigeonsEpilogueSpawnDesc,items,Interloper,,,"You are being hunted! Looks like someone deosn't appreciate your pigeon interaction skills and is hunting you.\nKill the Pigeon Fancier!" 
+quest_PigeonsEpilogueSpawnDesc,items,Interloper,,,"You are being hunted! Looks like someone deosn't appreciate your pigeon interaction skills and is hunting you.\nKill the Pigeon Fancier!\n\n[Pigeons Carry Diseases storyline]"
 quest_PigeonsEpilogueSpawnName,items,Interloper,,,[00B4FF]Hunted![-]
 quest_PigeonsEpilogueSpawn_hint1,Quest,Pigeon Fancier,,,[00B4FF]Kill the Pigeon Fancier[-]
-quest_InterloperEpilogueSpawn,items,Interloper,,,"Find the trade drop."
-quest_InterloperEpilogueSpawnDesc,items,Interloper,,,"Pick up drop for the trade deal."
-quest_InterloperEpilogueSpawnName,items,Interloper,,,[FFB400]Find the supply crate.[-]
+quest_InterloperEpilogueSpawn,items,Interloper,,,"Pickup the trade drop."
+quest_InterloperEpilogueSpawnDesc,items,Interloper,,,"Pick up drop for the mutually beneficial trade deal."
+quest_InterloperEpilogueSpawnName,items,Interloper,,,[FFB400]Pickup the trade drop.[-]
 buffInterloperSpyMessageReceived,buffs,Buff,,,<<|>>
 buffInterloperFirstSpyMessageReceived,buffs,Interloper,,,"First Interloper Transmission Received."
 buffInterloperFirstSpyMessageReceivedDesc,buffs,Interloper,,,"The Signal Receiver has received its first data dump from the spy device that you placed near the Trader.\nActivate(E) the Signal Receiver to retrieve the data, might be something useful about the Special Supply Drop.\n\nYou can always create and place another Signal Receiver if you dont have the original."
@@ -366,9 +377,11 @@ buffInterloperRewardBookTwoDesc,buffs,Buff,,,"Plissken's Survival Techniques Ser
 buffInterloperRewardBookThree,buffs,Buff,,,"Plissken's Survival Techniques Vol 3." 
 buffInterloperRewardBookThreeDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Three of Four. A study of speed and surprise in warfare. Reading this volume will:\nIncrease Run, Walk & Crouch Speeds by 10%.\nIncrease Jump Strength by 10%.\nIncrease Attacks per Minute by 10%.\nIncrease Reload Speed by 15%.\nIncrease Scavenging Speed by 20%.\nIncrease your GameStage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
 buffInterloperRewardBookFour,buffs,Buff,,,"Plissken's Survival Techniques Vol 4." 
-buffInterloperRewardBookFourDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Four of Four. Plissken's notes on sticky fingers. Reading this volume will:\nReduce Lockpicking time by 97%\nLockpicking is always successful.\nIncrease loot quantity for safes and treasured by 25%. \nIncrease your GameStage by 20.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookFourDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Four of Four. Plissken's notes on sticky fingers. Reading this volume will:\nReduce Lockpicking time by 97%\nLockpicking is always successful.\nIncrease loot quantity for Safes and Treasure Chests by 25%. \nIncrease your GameStage by 20.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
 buffInterloperRewardBookFive,buffs,Buff,,,"Plissken's Survival Techniques Vol 5." 
 buffInterloperRewardBookFiveDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Five of Five.\nIncrease General Damage Resist by 25%.\nIncrease Elemental Damage Resist by 25%.\nIncrease Physical Damage Resist by 25%.\nIncrease GameStage by 50.\n\nChanges are permanent for the rest of the game."		
+qt_spawnFinalInterloperLootDrop,items,Book,,,"Spawn final interloper loot"
+qt_spawnFinalInterloperLootDropDesc,items,Book,,,"TEST CODE: spawn the final supply crate loot drop for the interloper story"
 interloperSupplyCrateMagazineBundle,items,Bundle,,,"Special Magazine Bundle"
 interloperSupplyCrateMagazineBundleDesc,items,Bundle,,,"A bundle of interesting 'collectors' Magazines. If this was the Duke's special delivery then someone might be willing to pay some good money to get their hands on it. Probably worth keeping for a bit.\n\n[Interloper Storyline]"
 interloperSupplyCrateDukesBundle,items,Bundle,,,"Personal Supply Package"
@@ -386,7 +399,7 @@ ttTreasureRadiusReduced,UI,Tooltip,,,.
 buriedPatrolCar,Quest,Challenge Info,,,Missing Patrol Car
 buriedPatrolCar_offer,Quest,Challenge Info,,,"After discovering the Crowd Control mod could be further modified to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car. Well armed and caution are advised.\n\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
 graveRobbingOne,Quest,Challenge Info,,,Mary calls to you from the grave.
-graveRobbingOne_offer,Quest,Challenge Info,,,"A cursed burial site and a dream. Seek Mary's Revenge!"
+graveRobbingOne_offer,Quest,Challenge Info,,,"Mary's Revenge. A cursed burial site and a fevered voice from a dream. 'Revenge me, kill them, kill them; VENGEANCE!'"
 graveRobbingOneCoffinClosed,blocks,Block,,,Decayed Coffin Closed
 graveRobbingOneCoffinCracked,blocks,Block,,,Decayed Coffin Cracked
 graveRobbingOneCoffinOpen,blocks,Block,,,Decayed Coffin Open
