@@ -1128,7 +1128,7 @@
 	
 	
 	<!--adding bundles to scrap different kinds of ammo 
-		All bundles assume bundles of 50 when calculating scrap returns exccept TimedCharges (which uses bundle of 5 and 80% return)
+		All bundles assume bundles of 50 (unless otherwise commented) when calculating scrap returns exccept TimedCharges (which uses bundle of 5 and 80% return)
 		and generally return 75% (38 per 50) of the intial bullet recipe -->
 	<append xpath="/items">	
 		
@@ -1330,6 +1330,43 @@
 			</property>
 		</item>	
 		<!--end explosives etc.-->
+		<!--Turret Ammo, 100 per bundle-->
+		<item name="scrapTurretAmmoBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammoJunkTurretRegular"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapTurretAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceScrapLead"/>
+				<property name="Create_item_count" value="200"/>  <!--create recipe is 3 per bullet-->
+			</property>
+		</item>
+		<!--turret shells, 100 per bundle-->
+		<item name="scrapShellTurretAmmoBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammoJunkTurretShell"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapShellTurretAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceScrapLead,resourceBuckshot"/>
+				<property name="Create_item_count" value="75,75"/>  <!--create recipe is 1,1 per bullet-->
+			</property>
+		</item>	
+		<!--AP turret ammo, 100 per bundle-->
+		<item name="scrapAPTurretAmmoBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="ammoJunkTurretAP"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="scrapAPTurretAmmoBundleDesc"/>
+			<property name="Stacknumber" value="20"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceScrapLead,resourceScrapIron"/>
+				<property name="Create_item_count" value="200,200"/>  <!--create recipe is 3,3 per bullet-->
+			</property>
+		</item>	
+		
 	</append>
 	<!--end adding bundles to scrap different kinds of ammo -->
 	
@@ -1392,6 +1429,7 @@
 	</set>
 	<!--end modify the Kandy bars to be able to be unlocked and group them-->
 	
+	<!--GRIM TALES CODE - there is also some grim tales shared code above-->
 	<insertAfter xpath ="items/item[@name='qt_raphael']">
 		<!--books, mags etc for quests-->
 		<item name="playerExplosiveBarrelSchematic">
@@ -1406,7 +1444,8 @@
 			</effect_group>
 		</item>
 		
-		<!--Burial Site inspection quest (Mary's revenge)-->
+		<!--Burial Site inspection quest (Mary's revenge)
+			Test code-->
 		<item name="qt_burialSiteMarysRevengeNote">
 			<property name="Extends" value="treasureQuestMaster"/>
 			<property name="CustomIcon" value="schematicMaster"/>
@@ -1414,6 +1453,16 @@
 			<property name="DescriptionKey" value="qt_burialSiteMarysRevengeNote"/>
 			<property class="Action0">
 				<property name="QuestGiven" value="graveRobbingOne"/>
+			</property>
+		</item>
+		<!--test code - starts the Coven House chapter of Marys Revenge-->
+		<item name="qt_burialSiteMarysRevengeCovenHouse">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="schematicMaster"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="qt_burialSiteMarysRevengeCovenHouseDesc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="graveRobbingCovenHouse"/>
 			</property>
 		</item>
 		<!--buriedPatrolCar loot-->
@@ -1636,14 +1685,226 @@
 			
 			<!--chance for complete bleed out -->
 			<effect_group>
-				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="20"/> <!--default 20-->
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/> <!--default 25-->
 					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffMarysRevengeBleedingTerminal"/>
 			</effect_group>
 			
 		</item>
 		<!-- end Mary's Revenge  - special homemade rifle-->
 		
+		<!--Magrats Sacrificial Knife. Powerful knife that also has bonus damage to ferals and radiated-->
+		<item name="marysRevengeMagratsSacrificialKnife">
+			<property name="Tags" value="magratsKnife,machete,knife,melee,grunting,light,longShaft,perkFlurryOfAgility,weapon,meleeWeapon,attAgility,perkDeepCuts,perkTheHuntsman,canHaveCosmetic,bladeSkill,corpseRemoval"/>
+			<property name="DisplayType" value="meleeKnife"/>
+			<property name="HoldType" value="36"/>
+			<property name="Meshfile" value="@:Other/Items/Weapons/Melee/Knives/hunting_knifePrefab.prefab"/>
+			<property name="Material" value="Mmetal"/>
+			<!--<property name="TintColor" value="28,142,199"/>-->
+			<property name="TintColor" value="64,0,115"/>
+			
+			<property name="CustomIcon" value="meleeWpnBladeT1HuntingKnife"/>
+			<property name="CustomIconTint" value="64,0,115"/>
+			<!--<property name="CustomIconTint" value="28,142,199"/>-->
+			<property name="DescriptionKey" value="marysRevengeMagratsSacrificialKnifeDesc"/>
+			<property name="ScrapTimeOverride" value="10.0"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="DegradationBreaksAfter" value="false"/>
+			<property name="SoundJammed" value="ItemNeedsRepair"/>
+			<property name="SoundDestroy" value="wooddestroy1"/>
+			<property name="ShowQuality" value="true"/>
+			<property name="Group" value="Ammo/Weapons,Melee Weapons"/>
+			<property name="RepairExpMultiplier" value="5.5"/>
+			<property name="SoundUnholster" value="weapon_unholster"/>
+			<property name="SoundHolster" value="weapon_holster"/>
+			<property name="SoundPickup" value="machete_grab"/>
+			<property name="SoundPlace" value="machete_place"/>
+
+			<property class="Action0">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Damage_type" value="Piercing"/>
+				<property name="Sphere" value=".15"/>
+				<property name="Sound_start" value="knife_metal_swinglight"/>
+				<property name="ToolCategory.harvestingTools" value=".5" param1="1"/>
+				<property name="ToolCategory.Butcher" value="0" param1="5"/>
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".28"/>
+				<property name="GrazeEnd" value=".4"/>
+				<property name="SwingDegrees" value="90"/>
+				<property name="SwingAngle" value="90"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalstaborganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="DynamicMelee"/>
+				<property name="Damage_type" value="Piercing"/>
+				<property name="Sphere" value=".15"/>
+				<property name="Sound_start" value="knife_metal_swingheavy"/>
+				<property name="ToolCategory.harvestingTools" value=".5" param1="1"/>
+				<property name="ToolCategory.Butcher" value="0" param1="5"/>
+				<property name="UsePowerAttackAnimation" value="true"/>
+				<property name="UseGrazingHits" value="true"/>
+				<property name="GrazeStart" value=".3"/>
+				<property name="GrazeEnd" value=".4"/>
+				<property name="SwingDegrees" value="80"/>
+				<property name="SwingAngle" value="140"/>
+				<property class="HitSounds">
+					<property name="Override0" value="organic" param1="metalstaborganic"/>
+				</property>
+				<property class="GrazeSounds">
+					<property name="Override0" value="organic" param1="metalgrazeorganic"/>
+				</property>
+			</property>
+			
+			<effect_group name="meleeWpnBladeT1HuntingKnife">
+				<passive_effect name="AttacksPerMinute" operation="base_set" value="150" tags="perkDeepCuts,perkFlurryOfAgility"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="6" tags="primary"/>
+				<passive_effect name="DegradationMax" operation="base_set" value="500,3000" tier="1,6" tags="perkDeepCuts"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkDeepCuts"/>
+				<passive_effect name="MaxRange" operation="base_set" value="2.3" tags="perkDeepCuts"/>
+				<passive_effect name="BlockRange" operation="base_set" value="3" tags="perkDeepCuts"/>
+				<passive_effect name="ModSlots" operation="base_set" value="2,2,3,3,4,5" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="EntityDamage" operation="base_set" value="28" tags="perkDeepCuts,knife"/> <!-- meleeWpnBladeT1HuntingKnife -->
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.04,.04" tags="perkDeepCuts"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkDeepCuts"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="base_set" value="22.5" tags="perkDeepCuts"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.04,.04" tags="perkDeepCuts"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".1,.5" tier="2,6" tags="perkDeepCuts"/> <!-- tier bonus -->
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="stone"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="metal"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value=".6" tags="organic"/>
+				<!-- <passive_effect name="DamageModifier" operation="perc_add" value="0" tags="organic"/> affects organic block harvesting based on block.material.damage_category, not animal corpse harvesting -->
+				<passive_effect name="HarvestCount" operation="base_set" value="1" tags="butcherHarvest"/>
+				<!--<passive_effect name="BlockDamage" operation="perc_add" value="6" tags="blockButcher"/>-->
+				<passive_effect name="DismemberChance" operation="base_add" value="0.5"/>
+			</effect_group>
+			
+			<effect_group name="Power Attack">
+				<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="base_add" value="-50" tags="secondary"/>
+				<passive_effect name="StaminaLoss" operation="base_set" value="10" tags="secondary"/>
+				<!--slightly increase stamina regen-->
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value=".25" tags="secondary"/>
+				
+				<!--one shots any animal for Magrats sacrifices, this includes dire wolves and zombie bears-->
+				<passive_effect name="EntityDamage" operation="perc_add" value="300" tags="secondary">  <!--way more than needed-->
+					<requirement name="EntityTagCompare" target="other" tags="animal"/>
+				</passive_effect>
+				<!--additional damage to ferals and radiated zombies for Magrats defense-->
+				<!--radiated also have the 'feral' tag so this is cummulative for radiated zombies-->
+				<passive_effect name="EntityDamage" operation="perc_add" value="2" tags="secondary"> <!-- +200% damage-->
+					<requirement name="EntityTagCompare" target="other" tags="feral"/>
+				</passive_effect>
+				<passive_effect name="EntityDamage" operation="perc_add" value="3" tags="secondary">  <!-- +500% damage-->
+					<requirement name="EntityTagCompare" target="other" tags="radiated"/>
+				</passive_effect>
+				
+			</effect_group>
+			
+			<effect_group name="sneak damage bonus">
+				<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+				<requirement name="CVarCompare" cvar="_notAlerted" operation="GT" value="0" target="other"/>
+					<passive_effect name="DamageBonus" operation="base_add" value="4"/>
+					<passive_effect name="EntityDamage" operation="perc_add" value="4" tags="perkDeepCuts"/>
+					<display_value name="dEntityDamageSneak" value="4"/>
+			</effect_group>
+			
+			<effect_group tiered="false">
+				<!--some protection for the knife bearer-->
+				<passive_effect name="PhysicalDamageResist" operation="base_add" value="5" />
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="10" />
+				<!--add some stamina back on a kill-->
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyStats" stat="Stamina" operation="add" value="20">
+					<requirement name="HoldingItemHasTags" tags="magratsKnife"/>
+				</triggered_effect>
+			</effect_group>
+			
+		</item>
+		<!--END Magrats Sacrificial Knife-->
 		
+		<!--TEST code to run the final Mary's Revenge boss fight-->
+		<item name="qt_RunMarysRevengeFinalBoss">
+			<property name="Extends" value="schematicMaster"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="CustomIcon" value="schematicMaster"/>
+			<property name="CustomIconTint" value="0,255,180"/>
+			<property name="DescriptionKey" value="qt_RunMarysRevengeFinalBossDesc"/>
+			<effect_group tiered="false"> 
+			  <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffTest35" />
+			</effect_group>
+		</item>
+				
+		<item name="resourceRunTestQuest">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="questMaster"/>
+			<property name="CustomIconTint" value="0,255,128"/>
+			<property name="DescriptionKey" value="quest_TestCode"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="createSummoningPie"/> 
+			</property>
+		</item>
+		<!--END TEST CODE-->
+		
+		<!--start 3 pages from Mary's Diary-->
+		<!--this page tells a bit of Mary's story. Bring context to the story-->
+		<item name="resourceMarysDiaryPage1">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="DescriptionKey" value="resourceMarysDiaryPage1Desc"/>
+			<property name="CustomIcon" value="questMaster"/>
+			<property name="CustomIconTint" value="0,255,128"/>
+		</item>
+		<!--this page starts the graveRobbingCovenHouse quest where the player looks for Magrat's sisters grave-->
+		<item name="resourceMarysDiaryPage2">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="questMaster"/>
+			<property name="CustomIconTint" value="0,255,128"/>
+			<property name="DescriptionKey" value="resourceMarysDiaryPage2Desc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="graveRobbingCovenHouse"/> 
+			</property>
+		</item>
+		<!--this page start the quest for the player to hunt down pieces of an artifact that will help
+			the player fight Magrat - its an optional quest, Magrat can be killed without the artifact 
+			but it makes it a lot easier for the player-->
+		<item name="resourceMarysDiaryPage3">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="questMaster"/>
+			<property name="CustomIconTint" value="0,255,128"/>
+			<property name="DescriptionKey" value="resourceMarysDiaryPage3Desc"/>
+			<property class="Action0">
+				<property name="QuestGiven" value="graveRobbingIpsloreTheRed"/> 
+			</property>
+			<!--
+			<effect_group tiered="false">
+	
+				<requirement name="HasBuff" buff="buffIsOnFire"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffExtinguishFire"/>
+			</effect_group>
+			-->
+		</item>
+		<!--end 3 pages from Mary's diary-->
+		<!--Mary's Diary - found in marysRevengeArtifactContainer and contains
+			the three pages (resourceMarysDiaryPageX) defined above--> 
+		<item name="resourceMarysDiary">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/bookPrefab.prefab"/>
+			<property name="CustomIcon" value="schematicMaster"/>
+			<property name="CustomIconTint" value="0,255,128"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="DescriptionKey" value="resourceMarysDiaryDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceMarysDiary,resourceMarysDiaryPage1,resourceMarysDiaryPage2,resourceMarysDiaryPage3"/>
+				<property name="Create_item_count" value="1,1,1,1"/>
+			</property>
+		</item>
 		
 		<!-- reward bundle stuff that drops Mary's Revenge rifle above (see quests.xml)-->
 		<!-- cursed artifact container from Burial Site One quest
@@ -1677,10 +1938,355 @@
 			<property name="ItemTypeIcon" value="bundle"/>
 			<property name="DescriptionKey" value="rewardMarysRevengeBundleDesc"/>
 			<property class="Action0">
-				<property name="Create_item" value="marysRevengeHomemadeRifle,ammo44MagnumBulletAP"/>
-				<property name="Create_item_count" value="6,300"/>
+				<property name="Create_item" value="marysRevengeHomemadeRifle,ammo44MagnumBulletAP,resourceMarysDiary"/>
+				<property name="Create_item_count" value="6,300,1"/>
 			</property>
 		</item>
+		
+		<!--Judy's bones (Magrat's sister) - the player gets the bones of the cult leader's sister.
+			They use the bones to summon Magrat - see also quests.xml:graveRobbingCovenHouse-->
+		<item name="resourceCultBone"> 
+			<!--<property name="HoldType" value="45"/>-->
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="HoldType" value="2"/>
+			<property name="Meshfile" value="@:Other/Items/Crafting/femur.fbx"/>
+			<property name="Material" value="MresourceBone"/>
+			<property name="DescriptionKey" value="resourceCultBoneDesc"/>
+			<property name="Weight" value="1"/>
+			<property name="Stacknumber" value="1200"/> 
+			<property name="CustomIcon" value="resourceBone"/>
+			<property name="CustomIconTint" value="28,142,199"/>
+			<property name="EconomicValue" value="5"/>
+			<property name="SellableToTrader" value="false"/>
+			<property name="Group" value="Resources"/>
+			<property name="SoundPickup" value="bones_grab"/>
+			<property name="SoundPlace" value="bones_place"/>
+		</item>
+		<!--same as resourceCultBone, but specifically labelled as belonging to Judy-->
+		<item name="resourceCultBoneJudy"> 
+			<property name="Extends" value="resourceCultBone" />
+			<property name="DescriptionKey" value="resourceCultBoneJudyDesc"/>
+		</item>
+		
+		<!--lock of witches hair, same as resourceCultBone above-->
+		<item name="resourceWitchesHair">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="hangingMoss"/>
+			<property name="DescriptionKey" value="resourceWitchesHairDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item> 
+		
+		<!--other items for Judy coffin-->
+		<item name="resourceDeadBird">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="sleeperVultureAnimal"/>
+			<property name="DescriptionKey" value="resourceDeadBird"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item> 
+		<!--end Judy's items-->
+
+		<!--items for Magrat's body (in addition to marysRevengeMagratsSacrificialKnife)-->
+		<item name="resourcePieceOfCheese">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="corrugatedMetalAirDuctHalfRampCap"/>
+			<property name="CustomIconTint" value="251,219,101"/>
+			<property name="DescriptionKey" value="resourcePieceOfCheeseDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--Ipsore's grave items-->
+		<!--his boots-->
+		<item name="resourceIpsloresBoots">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="cntShoesPileLeatherBoots"/>
+			<property name="DescriptionKey" value="resourceIpsloresBootsDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--A dusty torn semi-legible book called Disc[something] (hard to make out)
+			either Discwonder or maybe Discworld.
+			Ipslore is a wizard in Terry Pratchet's Disc World series.-->
+		<item name="resourceDiscWorldBook">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="cntBookPile07"/>
+			<property name="DescriptionKey" value="resourceDiscWorldBookDesc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--END Ipslores grave items-->
+		
+		<!--note to start the quests.xml:graveRobbingMagratsSister quest.
+			Given to the player in a drop from a screamer during the quests.xml:graveRobbingCovenHouse quest.
+			This is Magrats sister's grave. The player gets some artifacts from this grave to summon Magrat-->
+		<item name="qt_MaryRevengeJudysGrave">
+			<property name="Extends" value="treasureQuestMaster"/>
+			<property name="CustomIcon" value="resourcePaper"/>
+			<property name="CustomIconTint" value="0,255,180"/>
+			<property name="DescriptionKey" value="qt_MaryRevengeJudysGraveDesc"/>
+			<property class="Action0">
+				<!--scouting a snow trader-->
+				<property name="QuestGiven" value="graveRobbingMagratsSister"/> 
+			</property>
+
+		</item>
+		<!--items for the Coven House bundle, dropped when the player goes to Coven House
+			looking for a map to Magrats sisters grave location-->
+		<item name="resourceUsedToiletPaper">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="garbage_decor1"/>
+			<property name="DescriptionKey" value="resourceUsedToiletPaper"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceLavenderFlowers">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="forestFlower"/>
+			<property name="DescriptionKey" value="resourceLavenderFlowers"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceUncookedRice">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="glassBroken_02"/>
+			<property name="DescriptionKey" value="resourceUncookedRice"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--End items for the Coven House bundle-->
+		
+
+		
+		<!--loot bundle that contains the map dropped at Coven House, the map shows the location of
+			Judys grave. This is dropped by a general screamer (entityclasses:marysRevengeCovenHouseLootScreamer )
+			not a Boss.
+			
+			**FOR SOME REASON THIS OBJECT SHOWS A 'MODIFY' OPTION to the player as well as the normal USE option.
+			I dont know why, its only for this object. All other SNTBundleTemplate objects are the same 
+			and dont have an issue. (e.g. interloperSupplyCrateDukesBundle) 
+			I dont have enough hair left to deal with this.-->
+		<item name="marysRevengeCovenHouseBundle">
+			<property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="cntTrashPile08"/>
+			<property name="CustomIconTint" value="190,150,100"/>
+			<property name="DescriptionKey" value="marysRevengeCovenHouseBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="qt_MaryRevengeJudysGrave,resourceUsedToiletPaper,resourceLavenderFlowers,resourceUncookedRice"/> 
+				<property name="Create_item_count" value="1,1,1,1"/>  
+			</property>
+			<!--this bundle is in the final loot - which means the player no longer needs to track the spawned screamers-->
+			<effect_group>	
+				<requirement name="HasBuff" buff="buff_trackCovenHouseScreamers"/>
+					<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buff_trackCovenHouseScreamers"/>	
+			</effect_group>
+		</item>	
+
+		<!--Judy Witch's corpse for her grave (quests.xml:graveRobbingMagratsSister)-->
+		<item name="resourceJudysCorpse">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanCorpse2"/>
+			<property name="DescriptionKey" value="resourceJudysCorpseDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<!--the output of the concoction the player creates from the hair and bones of Magrats sisters grave-->
+		<!--churchBellHanging  -->
+		<item name="resourceWitchBrew">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="churchBellHanging"/>
+			<property name="DescriptionKey" value="resourceWitchBrewDesc"/>
+			<property name="CustomIconTint" value="28,142,199"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<!--Pumkin Pie made from the bones and hair of Judy, Magrats sister.
+			Used to summon Magrat on consumption - mary's revenge story.
+			-->
+		<!--this item will give out Mary's Revenge WITHOUT the screamers-->
+		<item name="foodPumpkinJudyPieWhole">
+			<property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="foodBlueberryPie"/>
+			<property name="CustomIconTint" value="28,142,199"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="foodPumpkinJudyPieWholeDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="foodPumpkinJudyPieSlice"/>
+				<property name="Create_item_count" value="6"/>
+			</property>
+		</item>
+		<!--individual slice of above foodPumpkinJudyPieWhole -->
+		<item name="foodPumpkinJudyPieSlice">
+			<property name="Tags" value="food,fitness"/>
+			<property name="HoldType" value="31"/>
+			<property name="DisplayType" value="food"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="CustomIcon" value="foodPumpkinPie"/>
+			<property name="CustomIconTint" value="28,142,199"/>
+			<property name="DescriptionKey" value="foodPumpkinJudyPieSliceDesc"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Stacknumber" value="10"/> <!-- STK food -->
+			<property name="EconomicValue" value="0"/>
+			<property name="SoundPickup" value="pie_grab"/>
+			<property name="SoundPlace" value="pie_place"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Sound_start" value="player_eating"/>
+				<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
+			</property>
+			<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+			<effect_group tiered="false" name="Food Tier 2">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="50"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="25"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="20"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffMarysRevengeFinalBossSummon">
+					<requirement name="!HasBuff" buff="buffMarysRevengeFinalBossSummon"/>
+				</triggered_effect>	
+			</effect_group>
+		</item>
+		
+		
+		
+		<!--START Magrats Eye - consumable from Final Boss in Mary's Revenge story.
+			When consumed adds a buff that auto-tracks screamers. 
+			See buffs.xml:buff_MagratsLeftEye-->
+		<!-- the left overs from eating Magrats Eye below.
+			 A little puke and phlegm -->
+		<item name="magratsEyeBile">
+			<property name="Tags" value="food"/>
+			<property name="HoldType" value="31"/>
+			<property name="DisplayType" value="food"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="glassDebris01"/>
+			<property name="CustomIconTint" value="229,255,193"/>
+			<property name="DescriptionKey" value="magratsEyeBile"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="SoundPickup" value="cornbread_grab"/>
+			<property name="SoundPlace" value="cornbread_place"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Sound_start" value="eatMagratsEye"/>
+				<property name="Create_item" value="magratsEyeBile"/>
+			</property>
+			<effect_group tiered="false" name="Food Tier 0">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Health" operation="add" value="-5"/>
+			</effect_group>
+		</item>
+		<!--The Eye itself-->
+		<item name="magratsEye">
+			<property name="Tags" value="food"/>
+			<property name="HoldType" value="31"/>
+			<property name="DisplayType" value="food"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="CustomIcon" value="resourceScopeLens"/>
+			<property name="CustomIconTint" value="179,96,96"/>
+			<property name="DescriptionKey" value="magratsEyeDesc"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="EconomicValue" value="0"/>
+			<property name="SoundPickup" value="cornbread_grab"/>
+			<property name="SoundPlace" value="cornbread_place"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="1.0"/>
+				<property name="Sound_start" value="eatMagratsEye"/>
+				<property name="Create_item" value="magratsEyeBile"/>
+			</property>
+
+			<effect_group tiered="false" name="Food Tier 1">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_MagratsLeftEye"/>
+			</effect_group>
+		</item>
+		<!--the final marys revenge boss loot bundle-->
+		<item name="marysRevengeFinalBossBundle"> 
+			<property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="goreBlockHumanCorpse2"/>
+			<property name="CustomIconTint" value="210,210,33"/>
+			<property name="DescriptionKey" value="marysRevengeFinalBossBundleDesc"/>
+			<property class="Action0">
+				<property name="Create_item" value="magratsEye"/> 
+				<property name="Create_item_count" value="1"/>  
+			</property>
+			<effect_group tiered="false">
+				<!--notify the buffs.xml:buffMarysRevengeFinalBossSummon buff that the Magrat's loot has been delivered to the players inventory.
+				This ends the Mary's Revenge Story-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_marysRevengeFinalTrigger"/> 
+				<!--call the reward event as the story is finished-->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffMarysRevengeFinishedReward"/> 
+			</effect_group>	
+		</item>	
+
+		<!--test items to give and remove screamer tracking buff (Magrats Left Eye from Marys Revenge story.
+			--> 
+		<item name="testGiveScreamerTrackingBuff">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="DescriptionKey" value="testGiveScreamerTrackingBuffDesc"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_MagratsLeftEye"/>
+			</effect_group>
+		</item>
+		<item name="testRemoveScreamerTrackingBuff">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="DescriptionKey" value="testRemoveScreamerTrackingBuffDesc"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_RemoveMagratsLeftEye"/>
+			</effect_group>
+		</item>
+		<!--END Magrats Eye-->
 		
 		<!--generic items for visuals in coffins and patrol car loot slots-->
 		<!--simple placeholder item for a gore block in the loot-->
@@ -2369,7 +2975,7 @@
 			<property name="CustomIcon" value="emberPileDeco6"/>
 			<property name="CustomIconTint" value="242,242,242"/>
 			<property name="DescriptionKey" value="resourcePigeonPoop"/>
-			<property name="Stacknumber" value="1"/> 
+			<property name="Stacknumber" value="10"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
@@ -2381,7 +2987,7 @@
 			<property name="CustomIcon" value="glassDebris01"/><!--glassDebris01-->
 			<property name="CustomIconTint" value="242,242,242"/>
 			<property name="DescriptionKey" value="resourcePigeonLice"/>
-			<property name="Stacknumber" value="1"/> 
+			<property name="Stacknumber" value="10"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
@@ -2393,7 +2999,7 @@
 			<property name="CustomIcon" value="goreHumanSkull"/>
 			<property name="CustomIconTint" value="196,72,72"/>
 			<property name="DescriptionKey" value="resourcePigeonMush"/>
-			<property name="Stacknumber" value="1"/> 
+			<property name="Stacknumber" value="10"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
@@ -2496,6 +3102,7 @@
 		<!--END Pigeans Carry Diseases story items-->
 		
 	</append>
+	<!--END GRIM TALES CODE-->
 	
 	<!--start Interloper challenge code - test code - -->
 	<!--commInterface item-->

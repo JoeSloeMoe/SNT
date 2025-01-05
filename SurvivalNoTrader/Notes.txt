@@ -89,6 +89,15 @@ Version 1.2 - V1.0 release.
 1.2.1 - 5th Oct 2024
  - Added sound effect and tweaked timing for final Interloper Story interaction to improve immersion.
  - Several minor localisation changes to improve Grim Tales storyline context.
- - Added conditional to Pigeons Carry Diseases code to prevent timing issues for a specific use case. 
+ - Added conditional to Pigeons Carry Deseases code to prevent timing issues for a specific use case. 
  - Minor modifications to one or two Challenges for balancing.
  - Changed the Preacher Helmet bonus for consistency across headgear.
+ 
+ 1.2.2
+ - Fixed crouch-aiming.
+ - Armor Parts can be scrapped to Iron using recipe. (A key - select recipe - W key)
+ - Extended ammo boxing and ammo scrapping to Turret ammo. (A key - select recipe - W key)
+ - Slightly reduced scrap value for all parts weapon, tool and armor parts.
+ - Chance to loot Dew Collector Filter, Tarp & Gatherer Tools from broken Dew Collectors.
+ - Grim Tales: 
+       - Mary's Revenge now a full story with end boss and optional side quest.

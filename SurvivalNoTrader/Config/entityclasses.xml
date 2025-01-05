@@ -3,10 +3,403 @@
 	<set xpath="/entity_classes/entity_class[@name='DroppedLootContainer']/property[@name='TimeStayAfterDeath']/@value">5800</set>
 	<set xpath="/entity_classes/entity_class[starts-with(@name, 'EntityLootContainer')]/property[@name='TimeStayAfterDeath']/@value">5800</set>
 	
-	<!--begin Interloper challenge code-->
+	
+	<!--Grim Tales code-->
+	
+	<!--Mary's revenge code-->
+	<!--append the nav_objects.xml:screamerTrackingSNT nav object to screamers.
+		For Magrat's Left Eye - Mary's revenge story.
+		Magrat's Left Eye gives a buff that auto tracks screamers.-->
+	<append xpath="/entity_classes/entity_class[@name='zombieScreamer']">
+		<property name="NavObject" value="screamerTrackingSNT" />
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieScreamerFeral']">
+		<property name="NavObject" value="screamerTrackingSNT" />
+	</append>
+	<append xpath="/entity_classes/entity_class[@name='zombieScreamerRadiated']">
+		<property name="NavObject" value="screamerTrackingSNT" />
+	</append>
+	<!--append the trackingSNT tag to screamers-->
+	<set xpath="/entity_classes/entity_class[@name='zombieScreamer']/property[@name='Tags']/@value">entity,zombie,walker,trackingSNT</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieScreamerFeral']/property[@name='Tags']/@value">entity,zombie,walker,feral,trackingSNT</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieScreamerRadiated']/property[@name='Tags']/@value">entity,zombie,walker,feral,radiated,trackingSNT</set>
 	
 	<append xpath="/entity_classes">
+
+		<!--screamer spawned when the player clears Coven House : doesnt drop loot on death -->
+		<entity_class name="marysRevengeCovenHouseScreamer" extends="zombieScreamer">
+			<property name="Tags" value="entity,zombie,walker,trackingCovenHouse"/>
+			<property name="NavObject" value="screamerTrackingCovenHouse" />
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+
+			<property name="ExperienceGain" value="1600"/>
+			<property name="LootDropProb" value="0"/>
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/> <!-- fit, feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="200"/>
+			</effect_group>
+		</entity_class>		
+		
+		<!--Loot bag for marysRevengeCovenHouseLootScreamer defined below-->
+		<entity_class name="EntityMarysRevengeCovenHouseLoot">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Tags" value="trackingCovenHouseLoot"/>
+			<property name="NavObject" value="lootbagTrackingCovenHouse" />
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="marysRevengeCovenHouseLoot"/>
+		</entity_class>
+		
+		<!--screamer spawned when the player clears Coven House : drops loot on death-->
+		<entity_class name="marysRevengeCovenHouseLootScreamer" extends="zombieScreamer">
+			<property name="Tags" value="entity,zombie,walker,trackingCovenHouse"/>
+			<property name="NavObject" value="screamerTrackingCovenHouse" />
+			
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+
+			<property name="ExperienceGain" value="1600"/>
+			<property name="LootDropEntityClass" value="EntityMarysRevengeCovenHouseLoot"/>
+			<property name="LootDropProb" value="1"/>
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/> <!-- fit, feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="800"/>
+			</effect_group>
+		</entity_class>	
+		
+		
+		<!--screamer that protects Magrats sister's grave-->
+		<!--the player gets an artifact from the grave to summon the final boss (Magrat)-->
+		
+		<entity_class name="marysRevengeGraveScreamer" extends="zombieScreamerRadiated">
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+
+			<property name="ExperienceGain" value="1600"/>
+			<property name="LootDropProb" value="0"/>
+			<property name="MoveSpeedAggro" value="0.6, 1.45"/> <!-- fit, feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="800"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="2.5"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
+			</effect_group>
+		</entity_class>		
+		
+		<!--Loot bag for marysRevengeFinalBoss defined below-->
+		<entity_class name="EntityMarysRevengeBossLoot">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="NavObject" value="screamerTrackingMagrat" />
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="6000"/>
+			<property name="Faction" value="none"/>
+			<property name="LootListOnDeath" value="marysRevengeFinalBossLoot"/>
+		</entity_class>
+		
+		<!--MINIONSPAWNS Marys Revenge final boss and minions. The minions are the exact same as the boss 
+			but dont drop loot and dont vocalise. In the story, while marysRevengeFinalBoss is still alive,
+			one or more marysRevengeFinalBossMinions will have a small chance to spawn every time a minion is damaged.
+			
+			Magrat 'SHOULD' spawn dopplegangers every few seconds while alive. However, using just xml, I cant find a way 
+			for a zombie (Magrat) to spawn anything. I'm restricted to using quests to spawn entities 
+			(for gameevents, the action <action class="SpawnEntity"> doesnt function so cant use an event to spawn entities).
+			
+			In xml, Magrat cant spawn entities because a zombie cant 'run' a quest. The quest must be given to the player not the zombie.
+			The key is to know when to stop spawning Minions. There is a trigger set when Magrat dies but there is no way to know
+			if a player has left the area and Magrat has despawned. (If a player leaves the area, the timing buff that is giving the quests to spawn 
+			the minions would be the player's own buff not the zombies, and will continue spawning Minions wherever the player went until Magrat was dead, but Magrat has despawned). 
+			
+			So instead of a buff spawning a minion every few seconds while Magrat is alive, the code has a small chance to spawn 
+			more minions each time one of Magrats existing Minions take damage. (so that Minions only spawn on a player action).
+			
+			In the story there is a side quest that gives the player an artifact (mod) that allows them to identify Magrat
+			and ignore the minions. When a player has this mod they will focus fire on Magrat. This is why only the existing Minions 
+			can spawn other minions when damaged rather than Magrat herself having a chance to spawn any on damage.
+			
+			-->
+			
+		<!--base template-->
+		<entity_class name="marysRevengeFinalBossTemplate" extends="zombieTemplateMale">
+			<property name="UserSpawnType" value="None"/>
+			<property name="Tags" value="entity,zombie,walker,feral,radiated"/>
+			<!--feral screamer skin, the feral eyes help with the Magrats Left Eye loot drop-->
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZScreamerFeral.prefab"/>
 	
+			<!--Just mumbles all the time-->
+			<property name="SoundRandom" value="zombiefemalescoutroam"/>
+			<property name="SoundAlert" value="zombiefemalescoutroam"/>
+			<property name="SoundAttack" value="zombiefemalescoutroam"/>
+			<property name="SoundHurt" value="zombiefemalescoutroam"/>
+			<property name="SoundDeath" value="zombiefemalescoutroam"/>
+			<property name="SoundSense" value="zombiefemalescoutroam"/>
+	
+			<property name="SoundFootstepModifier" value="Animals/Bear/bear_footstep"/>   <!--same as hawaiian-->
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="2"/>  <!--wight walk type-->
+			<property name="Mass" value="250"/>
+			<property name="PhysicsBody" value="zombieFemaleFat"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="DanceType" value="2" />
+			<property name="StompsSpikes" value="true"/> <!--this is from demolisher-->
+			
+			<property name="SizeScale" value="1.1"/>
+			<property name="LegCrawlerThreshold" value="0"/>
+			<property name="LegCrippleThreshold" value="0"/>
+			<property name="KnockdownProneDamageThreshold" value="0"/>
+			<property name="KnockdownKneelDamageThreshold" value="0"/>
+	
+			<property name="LegsExplosionDamageMultiplier" value=".5"/>
+			<property name="ArmsExplosionDamageMultiplier" value=".5"/>
+			<property name="HeadExplosionDamageMultiplier" value=".5"/>
+			<property name="ChestExplosionDamageMultiplier" value=".5"/>
+			
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+	 
+			<property name="DismemberMultiplierHead" value=".4"/>
+			<property name="DismemberMultiplierArms" value=".4"/>
+			<property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
+			<property name="PainResistPerHit" value=".8"/><!-- Radiated -->
+			
+			<property name="HandItem" value="meleeHandZombieCopRadiated"/> <!--cop hands-->
+			<property name="ExperienceGain" value="8000"/><!-- XP strong radiated -->
+			<property name="LootDropProb" value="0"/>
+			<property name="MoveSpeedAggro" value="0.6, 1.35"/> <!-- fit, feral -->
+			<property name="JumpMaxDistance" value="4.6, 5"/>
+			
+			<effect_group name="Base Effects2">
+				<!--Originally minions had less HP than the boss (1000hp V 4000hp), but
+				if a player is running a Health Bar mod then they would be able to 
+				identify the real Magrat. So Magrat and Minions have same health. 
+				A zombie bear has 4000HP for reference.-->	
+				<passive_effect name="HealthMax" operation="base_set" value="3000"/> 
+				<passive_effect name="BlockDamage" operation="perc_add" value="0.50"/> <!--increased block damage-->
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.30"/>
+				<passive_effect name="PhysicalDamageResist" operation="base_set" value="15"/>
+				<!--<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="9"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen-->
+				<triggered_effect trigger="onSelfFirstSpawn" action="ModifyCVar" target="self" cvar="EntityBoss" operation="set" value="1"/>				
+			</effect_group>
+
+			<!-- Dismemberment -->
+			<property name ="DismemberTag_L_HeadGore" value="Screamer/Blade/Head;Screamer/Blunt/Head" data="type=blade+target=neck+atp=true+detach=true;type=blunt+target=neck+atp=true"/>
+			<property name ="DismemberTag_L_LeftLowerArmGore" value="Screamer/Blade/LeftLowerArm" data="type=blade+target=leftforearmroll+atp=true+detach=true+mask=true"/>
+			<property name ="DismemberTag_L_LeftLowerLegGore" value="Screamer/Blade/LeftLowerLeg" data="type=blade+target=leftleg+detach=true+mask=true"/>
+			<property name ="DismemberTag_L_LeftUpperArmGore" value="Screamer/Blade/LeftUpperArm" data="type=blade+target=leftarmroll+atp=true+detach=true+mask=true"/>
+			<property name ="DismemberTag_L_RightLowerArmGore" value="Screamer/Blade/RightLowerArm" data="type=blade+target=rightforearmroll+atp=true+detach=true+mask=true"/>
+			<property name ="DismemberTag_L_RightLowerLegGore" value="Screamer/Blade/RightLowerLeg" data="type=blade+target=rightleg+detach=true+mask=true"/>
+			<property name ="DismemberTag_L_RightUpperArmGore" value="Screamer/Blade/RightUpperArm" data="type=blade+target=rightarmroll+atp=true+detach=true+mask=true"/>
+			<property name ="DismemberTag_L_LeftUpperLegGore" value="linked" data="DismemberTag_L_LeftLowerLegGore"/>
+			<property name ="DismemberTag_L_RightUpperLegGore" value="linked" data="DismemberTag_L_RightLowerLegGore"/>
+
+		</entity_class>
+		<!--The boss' minions - exactly the same for looks-->
+		<!--NOTE: Minions have a chance to spawn other minions when damaged-->
+		<entity_class name="marysRevengeFinalBossMinion" extends="marysRevengeFinalBossTemplate">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="Tags" value="entity,zombie,walker,feral,radiated"/>
+			<!--feral screamer skin for looks, the feral eyes help with the Magrats Left Eye loot drop-->
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZScreamerFeral.prefab"/>
+	
+			<!--Just mumbles all the time-->
+			<property name="SoundRandom" value="zombiefemalescoutroam"/>
+			<property name="SoundAlert" value="zombiefemalescoutroam"/>
+			<property name="SoundAttack" value="zombiefemalescoutroam"/>
+			<property name="SoundHurt" value="zombiefemalescoutroam"/>
+			<property name="SoundDeath" value="zombiefemalescoutroam"/>
+			<property name="SoundSense" value="zombiefemalescoutroam"/>
+			<property name="ExperienceGain" value="4000"/>
+			<effect_group name="Effects">	
+				<!--when a minion is damaged there is a small chance to spawn more minions.-->
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="other" buff="buffMarysRevengeFinalMinionSummon">
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="7"/> <!--default 7%-->
+				</triggered_effect>	
+			</effect_group>
+		</entity_class>
+		
+		<!--The final Mary's revenge Boss.
+			This is the Cult Leader (High Priestess) and the cult uses the screamer template in the story.
+			The final boss drops Magrat's Left Eye see items:magratsEye-->
+		<entity_class name="marysRevengeFinalBoss" extends="marysRevengeFinalBossTemplate">
+			<property name="UserSpawnType" value="Menu"/>
+			<!--add the 'margat' tag to the boss - used in buffs.xml:buffMarysRevengeFinalBossSummon 
+				to determine when the boss is dead-->
+			<property name="Tags" value="magrat,entity,zombie,walker,feral,radiated"/>
+			<!--feral screamer skin, the feral eyes help with the Magrats Left Eye loot drop-->
+			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZScreamerFeral.prefab"/>
+			<!--this ties into the item_modifiers:modMagratTracker, see also nav_objects:screamerTrackingMagrat--> 
+			<property name="NavObject" value="screamerTrackingMagrat" />
+			<!--Just screams all the time-->
+			<property name="SoundRandom" value="magratsScream"/>
+			<property name="SoundAlert" value="magratsScream"/>
+			<property name="SoundAttack" value="magratsScream"/>
+			<property name="SoundHurt" value="magratsScream"/>
+			<property name="SoundDeath" value="magratsScream"/>
+			<property name="SoundSense" value="magratsScream"/>
+	
+			<property name="ExperienceGain" value="8000"/>
+			
+			<property name="LootDropEntityClass" value="EntityMarysRevengeBossLoot"/>
+			<property name="LootDropProb" value="1"/>
+			<effect_group name="Effects">
+				<!--on death will set the final death trigger. This will stop any associated buffs, minion spawns etc-->
+				<triggered_effect trigger="onOtherKilledSelf" action="AddBuff" target="other" buff="buff_marysRevengeFinalTrigger"/>
+			</effect_group>
+		</entity_class>
+		
+		<!--The Direwolf that protects the grave of Ipslore The Red (Mary's Revenge side quest).
+			There is also a Dire Bear (animalZombieBear) defined below.-->
+		<entity_class name="graveKeeperDireWolf" extends="animalWolf">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="EntityFlags" value="animal,zombie"/>
+			<property name="Tags" value="entity,animal,zombie,hostile,wolf,perkAT02,perkAT03"/>
+			<property name="PhysicsBody" value="AWolf"/>
+			<property name="Mass" value="180"/>
+			<property name="Prefab" value="/Entities/Animals/DireWolf/animalDireWolfPrefab"/>
+			<property name="SizeScale" value="1.5"/>
+			<property name="DismemberMultiplierHead" value="0"/>
+
+			<property name="AISeeOffset" value="1"/>
+			<property name="AIPathCostScale" value=".9, 1"/>
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+
+			<property name="SoundAlert" value="wolfdirealert"/>
+			<property name="SoundAttack" value="wolfdireattack"/>
+			<property name="SoundDeath" value="wolfdiredeath"/>
+			<property name="SoundGiveUp" value="wolfdiregiveup"/>
+			<property name="SoundHurt" value="wolfdireroam"/> <!--no pain sounds, is a tough 'hell beast'-->
+			<property name="SoundRandom" value="wolfdireroam"/>
+			<property name="SoundSense" value="wolfdiresense"/>
+
+			<!-- Gameplay  -->
+			<property name="MoveSpeedAggro" value="1.2, 1.45"/>
+			<property name="JumpMaxDistance" value="5.5, 6.5"/>
+			<property name="HandItem" value="meleeHandAnimalDireWolf"/>
+			<property name="Immunity" value="sickness;disease;wellness"/> <!-- bleeding; -->
+			<property name="PainResistPerHit" value=".95"/>
+			<property name="DeadBodyHitPoints" value="450"/>
+						
+			<property name="ExperienceGain" value="4000"/><!-- XP strong -->
+			<property name="LootDropEntityClass" value="EntityLootContainerBoss"/>
+			<property name="LootDropProb" value="0"/> <!-- No loot -->
+
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="15"/> <!-- animalDireWolf -->
+			<drop event="Harvest" name="resourcePigeonMush" tag="butcherHarvest" count="3"/>
+			<drop event="Harvest" name="resourceCultBone" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceCultBone" tag="allToolsHarvest" count="5"/>
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="3000"/>
+			</effect_group>
+
+			<property name="NavObject" value="animaltracking_direwolf" />
+		</entity_class>
+		<!--The DireBear that protects the grave of Ipslore The Red (Mary's Revenge side quest).
+			There is also a Dire Wolf (animalDireWolf) defined above.-->
+		<entity_class name="graveKeeperDireBear" extends="animalBear">
+			<property name="UserSpawnType" value="Menu"/>
+			<property name="EntityFlags" value="animal,zombie"/>
+			<property name="Tags" value="entity,animal,zombie,hostile,bear"/>
+			<property name="Prefab" value="/Entities/Animals/Bear/animalBearZombiePrefab"/>
+			<property name="DismemberMultiplierHead" value="0"/>
+
+			<property name="AISeeOffset" value="1"/>
+			<property name="AIPathCostScale" value=".9, 1"/>
+			<property name="AIFeralSense" value="1.8"/>
+			<property name="AITask-1" value="BreakBlock"/>
+			<property name="AITask-2" value="Territorial"/>
+			<property name="AITask-3" value="ApproachAndAttackTarget" data="class=EntityPlayer,200"/> 
+			<property name="AITask-4" value="ApproachSpot"/>
+			<property name="AITask-5" value=""/>
+			<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityPlayer"/>
+			<property name="AITarget-2" value="BlockingTargetTask"/>
+			<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityPlayer,100,100"/>
+			<property name="AITarget-4" value=""/> 
+
+			<!-- Gameplay  -->
+			<property name="HandItem" value="meleeHandAnimalZombieBear"/>
+			<property name="DeadBodyHitPoints" value="600"/>
+
+			<property name="ExperienceGain" value="6000"/><!-- XP strong -->
+			<property name="LootDropEntityClass" value="EntityLootContainerBoss"/>
+			<property name="LootDropProb" value="0"/> <!-- No loot drop -->
+
+			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
+			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="50"/> <!-- animalZombieBear -->
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="15"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceCultBone" tag="butcherHarvest" count="25"/>
+			<drop event="Harvest" name="resourceCultBone" tag="allToolsHarvest" count="5"/>
+			<drop event="Harvest" name="resourcePigeonLice" tag="butcherHarvest" count="2"/>
+			
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="4000"/>
+			</effect_group>
+		</entity_class>
+	</append>
+	<!--end Mary's revenge code-->
+	
+	<append xpath="/entity_classes">	
 		<!--pigeon carry diseases code-->
 		<!--
 			There are 3 or more 'pigeons'. Each pigeon is unique because each bag dropped is a one-off specific
@@ -164,7 +557,10 @@
 		<!--the final Pigeons Carry Diseases Boss-->
 		<entity_class name="pigeonFinalBoss" extends="zombieTemplateMale">
 			<property name="UserSpawnType" value="Menu"/>
-			<property name="Tags" value="entity,zombie,walker,feral,radiated"/> 
+			<!--tag for red-dot tracking--> 
+			<property name="Tags" value="entity,zombie,walker,feral,radiated,trackingPigeonBoss"/> 
+			<property name="NavObject" value="bossTrackingFinalPigeon" />
+			
 			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZTomClark.prefab"/> <!--tom's skin-->
 			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
 			<!--Sounds like a pigeon-->
@@ -185,7 +581,6 @@
 			<property name="HasDeathAnim" value="true"/>
 
 			<property name="SizeScale" value="1.6"/>
-			<property name="DismemberMultiplierLegs" value="0"/>
 			<property name="LegCrawlerThreshold" value="0"/>
 			<property name="LegCrippleThreshold" value="0"/>
 			<property name="KnockdownProneDamageThreshold" value="0"/>
@@ -231,7 +626,7 @@
 		
 		<!--end pigeon carry diseases code-->
 
-		<!--interloper story code-->
+		<!-- Interloper  code-->
 		<!--airdrop entity for the secret supply drop-->
 		<entity_class name="interloperSecretDrop">
 			<property name="Class" value="EntitySupplyCrate"/>
@@ -449,8 +844,8 @@
 		<entity_class name="npcCommsInterface" extends="npcCommsTemplate">
 			<property name="UserSpawnType" value="Menu"/>
 			<property name="Tags" value="entity,npc,trader"/>
-			<!--<property name="Mesh" value="@:Entities/Traders/Prefabs/TraderJoel.prefab"/>-->
-			<property name="Mesh" value="@:Entities/LootContainers/crate_store_ShotgunPrefab.prefab"/>
+			<property name="Mesh" value="@:Entities/Traders/Prefabs/TraderJoel.prefab"/>
+			<!--<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZScreamerFeral.prefab"/>-->
 			<property name="NPCID" value="NPCCommsInterface"/>
 			<property name="DanceType" value="1" />
 		</entity_class>
@@ -459,7 +854,10 @@
 		
 		
 	</append>
-	<!-- END Interloper challenge code-->
+	<!-- END Interloper  code-->
+	
+	<!--END Grim Tales code-->
+	
 	
 	<!--IMPROVED HORDES CODE-->
 	<!-- Allows the animal hordes to work properly -->

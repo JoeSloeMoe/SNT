@@ -1,9 +1,20 @@
 <config>
 		
-	<!-- Dew collector filter drop  -->
+	<!--begin broken dewFilter Loot drop-->
+	<!--cant buy any of this from a Trader so add chance to find them in broken dew collectors-->
+	<insertBefore xpath="/lootcontainers/lootgroup[@name='groupDewCollector']">
+		<lootgroup name="groupDewCollectorToolsSNT">
+			<item name="toolDewFilter" count="1" />
+			<item name="toolDewTarp" count="1" />
+			<item name="toolDewGatherer" count="1" />
+		</lootgroup>
+	</insertBefore>
+
 	<append xpath="/lootcontainers/lootgroup[@name='groupDewCollector']">
-			<item name="resourceWaterFilter" prob="0.10" force_prob="true" />
+		<!--add a chance to get one of the Dew Collector Tools-->
+		<item group="groupDewCollectorToolsSNT" count="1" prob="0.20" force_prob="true" />
 	</append>
+	<!--END broken dewFilter Loot drop-->
 	
 	<!--set the storage size of the T4 & T5 hardened chests 
 			Default is 8,9.
@@ -20,7 +31,7 @@
 			<loot level="22,999999" prob=".03"/> <!--is 15,9999 & prob 0.05 in game code-->
 		</lootprobtemplate>
 	</insertBefore>
-	<!--overwrite eisitng prop templates for legendary parts with above template-->
+	<!--overwrite exisitng prop templates for legendary parts with above template-->
 	<set xpath="/lootcontainers/lootgroup[@name='groupArmorParts']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
 	<set xpath="/lootcontainers/lootgroup[@name='groupArmorPartsChests']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
 	<!--END reduce Legendary parts loot drop chance-->
@@ -299,7 +310,7 @@
 	</append>
 	<!-- end Pigeon carry diseases-->
 	
-
+		
 	<!--begin police car loot settings-->
 	<!--add the specialist recipe ingredients for the CrowdControl mod to PoliceCar loot drops
 		(Missing PatrolCar)-->
@@ -308,7 +319,7 @@
 		<lootgroup name="lootgroupPoliceCarSolarPanel" loot_quality_template="solarPanelTemplate"> 
 			<item name="solarCell" count="1"/>
 		</lootgroup>
-		<lootgroup name="lootGroupElectricRagdollRecipe">
+		<lootgroup name="lootGroupElectricRagdollRecipe" >
 			<item name="chargedNiCdBattery" count="1" />
 			<item name="advancedClothingMesh" count="1" />
 			<item name="hafniumHydrideMagnet" count="1" />
@@ -337,11 +348,15 @@
 	<insertAfter xpath="/lootcontainers/lootgroup[@name='groupPoliceCarBonus04']">
 		<lootgroup name="groupPoliceCarForcedBonus" count="all">
 			<!--chance to get one of the ingredients or schematic for the Electric Ragdoll armour mod -->
-			<item group="lootGroupElectricRagdoll" prob="0.22" force_prob="true"/>
-			<item group="lootGroupElectricRagdollGeneric" prob="0.08" force_prob="true"/>
-			<item group="lootGroupElectricRagdollSchematic" prob="0.08" force_prob="true"/>
+			<!--this is the specialist parts for the mod: battery,cloth & magnet-->
+			<item group="lootGroupElectricRagdoll" prob="0.22" force_prob="true"/>  <!--.22-->
+			<!--this is the generic parts for the mod: rad remover,stun repulsor-->
+			<item group="lootGroupElectricRagdollGeneric" prob="0.08" force_prob="true"/> <!--.08-->
+			<!--the schemtiac for the mod for the recipe-->
+			<item group="lootGroupElectricRagdollSchematic" prob="0.08" force_prob="true"/> <!--.08-->
+			
 			<!--chance for a couple solar panels-->
-			<item group="lootgroupPoliceCarSolarPanel" prob="0.08" force_prob="true"/>
+			<item group="lootgroupPoliceCarSolarPanel" prob="0.08" force_prob="true"/> <!--.08-->
 			
 			<!--everything else is same as default groupPoliceCarBonus lootgroup, no change -->
 			<item group="groupPoliceCarBonus01" count="2"/>
@@ -371,7 +386,7 @@
 			<item name="modCrowdControlSchematic" count="1"/>
 			<item name="resourceConeConstruction" count="1"/>
 			<item name="resourceYoDawg" count="1"/>
-			<item name="resourceCobweb" count="1"/>
+			<!--<item name="resourceCobweb" count="1"/>-->
 		</lootgroup>
 		<lootcontainer name="buriedPatrolCarLootContainer" count="1" size="7,4" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4" loot_quality_template="qualBaseTemplate">
 			<item group="groupBuriedPatrolCarLoot"/>
@@ -380,8 +395,9 @@
 	<!--end loot group and container for the buried Patrol Car treasure quest-->
 	<!--end police car loot settings-->
 	
-	<!--loot container for Burial Site Coffins - Mary's Revenge-->
+	
 	<append xpath="/lootcontainers">
+		<!--loot containers for Burial Site Coffins - Mary's Revenge, Mary's Grave-->
 		<lootgroup name="groupBurialSiteCoffins" count="all">
 			<item name="resourceLetterV" count="1"/>
 			<item name="resourceLetterE" count="1"/>
@@ -393,19 +409,73 @@
 			<item name="resourceLetterC" count="1"/>
 			<item name="resourceLetterE" count="1"/>
 			
+			<item name="resourcegGraveStone" count="1"/>
 			<item name="resourceGoreBlockHumanBones" count="1"/>
 			<item name="coffinClockBroken" count="1"/>
 			<item name="coffinWoodSpikes" count="1"/>
-			<item name="resourcegGraveStone" count="1"/>
-			<item name="playerExplosiveBarrel" count="8"/>
-			<item name="playerExplosiveBarrelSchematic" count="1"/>
+			<item name="cntBarrelGasOld" count="1"/>
+			
+			<!--<item name="playerExplosiveBarrel" count="8"/>
+			<item name="playerExplosiveBarrelSchematic" count="1"/>-->
 			<item name="marysRevengeArtifactContainer" count="1"/>
 		</lootgroup>
 		<lootcontainer name="burialSiteCoffins" count="1" size="9,2" sound_open="UseActions/coffin_wood_open" sound_close="UseActions/coffin_wood_close" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
 			<item group="groupBurialSiteCoffins"/>
 		</lootcontainer>
+		<!--END loot containers for Burial Site Coffins - Mary's Revenge, Mary's Grave-->
+		
+		<!--loot containers for Burial Site Coffins - Mary's Revenge, Ipslore The Red's grave-->
+		<lootgroup name="groupIpsloreTheRedCoffin" count="all">		
+			<item name="resourcegGraveStone" count="1"/>
+			<item name="resourceGoreBlockHumanBones" count="1"/>
+			<item name="resourceDiscWorldBook" count="1"/>
+			<item name="modMagratTracker" count="1"/>
+			<item name="resourceIpsloresBoots" count="1"/>			
+		</lootgroup>
+		<lootcontainer name="ipsloreTheRedCoffin" count="1" size="9,2" sound_open="UseActions/coffin_wood_open" sound_close="UseActions/coffin_wood_close" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupIpsloreTheRedCoffin"/>
+		</lootcontainer>
+		<!--END loot containers for Burial Site Coffins - Mary's Revenge, Ipslore The Red's grave-->
+		
+		<!--lootgroup for the Coven House map loot drop entityclasses:marysRevengeCovenHouseLootScreamer-->
+		<lootgroup name="groupMarysRevengeCovenHouseLoot" count="all"> 
+			<item name="marysRevengeCovenHouseBundle" count="1" />
+		</lootgroup>
+		<!--lootcontainer for the Coven House map Loot drop entityclasses:marysRevengeCovenHouseLootScreamer-->
+		<lootcontainer name="marysRevengeCovenHouseLoot" count="1" size="6,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupMarysRevengeCovenHouseLoot"/>
+		</lootcontainer>
+		<!--lootgroup for Magrat's sacrificial knife, its own lootgroup to enforce level 6 quality spawn-->
+		<lootgroup name="groupMarysRevengeMagratsKnife" count="all" loot_quality_template="SNT_level6QualityTemplate"> 
+			<item name="marysRevengeMagratsSacrificialKnife" count="1" /> 
+		</lootgroup> 
+		
+		<!--lootgroup for the final Marys Revenge  boss entityclasses.xml:marysRevengeFinalBoss -->
+		<lootgroup name="groupMarysRevengeFinalBossLoot" count="all"> 
+			<item name="marysRevengeFinalBossBundle" count="1" />
+			<item group="groupMarysRevengeMagratsKnife" count="1" /> 
+			<item name="resourcePieceOfCheese" count="1" />
+		</lootgroup>
+		<!--lootcontainer for the final Marys Revenge boss entityclasses.xml:marysRevengeFinalBoss -->
+		<lootcontainer name="marysRevengeFinalBossLoot" count="1" size="6,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+			<item group="groupMarysRevengeFinalBossLoot"/>
+		</lootcontainer>
+		
+		<!--loot containers for Burial Site Coffins - Mary's Revenge, Magrat's sister's grave (Judy)-->
+		<lootgroup name="groupBurialSiteMagratsSister" count="all">
+			<item name="resourceJudysCorpse" count="1"/>
+			<item name="resourceWitchesHair" count="1"/>
+			<item name="resourceCultBoneJudy" count="1"/>
+			<item name="resourceDeadBird" count="1"/>
+		</lootgroup>
+		<lootcontainer name="burialSiteMagratsSister" count="1" size="4,2" sound_open="UseActions/casket_metal_open" sound_close="UseActions/casket_metal_close" loot_quality_template="qualBaseTemplate" destroy_on_close="empty">
+			<item group="groupBurialSiteMagratsSister"/>
+		</lootcontainer>
+		<!--END loot containers for Burial Site Coffins - Mary's Revenge, Mary's Grave-->
+		
 	</append>
 	<!--end loot container for Burial Site Coffins -->
+	
 	
 	<!-- interloper story loot -->
 	

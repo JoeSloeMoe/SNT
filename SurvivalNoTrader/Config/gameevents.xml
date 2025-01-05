@@ -198,8 +198,23 @@
 		
 		
 		<!--End Interloper story code -->
-			
 		
+		<!--quest test code-->
+		<action_sequence name="action_questTestCode">	
+			<action class="AddItems">
+					<property name="added_items" value="resourceGoldNugget"/>
+					<property name="added_item_counts" value="1"/>
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="quest_restore_power_complete" />
+			</action>
+			<action class="BeltTooltip"> 
+				<property name="text" value="Quest Test Action" />
+			</action>
+		</action_sequence>
+		<!--end quest test code-->
+		
+		<!--Marys Revenge story code-->
 		<!--can either give Marys Revenge (burial site One) using book or directly-->
 		<!--give the map/note for the BurialSiteOne quest - Used from buffs.xml see buffGameEventController -->
 		<action_sequence name="give_burialSiteOneQuestNote">	
@@ -221,7 +236,28 @@
 				<property name="quest" value="graveRobbingOne" />
 			</action>
 		</action_sequence>
-	
+		
+		<!--Spawns for the Mary's Revenge Side Quest quests:graveRobbingIpsloreTheRed-->
+		<!--Spawn screamers while the player is digging up Magrat's sisters (Judy's) grave)-->
+		<action_sequence name="spawn_graveKeeperDireWolf">
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnGraveKeeperDireWolf" />
+			</action>
+		</action_sequence>
+		<action_sequence name="graveKeeperDireBear">
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnGraveKeeperDireBear" />
+			</action>
+		</action_sequence>
+		<!--END Spawns for the Mary's Revenge Side Quest quests:graveRobbingIpsloreTheRed-->
+		
+		<!--used in quests.xml:graveRobbingMagratsSister to spawn screamers while the player is digging up Magrat's sisters (Judy's) grave)-->
+		<action_sequence name="spawn_JudysGraveScreamers">
+			<action class="AddQuest">
+				<property name="quest" value="graveRobbingJudysScreamerSpawn" />
+			</action>
+		</action_sequence>
+		
 		<!--called when the person activates the marysRevengeArtifactContainer
 			 (items.xml). When a person open the container,
 			this Event is called- this Event will then assign a quest. The 'quest'  
@@ -233,11 +269,79 @@
 			</action>
 		</action_sequence>
 		
+		<!--called when the player starts the quests.xml:graveRobbingCovenHouse quest.
+			This action starts the quests.xml:graveRobbingCovenHouseScreamerSpawn quest that spawns screamers,
+			one of which drops the loot bag containing the map to Margrat's sisters grave location-->
+		<action_sequence name="action_CovenHouseSpawn">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<!--add the buff to show the player the target screamers-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buff_trackCovenHouseScreamers" />
+			</action>
+			<!--spawn the screamers-->
+			<action class="AddQuest">
+				<property name="quest" value="graveRobbingCovenHouseScreamerSpawn" />
+			</action>
+		</action_sequence>
+		
+		<!--starts the final Marys Revenge boss fight-->
+		<action_sequence name="eventMarysRevengeFinalBoss">
+			<!--add the buff that manages the final boss encounter-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buffMarysRevengeFinalBossSummon" />
+			</action>
+		</action_sequence>
+		
+	
+		<!--spawn the final boss and some minions-->
+		<action_sequence name="action_spawn_MarysRevengeBoss">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<!--<action class="AddQuest">
+				<property name="quest" value="quest_KillMagrat" />
+			</action>-->
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnMagrat" />
+			</action>
+			
+		</action_sequence>
+		<!--spawn minions-->
+		<action_sequence name="action_spawn_MarysRevengeBossMinion">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnMagratMinions" />
+			</action>
+		</action_sequence>
+		 
+		 
+		 <!--called by at the end of Marys Revenge story for the reward-->
+		<action_sequence name="action_MarysRevengeFinishReward">
+			<action class="AddXP">
+				<property name="xp_amount" value="10000" />
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="ui_mag_read_set" />
+			</action>
+			<action class="BeltTooltip">
+				<property name="text" value="Mary's Revenge Story Complete: 10,000XP." />
+			</action>
+			<!--double check: clear out the storyline-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buff_marysRevengeFinalTrigger" />
+			</action>
+		</action_sequence>
+		<!--END Marys Revenge story code-->
+		
 		<!--not used right now - handy to play screamer 
 			sound on some actions so leaving in for other use sometime-->
 		<action_sequence name="eventPlayScreamerSound">
 			<action class="PlaySound">
-				<property name="sound" value="zombiefemalescoutattack" />
+				<property name="sound" value="magratsScream" />
 			</action>
 		</action_sequence>
 		

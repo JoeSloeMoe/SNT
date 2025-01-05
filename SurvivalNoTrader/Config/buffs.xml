@@ -178,7 +178,6 @@
 	
 		
 		<!--crouching buff code-->
-		<append xpath="/buffs">
 			<!-- this buff reduces stamina usage for ranged weapons while crouch ADS.
 				This is called by buffCrouchAimingEffects when the player start aiming down the weapon sights.
 				It is removed by buffCrouchAimingEffects when the player stops aiming down the weapon sights.
@@ -186,19 +185,20 @@
 				The 'stamina loss reduction' is actually INCREASING player stamina regen (StaminaChangeOT) by 20% 
 				which in turn slows stamina loss down when ADS. 
 				So the actual reduction amount will depend on any other stamina effects the player might have active as well.-->
-			<buff name="buffCrouchAimingStamina" hidden="true" >
+			<buff name="buffCrouchAimingStamina" hidden="true"  >
 				<stack_type value="ignore"/>
 				<duration value="0"/>
+
 				<effect_group>
 					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
 					<requirement name="HoldingItemHasTags" tags="weapon,ranged"/>
-						<passive_effect name="StaminaChangeOT" operation="perc_add" value=".55" />
+						<passive_effect name="StaminaChangeOT" operation="perc_add" value=".52" />
 				</effect_group>
 			</buff>
 		
 			
 			<!-- this buff will apply stabilisation effects on any ranged weapon when crouched-->
-			<buff name="buffCrouchAimingEffects" hidden="true" remove_on_death="false" >
+			<buff name="buffCrouchAimingEffects" hidden="true" remove_on_death="false">
 				<stack_type value="replace"/>
 				<duration value="0"/>
 				<!--
@@ -228,10 +228,41 @@
 				</effect_group>
 				<!--end crouching code-->
 			</buff>
-		</append>
-
 		<!--end crouching buff code-->
 		
+		<!--set the jail breaker kandy to do instant unlock
+			'Instant' as much as possible - system stops working if 
+			unlock time set to 0. Set it to 0.03 instead-->
+		<remove xpath="/buffs/buff[@name='buffDrugJailBreakers']"/>
+		<insertAfter xpath="/buffs/buff[@name='buffDrugHealthBar']">
+			<buff name="buffDrugJailBreakers" name_key="drugJailBreakers" description_key="drugJailBreakersDesc" icon="ui_game_symbol_candy_jail_breakers">
+				<stack_type value="replace"/>
+				<duration value="0"/>
+				<display_value value=".buffDrugJailBreakersDisplay"/>
+				<display_value_format value="time"/>
+
+				<effect_group>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="subtract" value="@$MetabolismDuration"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="@$buffDrugJailBreakersDuration"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="divide" value="@$MetabolismDuration"/>
+				</effect_group>
+
+				<effect_group>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrugJailBreakers">
+						<requirement name="CVarCompare" cvar="$buffDrugJailBreakersDuration" operation="LTE" value="0"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="set" value="0"/>
+				</effect_group>
+
+				<effect_group>
+					<passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
+					<passive_effect name="LockPickTime" operation="perc_set" value="0.03"/>
+				</effect_group>
+			</buff>
+		</insertAfter>
+		
+		<!--START GRIM TALES CODE-->
 		<!--START pigeons carry diseases story code-->
 		
 		<!--buffs to set triggers for events used by the monitoring buffs. These trigger buffs are called 
@@ -594,6 +625,16 @@
 		</buff>
 		<!--END buff that manages the pigeonsCarryDiseases storyline-->
 		
+		<!--This buff tracks the Final Pigeon Boss specifically for the quests:quest_PigeonsEpilogue quest.
+			Removed when buffPigeonOnFinalBoss is removed-->
+		<buff name="buff_trackPigeonFinalBoss" hidden="true" remove_on_death="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingPigeonBoss"/>
+			</effect_group>
+		</buff>	
+		
 		<!--buff will monitor the final pigeon story boss. If the player doesn't get the final loot. The buff
 			will resend the final boss up to 5 times (pigeonSpawnAttempts) -->
 		<buff name="buffPigeonOnFinalBoss" hidden="true" remove_on_death="false">
@@ -625,11 +666,16 @@
 				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="LT" value="1"/> 
 				<requirement name="CVarCompare" cvar="spawnPigeonBossTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCount" operation="add" value="1"/>
+					<!--add a buff to red-dot the final boss for the player-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buff_trackPigeonFinalBoss" >
+						<requirement name="!HasBuff" buff="buff_trackPigeonFinalBoss"/>
+					</triggered_effect>	
+					<!--spawn final boss-->
 					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeonBoss"/>
 					<!--set the countdown for the next boss spawn if the loot isnt received-->
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCountdown" operation="set" value="randomint(3600,7200)"/>  <!--this is in seconds. Default 3600 (60min), 7200(120min)-->
-			</effect_group>			
-			
+			</effect_group>
+				
 			<effect_group>
 				<!--if countdown is 0 and final loot not received - resend-->
 				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="GTE" value="1"/>
@@ -659,6 +705,13 @@
 					<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCountdown" operation="GT" value="0"/> 
 						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
 			</effect_group>
+	
+			<!--remove the pigeon tracking buff when this buff is removed from the player-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buff_trackPigeonFinalBoss">
+					<requirement name="HasBuff" buff="buff_trackPigeonFinalBoss"/>
+				</triggered_effect>
+			</effect_group>	
 
 		</buff>
 
@@ -1137,6 +1190,198 @@
 		<!--END interloper buffs-->
 		
 		<!--Mary's revenge buffs-->
+		
+		<!--This buff tracks screamers (with nav_objects) specifically for the quests:graveRobbingCovenHouse quest.
+			One of the screamers being tracked will drop the loot bag with a map to Magrat's sisters (Judys) grave.
+			Removed when the player gets the loot bag-->
+		<buff name="buff_trackCovenHouseScreamers" hidden="true" remove_on_death="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingCovenHouse,trackingCovenHouseLoot"/>
+			</effect_group>
+		</buff>	
+		<!--This buff tracks Magrat (with nav_objects.). The player gets this buff from a mod that they get from a grave
+			as a sidequest (Ipslore's Folly) in the Marys Revenge story -->
+		<buff name="buff_trackMagrat" hidden="true" remove_on_death="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="magrat"/>
+			</effect_group>
+		</buff>	
+		
+		<!--This buff tracks screamers.
+			See entityclasses.xml & nav_objects.xml.
+			For Magrat's Left Eye - Mary's revenge story.
+			This effect is permanent. -->
+		<buff name="buff_MagratsLeftEye" name_key="buff_MagratsLeftEye" description_key="buff_MagratsLeftEyeDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingSNT"/>
+				<passive_effect name="GameStage" operation="base_add" value="10"/>
+			</effect_group>
+		</buff>	
+
+		<!--code to remove the buff_MagratsLeftEye buff - USED FOR TESTING see items.xml:testRemoveScreamerTrackingBuff-->
+		<buff name="buff_RemoveMagratsLeftEye" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--remove  buff_MagratsLeftEye-->
+			<effect_group>
+				<requirement name="HasBuff" buff="buff_MagratsLeftEye"/>
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buff_MagratsLeftEye" />
+			</effect_group>
+			<!--remove self-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_RemoveMagratsLeftEye" />
+			</effect_group>
+		</buff>	
+		
+		<!--set when the player opens Magrats loot and signals the end of the Mary's Revenge story.
+			Removes itself after setting the trigger-->
+		<buff name="buff_marysRevengeFinalTrigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="marysRevengeFinalTrigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_marysRevengeFinalTrigger" />
+			</effect_group>
+		</buff>
+		
+		<!--Used to spawn Magrat's Minions. Called randomly when a Minion is damaged (see entityclasses:marysRevengeFinalBossMinion).
+			Has a cooldown timer so that there is a minimum time between Minion spawns. Additional calls to this buff 
+			are ignored until it completes-->
+		<buff name="buffMarysRevengeFinalMinionSummon" hidden="true" remove_on_death="true">
+			<!--ignore new calls while busy-->
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<effect_group>
+				<!--minimum time between Minion spawns -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$magratMinionSpawnCountdown" operation="set" value="@magratMinionSpawnCountdownDefault"/> <!--value is in seconds--> 
+				<!--spawn a set of Minions only if Magrat is still alive--> 
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="action_spawn_MarysRevengeBossMinion">
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="LTE" value="0"/>
+				</triggered_effect>	
+			</effect_group>
+			
+			<!--this buff only spawns Minions when first called. It then sticks around for magratMinionSpawnCountdown seconds so that
+				there is a minimum time between Minion Spawns. -->
+			
+			<!--Countdown to next spawn-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratMinionSpawnCountdown" operation="subtract" value="@$MetabolismDuration">
+					<requirement name="CVarCompare" cvar="$magratMinionSpawnCountdown" operation="GT" value="0"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<effect_group>
+				<!--remove this buff when the countdown reaches 0 or Magrat is killed-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalMinionSummon">
+					<requirement name="CVarCompare" cvar="$magratMinionSpawnCountdown" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalMinionSummon">
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="GTE" value="1"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<!--clean up-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$magratMinionSpawnCountdown" operation="set" value="0"/>
+			</effect_group>
+		
+		</buff>
+	
+	
+		<!--this buff start Marys Revenge Final Boss after a Delay.
+		Called from items.xml:foodPumpkinJudyPieSlice. Called when the player eats the pie used to summon the final boss-->
+		<buff name="buffMarysRevengeFinalBossSummon" name_key="buffMarysRevengeFinalBossSummonName" description_key="buffMarysRevengeFinalBossSummonDesc" tooltip_key="buffMarysRevengeFinalBossSummonTooltip" icon="ui_game_symbol_skull" icon_color="28,142,199" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value_key value="buffMarysRevengeFinalBossSummonDisplay"/>
+			<display_value value="xxx"/>
+			
+			<!--init vars because its possible that this buff gets run more than once-->
+			<effect_group>
+				<!--this buff is triggered when a player eats a pie, Magrat's 1st spawn is delayed so the spawn is not instant -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$magratSpawnCountdown" operation="set" value="@magratFirstSpawnCountdownDefault"/>
+				<!--marysRevengeFinalTrigger is used to determine when to delete this buff.-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="marysRevengeFinalTrigger" operation="set" value="0"/>
+				<!--number of times Magrat gets spawned, allows for a cap (@magratSpawnCountMax)-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="magratSpawnCount" operation="set" value="0"/>
+				<!--used to determine when the Marys revenge storyline is complete. Set when this buff gets removed.-->
+				<!--<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="marysRevengeFinalComplete" operation="set" value="0"/>-->
+				
+			</effect_group>
+			
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalBossSummon">
+					<!--set when the player opens the Magrats loot, which means the story is complete-->
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="GTE" value="1"/>
+				</triggered_effect>
+				
+				<!--will only spawn Magrat magratSpawnCountMax number of times-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalBossSummon">
+					<requirement name="CVarCompare" cvar="magratSpawnCount" operation="GTE" value="@magratSpawnCountMax"/> 
+				</triggered_effect>
+			</effect_group>
+			
+			<!--the first magrat spawn happens during the quest_KillMagrat quest . The rest of the Magrat spawns
+				are from a countdown. IF Magrats loot isnt picked up by the player before the countdown expires it is assumed
+				something failed and the boss will be spawned again up to a max magratSpawnCountMax (config var) number if times-->
+			<effect_group>
+				<!--if countdown is 0 and final loot not received - spawn-->
+				<requirement name="CVarCompare" cvar="$magratSpawnCount" operation="LT" value="@magratSpawnCountMax"/>
+				<!--if not in a countdown between boss spawns-->
+				<requirement name="CVarCompare" cvar="$magratSpawnCountdown" operation="LT" value="1"/> 
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<requirement name="!IsBloodMoon" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+					<!--spawn the boss, start a countdown, if the player doesnt have the main loot by the end of the countdown  - will send out another boss-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratSpawnCountdown" operation="set" value="randomint(3600,7200)"/>  <!--this is in seconds. Default 3600 (60min), 7200(120min)-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_MarysRevengeBoss"/>
+			</effect_group>
+						
+			<!--countdown to next spawn-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratSpawnCountdown" operation="subtract" value="@$MetabolismDuration">
+					<requirement name="CVarCompare" cvar="$magratSpawnCountdown" operation="GT" value="0"/>
+				</triggered_effect>
+			</effect_group>
+						
+			<!--clean up-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar="$magratSpawnCount,$magratSpawnCountdown"/>
+				<!--<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="marysRevengeFinalComplete" operation="add" value="1"/>-->
+			</effect_group>
+			
+		</buff>
+		
+		<!--gives out the reward after the player kills magrat and end the Marys Revenge storyline-->
+		<buff name="buffMarysRevengeFinishedReward" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+
+			<!--call the event to reward the player-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="action_MarysRevengeFinishReward"/>			
+			</effect_group>
+			
+			<!--remove this buff as only used to call the action event above-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinishedReward" />
+			</effect_group>
+		</buff>
+		
 		<!--Called from buffMarysRevengeBleeding and buffMarysRevengeBleedingTerminal. 
 			Handler that attaches the bleeding particle effect and controls a timer. 
 			Removed by calling buff when it exits-->
@@ -1225,11 +1470,13 @@
 					<passive_effect name="LootStage" operation="base_add" value="7"/>
 			</effect_group>		
 			
+			<!--test code used for testing quests-->
 			<!--<effect_group>
-				<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="block_car_alarm_start">
-					<requirement name="CVarCompare" cvar="test" operation="LT" value="10"/>
-				</triggered_effect>
+				<requirement name="CVarCompare" cvar="questTestCodeTrigger" operation="GTE" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_questTestCode"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="questTestCodeTrigger" operation="set" value="0"/>
 			</effect_group>-->
+			<!--end test code-->  
 			
 			<effect_group>
 				<!--handling the event for making the solarbank recipe available at level 50 -->
@@ -1254,6 +1501,7 @@
 				<requirement name="CVarCompare" cvar="$numZombieKillsControl" operation="GTE" value="@killStreakTarget"/>
 				<requirement name="CVarCompare" cvar="burialSiteOneGiven" operation="LTE" value="0"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="give_graveRobbingOneQuest"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShakeCamera" shake_speed="0.04" shake_amplitude="20" shake_time="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="milestoneBundleZombieKill"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="burialSiteOneGiven" operation="add" value="1"/>
 			</effect_group>
@@ -1287,40 +1535,7 @@
 					-->
 		</buff>
 	</append>
-	
 		
-	<!--set the jail breaker kandy to do instant unlock
-		'Instant' as much as possible - system stops working if 
-		unlock time set to 0. Set it to 0.03 instead-->
-	<remove xpath="/buffs/buff[@name='buffDrugJailBreakers']"/>
-	<insertAfter xpath="/buffs/buff[@name='buffDrugHealthBar']">
-		<buff name="buffDrugJailBreakers" name_key="drugJailBreakers" description_key="drugJailBreakersDesc" icon="ui_game_symbol_candy_jail_breakers">
-			<stack_type value="replace"/>
-			<duration value="0"/>
-			<display_value value=".buffDrugJailBreakersDisplay"/>
-			<display_value_format value="time"/>
-
-			<effect_group>
-				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="subtract" value="@$MetabolismDuration"/>
-				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="@$buffDrugJailBreakersDuration"/>
-				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="divide" value="@$MetabolismDuration"/>
-			</effect_group>
-
-			<effect_group>
-				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrugJailBreakers">
-					<requirement name="CVarCompare" cvar="$buffDrugJailBreakersDuration" operation="LTE" value="0"/>
-				</triggered_effect>
-				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="0"/>
-				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="set" value="0"/>
-			</effect_group>
-
-			<effect_group>
-				<passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
-				<passive_effect name="LockPickTime" operation="perc_set" value="0.03"/>
-			</effect_group>
-		</buff>
-	</insertAfter>
-	
 	
 	<!--adds the background buffs to the player and sets some comfig variables
 		This will auto re-add buffGameEventController to the player after initial spawn and any deaths.-->
@@ -1345,16 +1560,38 @@
 		<!--add the Crouching  buff as a background buff to run continually - it is stateless so no issues-->
 		<effect_group>
 			<requirement name="!HasBuff" buff="buffCrouchAimingEffects"/>
-				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffCrouchAimingEffects"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffCrouchAimingEffects"/>
 		</effect_group>
 	
 <!--PLAYER CONFIG VARIABLES-->
 <!--GRIM TALES PLAYER CONFIG VARIABLES-->
 		
-		<!--set the total kill streak required for Mary's revenge to trigger: default 4000-->
+		<!--Mary's Revenge-->
 		<effect_group>
-			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killStreakTarget" operation="set" value="4000"/>
+			<!--set the total kill streak required for Mary's revenge to trigger: default 4000-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killStreakTarget" operation="set" value="2100"/>
+			
+			<!--The first time the player 'summons' Magrat, there is a delay before she actually spawns.-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratFirstSpawnCountdownDefault" operation="set" value="randomint(2,7)"/> <!--default 2,7 seconds-->
+			<!--If the player doesnt kill Magrat, the final boss, Magrat can respawn magratSpawnCountMax number of times.
+				Default is to only spawn once, the player is given a pie with 6 slices so they can repeat the quest if they fail.
+				If Magrat is set to spawn more than once, she will respawn randomly at another time if the player dies or goes out of render distance.
+				When this is set to more than one spawn, eating another slice of pie wont do anything until magratSpawnCountMax is surpassed.
+				While Magrat is in spawn/respawn mode the player will see a Blue Skull Curse Buff in the UI see:buffMarysRevengeFinalBossSummon-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratSpawnCountMax" operation="set" value="1"/> <!--default 1 (only once)-->
+			<!--the time between Magrat Spawns varies between the spawns and set in buffs:buffMarysRevengeFinalBossSummon-->
+			
+			
+			<!--While Magrat is alive, Minions have a random chance to spawn other Minions when damaged.
+				See entityclasses.xml:marysRevengeFinalBossMinion and comment at entityclasses.xml:MINIONSPAWNS 
+				for details.-->
+			<!--This is the minimum number of seconds between Magrat's Minion spawns so the player doesnt get flooded-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratMinionSpawnCountdownDefault" operation="set" value="8"/> <!--default 8 seconds-->
+			<!--To set the the % Chance a Minion will spawn after the minimum number of seconds above see entityclasses.xml:marysRevengeFinalBossMinion, look for the 'random' function-->
+				
 		</effect_group>
+		<!--End Mary's Revenge-->
+		
 		
 		<!-- Initialise the spawn variables for the pigeons carry diseases storyline-->
 		<effect_group>
@@ -1383,7 +1620,7 @@
 			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="pigeonSpawnAttempts" operation="set" value="5"/> <!-- default: 5-->
 		</effect_group>
 <!--END GRIM TALES PLAYER CONFIG VARIABLES-->
-
+<!--END START GRIM TALES CODE-->
  
 <!--LEARN BY USE PLAYER CONFIG VARIABLES - modify variables below to adjust the mods behaviour-->
 		<effect_group>

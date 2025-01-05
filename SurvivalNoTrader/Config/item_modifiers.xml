@@ -142,6 +142,26 @@
 			</effect_group>
 		</item_modifier>
 		
+		<!--Mary's Revenge : Iplore's Talisman that allows the player to identify Magrat the final Boss-->
+		<item_modifier name="modMagratTracker" installable_tags="head" modifier_tags="misc,modArmorHelmetLight" blocked_tags="noMods,clothing" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="modMagratTrackerDesc"/>
+			<property name="Material" value="Msteel"/>
+			<property name="CustomIcon" value="lanternOld_01"/>
+			<property name="CustomIconTint" value="28,142,199"/>
+			<property name="LightValue" value=".4"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfEquipChanged" action="AddPartFPV" part="HeadLight" prefab="Entities/Lighting/miningHelmetLightSource" parentTransform="CameraNode" localPos="0,0.1,0" localRot="-90,180,0"/>
+				<triggered_effect trigger="onSelfEquipChanged" action="AddPartTPV" part="HeadLight" prefab="Entities/Lighting/miningHelmetLightSource" parentTransform="Spotlight" localPos="0,0,0" localRot="90,0,0"/>
+				<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLight"/>
+				<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLight" active="true"/>
+				<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLight" active="false"/>
+				<triggered_effect trigger="onSelfItemActivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
+				<triggered_effect trigger="onSelfItemDeactivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
+				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" buff="buff_trackMagrat" />
+				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" buff="buff_trackMagrat" />
+			</effect_group>
+		</item_modifier>
 	</append>
 
 	<!--remove crosshair for scopes when used with Mary's Revenge-->

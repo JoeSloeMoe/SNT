@@ -2,10 +2,10 @@
 
 	<!--placeholder for the Gyro in the world - use the Working stiffs truck placeholder as its spawns less than cars-->
 	<set xpath="/blockplaceholders/placeholder[@name='cntServiceTruckWorkingStiffToolsRandomLootHelper']">
-		<block name="air" prob=".67"/>
-		<block name="gyrocopterWreckChassis" prob="0.03"/> <!--default 0.01-->
-		<block name="gyrocopterWreckAccessories" prob="0.03"/> <!--default 0.01-->
-		<block name="cntServiceTruckWorkingStiffTools" prob=".27"/>
+		<block name="air" prob=".66"/>
+		<block name="gyrocopterWreckChassis" prob="0.04"/> <!--default 0.01-->
+		<block name="gyrocopterWreckAccessories" prob="0.04"/> <!--default 0.01-->
+		<block name="cntServiceTruckWorkingStiffTools" prob=".26"/>
 	</set> 
 	
 	<!--code for testing replaces almost all vehicle spawns with whatever is listed below-->

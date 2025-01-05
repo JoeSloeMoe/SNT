@@ -1,4 +1,11 @@
 <configs>
+			<!-- <action type="ShowMessageWindow"> -->
+			<!-- <property name="message" value="You did good kid! Way to go. I can give you more work once you finish your Homesteading challenges."/> -->
+			<!-- <property name="title" value="Intro quest completed!"/> -->
+			<!-- <property name="delay" value="0.1"/> -->
+			<!-- <property name="on_complete" value="true"/> -->
+		<!-- </action> -->
+		
 	<!--<remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']"/>-->
 	<remove xpath="/quests/quest[@id='challengegroup_reward_homesteading']"/>
 	
@@ -217,7 +224,7 @@
 			<!--gather the transmitter - recipe available by default-->
 			<objective type="FetchKeep" id="interloperTransmitterBlock" value="1" phase="3"/>
 			
-			<!--go to trader in the wastland -->
+			<!--go to trader in the wasteland -->
 			<objective type="Goto" id="trader" value="5" phase="4">
 				<property name="biome_filter_type" value="OnlyBiome" />
 				<property name="biome_filter" value="wasteland" />
@@ -351,7 +358,7 @@
 			<action type="SpawnGSEnemy" >
 					<!--see gamestages.xml:InterloperEpilogueSpawner definition and
 						see loot.xml:interloperTradeDrop and loot.xml:groupTradeDrop for loot items.
-						The 'delay' is set to 5 seconds to allow for the airplane sounds to run before
+						The 'delay' is set to 7 seconds to allow for the airplane sounds to run before
 						the supply crate is 'dropped'-->
 					<property name="gamestage_list" value="InterloperEpilogueSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -377,7 +384,7 @@
 			<objective type="FetchKeep" id="interloperTradeDropBag" value="1" phase="1"/>			
 			
 			<!--go to a random point in the desert-->
-			<!--go to trader in the wastland -->
+			<!--go to trader in the wasteland -->
 			<objective type="Goto" id="trader" value="5" phase="2">
 				<property name="biome_filter_type" value="OnlyBiome" />
 				<property name="biome_filter" value="desert" />
@@ -628,7 +635,7 @@
 		<!--Mary's revenge-->
 		<!--This is called when the person opens the artifact box from the first burial site -->
 		<quest id="questMarysRevengeArtifactContainerOpened">
-			<property name="name_key" value="questMarysRevengeArtifactContainerOpened" param1="name" />
+			<property name="name_key" value="questMarysRevengeArtifactContainerOpenedName" />
 			<property name="repeatable" value="true"/>
 			<property name="category_key" value="reward"/>
 			<property name="offer_key" value="questMarysRevengeArtifactContainerOpened" param1="offer" />
@@ -655,17 +662,18 @@
 			<!--<reward type="Item" id="rewardMarysRevengeBundle" value="1"/>-->
 			<reward type="Item" id="marysRevengeHomemadeRifle" value="6"/>
 			<reward type="Item" id="ammo44MagnumBulletAP" value="300"/>
-				
+			<reward type="Item" id="resourceMarysDiary" value="1"/>	
 		</quest>
 		
 		<!--quest to find the first burial site.
+			This is Mary's grave and starts the Mary's revenge storyline.
 			Coffin at site contains a cursed artifact 
 				- see questMarysRevengeArtifactContainerOpened in this file and 
 				marysRevengeArtifactContainer in items.xml-->
 		<quest id="graveRobbingOne">
-			<property name="name_key" value="graveRobbingOne" param1="name" />
+			<property name="name_key" value="graveRobbingOneName" />
 
-			<property name="subtitle_key" value="graveRobbingOne" param1="name" />
+			<property name="subtitle_key" value="graveRobbingOne"  />
 			<property name="description_key" value="graveRobbingOne_offer" param1="offer" />
 			<property name="icon" value="ui_game_symbol_map"/>
 			<property name="repeatable" value="true"/>
@@ -691,8 +699,475 @@
 				(the container will spawn screamers when opened using 
 				questMarysRevengeArtifactContainerOpened above).
 				So the Quest is complete -->
+		</quest>
+		
+		<!--mary revenge side quest code-->
+		<!--There is an artifact that helps the player fight Magrat (Mary's Revenge final boss).
+			The player gets this artifact by robbing the grave of a Witch Enforcer, Ipslore the Red. 
+			In partnership with witch sisters Magrat and Judy, Ipslore co-ruled the Order of the 3rd Degree Initiation,
+			a sadistic obsessive Witch Cult steeped in hidden rituals. As part of a violent takeover, Ipslore created 
+			a talisman that allowed him to identify Magrat and Judy apart from their dopplegangers. He used this to great
+			effect to defeat Judy but while the talisman could identify the true Magrat it was not useful at detecting
+			rat poison and Ipslore died an agonising death from renal failure and accute diarrhea.
+		-->
+		
+		<!--spawn the dire wolf/s protecting Ipslore's grave-->
+		<quest id="quest_SpawnGraveKeeperDireWolf">
+			<property name="name_key" value="quest_SpawnGraveKeeperDireWolfName" param1="name" />
+			<property name="offer_key" value="quest_SpawnGraveKeeperDireWolfDesc" param1="offer" />
+			<property name="description_key" value="quest_SpawnGraveKeeperDireWolfDesc" param1="offer" />
+			<property name="group_name_key" value="graveRobbingIpsloreTheRedGroup"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="GraveKeeperDireWolfSpawner" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action> 
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="GraveKeeperDireWolfSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+					<property name="delay" value="25"/>
+			</action>
+			<!--throw in some vultures for variety-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="animalZombieVulture" />
+					<property name="count" value="6" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+					<property name="delay" value="55"/>
+			</action>
+		</quest>
+		<!--spawn dire bears protecting Ipslore's grave-->
+		<quest id="quest_SpawnGraveKeeperDireBear">
+			<property name="name_key" value="quest_SpawnGraveKeeperDireBearName" param1="name" />
+			<property name="offer_key" value="quest_SpawnGraveKeeperDireBearDesc" param1="offer" />
+			<property name="description_key" value="quest_SpawnGraveKeeperDireBearDesc" param1="offer" />
+			<property name="group_name_key" value="graveRobbingIpsloreTheRedGroup"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="GraveKeeperDireBearSpawner" />
+					<property name="count" value="" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		<!--This quest is for the player to dig up Ipslore's grave and retrieve the artifact for a final batter with Magrat.
+			The grave is protected by some beasts from hell which will spawn during and on completion of the quest
+			-->
+		<quest id="graveRobbingIpsloreTheRed">
+			<property name="name_key" value="graveRobbingIpsloreTheRedName" />
+
+			<property name="subtitle_key" value="graveRobbingIpsloreTheRed"  />
+			<property name="description_key" value="graveRobbingIpsloreTheRed_offer" param1="offer" />
+			<property name="group_name_key" value="graveRobbingIpsloreTheRedGroup"/>
+			<property name="quest_hints" value="graveRobbingIpsloreTheRed_hint1,graveRobbingIpsloreTheRed_hint1,graveRobbingIpsloreTheRed_hint1" />
+			<property name="icon" value="ui_game_symbol_map"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="treasure"/>
+			<property name="offer_key" value="graveRobbingIpsloreTheRed_offer" param1="offer" />
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>		
 			
+			<objective type="RandomGotoNPC" phase="1">
+				<property name="completion_distance" value="20"/>
+				<property name="distance" value="100-5000"/>
+				<property name="nav_object" value="quest"/>
+				<property name="biome_filter_type" value="OnlyBiome" />
+				<property name="biome_filter" value="wasteland" />
+			</objective>
 			
+			<objective type="RallyPoint">
+				<property name="start_mode" value="Create"/>
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally"/>
+				
+				<property name="activate_event" value="spawn_graveKeeperDireWolf"/>
+			</objective>
+		
+			<objective type="TreasureChest">
+				<property name="block" value="graveRobbingThreeCoffinClosed"/>
+				<property name="phase" value="3" />
+				<property name="alt_block" value="graveRobbingThreeCoffinCracked"/>
+				<!--roperty name="distance" value="100-4000"/> -->
+				<property name="use_nearby" value="true"/>
+				<property name="default_radius" value="3"/>
+				<property name="nav_object" value="treasure" />
+				<property name="direct_nav_object" value="treasure_direct" />
+				
+				<property name="blocks_per_reduction" value="1" />
+				<!--play bear  sound on radius reduction - build some suspense-->
+				<property name="radius_reduction_sound" value="bearattack" />
+			</objective>
+			<!-- no action on radius reduction, keeps player guessing-->
+			<!--<event type="TreasureRadiusReduction">
+				<action type="GameEvent">
+					<property name="event" value="spawn_graveKeeperDireWolf"/>
+				</action>
+			</event>-->
+			
+			<!--on completion spawn the dire bear
+				This doesnt seem to fire when used after Treasure Chest-->
+			<!--
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="GraveKeeperDireBearSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="4" /> 
+			</action>-->
+			<!--set a 'spawn' quest as a reward as above spawn code doesnt fire-->
+			<reward type="Quest" id="quest_SpawnGraveKeeperDireBear"/> 
+		</quest>
+		
+		<!--END mary revenge side quests code-->
+		
+		<!--spawn witches (screamers) when the player is doing quest:graveRobbingCovenHouse.
+			Spawn multiple screamers, one of which will drop a lootbag with map to 
+			Magrat's sisters (Judy) grave.
+			There is a delay in spawning Screamers so that the player gets into the graveRobbingCovenHouse clear quest -->
+		<quest id="graveRobbingCovenHouseScreamerSpawn">
+			<property name="name_key" value="graveRobbingCovenHouseScreamerSpawnName" param1="name" />
+			<property name="subtitle_key" value="graveRobbingCovenHouseScreamerSpawn" param1="name" />
+			<property name="description_key" value="graveRobbingCovenHouseScreamerSpawn_offer" param1="offer" />
+			<property name="group_name_key" value="graveRobbingMagratsSisterGroup"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<!--screamers come in multiple waves. One wave has a single screamer that drops the loot bag-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MarysRevengeCovenHouseSpawner" />
+					<property name="count" value="4" param1="finish_spawn_count" />
+					<property name="delay" value="20"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MarysRevengeCovenHouseSpawner" />
+					<property name="count" value="4" param1="finish_spawn_count" />
+					<property name="delay" value="30"/>
+					<property name="phase" value="1" />
+			</action>
+			<!--this screamer spawn will drop the loot bag-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MarysRevengeCovenHouseLootSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="delay" value="40"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MarysRevengeCovenHouseSpawner" />
+					<property name="count" value="4" param1="finish_spawn_count" />
+					<property name="delay" value="40"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MarysRevengeCovenHouseSpawner" />
+					<property name="count" value="5" param1="finish_spawn_count" />
+					<property name="delay" value="50"/>
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		
+		
+		<!--In order to atract the final boss (Magrat the Seer) the player needs to 
+			retrieve a remnant of Magrats dead sister, Judy (another Seer). One of the witches
+			at the house will drop a loot bag with a map to her Judy's grave. 
+			The player will use the remnant as an ingredient in some chemistry brew and use 
+			the result to summon Magrat --> 
+		<!--go to the Coven house and clear out.-->
+			<quest id="graveRobbingCovenHouse">
+			<property name="name_key" value="graveRobbingCovenHouseName"/>
+			<property name="offer_key" value="graveRobbingCovenHouse_offer" param1="offer" />
+			<property name="subtitle_key" value="graveRobbingCovenHouse_subtitle"/>
+			<property name="description_key" value="graveRobbingCovenHouse_description"/>
+			<property name="quest_hints" value="graveRobbingCovenHouse_hint1" />
+			<property name="group_name_key" value="graveRobbingMagratsSisterGroup"/>
+			
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="true"/>
+			
+			<property name="icon" value="quest"/>
+			<property name="shareable" value="false"/>
+			
+			<property name="difficulty_tier" value="3" param1="difficulty" />
+			<property name="difficulty" value="3"/>
+			<property name="extra_tags" value="infested" param1="extra_tags" />
+			<property name="spawn_multiplier" value="4" param1="spawn_multiplier" />
+			<property name="poi_tier" value="2" />
+			<property name="gamestage_mod" value="0.8" param1="gamestage_mod" />
+			<property name="gamestage_bonus" value="600" param1="gamestage_bonus" />
+			
+			<!--goto a local tier 1-->
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="nav_object" value="quest" />
+				<property name="poi_tier" value="2" param1="poi_tier" />
+			</objective>
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally" />
+				<property name="activate_event" value="action_CovenHouseSpawn"/>
+			</objective>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+			</objective>
+
+			<objective type="POIStayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="25"/>
+			</objective>
+			
+			<action type="UnlockPOI" >
+				<property name="phase" value="4"/>
+			</action>
+		</quest>
+
+		<!--spawns the final group of screamers for the graveRobbingMagratsSister quest below-->
+		<quest id="quest_magratsSistersGraveComplete">
+			<property name="name_key" value="graveRobbingMagratsSisterComplete" param1="name" />
+			<property name="subtitle_key" value="graveRobbingMagratsSister" param1="name" />
+			<property name="description_key" value="graveRobbingMagratsSister_offer" param1="offer" />
+			<property name="group_name_key" value="graveRobbingMagratsSisterGroup"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamerRadiated" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamerRadiated" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="4"/>
+					<property name="phase" value="1" />
+			</action>
+
+		</quest>
+		
+		<!--spawn witches (screamers) when the player is robbing Judys Grave (Magrat's sister) 
+			when doing quest:graveRobbingMagratsSister.
+			They are getting bones and a lock of hair to brew a concoction to summon Magrat.
+			Spawn multiple screamers over time. There is a delay in spawning Screamers.-->
+		<quest id="graveRobbingJudysScreamerSpawn">
+			<property name="name_key" value="graveRobbingJudysScreamerSpawnName" param1="name" />
+			<property name="subtitle_key" value="graveRobbingJudysScreamerSpawn" param1="name" />
+			<property name="description_key" value="graveRobbingJudysScreamerSpawn_offer" param1="offer" />
+			<property name="group_name_key" value="graveRobbingMagratsSisterGroup"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<!--screamers come in multiple waves. 
+				1)regular Screamers
+				2)feral Screamers
+				***3) The third set of radiated screamers is not spawned here, 
+					   they are spawned at the end of the graveRobbingMagratsSister quest 
+					   (by initiating the quest_magratsSistersGraveComplete quest)
+				-->
+			<!--regular screamers-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamer" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="4"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamer" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="8"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamer" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="12"/>
+					<property name="phase" value="1" />
+			</action>
+			<!--ferals-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamerFeral" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="18"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamerFeral" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="24"/>
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamerFeral" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="delay" value="30"/>
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		
+		<!--quest to brew the witches brew and then the special Pump & Judy pie.
+			When the pie is consumed it will summon Magrat-->
+		<quest id="createSummoningPie">
+			<property name="name_key" value="createSummoningPieName"/>
+			<property name="offer_key" value="createSummoningPie_offer" param1="offer" />
+			<property name="subtitle_key" value="createSummoningPie_subtitle"/>
+			<property name="description_key" value="createSummoningPie_description"/>
+			<property name="quest_hints" value="createSummoningPie_hint1,createSummoningPie_hint2,createSummoningPie_hint3" />
+			<property name="group_name_key" value="marysRevengeSummoningPieGroup"/>
+			
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+ 
+			<!--player needs to create Witches Brew from Judy Witch's bones and hair.
+				Then make a Pumkin Judy Pie using the Witches Brew as an ingredient.
+				Consuming the Pie will summon Magrat.--> 
+			<!--get the pumkin Judy pie-->
+			<objective type="FetchKeep" id="resourceCultBoneJudy" value="1" phase="1"/>
+			<objective type="FetchKeep" id="resourceWitchesHair" value="1" phase="2"/>
+			<objective type="FetchKeep" id="foodPumpkinJudyPieSlice" value="1" phase="3"/>
+			<!--noth9ing else to do - the player can consume the pie anytime-->
+		</quest>	
+			
+
+		<!--Open Magrat's sisters (Judy) grave - a coffin using the Find Treasure quest template.
+			Started when the player reads the items:qt_MaryRevengeJudysGrave book.
+			The book is dropped in loot by one of the screamers during the quests:graveRobbingCovenHouse 
+			quest above. 
+			-->
+		<quest id="graveRobbingMagratsSister">  
+			<property name="name_key" value="graveRobbingMagratsSisterName"/>
+			<property name="group_name_key" value="graveRobbingMagratsSisterGroup"/>
+			<property name="offer_key" value="graveRobbingMagratsSister_offer" param1="offer" />
+			<property name="subtitle_key" value="graveRobbingMagratsSister_subtitle"/>
+			<property name="description_key" value="graveRobbingMagratsSister_description"/>
+			<property name="quest_hints" value="graveRobbingMagratsSister_hint1" />
+			
+			<property name="icon" value="ui_game_symbol_map"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="treasure"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			
+			<!--this quest will spawn several waves of regular screamers and feral screamers on 
+				radius reduction of the treasure chest. 
+				It will also call quest_magratsSistersGraveComplete when player completes the treasure quest. 
+				Quest quest_magratsSistersGraveComplete will spawn radiated screamers-->
+			<objective type="TreasureChest">
+				<property name="block" value="graveRobbingTwoCoffinClosed"/>
+				<property name="alt_block" value="graveRobbingTwoCoffinCracked"/>
+				<property name="distance" value="100-120"/> 
+				<property name="default_radius" value="1"/>
+				<property name="nav_object" value="treasure" />
+				<property name="direct_nav_object" value="treasure_direct" />
+				<property name="blocks_per_reduction" value="1" />
+				<!--There will be only 1 reduction, Screamers will spawn after this 
+					so give a warning scream-->
+				<property name="radius_reduction_sound" value="magratsScream"/> 
+			</objective>
+			<!-- start spawning screamers on radius reducon. 
+				Spawns are delayed.-->
+			<event type="TreasureRadiusReduction">
+				<action type="GameEvent">
+					<!--can spawn zombies here but dont seem to be able to delay their spawning.
+						(I think the 'delay' tag doesnt work for ACTIONS within an EVENT)
+						so call an event that gives a quest that spawns the zombies in a staggered fashion.-->
+					<property name="event" value="spawn_JudysGraveScreamers"/>
+				</action>
+			</event>
+			<!--call radiated screamers on complete-->
+			<reward type="Quest" id="quest_magratsSistersGraveComplete"/>
+			<reward type="Quest" id="createSummoningPie"/>
+			
+		</quest>
+
+		<!--TEST CODE used for whatevers being tested 
+			use/read item resourceRunTestQuest (a quest note) from debug menu to start this quest when testing-->
+		<quest id="quest_TestCode">
+			<property name="name_key" value="quest_TestCode" param1="name" />
+			<property name="offer_key" value="quest_TestCode" param1="offer" />
+			<property name="description_key" value="quest_TestCode" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="zombieScreamer" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+			
+
+			<objective type="EntityKill">
+				<property name="needed_count" value="1" />
+				<property name="phase" value="1"/>
+				<property name="target_tags" value="zombie" />
+				<property name="objective_name_key" value="quest_TestCode" />
+			</objective>
+
+			<!--<objective type="StayWithin">
+				<property name="phase" value="1"/>
+				<property name="radius" value="25"/>
+			</objective>-->
+			
+			<action type="SetCVar">
+				<property name="cvar" value="questTestCodeTrigger" />
+				<property name="value" value="1" />
+				<property name="phase" value="2"/>
+				<property name="on_complete" value="true"/>
+			</action>
+			
+		</quest>
+		
+		<!--spawn the final Marys Revenge Boss and some minions-->
+		<quest id="quest_SpawnMagrat">
+			<property name="name_key" value="quest_SpawnMagratName" param1="name" />
+			<property name="offer_key" value="quest_SpawnMagratDesc" param1="offer" />
+			<property name="description_key" value="quest_SpawnMagratDesc" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<!--when Magrat spawns, she will spawn with 2 dopplegangers (Minions). When the player damages a
+				Minion there is a small chance further Minions will spawn (using quest_SpawnMagratMinions)-->
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MagratSpawner" />
+					<property name="count" value="1" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MagratMinionSpawner" />
+					<property name="count" value="3" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
+		</quest>
+		
+		
+		<!--Spawn some of the final boss's minions. Called from entityclasses:marysRevengeFinalBossMinion via
+			buffs:buffMarysRevengeFinalMinionSummon and then gamevents:action_spawn_MarysRevengeBossMinion.
+			Gamevents:action_spawn_MarysRevengeBossMinion is the event that gives this quest to the player.-->
+		<quest id="quest_SpawnMagratMinions">
+			<property name="name_key" value="quest_SpawnMagratMinionsName" param1="name" />
+			<property name="offer_key" value="quest_SpawnMagratMinionsDesc" param1="offer" />
+			<property name="description_key" value="quest_SpawnMagratMinionsDesc" param1="offer" />
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="reward"/>
+			<property name="difficulty" value="medium"/>
+			<property name="shareable" value="false"/>
+			<action type="SpawnGSEnemy">
+					<property name="gamestage_list" value="MagratMinionSpawner" />
+					<property name="count" value="2" param1="finish_spawn_count" />
+					<property name="phase" value="1" />
+			</action>
 		</quest>
 		<!--END Mary's revenge-->		
 		

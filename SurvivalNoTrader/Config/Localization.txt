@@ -138,6 +138,12 @@ scrapthrownGrenadeContactBundle,items,Item,,,Stack of 5 scrapped Contact Grenade
 scrapthrownGrenadeContactBundleDesc,items,Item,,,This is a compact stack of 5 Contact Grenades.\nCreate this bundle using Contact Grenades to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
 scrapTimedChargesBundle,items,Item,,,Stack of 5 scrapped Timed Charges.
 scrapTimedChargesBundleDesc,items,Item,,,This is a compact stack of 5 Times Charges.\nCreate this bundle using Timed Charges to be scrapped.\nReturns 80% of materials.\nUse this item to open and unpack it.
+scrapTurretAmmoBundle,items,Item,,,Stack of 100 scrapped Junk Turret Ammo.
+scrapTurretAmmoBundleDesc,items,Item,,,"This is a compact stack of 100 scrapped Junk Turret Ammo.\nCreate this bundle using Junk Turret Ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it."
+scrapAPTurretAmmoBundle,items,Item,,,Stack of 100 scrapped AP Junk Turret Ammo.
+scrapAPTurretAmmoBundleDesc"This is a compact stack of 100 scrapped AP Junk Turret Ammo.\nCreate this bundle using AP Junk Turret Ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it."
+scrapShellTurretAmmoBundle,items,Item,,,Stack of 100 scrapped Junk Turret Shells.
+scrapShellTurretAmmoBundleDesc"This is a compact stack of 100 scrapped Junk Turret Shells.\nCreate this bundle using Junk Turret Shells to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it."
 9mmBundlebox,items,Item,,,Box of 100 9mm Ammo 
 9mmBundleboxDesc,items,Item,,,Box of 100 9mm Ammo. \nUse this item to open and unpack it.
 9mmBundleboxAP,items,Item,,,Box of 100 9mm AP Ammo
@@ -242,11 +248,132 @@ survivor_desc,Quests,Quest Info,,,Good job survivor! You've completed the Surviv
 trader_quests_desc,Quests,Quest Info,,,Good job survivor! You've completed the Trader Quests Challenge Group.
 zombie_slayer_desc,Quests,Quest Info,,,Good job survivor! You've completed one of the Zombie Slayer Challenges.
 marysRevengeHomemadeRifle,items,Gun,,,Mary's Revenge - Homemade bush rifle.
-marysRevengeHomemadeRifleDesc,items,Gun,,,"Mary's Revenge.\nBorne from the dark depths of vengeance. Has flawed barrel rifling that causes sporadic bullet tumble - 20% chance of inflicting lethal bleed out.\nUses .45 ammo\n300% Headshot damage\nMod with Shotgun Barrel Extender.\n8X Scope attachments have full focus range."
+marysRevengeHomemadeRifleDesc,items,Gun,,,"Mary's Revenge. Uses .44 Magnum ammo\nBorne from the dark depths of vengeance. Has flawed barrel rifling that causes sporadic bullet tumble - 25% chance of inflicting lethal bleed out. Tumble bullet impact will knock zombies down.\n300% Headshot damage\nMod with Shotgun Barrel Extender.\n8X Scope attachments have full focus range."
 rewardMarysRevengeBundle,items,Item,,,Mary's Revenge
 rewardMarysRevengeBundleDesc,items,Item,,,There are 6 in a Coven.
 marysRevengeArtifactContainer,items,Item,,,Mary's Revenge
 marysRevengeArtifactContainerDesc,items,Item,,,Mary's Revenge
+magratsEyeBile,items,Item,,,Salty Bile Mouth Vomit
+magratsEye,items,Item,,,"Magrat's left eye"
+modMagratTracker,item_modifiers,mod,,,All Is Well         
+modMagratTrackerDesc,item_modifiers,mod,,,"Town Cryer's witch finder lantern. Tuned by Ipslore to show Magrats aura but he never had a chance to use it. \n\nInstalls in Helmet as light. Turn light on to activate."         
+magratsEyeDesc,items,Item,,,"A strange smelling eyeball covered in red mucous and slime. At first glance it resembles hard crystal but it feels spongy in your hand. You feel it vibrating faintly as you hold it - you have a strong urge to consume it even though you suspect any side-effects may be permanent.\n\nUse (A) to consume.\n[Mary's Revenge Storyline]"
+buff_MagratsLeftEye,buffs,Buff,,,"Magrat's Left Eye" 
+buff_MagratsLeftEyeDesc,buffs,Buff,,,"You have the witches sight. Screamers are automatically tagged with an orange dot on the compass, map and on-screen. The undead sense the presence of the Eye and it aggravates them - your Game Stage is increased by 15.\n\nPermanent Buff." 
+testGiveScreamerTrackingBuff,items,TEST,,,"Screamer tracking buff"
+testGiveScreamerTrackingBuffDesc,items,TEST,,,"Gives the Screamer tracking buff from Marys Revenge - used for testing."
+testRemoveScreamerTrackingBuff,items,TEST,,,"Remove Screamer tracking buff"
+testRemoveScreamerTrackingBuffDesc,items,TEST,,,"Removes the Screamer tracking buff from Marys Revenge - used for testing."
+resourceMarysDiary,items,Book,,,"Mary's Torn and Bloodstained Diary" 
+resourceMarysDiaryDesc,items,Book,,,"Mary's diary details her daughter's kidnap and murder by a witch cult. Hard to read with pages torn and missing, you manage to piece together about 3 pages worth of legible entries.\n\n\nOpen to review the pages." 
+resourceMarysDiaryPage1,items,Book,,,"Page 1: Mary's Story" 
+resourceMarysDiaryPage1Desc,items,Book,,,"After her daughters death, Mary studied the cult and hunted down their stronghold. Through violent bloody assault Mary identified the cult's leader - Magrat The Seer. By performing some kind of a ritual Mary drew Magrat into a trap but was overrun after a prolonged fight. There is some reference to a continual stream of dopplegangers and Mary being unable to identify and kill the real Magrat. Mary appears to have been able to engineer a retreat but was mortally wounded, her final act was to finish her diary in the hope of future vengeance. Whoever buried her took care to bury her with her last possessions." 
+resourceMarysDiaryPage2,items,Book,,,"Page 2: Mary's Revenge" 
+resourceMarysDiaryPage2Desc,items,Book,,,"Mary learnt some interesting things about the witch cult. She got this information by repeatedly bludgeoning a witch in the face with a spiked club. She had summoned Magrat using hair and bones from the grave of a cult priest. There are some notes on her last fight but her last diary entry, the cult's base location, stares at you from the page.\nYou consider your options.\n\n\nRead (A) to introduce yourself to Magrat the Seer." 
+resourceMarysDiaryPage3,items,Book,,,"Page 3: A side note" 
+resourceMarysDiaryPage3Desc,items,Book,,,"Scrawled in the diary's margins are random notes that when combined, describe some kind of Talisman that can be used to help defeat Magrat. The Talisman is buried in the disgarded grave of a witch named Ipslore the Red. From Mary's notes it doesn't look like she pursued the Talisman, the warnings about the grave being protected by beasts from hell may have had something to do with it.\n\n[Mary's Revenge Optional]\nRead (A) to hunt down the Talisman." 
+marysRevengeFinalBossBundle,items,Loot Bundle,,,"Magrat the Witch Seer's bloodied remains"
+marysRevengeFinalBossBundleDesc,items,Corpse,,,"A gleam of light from the corpse catches your eye. You consider digging around in the mess to fish it out.\n\nOpen to dig through the remains. "
+marysRevengeFinalBossLoot,entityclasses,Entity,,,Magrat the Witch Seer's Loot
+EntityMarysRevengeBossLoot,entityclasses,Entity,,,Magrat the Witch Seer's Loot
+marysRevengeFinalBoss,entityclasses,Entity,,,Magrat the Seer - Order of the 3rd Degree Initiation
+marysRevengeFinalBossMinion,entityclasses,Entity,,,Magrat the Witch Seer - Order of the 3rd Degree Initiation
+marysRevengeFinalBossMinion2,entityclasses,Entity,,,Magrat the Witch Seer - Order of the 3rd Degree Initiation
+marysRevengeSummoningPieGroup,Quest,Quest Info,,,"Preparing for Magrat"
+graveRobbingCovenHouse,Quest,Coven House,,,"Coven House"
+graveRobbingCovenHouse_description,Quest,Coven House,,,"You're looking for artifacts from a Witch Seer's grave to summon Magrat the Seer. Scout the witch cult's lair called Coven House and introduce yourself. Persuade any witches you meet to share the location of a cult priest's grave with you. \n\n[Mary's Revenge storyline]"
+graveRobbingCovenHouse_offer,Quest,Coven House,,,"You're looking for artifacts from a Witch Seer's grave to summon Magrat the Seer. Scout the witch cult's lair called Coven House and introduce yourself. Persuade any witches you meet to share the location of a cult priest's grave with you. \n\n[Mary's Revenge storyline]"
+graveRobbingCovenHouseName,Quest,Coven House,,,[00FFB4]Find a grave location[-]
+graveRobbingCovenHouse_subtitle,Quest,Coven House,,,Secure Coven House
+graveRobbingCovenHouse_hint1,Quest,Coven House,,,[00FFB4]Secure the Witch's Lair[-]
+EntityMarysRevengeCovenHouseLoot,entityclasses,Entity,,,Cherished Possessions
+marysRevengeCovenHouseBundle,items,Loot Bundle,,,"Witch's Belongings"
+marysRevengeCovenHouseBundleDesc,items,Loot Bundle,,,"A small box with some cherished possessions."
+resourceWitchesHair,items,Witches Hair,,,"Lock of witches hair" 
+resourceWitchesHairDesc,items,Witches Hair,,,"Grimey lock of rotting witches hair from Judy's grave. Boiling this down in an alchemy recipe creates a vestige brew. The brew is used in a recipe that can be used to summon the witch cult leader Margat the Seer. Watch out for the fleas.\n\n[Mary's Revenge storyline]" 
+resourceUsedToiletPaper,items,Toilet Paper,,,"Much used toilet paper" 
+resourceLavenderFlowers,items,Flowers,,,"Lavender Flowers"
+resourceUncookedRice,items,Rice,,,"Uncooked Rice"
+qt_MaryRevengeJudysGrave,items,Grave Ritual,,,"Witch Seer Grave Location"
+qt_MaryRevengeJudysGraveDesc,items,Grave Ritual,,,"Crudely written ritual instructions to guide some kind of occult bloodletting ritual for Magrat's sister (Judy's) grave. A scrawled map shows the witch's grave location.\n\nRead (A) to dig up Judy the Witch's corpse and take what you need before anyone else can mess with the grave.\n\n[Mary's Revenge storyline]"
+createSummoningPie,Quest,Summoning Magrat,,,"The ultimate insult"
+createSummoningPie_description,Quest,Summoning Magrat,,,"Create a cursed pie from Judy's bones and hair. Consuming a slice of the pie will invoke Magrat's wrath.\n\nIn her diary, Mary's was somewhat vague about possible side-effects from eating the pie.\n\nUse (A) to Summon Magrat.\n[Mary's Revenge storyline]"
+createSummoningPieName,Quest,Summoning Magrat,,,[00FFB4]Create a Cursed Pumkin Pie[-]
+createSummoningPie_subtitle,Quest,Summoning Magrat,,,Poke the Bear 
+createSummoningPie_hint1,Quest,Summoning Magrat,,,[00FFB4]Gather Bone from Judy's Grave[-]
+createSummoningPie_hint2,Quest,Summoning Magrat,,,[00FFB4]Gather Hair from Judy's Grave[-]
+createSummoningPie_hint3,Quest,Summoning Magrat,,,[00FFB4]Cut a Cursed Pumkin Pie into slices[-]
+graveRobbingMagratsSisterGroup,Quest,Quest Info,,,"Coven House, Map to secret grave." 
+marysRevengeGraveScreamer,entityclasses,Entity,,,"Judy's Corpse Warden"
+resourceDeadBird,items,Dead Bird,,,"Half eaten putrefying bird" 
+resourceIpsloresBoots,items,Old Boots,,,"Ipslore's Boots"
+resourceIpsloresBootsDesc,items,Old Boots,,,"Ipslore's fancy boots, not your size."
+resourceDiscWorldBook,items,Special Book,,,"Disk-something"
+resourceDiscWorldBookDesc,items,Special Book,,,"A worn dusty old book, clearly a series worth reading. The title is hard to read. Disc something, maybe Disc Wonder or Disc World? Who knows...."
+resourceCultBoneJudy,items,Bone,,,"Strange bone" 
+resourceCultBoneJudyDesc,items,Bone,,,"A strange blue bone from Judy's grave. Twisted and deformed, it must have been painful to walk on. There is an outline of a red eye burned into the side of the bone.\nBoiling this down in an alchemy recipe creates a vestige brew. The brew is used in a recipe used to summon the witch leader Margat the Seer.\n\n[Mary's Revenge storyline]" 
+resourceCultBone,items,Bone,,,"Bone" 
+resourceCultBoneDesc,items,Bone,,,"A bone from an animal, tainted with the hue and stench of witch binding." 
+graveRobbingMagratsSister,Quest,Grave Robbing,,,"Judy Witch's Bones"
+graveRobbingMagratsSister_description,Quest,Grave Robbing,,,"The summoning ritual requires you to consume an extract from the bones and hair of a Witch Seer. Following the instructions in Mary's diary, you need to dig up Judy Witch's grave and make a pie using her hair and bones. The notes describe consuming the pie in a ritual to summon Magrat.\nYou copy the recipe for the ritual and start looking for the grave, hoping you read the notes correctly.\n\n[Mary's Revenge storyline]"
+graveRobbingMagratsSister_offer,Quest,Grave Robbing,,,"The summoning ritual requires you to consume an extract from the bones and hair of a Witch Seer. Following the instructions in Mary's diary, you need to dig up Judy Witch's grave and make a pie using her hair and bones. The notes describe consuming the pie in a ritual to summon Magrat.\nYou copy the recipe for the ritual and start looking for the grave, hoping you read the notes correctly.\n\n[Mary's Revenge storyline]"
+graveRobbingMagratsSisterName,Quest,Grave Robbing,,,[00FFB4]Loot Judy's grave[-]
+graveRobbingMagratsSister_subtitle,Quest,Grave Robbing,,,Loot the bones
+graveRobbingMagratsSister_hint1,Quest,Grave Robbing,,,[00FFB4]Loot bones from the grave[-]
+graveRobbingMagratsSisterComplete,Quest,Quest Info,,,[00FFB4]Judy Witch's grave has been opened[-]
+graveRobbingTwoCoffinClosed,blocks,Block,,,Judy's Casket
+graveRobbingTwoCoffinCracked,blocks,Block,,,Judy's Casket
+graveRobbingTwoCoffinOpen,blocks,Block,,,Judy's Casket
+graveRobbingCovenHouseScreamerSpawn,Quest,Quest Info,,,Hunt the witch.
+graveRobbingCovenHouseScreamerSpawnName,Quest,Grave Robbing,,,[00FFB4]Kill the witch[-]
+graveRobbingCovenHouseScreamerSpawn_offer,Quest,Grave Robbing,,,"Witches will chant at the priest's grave. Kill the witch to get a map to the location of the priest's grave.\n\n[Mary's Revenge storyline]"
+graveRobbingJudysScreamerSpawn,Quest,Quest Info,,,Grave Protectors
+graveRobbingJudysScreamerSpawnName,Quest,Grave Robbing,,,[00FFB4]Kill the cult members[-]
+graveRobbingJudysScreamerSpawn_offer,Quest,Grave Robbing,,,"There are witches protecting Judy's grave, discuss your concerns with them.\n\n[Mary's Revenge storyline]"
+resourceJudysCorpse,items,Item,,,"Judy Witch's Rotting Corpse"
+resourceJudysCorpseDesc,items,Item,,,"Oozing worm riddled carcass of a witch called Judy.\n\nThe stench is overpowering."
+foodPumpkinJudyPieWhole,items,Food,,,Cursed Pumkin Pie
+foodPumpkinJudyPieWholeDesc,items,Food,,,"Cold and sticky Judy Witch bone and hair Pumpkin Pie.\nOpen to cut into slices.\n\n[Mary's Revenge storyline]"
+foodPumpkinJudyPieSlice,items,Food,,,A Slice Of Cursed Pumkin Pie
+foodPumpkinJudyPieSliceDesc,items,Food,,,"Disgusting slice of Judy Witch bone and hair Pumpkin Pie.\n\nAn underlined passage in Mary's diary warns that consuming this pie will enrage Judy's sister Magrat the Seer and cause her vengeful manifestation. Quick and strong, Magrat will most likely hunt you when out in the open.\n\nMary's strategic notes:\nTry get a height advantage.\nWhile Magrats alive, damaging her dopplegangers encourages more spawns.\nThe Talisman Side Quest may be helpful.\n[Mary's Revenge storyline]"
+resourceWitchBrew,items,Rice,,,"Ubuqili Brew"
+resourceWitchBrewDesc,items,Rice,,,"Specially prepared Ubuqili essence. Has an acidic rotting stink that penetrates deap into your sinuses and stings your eyes. Used in the preparation of summoning a Witch Seer.\n\n[Mary's Revenge storyline]"
+quest_TestCode,Quest,Test code,,,Quest_test_code
+quest_KillMagratID,Quest,Kill Magrat,,,Magrat the Seer 
+quest_KillMagrat,Quest,Kill Magrat,,,Kill Magrat the Seer 
+quest_KillMagratName,Quest,Homing Pigeons,,,[00FFB4]Kill Magrat the Seer[-]
+quest_KillMagratDesc,Quest,Challenge Info,,,"Tracking your every position and hidding behind dopplegangers, Magrat seeks to enslave and sacrifice you. \n\n\n\n[Mary's Revenge Storyline]"
+resourcePieceOfCheese,items,Cheese,,,"Cheese Wedge"
+resourcePieceOfCheeseDesc,items,Cheese,,,"Cheese wedge that looks like cheddar but isnt, certainly doesn't smell like cheddar. You wonder where the ingredients for the cheese would come from..."
+marysRevengeMagratsSacrificialKnife,items,Knife,,,Magrat's Sacrificial Knife.
+marysRevengeMagratsSacrificialKnifeDesc,items,Knife,,,"Mary's Revenge. A lethal sacrificial witch knife that belonged to Magrat the Witch Seer. Like her sister Judy, Magrat was a depraved sadistic  itch with a tendancy towards psychotic outbursts and the knife reflected her creative outlook on life.\n\nBy examining the knife you learn some of its basic stats but it was Magrats personal knife and its real powers remain unknown to you."
+buffMarysRevengeFinalBossSummonDisplay,buffs,Buff,,,Cursed
+buffMarysRevengeFinalBossSummon,buffs,Interloper,,,"Kill Magrat the Seer"
+buffMarysRevengeFinalBossSummonDesc,buffs,Interloper,,,"You spit in the witch-seer Magrat's face and consume the essense of her sister. You embody the curse of Judy Witch and summon Magrat to a no rules battle to the death. Deliver Mary's vengence and defeat Magrat.\n\nMagrat's strategy focuses on spawning dopplegangers at random to confuse, overpower and rip her enemies to shreds. She will continue to spawn at random intervals to dominate and destroy you until you kill her.\n\n[Mary's Revenge Storyline]"
+buffMarysRevengeFinalBossSummonName,buffs,Interloper,,,"Kill Magrat the Seer."
+buffMarysRevengeFinalBossSummonTooltip,buffs,Interloper,,,"Kill Magrat."
+quest_SpawnMagrat,Quest,Kill Magrat,,,Kill Magrat the Seer 
+quest_SpawnMagratName,Quest,Kill Magrat,,,[00FFB4]Kill Magrat the Seer[-]
+quest_SpawnMagratDesc,Quest,Challenge Info,,,"Tracking your every position and hidding behind dopplegangers, Magrat seeks to enslave and sacrifice you. \n\n\n\n[Mary's Revenge Storyline]"
+quest_SpawnMagratMinions,Quest,Kill Magrat,,,A doppleganner has joined the fight!
+quest_SpawnMagratMinionsName,Quest,Kill Magrat,,,[00FFB4]Kill Magrat the Seer[-]
+quest_SpawnMagratMinionsDesc,Quest,Challenge Info,,,"A doppleganger has joined the fight - kill Magrat to stop the dopplegangers spawning. \n\n\n\n[Mary's Revenge Storyline]"
+qt_RunMarysRevengeFinalBoss,items,Encrypted Note,,,MarysRevenge Final Boss
+qt_RunMarysRevengeFinalBossDesc,items,Encrypted Note,,,"Test code to run the final interaction of the Marys Revenge story. Spawns final boss and dopplegangers"
+graveRobbingIpsloreTheRed,Quest,Mary's Revenge,,,"Find Ipslore's Talisman"
+graveRobbingIpsloreTheRedName,Quest,Mary's Revenge,,,[00FFB4]Ipslore's Folly[-]
+graveRobbingIpsloreTheRed_offer,Quest,Mary's Revenge,,,"The power of the Witch Sisters, Magrat and Judy, is in their innate ability to summon dopplegangers.\nDuring the war for control of the witch cult, Ipslore the Red created 2 Talismans to mark Magrat and Judy apart from their dopplegangers. He used one to great effect to mark and kill Judy in an ambush, but while the Talisman could identify the true Magrat it was not very useful at detecting rat poison. Ipslore died an agonising death from renal failure and a prolapsed anus. In death his power lingers and his grave is protected by beasts from hell.\n\n[Mary's Revenge Storyline]"			
+graveRobbingIpsloreTheRedGroup,Quest,Mary's Revenge,,,Ipslore's Folly
+graveRobbingIpsloreTheRed_hint1,Quest,Quest Info,,,[00FFB4]Beware the Gravekeepers[-]
+quest_SpawnGraveKeeperDireWolf,Quest,Hell's Gatekeeper,,,Kill the Grave Keeper 
+quest_SpawnGraveKeeperDireWolfName,Quest,Hell's Gatekeeper,,,[00FFB4]Kill the Grave keeper[-]
+quest_SpawnGraveKeeperDireWolfDesc,Quest,Challenge Info,,,"You have disturbed a grave protected by a witch's death song. A beast fron hell protects the grave and is hunting you.\n\n\n\n[Mary's Revenge Storyline]"
+quest_SpawnGraveKeeperDireBear,Quest,Kill Magrat,,,Kill the Grave Keeper
+quest_SpawnGraveKeeperDireBearName,Quest,Hell's Gatekeeper,,,[00FFB4]Kill the Grave Keeper[-]
+quest_SpawnGraveKeeperDireBearDesc,Quest,Hell's Gatekeeper,,,"You have disturbed a grave protected by a witch's death song. A beast fron hell protects the grave and is hunting you.\n\n\n\n[Mary's Revenge Storyline]"
+
+buffTest,buffs,Buff,,,Test
+pigeonFinalBoss,entityclasses,Entity,,,Curtis Pigeonface Colton
 buffGameEventController,buffs,Buff,,,Zombie Kills: 
 buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 4000.
 buffGraveArtifactComplete,buffs,Buff,,,Cursed Artifact-Strongbox 
@@ -256,8 +383,11 @@ testbuffmsg,buffs,Buff,,,Buff test Msg
 modGunShotgunTubeExtenderMagazine,item_modifiers,Mod,,,Tube Extender Mod For Shotgun and Mary's Revenge.
 modGunShotgunTubeExtenderMagazineDesc,item_modifiers,Mod,,,Increases magazine capacity for pump shotguns and Mary's Revenge by 3 shells.
 questMarysRevengeArtifactContainerOpened,Quest,Challenge Info,,,Cursed Container.
+questMarysRevengeArtifactContainerOpenedName,Quest,Challenge Info,,,[00FFB4]Cursed Container[00FFB4]
 questMarysRevengeArtifactContainerOpenedDesc,Quest,Challenge Info,,,Break open the cursed container to get the Artifact inside.
-qt_burialSiteMarysRevengeNote,items,Quest - Treasure Map,,,Inspect Burial Site - Mary's Revenge
+qt_burialSiteMarysRevengeNote,items,Quest - Burial Site,,,Inspect Burial Site - Mary's Revenge
+qt_burialSiteMarysRevengeCovenHouse,items,Quest - Burial Site,,,"Coven House - Marys Revenge"
+qt_burialSiteMarysRevengeCovenHouseDesc,items,Quest - Burial Site,,,"Test code - starts Coven House chapter of Mary's Revenge"
 qt_burialPatrolCarNote,items,Missing Patrol Car,,,Dirty old Police Notebook: Missing Schematics
 qt_burialPatrolCarNoteDesc,items,Missing Patrol Car,,,"After discovering the Crowd Control mod could be further modified to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the new mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car.\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
 pigeonSpawn,items,Homing Pigeons,,,"Intercept Homing Pigeon"
@@ -294,12 +424,12 @@ quest_Interloper_ScoutTraderOne_subtitle,Quest,Interloper,,,Chat to the Trader.
 quest_Interloper_ScoutTraderTwo,Quest,Interloper,,,"The first had no interest in talking about any Supply Crates. Try visit another Trader to see if there's anything going around about this Special Supply drop. \nIf you're ignored again, there's always something else you can try.\n\n[Interloper storyline]"
 quest_Interloper_ScoutTraderTwoName,Quest,Interloper,,,[FFB400]Scout 2nd Trader for info.[-]
 quest_Interloper_ScoutTraderTwo_description,Quest,Interloper,,,"The first Trader had no interest in talking about any Supply Crates. Visit another Trader and see if there's anything going around about any Special Supply drops. \nIf you're ignored again, there's always something else you can try.\n\n[Interloper storyline]"
-quest_Interloper_ScoutTraderTwo_hint1,Quest,Interloper,,,[FFB400]Check out the Trader.[-]
+quest_Interloper_ScoutTraderTwo_hint1,Quest,Interloper,,,[FFB400]Check out the 2nd Trader.[-]
 quest_Interloper_ScoutTraderTwo_hint2,Quest,Interloper,,,[FFB400]See if the Trader will talk to you.[-]
 quest_Interloper_ScoutTraderTwo_subtitle,Quest,Interloper,,,Scout 2nd Trader for info.
 quest_Interloper_MaliciousActorName,Quest,Interloper,,,[FFB400]The Sound of Silence.[-]
 quest_Interloper_MaliciousActor,Quest,Interloper,,,"Interloper: The Sound of Silence"
-quest_Interloper_MaliciousActor_description,Quest,Interloper,,,"Not getting anywhere with the Traders you decide to set up some surveilance near a Trader to listen in on any local chatter or radio traffic\n\nBuild a Signal Receiver and place it in your base, then build a Signal Capture and Transmitter device. Place the SCT device near a Trader, it will pick any chatter related to SUPPLY CRATES or DROPS. The Signal Receiver will send a notification if/when anything is received.\n\n[Interloper storyline]"
+quest_Interloper_MaliciousActor_description,Quest,Interloper,,,"Not getting anywhere with the Traders you decide to set up some surveilance near a Trader to listen in on any local chatter or radio traffic\n\nBuild a Signal Receiver and place it in your base, then build a Signal Capture and Transmitter device. Place the SCT device near a Trader, it will pick any chatter related to SUPPLY CRATES or DROPS. You will get a notification if/when any matching phrases are intercepted.\n\n[Interloper storyline]"
 quest_Interloper_MaliciousActor_hint1,Quest,Interloper,,,[FFB400]Gather Signal Receiver(SR).[-]
 quest_Interloper_MaliciousActor_hint2,Quest,Interloper,,,[FFB400]Place Signal Receiver(SR).[-]
 quest_Interloper_MaliciousActor_hint3,Quest,Interloper,,,[FFB400]Gather Signal Capture and Transmitter(SCT).[-]
@@ -314,18 +444,17 @@ quest_Interloper_InterceptTheSupplies_hint1,Quest,Interloper,,,[FFB400]Locate th
 quest_Interloper_InterceptTheSupplies_hint2,Quest,Interloper,,,[FFB400]Locate the Supplies.[-]
 quest_Interloper_EpilogueName,Quest,Interloper,,,[FFB400]Trust Must Be Earned[-]
 quest_Interloper_Epilogue,Quest,Interloper,,,"Trust Must Be Earned"
-quest_Interloper_Epilogue_description,Quest,Interloper,,,"You got an offer to trade the special magazines you picked up from the supply crate loot. \n\nGet a drop bag of the magazines. Then go to the drop point and place it down somwhere near. Once placed you will pick up your trade at another location for everyone's safety and privacy. \n[Interloper Storyline]"
+quest_Interloper_Epilogue_description,Quest,Interloper,,,"You got an offer to trade the special magazines you picked up from the supply crate loot. \n\nGet a drop bag of the magazines. Then go to the drop point and place it down somwhere near. Once placed you will pick up your trade at another location for everyone's safety and privacy. \n\n[Interloper Storyline]"
 quest_Interloper_Epilogue_hint1,Quest,Interloper,,,"Gather the Magazine Dropbag." 
 quest_Interloper_Epilogue_hint2,Quest,Interloper,,,[FFB400]Go to the drop point.[-]
 quest_Interloper_Epilogue_hint3,Quest,Interloper,,,[FFB400]Place the Dropbag on the ground somewhere.[-]
 quest_Interloper_Epilogue_hint4,Quest,Interloper,,,[FFB400]Pick up the Trade Drop.[-]
-quest_Interloper_Epilogue_subtitle,Quest,Interloper,,,Epilogue.
+quest_Interloper_Epilogue_subtitle,Quest,Interloper,,,Interloper Epilogue.
 quest_InterloperStoryEpilogue,Quest,Interloper,,,"Interloper Storyline"
-interloperSupplyDropSpawn,items,Interloper,,,"Locate Supply Drop."
+interloperSupplyDropSpawn,items,Interloper,,,"[FFB400]Locate Supply Drop[-]"
 interloperSupplyDropSpawnDesc,items,Interloper,,,"Locate the Supply Drop and recover the special package."
 interloperSupplyDropSpawnSubtitle,items,Interloper,,,"Recover Package."
 quest_PigeonsEpilogueTest,Quest,Pigeon Fancier,,,"TEST."
-quest_PigeonsEpilogue,Quest,Pigeon Fancier,,,"An easy steal"
 quest_PigeonsEpilogue,Quest,Pigeon Fancier,,,"An easy steal"
 quest_PigeonsEpilogue_description,Quest,Pigeon Fancier,,,"Seems the pigeon fancier cant keep his mouth shut. Go and investigate and see if there's anything worth taking.\n\n[Pigeons Carry Diseases storyline]"
 quest_PigeonsEpilogue_offer,Quest,Pigeon Fancier,,,"Another dead pigeon, another loot cache. Grab the loot before anyone else picks it up.\n\n[Pigeons Carry Diseases storyline]"
@@ -393,16 +522,20 @@ interloperEpilogueRewardBundleDesc,items,Bundle,,,"A Bundle of Plissken's Surviv
 interloperSecretDrop,items,Supply Drop,,,"Missing Supply Drop"
 interloperTradeDrop,items,Trade Drop,,,"Interloper Epilogue Trade Drop"
 interloperTradeDropBag,items,Bundle,,,"Magazine Drop Bag"
-interloperTradeDropBagDesc,items,Bundle,,,"Used to trade the unique contents of the Special Supply Drop."
+interloperTradeDropBagDesc,items,Bundle,,,"Used to trade the unique contents of the Special Supply Drop.\n\n[Interloper Storyline]"
 ObjectiveTreasureChest_keyword,Quest,Keywords,,,Distance:
 ttTreasureRadiusReduced,UI,Tooltip,,,.
 buriedPatrolCar,Quest,Challenge Info,,,Missing Patrol Car
 buriedPatrolCar_offer,Quest,Challenge Info,,,"After discovering the Crowd Control mod could be further modified to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car. Well armed and caution are advised.\n\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
-graveRobbingOne,Quest,Challenge Info,,,Mary calls to you from the grave.
+graveRobbingOne,Quest,Challenge Info,,,"Mary calls to you from the grave"
+graveRobbingOneName,Quest,Challenge Info,,,[00FFB4]Mary's Revenge[-]
 graveRobbingOne_offer,Quest,Challenge Info,,,"Mary's Revenge. A cursed burial site and a fevered voice from a dream. 'Revenge me, kill them, kill them; VENGEANCE!'"
-graveRobbingOneCoffinClosed,blocks,Block,,,Decayed Coffin Closed
-graveRobbingOneCoffinCracked,blocks,Block,,,Decayed Coffin Cracked
-graveRobbingOneCoffinOpen,blocks,Block,,,Decayed Coffin Open
+graveRobbingOneCoffinClosed,blocks,Block,,,Mary's Coffin
+graveRobbingOneCoffinCracked,blocks,Block,,,Mary's Coffin
+graveRobbingOneCoffinOpen,blocks,Block,,,Mary's Coffin
+graveRobbingThreeCoffinClosed,blocks,Block,,,Ipslore's Coffin
+graveRobbingThreeCoffinCracked,blocks,Block,,,Ipslore's Coffin
+graveRobbingThreeCoffinOpen,blocks,Block,,,Ipslore's Coffin
 graveRobbingCoffinRandomHelper,blocks,Block,,,= Grave Robbing Coffin = Random Helper =
 graveRobbingCoffinRandomHelperDesc,blocks,Block,,,Grave Robbing Coffin helper - used for spawning Grave Robbing Coffins
 advancedClothingMesh,items,Item,,,Advanced Clothing Mesh

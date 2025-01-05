@@ -20,6 +20,29 @@
 			none, 99
 		</entitygroup>
 		
+		<!--Marys Revenge story code-->
+		<entitygroup name="MarysRevengeCovenHouseSpawnGroup">
+			marysRevengeCovenHouseScreamer
+		</entitygroup>
+		<entitygroup name="MarysRevengeCovenHouseLootSpawnGroup">
+			marysRevengeCovenHouseLootScreamer
+		</entitygroup>
+		<entitygroup name="MarysRevengeScreamerSpawnGroup">
+			marysRevengeGraveScreamer
+		</entitygroup>
+		<entitygroup name="MagratSpawnGroup">
+			marysRevengeFinalBoss
+		</entitygroup>
+		<entitygroup name="MagratMinionSpawnGroup">
+			marysRevengeFinalBossMinion
+		</entitygroup>
+		<entitygroup name="GraveKeeperDireWolfGroup">
+			graveKeeperDireWolf
+		</entitygroup>
+		<entitygroup name="GraveKeeperDireBearGroup">
+			graveKeeperDireBear
+		</entitygroup>
+		<!--end Marys Revenge story code-->
 		
 		<!--code for Interloper story -->
 		<!--spawn a special supply crate see quests:quest_Interloper_InterceptTheSupplies-->
@@ -56,7 +79,7 @@
 	</append>
 	
 	<!--IMPROVED HORDES CODE-->
-		<append xpath="/entitygroups">
+	<append xpath="/entitygroups">
 		<entitygroup name="IHZombiesAllFeral">
 			zombieBoeFeral
 			zombieJoeFeral

@@ -2,103 +2,102 @@
 	
 	
 	<!-- any spawn changes are noted below in comments , all else is default-->
-	<set xpath="/spawning/biome[@name='pine_forest']">
-		<spawn maxcount="1" respawndelay="2.9" time="Day" entitygroup="ZombiesAll" notags="commercial,industrial,downtown" />
-		<spawn maxcount="1" respawndelay="3.3" time="Night" entitygroup="ZombiesNight" notags="commercial,industrial,downtown" />
-
-		<spawn maxcount="2" respawndelay="0.3" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
-		<spawn maxcount="3" respawndelay="0.15" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
-
-		<spawn maxcount="3" respawndelay="0.3" time="Day" entitygroup="ZombiesForestDowntown" tags="downtown" />
-		<spawn maxcount="3" respawndelay="0.1" time="Night" entitygroup="ZombiesForestDowntownNight" tags="downtown" />
-
-		<spawn maxcount="2" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="1" time="Night" entitygroup="WildGameForestNight" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="3.2" time="Night" entitygroup="EnemyAnimalsForest" spawnDeadChance="0" />
-		
+	<append xpath="/spawning/biome[@name='pine_forest']">	
 		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
-		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyBearChanged" spawnDeadChance="0" />
-
-	</set>
+		<spawn id="aa02" maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyBearChanged" spawnDeadChance="0" />
+	</append>
 	
 	
 	<set xpath="/spawning/biome[@name='desert']">
-		<spawn maxcount="1" respawndelay="2.7" time="Any" entitygroup="ZombiesAll" notags="commercial,industrial,downtown" />
-		<spawn maxcount="1" respawndelay="2.1" time="Night" entitygroup="ZombiesNight" notags="commercial,industrial,downtown" />
+		<spawn id="dz01" maxcount="1" respawndelay="2.5" time="Any" entitygroup="ZombiesAll" notags="commercial,industrial,downtown" />
+		<spawn id="nz01" maxcount="2" respawndelay="2.5" time="Night" entitygroup="ZombiesNight" notags="commercial,industrial,downtown" />
 		
 		<!-- orig <spawn maxcount="3" respawndelay="0.2" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" /> -->
-		<spawn maxcount="4" respawndelay="0.2" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
+		<spawn id="dz02" maxcount="4" respawndelay="0.2" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
 		<!--<spawn maxcount="3" respawndelay="0.1" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />-->
-		<spawn maxcount="4" respawndelay="0.1" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
+		<spawn id="nz02" maxcount="4" respawndelay="0.1" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
 
 		<!-- orig <spawn maxcount="3" respawndelay="0.2" time="Day" entitygroup="ZombiesDowntown" tags="downtown" /> -->
-		<spawn maxcount="4" respawndelay="0.2" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
-		<spawn maxcount="4" respawndelay="0.09" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn id="dz03" maxcount="4" respawndelay="0.2" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn id="nz03" maxcount="4" respawndelay="0.09" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
 		
-		<spawn maxcount="1" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="3.5" time="Any" entitygroup="EnemyAnimalsDesert" spawnDeadChance="0" />	
+		<spawn id="aa01" maxcount="1" respawndelay="1.9" time="Any" entitygroup="WildGameForest" />
+		<spawn id="ae01" maxcount="1" respawndelay="3.1" time="Any" entitygroup="EnemyAnimalsDesert" />
+		<spawn id="ne01" maxcount="1" respawndelay="1.8" time="Night" entitygroup="EnemyAnimalsDesertNight" />
+		
 		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
-		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
+		<spawn id="aa02" maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
+		
 	</set>
 	
 	<set xpath="/spawning/biome[@name='burnt_forest']">
-		<spawn maxcount="1" respawndelay="2.8" time="Day" entitygroup="ZombiesBurntForest" />
-		<spawn maxcount="1" respawndelay="3.2" time="Night" entitygroup="ZombiesNight" />
+		<!-- orig <spawn maxcount="1" respawndelay="2.7"-->
+		<spawn id="dz01" maxcount="1" respawndelay="2.8" time="Day" entitygroup="ZombiesBurntForest" />
+		<!-- orig <spawn maxcount="1" respawndelay="2.3"-->
+		<spawn id="nz01" maxcount="1" respawndelay="3.2" time="Night" entitygroup="ZombiesNight" />
 		
 		<!-- orig <spawn maxcount="3" respawndelay="0.25" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" /> -->
-		<spawn maxcount="4" respawndelay="0.25" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
+		<spawn id="dz02" maxcount="4" respawndelay="0.25" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
 		<!--<spawn maxcount="3" respawndelay="0.15" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />-->
-		<spawn maxcount="4" respawndelay="0.15" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
+		<spawn id="nz02" maxcount="4" respawndelay="0.15" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
 
 		<!-- orig <spawn maxcount="3" respawndelay="0.15" time="Day" entitygroup="ZombiesDowntown" tags="downtown" /> -->
-		<spawn maxcount="4" respawndelay="0.15" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
-		<spawn maxcount="4" respawndelay="0.1" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn id="dz03" maxcount="4" respawndelay="0.15" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn id="nz03" maxcount="4" respawndelay="0.1" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
 			
-		<spawn maxcount="1" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="1.1" time="Any" entitygroup="EnemyAnimalsBurntForestAny" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="1" time="Night" entitygroup="WildGameForestNight" spawnDeadChance="0" />
+		<spawn id="aa01" maxcount="1" respawndelay="2.1" time="Any" entitygroup="WildGameForest" />
+		<spawn id="na01" maxcount="1" respawndelay="1.6" time="Night" entitygroup="WildGameForestNight" />
+		<spawn id="ae01" maxcount="1" respawndelay="2.8" time="Any" entitygroup="EnemyAnimalsBurntForestAny" />
+		<spawn id="ne01" maxcount="1" respawndelay="2.2" time="Night" entitygroup="EnemyAnimalsBurntForestNight" />
 		
 		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
-		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
+		<spawn id="aa02" maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyWolfChanged" spawnDeadChance="0" />
 	</set>
 	
 	
 	<set xpath="/spawning/biome[@name='snow']">
-		<spawn maxcount="1" respawndelay="2.6" time="Any" entitygroup="SnowZombies" notags="downtown" />
-		<spawn maxcount="1" respawndelay="1.7" time="Night" entitygroup="ZombiesNight" notags="commercial,industrial,downtown" />
+		<!-- orig <spawn maxcount="1" respawndelay="2.3" -->
+		<spawn id="dz01" maxcount="1" respawndelay="2.6" time="Any" entitygroup="SnowZombies" notags="downtown" />
+		<!-- orig <spawn maxcount="1" respawndelay="1.3" -->
+		<spawn id="nz01" maxcount="1" respawndelay="1.7" time="Night" entitygroup="ZombiesNight" notags="commercial,industrial,downtown" />
 
 		<!-- orig <spawn maxcount="4" respawndelay="0.09" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" /> -->
-		<spawn maxcount="5" respawndelay="0.1" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
+		<spawn id="dz02" maxcount="5" respawndelay="0.1" time="Day" entitygroup="ZombiesAll" tags="commercial,industrial" notags="downtown" />
 		<!--<spawn maxcount="4" respawndelay="0.06" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />-->
-		<spawn maxcount="5" respawndelay="0.06" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
+		<spawn id="nz02" maxcount="5" respawndelay="0.06" time="Night" entitygroup="ZombiesNight" tags="commercial,industrial" notags="downtown" />
 
 		<!-- orig <spawn maxcount="4" respawndelay="0.07" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />-->
-		<spawn maxcount="5" respawndelay="0.07" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn id="dz03" maxcount="5" respawndelay="0.07" time="Day" entitygroup="ZombiesDowntown" tags="downtown" />
 		<!--<spawn maxcount="4" respawndelay="0.04" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />-->
-		<spawn maxcount="5" respawndelay="0.05" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
+		<spawn id="nz03" maxcount="5" respawndelay="0.05" time="Night" entitygroup="ZombiesDowntown" tags="downtown" />
 
-		<spawn maxcount="1" respawndelay="1" time="Any" entitygroup="WildGameForest" spawnDeadChance="0" />
-		<spawn maxcount="1" respawndelay="3.1" time="Any" entitygroup="EnemyAnimalsSnow" spawnDeadChance="0" />	
+		<spawn id="aa01" maxcount="1" respawndelay="2.4" time="Any" entitygroup="WildGameForest" />
+		<spawn id="na01" maxcount="1" respawndelay="1.9" time="Night" entitygroup="WildGameStagNight" />
+		<spawn id="ae01" maxcount="1" respawndelay="2.6" time="Any" entitygroup="EnemyAnimalsSnow" />
+		<spawn id="ne01" maxcount="1" respawndelay="1.6" time="Night" entitygroup="EnemyAnimalsSnowNight" />
 		
 		<!--adding spawns: see entitygroups.xml for def of EnemyGeneralChanged-->
-		<spawn maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyZombieBearChanged" spawnDeadChance="0" />
+		<spawn id="aa02" maxcount="1" respawndelay="4" time="Any" entitygroup="EnemyZombieBearChanged" spawnDeadChance="0" />		
 		
 	</set>
 	
 	<set xpath="/spawning/biome[@name='wasteland']">
 		<!-- orig <spawn maxcount="1" respawndelay="0.3" time="Day"	entitygroup="ZombiesWasteland" notags="commercial,industrial,downtown" /> -->
-		<spawn maxcount="3" respawndelay="0.3" time="Day"	entitygroup="ZombiesWasteland" notags="commercial,industrial,downtown" />
-		<!-- orig <spawn maxcount="1" respawndelay="0.001" time="Night" entitygroup="ZombiesWastelandNight" notags="commercial,industrial,downtown" />-->
-		<spawn maxcount="2" respawndelay="0.0015" time="Night" entitygroup="ZombiesWastelandNight" notags="commercial,industrial,downtown" />
+		<spawn id="dz01" maxcount="3" respawndelay="0.3" time="Day"	entitygroup="ZombiesWasteland" notags="commercial,industrial,downtown" />
+		<!-- orig <spawn maxcount="2" respawndelay="0.003" time="Night" entitygroup="ZombiesWastelandNight" notags="commercial,industrial,downtown" />-->
+		<spawn id="nz01" maxcount="2" respawndelay="0.002" time="Night" entitygroup="ZombiesWastelandNight" notags="commercial,industrial,downtown" />
 
 		<!-- orig <spawn maxcount="4" respawndelay="0.033" time="Day" entitygroup="ZombiesWasteland" tags="commercial,industrial" notags="downtown" />-->
-		<spawn maxcount="6" respawndelay="0.04" time="Day" entitygroup="ZombiesWasteland" tags="commercial,industrial" notags="downtown" />
-		<spawn maxcount="4" respawndelay="0.002" time="Night" entitygroup="ZombiesWastelandNight" tags="commercial,industrial" notags="downtown" />
+		<spawn id="dz02" maxcount="6" respawndelay="0.04" time="Day" entitygroup="ZombiesWasteland" tags="commercial,industrial" notags="downtown" />
+		<spawn id="nz02" maxcount="4" respawndelay="0.002" time="Night" entitygroup="ZombiesWastelandNight" tags="commercial,industrial" notags="downtown" />
 
 		<!-- orig <spawn maxcount="4" respawndelay="0.0167" time="Day" entitygroup="ZombiesWastelandDowntown" tags="downtown" /> -->
-		<spawn maxcount="6" respawndelay="0.02" time="Day" entitygroup="ZombiesWastelandDowntown" tags="downtown" />
-		<spawn maxcount="4" respawndelay="0.002" time="Night" entitygroup="ZombiesWastelandDowntown" tags="downtown" />
-
-		<spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="EnemyAnimalsWasteland" spawnDeadChance="0" />
+		<spawn id="dz03" maxcount="6" respawndelay="0.02" time="Day" entitygroup="ZombiesWastelandDowntown" tags="downtown" />
+		<spawn id="nz03" maxcount="4" respawndelay="0.002" time="Night" entitygroup="ZombiesWastelandDowntown" tags="downtown" />
+		
+		<spawn id="na01" maxcount="1" respawndelay="3.2" time="Night" entitygroup="WildGameStagNight" />
+		<spawn id="ae01" maxcount="1" respawndelay="0.9" time="Any" entitygroup="EnemyAnimalsWasteland" />
+		<spawn id="ne01" maxcount="1" respawndelay="0.6" time="Night" entitygroup="EnemyAnimalsWastelandNight" />
+		
 	</set>
 </configs>
