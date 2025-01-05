@@ -375,7 +375,7 @@ quest_SpawnGraveKeeperDireBearDesc,Quest,Hell's Gatekeeper,,,"You have disturbed
 buffTest,buffs,Buff,,,Test
 pigeonFinalBoss,entityclasses,Entity,,,Curtis Pigeonface Colton
 buffGameEventController,buffs,Buff,,,Zombie Kills: 
-buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 4000.
+buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 3000.
 buffGraveArtifactComplete,buffs,Buff,,,Cursed Artifact-Strongbox 
 buffGraveArtifactCompleteDesc,buffs,Buff,,,Cursed Artifact-Strongbox
 milestoneBundleZombieKill,buffs,Buff,,,Mary reaches out to you from the grave
