@@ -1569,7 +1569,7 @@
 		<!--Mary's Revenge-->
 		<effect_group>
 			<!--set the total kill streak required for Mary's revenge to trigger: default 4000-->
-			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killStreakTarget" operation="set" value="2100"/>
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killStreakTarget" operation="set" value="3000"/>
 			
 			<!--The first time the player 'summons' Magrat, there is a delay before she actually spawns.-->
 			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratFirstSpawnCountdownDefault" operation="set" value="randomint(2,7)"/> <!--default 2,7 seconds-->
