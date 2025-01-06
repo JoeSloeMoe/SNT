@@ -247,7 +247,7 @@
 		<!--NOTE: Minions have a chance to spawn other minions when damaged-->
 		<entity_class name="marysRevengeFinalBossMinion" extends="marysRevengeFinalBossTemplate">
 			<property name="UserSpawnType" value="Menu"/>
-			<property name="Tags" value="entity,zombie,walker,feral,radiated"/>
+			<property name="Tags" value="magratt,entity,zombie,walker,feral,radiated"/>
 			<!--feral screamer skin for looks, the feral eyes help with the Magrats Left Eye loot drop-->
 			<property name="Mesh" value="@:Entities/Zombies/Prefabs/ZScreamerFeral.prefab"/>
 	
