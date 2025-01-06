@@ -1685,6 +1685,7 @@
 			
 			<!--chance for complete bleed out -->
 			<effect_group>
+				<requirement name="!EntityTagCompare" target="other" tags="magrat,magratt"/>
 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/> <!--default 25-->
 					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffMarysRevengeBleedingTerminal"/>
 			</effect_group>
