@@ -2645,7 +2645,7 @@
 			<property class="Action0">
 				<!--dukes stash-->
 				<property name="Create_item" value="ammo9mmBulletAP,ammo44MagnumBulletAP,ammo762mmBulletAP,ammoRocketFrag,thrownGrenadeContact,thrownGrenade,thrownAmmoMolotovCocktail,ammoBundle44MagnumBulletBall,ammoBundle762mmBulletBall,ammoBundle9mmBulletBall,ammoBundleShotgunShell"/>
-				<property name="Create_item_count" value="150-350,150-350,150-350,20,6-25,6-25,6-25,8-12,13-17,3-17,10-16"/> 
+				<property name="Create_item_count" value="150-350,150-350,150-350,20,6-25,6-25,6-25,8-12,13-17,3-17,8-12"/> 
 			</property>
 		</item>		
 		
