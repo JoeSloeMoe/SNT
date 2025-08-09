@@ -1,5 +1,5 @@
 <configs>
-	<!-- traderMute is defined in dialogs.xml 
+	<!-- traderMute is defined in dialogs.xml see also traders.xml:Trader Mute Note
 		This stops quests being offered -->
 	<set xpath="/npc/npc_info[@id='traderbob']/@dialog_id">traderMute</set>
 	<set xpath="/npc/npc_info[@id='traderhugh']/@dialog_id">traderMute</set>

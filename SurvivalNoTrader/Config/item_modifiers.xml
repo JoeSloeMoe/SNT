@@ -1,4 +1,14 @@
 <configs>
+	<!--add a weight to the helmet mods to allow them to be scrrapped. Scrap will be 75% of the weight value in iron-->
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorPerception']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorStrength']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorFortitude']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorAgility']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorIntellect']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorTreasureHunter']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorNightVision']"><property name="Weight" value="334"/></append>
+	<!--end add weight for scrap-->
+	
 	<!--change the effect of cigars from trade specific to block damage
 		See also ui_display.xml-->
 	<remove xpath="item_modifiers/item_modifier[@name='modArmorCigar']"/>
@@ -18,10 +28,12 @@
 			</effect_group>
 		</item_modifier>
 	</insertAfter>
+
 	
 	<!--these 3 mods are unlocked by modRagdollSpecialSchematic, modElectricSpecialSchematic,
 		modCrowdControlSchematic, only the last is currently used in-game -->
 	<append xpath="/item_modifiers">
+		
 		<!--ragdoll armour mod-->
 		<item_modifier name="modRagdollSpecial" installable_tags="armorLegs" modifier_tags="ragdollSpecial" blocked_tags="noMods" type="attachment">
 			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
@@ -63,6 +75,7 @@
 
 			<effect_group tiered="false">
 				<requirement name="EntityTagCompare" target="other" tags="walker,crawler,spider,zombie,feral,radiated,animal,bear,coyote,dog,vulture,wolf"/>
+				<requirement name="TargetRange" target="other" operation="LTE" value="3"/>
 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>	
 					<triggered_effect trigger="onOtherDamagedSelf" action="Ragdoll" target="other" duration="3.5" force="400"/>
 					<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="other" buff="buffShocked"/>
@@ -79,7 +92,7 @@
 		<!--pigeons carry diseases story end-loot mod. Reduces shotgun block damage to blocks with the shotgunBlockDamage tag.
 			The shotgunBlockDamage tag is added to Cobblestone, Concrete and Steel blocks in blocks.xml. 
 			Increases wood block damage.-->
-		<item_modifier name="modShotgunBlockDamage" installable_tags="shotgun,barrelAttachments,turretRanged" modifier_tags="shotgunBlockDamage,barrelAttachment" blocked_tags="noMods" type="attachment">
+		<item_modifier name="modShotgunBlockDamage" installable_tags="shotgun" modifier_tags="shotgunBlockDamage,barrelAttachment" blocked_tags="noMods" type="attachment">
 			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
 			<property name="CustomIcon" value="ductStraightCentered"/>
 			<property name="CustomIconTint" value="247,255,230"/>
@@ -151,15 +164,19 @@
 			<property name="CustomIconTint" value="28,142,199"/>
 			<property name="LightValue" value=".4"/>
 			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfEquipChanged" action="AddPartFPV" part="HeadLight" prefab="Entities/Lighting/miningHelmetLightSource" parentTransform="CameraNode" localPos="0,0.1,0" localRot="-90,180,0"/>
-				<triggered_effect trigger="onSelfEquipChanged" action="AddPartTPV" part="HeadLight" prefab="Entities/Lighting/miningHelmetLightSource" parentTransform="Spotlight" localPos="0,0,0" localRot="90,0,0"/>
-				<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLight"/>
-				<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLight" active="true"/>
-				<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLight" active="false"/>
-				<triggered_effect trigger="onSelfItemActivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
-				<triggered_effect trigger="onSelfItemDeactivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
-				<triggered_effect trigger="onSelfItemActivate" action="AddBuff" buff="buff_trackMagrat" />
-				<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" buff="buff_trackMagrat" />
+				<requirement name="IsEquipped"/>
+					<triggered_effect trigger="onSelfEquipChanged" action="AddPartFPV" part="HeadLight" prefab="@:Entities/Lighting/miningHelmetLightSource.prefab" parentTransform="CameraNode" localPos="0,0.1,0" localRot="-90,180,0"/>
+					<triggered_effect trigger="onSelfEquipChanged" action="AddPartTPV" part="HeadLight" prefab="@:Entities/Lighting/miningHelmetLightSource.prefab" parentTransform="Spotlight" localPos="0,0,0" localRot="90,0,0"/>
+					<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLight"/>
+					<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buff_trackMagrat">
+						<requirement name="HasBuff" buff="buff_trackMagrat"/> </triggered_effect>
+					<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLight" active="true"/>
+					<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLight" active="false"/>
+					<triggered_effect trigger="onSelfItemActivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
+					<triggered_effect trigger="onSelfItemDeactivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
+					<triggered_effect trigger="onSelfItemActivate" action="AddBuff" buff="buff_trackMagrat" />
+					<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" buff="buff_trackMagrat" >
+						<requirement name="HasBuff" buff="buff_trackMagrat"/> </triggered_effect>
 			</effect_group>
 		</item_modifier>
 	</append>

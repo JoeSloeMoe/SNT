@@ -1,6 +1,6 @@
 <configs>
 	<append xpath="/ui_display_info">
-	
+		<!--grim tales code-->
 		<!-- display values for the new GrandPas drinks -->
 		<item_display>
 			<item_display_info display_type="waterGrandpasWheelchairRacingElixir" display_group="groupConsumables">
@@ -38,6 +38,43 @@
 			</item_display_info>
 		</item_display>	
 		<!-- end display values for the new GrandPas drinks -->
+		
+		<!--end grim tales code-->
+		
+		<!--learn by use code-->
+		<character_stat_display>
+			<display_entry name="EntityHeal" title_key="statEntityHeal"/>
+			<!--<display_entry name="StaminaMaxBlockage" title_key="statStaminaMaxBlockage"/>
+			<display_entry name="PhysicalDamageResist" display_type="Decimal1" title_key="statPhysicalDamageResist"/>
+			<display_entry name="ElementalDamageResist" display_type="Decimal1" title_key="statExplosionResistance" tags="heat,electrical"/>
+			<display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" show_inverted="true" tags="buffLaceration"/>
+			<display_entry name="BuffResistance" title_key="total crit resist" display_type="Percent" tags="buffLaceration"/>
+			<display_entry name="StaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal2"/>
+			<display_entry name="HealthChangeOT" title_key="statHealthChangeOT" display_type="Decimal2"/>
+			<display_entry name="HealthMaxModifierOT" title_key="statHealthMaxModifierOT" display_type="Decimal2"/>
+			<display_entry name="HypothermalResist" display_type="Decimal1" title_key="statHypothermalResist"/>
+			<display_entry name="HyperthermalResist" display_type="Decimal1" title_key="statHyperthermalResist"/>
+			<display_entry name="Mobility" title_key="statMobility" display_type="Percent"/>
+			<display_entry name="JumpStrength" title_key="statJumpStrength" display_type="Percent"/>
+			<display_entry name="CarryCapacity" title_key="statCarryCapacity"/>
+			
+			<display_entry name="LootGamestage" title_key="statLootGamestage"/> 
+			<display_entry name="TreasureRadius" title_key="statTreasureRadius"/>
+			<display_entry name="CraftingTier" title_key="statCraftingTier"/>
+			<display_entry name="PlayerExpGain" title_key="statPlayerExpGain" display_type="Percent"/>
+			<display_entry name="EntityDamage" title_key="statEntityDamage"/>
+			<display_entry name="BlockDamage" title_key="statBlockDamage"/>
+			<display_entry name="RoundsPerMinute" title_key="statRoundsPerMinute"/>
+			<display_entry name="AttacksPerMinute" title_key="statAttacksPerMinute"/>
+
+			<display_entry name="HealthChangeOT" title_key="statJumpStrength" display_type="Percent"/>
+
+			<display_entry name="BuffResistance" title_key="statArmorResistStun" display_type="Percent"/>
+			<display_entry name="BuffResistance" title_key="statArmorResistBleed" display_type="Percent" tags="buffInjuryBleeding"/>
+			<display_entry name="BuffResistance" title_key="statArmorResistInfection" display_type="Percent" tags="buffInfectionCatch"/>
+			-->
+		</character_stat_display>
+		<!--End learn by use code-->
 		
 		<!-- display for the changes Awesome Sauce (now increases lootstage instead of Trader stuff) -->
 		<item_display>
@@ -77,7 +114,7 @@
 			<display_entry name="dDuration" title_key="statDuration" display_type="Time"/>
 			<display_entry name="$foodAmountAdd" title_key="statFoodAmount"/>
 	</set>
-	<!--change the effect of cigars from trade spcific to block damage
+	<!--change the effect of cigars from trade specific to block damage
 		See also items.xml-->
 	<set xpath="/ui_display_info/item_display/item_display_info[@display_type='clothingCigar']">
 			<display_entry name="AttributeLevel" tags="attStrength" title_key="statShowStrength" display_leading_plus="true"/>

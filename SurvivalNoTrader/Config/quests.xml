@@ -5,13 +5,8 @@
 			<!-- <property name="delay" value="0.1"/> -->
 			<!-- <property name="on_complete" value="true"/> -->
 		<!-- </action> -->
-		
-	<!--<remove xpath="/quests/quest[@id='quest_whiteRiverCitizen1']"/>-->
-	<remove xpath="/quests/quest[@id='challengegroup_reward_homesteading']"/>
-	
-	<insertBefore xpath="/quests/quest[@id='challengegroup_reward_advanced_survival']">
-		<!--starter quest now just gives 4 skill points-->
-		<!--<quest id="quest_whiteRiverCitizen1">
+	<!--give 4 xp points-->
+	<set xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
 			<property name="group_name_key" value="quest_BasicStart"/>
 			<property name="name_key" value="quest_BasicStart"/>
 			<property name="subtitle_key" value="quest_BasicStart_subtitle"/>
@@ -22,32 +17,7 @@
 			<property name="shareable" value="false"/>	
 			<property name="add_to_tier_complete" value="false"/>	
 			<reward type="SkillPoints" value="4"/>
-		
-		</quest>-->
-
-		<quest id="challengegroup_reward_homesteading">
-			<property name="name_key" value="homesteading_name" param1="name"/>
-			<property name="subtitle_key" value="homesteading_subtitle" param1="subtitle"/>
-			<property name="description_key" value="homesteading_desc" param1="description"/>
-			<property name="icon" value="ui_game_symbol_challenge"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="challenge"/>
-			<property name="add_to_tier_complete" value="false"/>
-			<property name="difficulty_tier" value="0" param1="difficulty"/>
-			<property name="allow_remove" value="false" />
-			<property name="reward_choices_count" value="5"/>
-
-			<reward type="Exp" value="1000"/>
-			
-			<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
-			<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
-			<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
-			<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
-			<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
-		</quest>
-	
-	</insertBefore>
-	
+	</set>		
 	
 	<insertAfter xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
 		<!--Start Interloper story code-->
@@ -63,6 +33,7 @@
 			<property name="category_key" value="quest"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<property name="quest_hints" value="quest_ScoutTraderWasteland1_hint1,quest_ScoutTraderWasteland1_hint2" />
 			
 			<!--<action type="ShowTip" value="quest_quest_ScoutTraderWasteland1_description">
@@ -94,6 +65,7 @@
 			<property name="category_key" value="quest"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<property name="quest_hints" value="quest_ScoutTraderSnow1_hint1,quest_ScoutTraderSnow1_hint2" />
 			
 			<!--<action type="ShowTip" value="quest_ScoutTraderSnow1_description">
@@ -126,6 +98,7 @@
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
 			<property name="repeatable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<property name="quest_hints" value="quest_Interloper_ScoutTraderOne_hint1,quest_Interloper_ScoutTraderOne_hint2" />
 			
 			<!--trader anywhere but pine forest-->
@@ -174,6 +147,7 @@
 			<property name="difficulty" value="5"/>
 			<property name="shareable" value="true"/>
 			<property name="repeatable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<property name="quest_hints" value="quest_Interloper_ScoutTraderTwo_hint1,quest_Interloper_ScoutTraderTwo_hint2" />	
 			
 			<!--trader anywhere but pine forest-->
@@ -213,6 +187,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<!--gather the Receiver, Receiver recipe is available by default. Only crafted in the workbench - see comment below-->
 			<objective type="FetchKeep" id="interloperReceiverBlock" value="1" phase="1"/>
@@ -242,7 +217,7 @@
 				<property name="value" value="1" />
 				<property name="on_complete" value="true"/>
 			</action>
-			<reward type="Item" id="interloperSpywareSetupCompleteNote" value="1"/>
+			<!--<reward type="Item" id="interloperSpywareSetupCompleteNote" value="1"/>-->
 		</quest>
 		
 		<!--Spawn the Supply drop - called by quest_Interloper_InterceptTheSupplies below-->
@@ -256,6 +231,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<!--see gamestages.xml:InterloperDropSpawner for definition and
 						see loot.xml:interloperSecretDrop and loot.xml:groupSecretDrop for loot items-->-->
@@ -278,6 +255,8 @@
 			<property name="track_distance" value="6000"/>
 			<property name="category_key" value="quest"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<property name="quest_hints" value="quest_Interloper_InterceptTheSupplies_hint1,quest_Interloper_InterceptTheSupplies_hint2" />
 			<property name="difficulty_tier" value="6" param1="difficulty" />
 			<property name="difficulty" value="6"/>
@@ -300,7 +279,7 @@
 			<objective type="RallyPoint">
 				<property name="phase" value="2"/>
 				<property name="nav_object" value="rally" />
-				
+				<property name="rally_marker_type" value="questRallyMarkerRestorePower" />
 				<!--this story isnt intended to be a murder fest but can set to only run at night if feeling inclined.
 					Should up reward if doing so - see loot.xml:interloperSecretDrop and loot.xml:groupSecretDrop-->
 				<!--<property name="allowed_start_hour" value="22" /> 
@@ -347,12 +326,15 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<!--trigger the call to play the airplane sound gameevent.
 				The buffInterloperStory buff monitors the playSupplyCrateAirplaneSound var
 				and adds the buffPlayAirplaneSound when this var is set.-->
 			<action type="SetCVar">
 				<property name="cvar" value="playSupplyCrateAirplaneSound" />
 				<property name="value" value="1" />
+				
 			</action>
 			<!--spawn the supply crate-->
 			<action type="SpawnGSEnemy" >
@@ -379,6 +361,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<!--gather the interloperTradeDropBag that contains the magazines from the Special Supply Drop. Will trade them-->
 			<objective type="FetchKeep" id="interloperTradeDropBag" value="1" phase="1"/>			
@@ -421,6 +404,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="PigeonOneSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -436,6 +421,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="PigeonTwoSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -451,6 +438,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="PigeonThreeSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -466,6 +455,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="PigeonFourSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -485,6 +476,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<property name="quest_hints" value="quest_PigeonsEpilogueSpawn_hint1"/>
 			<!--spawn the Boss (the owner of the pigeons that the player has been killing).
 				Boss will drop special loot-->
@@ -514,6 +507,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<property name="icon" value="quest"/>
 			<property name="shareable" value="false"/>
@@ -535,6 +529,7 @@
 			<objective type="RallyPoint">
 				<property name="phase" value="2"/>
 				<property name="nav_object" value="rally" />
+				<property name="rally_marker_type" value="questRallyMarkerClear" />
 			</objective>
 			
 			<objective type="ClearSleepers">
@@ -580,6 +575,7 @@
 			
 			<property name="icon" value="quest"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<!--none of the setting below are used , the original code had a Tier 1 infested clear. 
 				Have left it here in case code is reverted.-->
@@ -637,32 +633,34 @@
 		<quest id="questMarysRevengeArtifactContainerOpened">
 			<property name="name_key" value="questMarysRevengeArtifactContainerOpenedName" />
 			<property name="repeatable" value="true"/>
-			<property name="category_key" value="reward"/>
+			<property name="category_key" value="treasure"/>
 			<property name="offer_key" value="questMarysRevengeArtifactContainerOpened" param1="offer" />
 			<property name="description_key" value="questMarysRevengeArtifactContainerOpenedDesc"/>
 			
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieScreamerRadiated" />
+					<property name="gamestage_list" value="RadiatedScreamerSpawner" />
 					<property name="count" value="3" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 			
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieScreamerFeral" />
+					<property name="gamestage_list" value="FeralScreamerSpawner" />
 					<property name="count" value="2" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
 			<action type="SpawnGSEnemy">
-					<property name="gamestage_list" value="zombieScreamer" />
+					<property name="gamestage_list" value="ScreamerSpawner" />
 					<property name="count" value="1" param1="finish_spawn_count" />
 					<property name="phase" value="1" />
 			</action>
-			<!--<reward type="Item" id="rewardMarysRevengeBundle" value="1"/>-->
-			<reward type="Item" id="marysRevengeHomemadeRifle" value="6"/>
-			<reward type="Item" id="ammo44MagnumBulletAP" value="300"/>
-			<reward type="Item" id="resourceMarysDiary" value="1"/>	
+			<!--<reward type="Item" id="rewardMarysRevengeBundle" value="1"/>
+			<reward type="Item" id="marysRevengeHomemadeRifle" value="6"/>-->
+			<!--<reward type="Item" id="ammo44MagnumBulletAP" ischosen="false" isfixed="true" value="300"/>-->
+			<!--<reward type="Item" id="resourceMarysDiary" value="1"/>	-->
 		</quest>
 		
 		<!--quest to find the first burial site.
@@ -681,6 +679,7 @@
 			<property name="offer_key" value="graveRobbingOne_offer" param1="offer" />
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<objective type="TreasureChest">
 				<property name="block" value="graveRobbingOneCoffinClosed"/>
@@ -721,6 +720,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="GraveKeeperDireWolfSpawner" />
 					<property name="count" value="2" param1="finish_spawn_count" />
@@ -750,6 +751,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="GraveKeeperDireBearSpawner" />
 					<property name="count" value="" param1="finish_spawn_count" />
@@ -772,6 +775,7 @@
 			<property name="offer_key" value="graveRobbingIpsloreTheRed_offer" param1="offer" />
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>		
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<objective type="RandomGotoNPC" phase="1">
 				<property name="completion_distance" value="20"/>
@@ -785,6 +789,7 @@
 				<property name="start_mode" value="Create"/>
 				<property name="phase" value="2"/>
 				<property name="nav_object" value="rally"/>
+				<property name="rally_marker_type" value="questRallyMarkerBuriedSupplies" />
 				
 				<property name="activate_event" value="spawn_graveKeeperDireWolf"/>
 			</objective>
@@ -837,6 +842,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<!--screamers come in multiple waves. One wave has a single screamer that drops the loot bag-->
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="MarysRevengeCovenHouseSpawner" />
@@ -878,7 +885,7 @@
 			The player will use the remnant as an ingredient in some chemistry brew and use 
 			the result to summon Magrat --> 
 		<!--go to the Coven house and clear out.-->
-			<quest id="graveRobbingCovenHouse">
+		<quest id="graveRobbingCovenHouse">
 			<property name="name_key" value="graveRobbingCovenHouseName"/>
 			<property name="offer_key" value="graveRobbingCovenHouse_offer" param1="offer" />
 			<property name="subtitle_key" value="graveRobbingCovenHouse_subtitle"/>
@@ -890,6 +897,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="true"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<property name="icon" value="quest"/>
 			<property name="shareable" value="false"/>
@@ -912,6 +920,7 @@
 				<property name="phase" value="2"/>
 				<property name="nav_object" value="rally" />
 				<property name="activate_event" value="action_CovenHouseSpawn"/>
+				<property name="rally_marker_type" value="questRallyMarkerClear" />
 			</objective>
 			
 			<objective type="ClearSleepers">
@@ -927,6 +936,8 @@
 			<action type="UnlockPOI" >
 				<property name="phase" value="4"/>
 			</action>
+			
+			<reward type="Exp" value="5000"/>
 		</quest>
 
 		<!--spawns the final group of screamers for the graveRobbingMagratsSister quest below-->
@@ -939,6 +950,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="zombieScreamerRadiated" />
 					<property name="count" value="2" param1="finish_spawn_count" />
@@ -966,6 +979,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<!--screamers come in multiple waves. 
 				1)regular Screamers
 				2)feral Screamers
@@ -1027,7 +1042,8 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
- 
+			<property name="add_to_tier_complete" value="false"/>
+			
 			<!--player needs to create Witches Brew from Judy Witch's bones and hair.
 				Then make a Pumkin Judy Pie using the Witches Brew as an ingredient.
 				Consuming the Pie will summon Magrat.--> 
@@ -1057,6 +1073,7 @@
 			<property name="category_key" value="treasure"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<!--this quest will spawn several waves of regular screamers and feral screamers on 
 				radius reduction of the treasure chest. 
@@ -1100,6 +1117,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="zombieScreamer" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -1137,6 +1155,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<!--when Magrat spawns, she will spawn with 2 dopplegangers (Minions). When the player damages a
 				Minion there is a small chance further Minions will spawn (using quest_SpawnMagratMinions)-->
 			<action type="SpawnGSEnemy">
@@ -1163,6 +1182,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="MagratMinionSpawner" />
 					<property name="count" value="2" param1="finish_spawn_count" />
@@ -1183,6 +1203,7 @@
 			<property name="offer_key" value="buriedPatrolCar_offer" param1="offer" />
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			
 			<objective type="TreasureChest">
 				<!-- The quest fails due to not being able to specify 2 alt_blocks
@@ -1215,6 +1236,7 @@
 			<property name="category_key" value="reward"/>
 			<property name="difficulty" value="medium"/>
 			<property name="shareable" value="false"/>
+			<property name="add_to_tier_complete" value="false"/>
 			<action type="SpawnGSEnemy">
 					<property name="gamestage_list" value="zombieFatCopFeral" />
 					<property name="count" value="1" param1="finish_spawn_count" />
@@ -1243,389 +1265,4 @@
 		</quest>
 		<!--END Missing Patrol Car story-->
 	</insertAfter>
-	
-	
-	<!--no trader code-->
-	<!--replaces challenge rewards that require a Trader visit.
-		Those rewards give a choice of rewards at a trader and some xp.
-		Code below changes this. The quests will drop random rewards into inventory as
-		either a bundle or stacks of the same item. (so that rewards only take up one inventory slot)-->
-	<!--first remove all the default reward quests-->
-	<remove xpath="/quests/quest[@id='challengegroup_reward_homesteading']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_advanced_survival']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_crafting']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_trader_quests']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_harvesting']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_gatherer']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_farmer']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_healer']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_survivor']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_rabbit_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_chicken_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_coyote_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_deer_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_snake_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_boar_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_wolf_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_lion_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_bear_hunter']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_any_animal_hunter']"/>
-	<remove xpath="/quests/quest[@id='challengegroup_reward_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_any_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_vulture_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_lumberjack_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_spider_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_bigmama_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_tourist_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_mutated_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_cop_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_wight_zombie_slayer']"/>
-	<remove xpath="/quests/quest[@id='quest_reward_demolition_zombie_slayer']"/>
-	
-	<!--add them back with the ammended rewards and No Trader visit required-->
-	<insertBefore xpath="/quests/quest[@id='treasure_taylor']">	
-		<!--*** CHALLENGES_PAGE_01 -->
-		<quest id="challengegroup_reward_homesteading">
-			<property name="name_key" value="homesteading_name" param1="name"/>
-			<property name="subtitle_key" value="homesteading_subtitle" param1="subtitle"/>
-			<property name="description_key" value="homesteading_desc" param1="description"/>
-			<property name="icon" value="ui_game_symbol_challenge"/>
-			<property name="repeatable" value="true"/>
-			<property name="category_key" value="challenge"/>
-			<property name="add_to_tier_complete" value="false"/>
-			<property name="difficulty_tier" value="0" param1="difficulty"/>
-			<property name="allow_remove" value="false" />
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-
-		</quest>
-		
-		<quest id="challengegroup_reward_advanced_survival" template="challengegroup_reward_homesteading">
-			<variable name="name" value="advanced_survival_name"/>
-			<variable name="subtitle" value="advanced_survival_subtitle"/>
-			<variable name="description" value="advanced_survival_desc"/>
-			<property name="completion_key" value="advanced_survival_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-		<quest id="challengegroup_reward_crafting" template="challengegroup_reward_homesteading">
-			<variable name="name_key" value="crafting_name"/>
-			<variable name="subtitle_key" value="crafting_subtitle"/>
-			<variable name="description_key" value="crafting_desc"/>
-			<property name="completion_key" value="crafting_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-		<quest id="challengegroup_reward_trader_quests" template="challengegroup_reward_homesteading">
-			<variable name="name" value="trader_quests_name"/>
-			<variable name="subtitle" value="trader_quests_subtitle"/>
-			<variable name="description" value="trader_quests_desc"/>
-			<property name="completion_key" value="trader_quests_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-		<quest id="challengegroup_reward_harvesting" template="challengegroup_reward_homesteading">
-			<variable name="name" value="harvesting_name"/>
-			<variable name="subtitle" value="harvesting_subtitle"/>
-			<variable name="description" value="harvesting_desc"/>
-			<property name="completion_key" value="harvesting_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- *** CHALLENGES_PAGE_02 -->
-		<quest id="challengegroup_reward_gatherer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="gatherer_name"/>
-			<variable name="subtitle" value="gatherer_subtitle"/>
-			<variable name="description" value="gatherer_desc"/>
-			<property name="completion_key" value="gatherer_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-		<quest id="challengegroup_reward_farmer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="farmer_name"/>
-			<variable name="subtitle" value="farmer_subtitle"/>
-			<variable name="description" value="farmer_desc"/>
-			<property name="completion_key" value="farmer_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-		<quest id="challengegroup_reward_healer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="healer_name"/>
-			<variable name="subtitle" value="healer_subtitle"/>
-			<variable name="description" value="healer_desc"/>
-			<property name="completion_key" value="healer_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-		<quest id="challengegroup_reward_survivor" template="challengegroup_reward_homesteading">
-			<variable name="name" value="survivor_name"/>
-			<variable name="subtitle" value="survivor_subtitle"/>
-			<variable name="description" value="survivor_desc"/>
-			<property name="completion_key" value="survivor_completion"/>
-			
-			<reward type="Exp" value="1000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-
-	<!-- *** ANIMAL_HUNTER_REWARDS -->
-		<quest id="challengegroup_reward_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name"/>
-			<variable name="subtitle" value="hunter_subtitle"/>
-			<variable name="description" value="hunter_desc"/>
-			<property name="completion_key" value="hunter_completion"/>
-			
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardHunterBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Rabbits_Challenge_Reward -->
-		<quest id="quest_reward_rabbit_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_rabbit"/>
-			<variable name="subtitle" value="hunter_subtitle_rabbit"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Chickens_Challenge_Reward -->
-		<quest id="quest_reward_chicken_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_chicken"/>
-			<variable name="subtitle" value="hunter_subtitle_chicken"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Coyotes_Challenge_Reward -->
-		<quest id="quest_reward_coyote_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_coyote"/>
-			<variable name="subtitle" value="hunter_subtitle_coyote"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Deer_Challenge_Reward -->
-		<quest id="quest_reward_deer_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_deer"/>
-			<variable name="subtitle" value="hunter_subtitle_deer"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Snakes_Challenge_Reward -->
-		<quest id="quest_reward_snake_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_snake"/>
-			<variable name="subtitle" value="hunter_subtitle_snake"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Boar_Challenge_Reward -->
-		<quest id="quest_reward_boar_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_boar"/>
-			<variable name="subtitle" value="hunter_subtitle_boar"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Wolves_Challenge_Reward -->
-		<quest id="quest_reward_wolf_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_wolf"/>
-			<variable name="subtitle" value="hunter_subtitle_wolf"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Lions_Challenge_Reward -->
-		<quest id="quest_reward_lion_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_lion"/>
-			<variable name="subtitle" value="hunter_subtitle_lion"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Bear_Challenge_Reward -->
-		<quest id="quest_reward_bear_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_bear"/>
-			<variable name="subtitle" value="hunter_subtitle_bear"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Any_Animal_Challenge_Reward -->
-		<quest id="quest_reward_any_animal_hunter" template="challengegroup_reward_homesteading">
-			<variable name="name" value="hunter_name_any_animal"/>
-			<variable name="subtitle" value="hunter_subtitle_any_animal"/>
-			<variable name="description" value="hunter_desc"/>
-			<variable name="completion" value="hunter_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardBasicBundle" value="1"/>
-		</quest>
-
-
-	<!-- *** ZOMBIE_SLAYER_REWARDS -->
-		<quest id="challengegroup_reward_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<property name="completion_key" value="zombie_slayer_completion"/>
-			
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="groupChallengeRewardAPAmmoBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Any_Zombies_Challenge_Reward -->
-		<quest id="quest_reward_any_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_any_zombies"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_any_zombies"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardRegAmmo if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardBasicAmmoBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Vulture_Challenge_Reward -->
-		<quest id="quest_reward_vulture_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_vulture"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_vulture"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardRegAmmo if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardAPAmmoBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Lumberjack_Challenge_Reward -->
-		<quest id="quest_reward_lumberjack_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_lumberjack"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_lumberjack"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardExplosives if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardThrownAmmoBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Spider_Challenge_Reward -->
-		<quest id="quest_reward_spider_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_spider"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_spider"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardArmorModBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Big_Mama_Challenge_Reward -->
-		<quest id="quest_reward_bigmama_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_big_mama"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_big_mama"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardGunModBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Tourist_Challenge_Reward -->
-		<quest id="quest_reward_tourist_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_tourist"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_tourist"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardClothingModBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Mutated_Challenge_Reward -->
-		<quest id="quest_reward_mutated_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_mutated"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_mutated"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardPerkModBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Cop_Challenge_Reward -->
-		<quest id="quest_reward_cop_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_cop"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_cop"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardRareItems if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardGoodStuffBundle" value="1"/>
-		</quest>
-
-	<!-- Kill_Wight_Challenge_Reward -->
-		<quest id="quest_reward_wight_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_wight"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_wight"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardLegendary if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardLegendaryMeleeWeaponBundle" value="1"/>
-		</quest>
-
-		<!-- Kill_Demolition_Challenge_Reward -->
-		<quest id="quest_reward_demolition_zombie_slayer" template="challengegroup_reward_homesteading">
-			<variable name="name" value="zombie_slayer_name_demolition"/>
-			<variable name="subtitle" value="zombie_slayer_subtitle_demolition"/>
-			<variable name="description" value="zombie_slayer_desc"/>
-			<variable name="completion" value="zombie_slayer_completion"/>
-			<!-- Challenge Rewards are localized. Update challengeKillRewardLegendary if this list is changed. -->
-			<reward type="Exp" value="10000"/>
-			<reward type="Item" id="challengeRewardLegendaryRangedWeaponBundle" value="1"/>
-		</quest>
-	</insertBefore>
-	<!--END no trader code-->	
 </configs> 

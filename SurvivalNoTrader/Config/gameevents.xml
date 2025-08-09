@@ -1,72 +1,489 @@
 <configs>
 
 	<!--non story line or Learn By Use events-->
-	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_basics']"/>
+	<!--remove duke note buff on startup-->
+	<remove xpath="gameevents/action_sequence[@name='game_first_spawn']"/>
 	
-	<insertAfter xpath="gameevents/action_sequence[@name='challenge_reward_10000']">		
+	<!--remove challenge events and replace with non-trader challenge events-->
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_basics']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_homesteading']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_advanced_survival']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_crafting']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_trader_quests']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_harvesting']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_gatherer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_farmer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_healer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_survivor']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_rabbit_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_chicken_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_coyote_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_deer_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_snake_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_boar_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_wolf_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_lion_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_bear_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_any_animal_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_any_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_vulture_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_spider_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_lumberjack_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_bigmama_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_tourist_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_cop_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_wight_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_mutated_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_demolition_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_burnt']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_desert']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_snow']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_wasteland']"/>
+	
+	<insertAfter xpath="gameevents/action_sequence[@name='challenge_reward_10000']">
 		<action_sequence name="challenge_group_reward_basics">
 			<property name="allow_user_trigger" value="false" />
 			<property name="action_type" value="Game" />
-			
+
 			<action class="AddSkillPoints">
 				<property name="skill_points" value="4" />
 			</action>
-			
-			<action class="Delay">
-				<property name="time" value="2" />
+		</action_sequence>
+		
+		<action_sequence name="challenge_group_reward_homesteading">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
 			</action>
-			<action class="BeltTooltip">
-				<property name="text" value="You have 4 exp points!" />
+		</action_sequence>
+
+		<!-- *** ADVANCED_SURVIVAL_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_advanced_survival" >
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
 			</action>
 		</action_sequence>
-		<!--
-		<action_sequence name="challenge_group_reward_advanced_survival" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_advanced_survival" />
+
+		<!-- *** CRAFTING_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_crafting">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
 		</action_sequence>
-		
-		<action_sequence name="challenge_group_reward_crafting" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_crafting" />
+
+		<!-- *** TRADER_QUESTS_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_trader_quests">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
 		</action_sequence>
-		
-		<action_sequence name="challenge_group_reward_trader_quests" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_trader_quests" />
+
+		<!-- *** HARVESTING_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_harvesting">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
 		</action_sequence>
-		
-		<action_sequence name="challenge_group_reward_harvesting" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_harvesting" />
-		</action_sequence>-->
-		
-		<!-- CHALLENGE_REWARDS_PAGE_02 -->
-		<!--
-		<action_sequence name="challenge_group_reward_gatherer" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_gatherer" />
-		</action_sequence>
-		
-		<action_sequence name="challenge_group_reward_farmer" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_farmer" />
-		</action_sequence>
-		
-		<action_sequence name="challenge_group_reward_healer" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_healer" />
-		</action_sequence>
-		
-		<action_sequence name="challenge_group_reward_survivor" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_survivor" />
-		</action_sequence>-->
 
 
-	<!-- *** ANIMAL_HUNTER --><!--
-		<action_sequence name="challenge_group_reward_hunter" template="challenge_group_reward_homesteading">
-			<variable name="quest" value="challengegroup_reward_hunter" />
-		</action_sequence>-->
+	<!-- **** PAGE_02_ADVANCED_CHALLENGE_REWARDS -->
+
+		<!-- *** GATHERER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_gatherer">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** FARMER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_farmer" >
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** HEALER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_healer">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** SURVIVOR_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_survivor">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** ANIMAL_HUNTER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_hunter">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_RABBITS_REWARD -->
+		<action_sequence name="reward_rabbit_hunter">
+			<property name="action_type" value="Game"/>
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_CHICKENS_REWARD -->
+		<action_sequence name="reward_chicken_hunter">
+			<property name="action_type" value="Game"/>
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_COYOTES_REWARD -->
+		<action_sequence name="reward_coyote_hunter">
+			<property name="action_type" value="Game"/>
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_DEER_REWARD -->
+		<action_sequence name="reward_deer_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_SNAKES_REWARD -->
+		<action_sequence name="reward_snake_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_BOAR_REWARD -->
+		<action_sequence name="reward_boar_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_WOLVES_REWARD -->
+		<action_sequence name="reward_wolf_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_LIONS_REWARD -->
+		<action_sequence name="reward_lion_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_BEAR_REWARD -->
+		<action_sequence name="reward_bear_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_ANY_ANIMALS_REWARD -->
+		<action_sequence name="reward_any_animal_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** ZOMBIE_SLAYER -->
+		<action_sequence name="challenge_group_reward_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardBasicAmmoBundle" />
+					<property name="added_item_counts" value="1" /> 
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_ANY_ZOMBIES_REWARD -->
+		<action_sequence name="reward_any_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardBasicAmmoBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_VULTURES_REWARD -->
+		<action_sequence name="reward_vulture_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardAPAmmoBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_SPIDERS_REWARD -->
+		<action_sequence name="reward_spider_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardArmorModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_LUMBERJACK_REWARD -->
+		<action_sequence name="reward_lumberjack_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardThrownAmmoBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_BIG_MAMA_REWARD -->
+		<action_sequence name="reward_bigmama_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardGunModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_TOURIST_REWARD -->
+		<action_sequence name="reward_tourist_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardClothingModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_COP_REWARD -->
+		<action_sequence name="reward_cop_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardGoodStuffBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_WIGHT_REWARD -->
+		<action_sequence name="reward_wight_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<!--<property name="added_items" value="challengeRewardLegendaryMeleeWeaponBundle" />-->
+					<property name="added_items" value="challengeRewardLegendaryMeleeWeaponChoice" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_MUTATED_REWARD -->
+		<action_sequence name="reward_mutated_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardPerkModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_DEMOLITION_REWARD -->
+		<action_sequence name="reward_demolition_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<!--<property name="added_items" value="challengeRewardLegendaryRangedWeaponBundle" />-->
+					<property name="added_items" value="challengeRewardLegendaryRangedWeaponChoice" />				
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
 		
+		<!-- **** PAGE_03_BIOMES_CHALLENGE_REWARDS -->
+		<!-- *** BURNT_FOREST_REWARD -->
+		<action_sequence name="challenge_group_reward_burnt">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="biomeBadge1" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** DESERT_REWARD -->
+		<action_sequence name="challenge_group_reward_desert">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="biomeBadge2" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="25000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** SNOW_REWARD -->
+		<action_sequence name="challenge_group_reward_snow">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="biomeBadge3" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="50000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** WASTELAND_REWARD -->
+		<action_sequence name="challenge_group_reward_wasteland">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="biomeBadge4" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="100000" />
+			</action>
+		</action_sequence>
 	</insertAfter>
+	
 	<!--END non-storyline or learn by use events-->
 		
 	<append xpath="/gameevents">
 		
 		<!--start Learn By Use Event code-->
-		<!--give a skill point to player = called from buffLBU_GiveProgressSkillPoint when a Perk's Progress reaches max level (progression.xml)-->
+		<!--give a skill point to player = called from buffLBU_giveProgressSkillPoint when a Perk's Progress reaches max level (progression.xml)-->
 		<action_sequence name="lbu_action_give_points">
 			<action class="AddSkillPoints">
 				<property name="skill_points" value="1" />
@@ -86,6 +503,14 @@
 			</action>
 			<action class="BeltTooltip">
 				<property name="text" value="Max Skill Level!" />
+			</action>
+		</action_sequence>
+		
+		<!--display the text indicating that splints and casts can now heal sprains.
+			Called from buffs:buffLBUPhysician when max level reached-->
+		<action_sequence name="lbu_action_display_physicianBonus">
+			<action class="BeltTooltip">
+				<property name="text" value="Physician: Splints and Casts can now heal Sprains!" />
 			</action>
 		</action_sequence>
 		<!--END Learn By Use Event code-->
@@ -195,7 +620,14 @@
 			</action>
 		
 		</action_sequence>
-		
+		<!--called when the player places the spy device at the Trader compound-->
+		<action_sequence name="interloperSpywareSetupCompleteNoteAction">
+			<!--add the msg to players inventory depeding on which msg was received-->
+			<action class="AddItems">
+				<property name="added_items" value="interloperSpywareSetupCompleteNote" />
+				<property name="added_item_counts" value="1" />
+			</action>
+		</action_sequence>
 		
 		<!--End Interloper story code -->
 		
@@ -230,7 +662,7 @@
 			</action>
 		</action_sequence>	
 		
-		<!--give the first burial site quest. Given from treasure map/note, see give_burialSiteOneQuestNote above -->
+		<!--</action_sequence> the first burial site quest. </action_sequence>n from treasure map/note, see </action_sequence>_burialSiteOneQuestNote above -->
 		<action_sequence name="give_graveRobbingOneQuest">
 			<action class="AddQuest">
 				<property name="quest" value="graveRobbingOne" />
@@ -321,7 +753,7 @@
 		 
 		 <!--called by at the end of Marys Revenge story for the reward-->
 		<action_sequence name="action_MarysRevengeFinishReward">
-			<action class="AddXP">
+			<action class="AddXP"> 
 				<property name="xp_amount" value="10000" />
 			</action>
 			<action class="PlaySound">

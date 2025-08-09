@@ -1,18 +1,18 @@
 <configs>
 	<!-- Set crops seed drop probability to 50% -->
-	<set xpath ="blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='plantedCoffee1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='plantedGoldenrod1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='plantedAloe1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='plantedBlueberry1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='plantedPotato1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='plantedChrysanthemum1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='plantedCorn1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='plantedGraceCorn1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0.5</set>
-	<set xpath ="blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0.5</set>
+	<set xpath ="blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='plantedCoffee1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='plantedGoldenrod1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='plantedAloe1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='plantedBlueberry1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='plantedPotato1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='plantedChrysanthemum1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='plantedCorn1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='plantedGraceCorn1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0.35</set>
 	
 	<!--change the description text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops)-->
 	<set xpath ="blocks/block[@name='solarbank']/property[@name='DescriptionKey']/@value">electicPowerSourceDesc</set>
@@ -190,10 +190,11 @@
 	
 	<!--end allow for the T4 and T5 chests to be picked up-->
 
-	<!--gyrocopter stuff-->
+
+	
+	<!--GRIM TALES CODE-->
+	<!--gyrocopter stuff for the found gyro storyline-->
 	<append xpath ="/blocks">
-		
-		<!--destroying (eg. with a pickaxe) a wrecked gyro will return either Chassis or Accessories-->
 		<block name="gyrocopterWreckTemplate">
 			<property name="CreativeMode" value="None"/>
 			<property name="Class" value="CarExplodeLoot"/>
@@ -226,7 +227,7 @@
 			<property name="BigDecorationRadius" value="5"/>
 			<property name="IsTerrainDecoration" value="true"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
-			<property name="MaxDamage" value="100"/>
+			<property name="MaxDamage" value="500"/>
 			<property name="PassThroughDamage" value="true"/>
 			
 			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
@@ -235,6 +236,7 @@
 			<drop event="Harvest" name="resourceOil" count="0,3" tag="salvageHarvest"/>
 			<drop event="Harvest" name="resourceMetalPipe" count="5" prob="0.5" tag="salvageHarvest"/>
 			<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest"/>
+			<drop event="Destroy" name="scrapIron" count="500"/>
 			
 			<property name="ShowModelOnFall" value="false"/>
 			<property name="WaterFlow" value="permitted"/>
@@ -243,22 +245,14 @@
 			
 		</block>
 
-		<!-- Gyro Chassis dropped on Destroy -->
 		<block name="gyrocopterWreckChassis">
 			<property name="Extends" value="gyrocopterWreckTemplate" />
-			<drop event="Destroy" name="vehicleGyroCopterChassis" count="1"/>
-		</block>
-		
-		<!-- Gyro Accessories dropped on Destroy -->
-		<block name="gyrocopterWreckAccessories">
-			<property name="Extends" value="gyrocopterWreckTemplate" />
-			<drop event="Destroy" name="vehicleGyroCopterAccessories" count="1"/>
+			<!--<drop event="Destroy" name="vehicleGyroCopterChassis" count="1"/>-->
+			<property name="LootList" value="lootGyroWreck"/>
 		</block>
 
 	</append>
 	<!--END gyrocopter stuff-->
-	
-	<!--GRIM TALES CODE-->
 	<!--coffin treasure chests-->
 	<append xpath="/blocks">
 		<!--base helper block-->

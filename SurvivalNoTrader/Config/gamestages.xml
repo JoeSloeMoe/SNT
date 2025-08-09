@@ -72,7 +72,37 @@
 		<group name="MagratMinionSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
 			<spawner name="MagratMinionSpawner" count="1"/>
 		</group>
+		<!--generic screamer spawners-->
+		<!--radiated screamers-->
+		
+		<spawner name="RadiatedScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="RadiatedScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="RadiatedScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="RadiatedScreamerSpawner" count="1"/>
+		</group>
+		<!--feral screamers-->
+		<spawner name="FeralScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="FeralScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="FeralScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="FeralScreamerSpawner" count="1"/>
+		</group>
+		<!--screamers-->
+		<spawner name="ScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="ScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="ScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="ScreamerSpawner" count="1"/>
+		</group>
 		<!--END Marys Revenge story code-->
+		
 		
 		<!--interloper story code-->
 		<!--spawns the supply crate for the interloper:quest_Interloper_InterceptTheSupplies chapter-->

@@ -28,7 +28,7 @@
 		</trader_items>
 	</append>
 	
-	<!-- used in npc.xml - all traders have their traderInfo replaced with this one so they dont trade 
+	<!-- Trader Mute Note: used in npc.xml, all traders have their traderInfo replaced with this one so they dont trade 
 		 NOte: Traders are not destructable so they have opening and closing times, 
 				The Loud opening and closing annoucements are muted. 
 				Making them destructable would necessitate a DLL and this mod is intended to be XML only -->

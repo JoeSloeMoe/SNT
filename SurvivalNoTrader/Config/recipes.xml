@@ -31,7 +31,6 @@
 			<ingredient name="foodCropPumpkin" count="2"/>
 		</recipe>
 		<!--END Mary's revenge storyline recipes-->
-		
 		<!--interloper story-->
 		
 		<!--when the interloper story starts the player can then create the Story note again with a recipe, so they can repeat the story if they fail-->
@@ -258,7 +257,7 @@
 			<ingredient name="resourceSpring" count="1"/>
 		</recipe>
 	
-		<!--ammo storage boxes-->
+		<!--ammo storage bundles-->
 		<!--9mm box of bullets-->
 		<recipe name="ammoBundle9mmBulletBall" count="1" craft_time="3" >
 			<ingredient name="ammo9mmBulletBall" count="100"/>
@@ -308,7 +307,20 @@
 		<recipe name="ammoBundleJunkTurretShell" count="1" craft_time="3" >
 			<ingredient name="ammoJunkTurretShell" count="1000"/>
 		</recipe>
-		<!--end ammo storage boxes-->
+		
+		<recipe name="resourceGunPowderBundle" count="1" craft_time="3" >
+			<ingredient name="resourceGunPowder" count="1000"/>
+		</recipe>
+		<recipe name="bulletCasingBundle" count="1" craft_time="3" >
+			<ingredient name="resourceBulletCasing" count="1000"/>
+		</recipe>
+		<recipe name="bulletTipBundle" count="1" craft_time="3" >
+			<ingredient name="resourceBulletTip" count="1000"/>
+		</recipe>
+		<recipe name="buckshotBundle" count="1" craft_time="3" >
+			<ingredient name="resourceBuckshot" count="1000"/>
+		</recipe>
+		<!--end ammo storage bundles-->
 		
 		<!--ammo scrapping bundle recipies -->
 		<!-- See items.xml for the bundle info -->
@@ -482,5 +494,43 @@
 			<ingredient name="resourcePotassiumNitratePowder" count="30"/>
 			<ingredient name="drinkJarBoiledWater" count="1"/>
 		</recipe>
+	
+		
+		
+		<!--challenge reward recipes-->
+		<!--melee legendary-->
+		<recipe name="questRewardLegendarySteelSpearCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryMeleeWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendarySteelClubCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryMeleeWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendarySteelKnuckleCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryMeleeWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendaryMacheteCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryMeleeWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendaryBatonCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryMeleeWeaponChoice" count="1"/>
+		</recipe>
+		<!--ranged legendary-->
+		<recipe name="questRewardLegendaryRifleCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryRangedWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendaryShotgunCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryRangedWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendaryMachineGunCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryRangedWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendaryHandgunCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryRangedWeaponChoice" count="1"/>
+		</recipe>
+		<recipe name="questRewardLegendaryRoboticsCraftingBundle" count="1" craft_time="5">
+			<ingredient name="challengeRewardLegendaryRangedWeaponChoice" count="1"/>
+		</recipe>
+					
+		<!--END challenge reward recipes-->
 	</append>
 </config>

@@ -1,18 +1,240 @@
 <configs>
 	
 	<!--Learn by use code-->
+	<!--lbu_Demolition code for Molotovs-->
+	<append xpath="/items/item[@name='thrownAmmoMolotovCocktail']">
+		<effect_group  tiered="false" >
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDemolitionMolotovsHitCounter" />	
+			<!--set the player molotov thrown token.
+				The player will update demolition xp for a limited time when this is set.
+				Once set, a player's buff will listen to receive notification from any zombies set on fire.
+				It will stop listening after a short period of time. This is how the player can count how many zombies 
+				are set alight with a molotov-->
+			<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="self" buff="buffDemolitionMolotovsHitCounter"/>
+			<!--set the molotov thrown token for any zombie that the molotov set on fire.
+				Each zombie will then return a call using positionAOE to players. The player who threw the molotov will have a buff running to listen for the call (see above).
+				The player then updates their learn by use demolition xp based on the number of response calls from zombies (or animals etc).
+				THis seem to be the only way to count the number of hits a molotov gets.
+				See also buffs:buffDemolitionMolotovs, buffDemolitionMolotovsHitCounter and
+						See also progression:lbu_Demolition for other demolition code for grenades etc.-->
+			<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="positionAOE" target_tags="zombie,animal" range="2.7"  buff="buffDemolitionMolotovTriggerNotification">
+				<requirement name="CVarCompare" target="other" cvar="_underwater" operation="LT" value="0.3"/>
+			</triggered_effect>
+		</effect_group>
+	</append>
+	<!--END lbu_Demolition code for Molotovs-->
+	
+	<!--lbu_Physician Perk code -->
+	<!--The code for the lbu_Physician Perk is implemented in buffs.xml:buffLBUPhysician, progression.xml:lbu_Physician and items.xml(see comment "lbu_Physician Perk code" -->
+	<append xpath="/items/item[@name='medicalBandage']">
+		<effect_group tiered="false">
+			<!--update the xp counter for lbu_Physician-->
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+		</effect_group>
+	</append>
+
+	<!--aloe cream-->
+	<!--healing speed when healing others is coded in the item itself (bandage, aloecream etc) not the games perkPhysician perk code, 
+		so adjust the items healing speed code here see also buffs.xml:buffLBUPhysician for setting the lbu_physicianHealingSpeed variable-->
+	<!-- used on other, regular health per tick based on perkPhysician -->
+	<!--remove the current code-->
+	<remove xpath="/items/item[@name='medicalAloeCream']/effect_group/triggered_effect[@trigger='onSelfSecondaryActionEnd' and @target='other' and @cvar='medRegHealthIncSpeed' and @operation='set' ]"/>
+	<append xpath="/items/item[@name='medicalAloeCream']">
+		<!--add removed code back with the changed to take the learn by use physician perk level into account-->
+		<effect_group tiered="false">				
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="@$lbu_physicianHealingSpeed"/>		
+		</effect_group>
+		<!--increase use counter when item used for lbu_Physician leveling-->
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+		</effect_group>
+	</append>
+	<!--END aloe cream-->
+	
+	<!--medical first aid bandage-->
+	<!--healing speed when healing others is coded in the item itself (bandage, aloecream etc) not the games perkPhysician perk code, 
+		so adjust the items healing speed code here see also buffs.xml:buffLBUPhysician for setting the lbu_physicianHealingSpeed variable-->
+	<!-- used on other, regular health per tick based on perkPhysician -->
+	<!--remove the current code-->
+	<remove xpath="/items/item[@name='medicalFirstAidBandage']/effect_group/triggered_effect[@trigger='onSelfSecondaryActionEnd' and @target='other' and @cvar='medRegHealthIncSpeed' and @operation='set' ]"/>
+
+	<append xpath="/items/item[@name='medicalFirstAidBandage']">
+		<!--add removed code back with the changed to take the learn by use physician perk level into account-->
+		<effect_group tiered="false">				
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="@$lbu_physicianHealingSpeed"/>		
+		</effect_group>
+		<!--increase use counter when item used for lbu_Physician leveling-->
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group> 
+	</append>	
+	<!--END medical first aid bandage-->
+	
+	<!--medical first aid kit-->
+	<!--medical first aid bandage-->
+	<!--healing speed when healing others is coded in the item itself (bandage, aloecream etc) not the games perkPhysician perk code, 
+		so adjust the items healing speed code here see also buffs.xml:buffLBUPhysician for setting the lbu_physicianHealingSpeed variable-->
+	<!-- used on other, regular health per tick based on perkPhysician -->
+	<!--remove the current code-->
+	<remove xpath="/items/item[@name='medicalFirstAidBandage']/effect_group/triggered_effect[@trigger='onSelfSecondaryActionEnd' and @target='other' and @cvar='medRegHealthIncSpeed' and @operation='set' ]"/>
+	<append xpath="/items/item[@name='medicalFirstAidKit']">
+		<!--add removed code back with the changed to take the learn by use physician perk level into account-->
+		<effect_group tiered="false">				
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" target="other" cvar="medRegHealthIncSpeed" operation="set" value="@$lbu_physicianHealingSpeed"/>		
+		</effect_group>
+		<!--increase use counter when item used for lbu_Physician leveling-->
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="3"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="3"/>
+		</effect_group>
+	</append>	
+	<!--END medical first aid bandage-->
+		
+	<append xpath="/items/item[@name='resourceSewingKit']">
+		<effect_group tiered="false">
+			<!--update the xp counter for lbu_Physician-->
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+		</effect_group>
+	</append>
+	
+	<!--
+		Medical splints and casts can heal sprains If
+			lbu_Physician is at max level
+			Player hasnt invested in the game's perkPhysician skill (player can already heal with splints if perkPhysician >=1)
+			lbu_PhysicianBonus is set to 1 in the config settings
+	-->
+	<append xpath="/items/item[@name='medicalSplint']">
+		<!--update the xp counter for lbu_Physician-->
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group>
+		<effect_group name="Primary Action" tiered="false">
+		<!--lbu_Physician gives splint and cast healing of sprains on max level (if player has not already got it)-->
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<!--only use Heal Bonus if lbu_PhysicianBonus is set in config settings-->
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" buff="buffLegSprained"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffLegSprained"/>
+		</effect_group>
+		<effect_group name="Primary Action" tiered="false">
+		<!--lbu_Physician gives splint and cast healing of sprains on max level (if player has not already got it)-->
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<!--only use Heal Bonus if lbu_PhysicianBonus is set in config settings-->
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" buff="buffArmSprained"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffArmSprained"/>
+		</effect_group>	
+		
+		<!--do the same for when used on 'other' player-->
+		<effect_group name="Secondary Action" tiered="false">
+		<!--lbu_Physician gives splint and cast healing of sprains on max level (if player has not already got it)-->
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<!--only use Heal Bonus if lbu_PhysicianBonus is set in config settings-->
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" target="other" buff="buffLegSprained"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff" target="other" buff="buffLegSprained"/>
+		</effect_group>	
+		<effect_group name="Secondary Action" tiered="false">
+		<!--lbu_Physician gives splint and cast healing of sprains on max level (if player has not already got it)-->
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<!--only use Heal Bonus if lbu_PhysicianBonus is set in config settings-->
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" target="other" buff="buffArmSprained"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff" target="other" buff="buffArmSprained"/>
+		</effect_group>	
+	
+	</append>	
+	<!--see medicalSplint above for comments-->
+	<append xpath="/items/item[@name='medicalPlasterCast']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+			<triggered_effect trigger="onSelfSecondaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group>
+		<effect_group tiered="false">
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" buff="buffLegSprained"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffLegSprained"/>
+		</effect_group>	
+		<effect_group tiered="false">
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" buff="buffArmSprained"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="RemoveBuff" buff="buffArmSprained"/>
+		</effect_group>	
+		
+		<!--do the same for when used on 'other' player-->
+		<effect_group tiered="false">
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" target="other" buff="buffLegSprained"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff" target="other" buff="buffLegSprained"/>
+		</effect_group>	
+		<effect_group tiered="false">
+			<requirement name="ProgressionLevel" progression_name="lbu_Physician" operation="GTE" value="50"/>
+			<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="1"/>
+			<requirement name="CVarCompare" cvar="lbu_PhysicianBonus" operation="GTE" value="1"/>
+			<requirement name="HasBuff" target="other" buff="buffArmSprained"/>
+				<triggered_effect trigger="onSelfSecondaryActionEnd" action="RemoveBuff" target="other" buff="buffArmSprained"/>
+		</effect_group>	
+	
+	</append>
+	
+	<append xpath="/items/item[@name='foodHoney']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="1"/>
+		</effect_group>
+	</append>
+	<append xpath="/items/item[@name='drugHerbalAntibiotics']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group>
+	</append>	
+	<append xpath="/items/item[@name='drugAntibiotics']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="3"/>
+		</effect_group>
+	</append>		
+	
+	<append xpath="/items/item[@name='drugPainkillers']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group>
+	</append>
+	<append xpath="/items/item[@name='drugVitamins']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group>
+	</append>	
+	<append xpath="/items/item[@name='drugSteroids']">
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="lbu_PhysicianUseCounter" operation="add" value="2"/>
+		</effect_group>
+	</append>	
+	<!--food and health bars are set in buffs.xml see "lBU Physician Perk supprt code"-->
+	<!--end lbu_Physician Perk code -->
+	
 	<!--add a tag (lbu_demo) to the molotov so that it can be properly identified in progression.xml:lbu_Demolition perk to allocate the correct xp per hit.
 	The tag is added to treat it differently than grenades. The grenade explosion gets xp for all effected zombies, while the moly fire only get xp for 
 	the zombie that was hit by the molotov, all other zombie on fire are ignored-->
-	<set xpath ="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Tags']/@value">lbu_DemoMolotov,ammo,weapon,attPerception,perkDemolitionsExpert,explosivesSkill</set> 
+	<append xpath="/items/item[@name='thrownAmmoMolotovCocktail']/property[@name='Tags']/@value">,lbu_DemoMolotov</append> 
 	
 	<!--Reset the tags for ammoCrossbowBoltExploding. The tags added are exactly the same as it already has in its definition. 
 		perkDemolitionsExpert doesnt return true for requirements statements if the tags are not re-added. (not sure why)
 		e.g. <requirement name="ItemHasTags" tags="perkDemolitionsExpert"/> : returns false for ammoCrossbowBoltExploding even though it has the tag perkDemolitionsExpert in the default code definition-->
 	<set xpath ="/items/item[@name='ammoCrossbowBoltExploding']/property[@name='Tags']/@value">ammo,ranged,attAgility,perkArchery,perkPenetrator,perkDemolitionsExpert</set> 
-	
-	<!--end learn by use code-->
-	
+	<!--END Learn by use code-->
 	
 	<!-- Adding an additional mod slot to a select group of top tier equipment {Tools,Handweapons,Guns,Military Armour,Steel Armour,Swat Helmet} 
 		 Everything is the same as the base game except for (value=".,.,.,.,.,5" <==this value 5) in each line
@@ -216,13 +438,21 @@
 		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
 	<!--end mod slot changes-->
 	
+	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
+	<set xpath="/items/item[@name='oldCash']/property[@name='FuelValue']/@value">30</set>
+
+	<!--set the electrical wiring tool length to be 30-->
+	<append xpath="/items/item[@name='meleeToolWireTool']/property[@class='Action1']">
+		<property name="MaxWireLength" value="30"/> 
+	</append>
+	
 	<!--swap out Preacher, Athletic, Enforcer & Ranger Helmets Bartering bonus 
 	and replace with something not-trader-->
 	
-	<!--remove trading stuff from the Athletic Helmet. Replace with a change to find cement-->
-	<!--add a ID tag to the resourceCement for reference-->
-	<set xpath ="/items/item[@name='foodHoney']/property[@name='Tags']/@value">SNT_honey,food,medical,medicalSkill,fitness</set> 
+	<!--add a ID tag to the foodHoney for reference-->
+	<append xpath ="/items/item[@name='foodHoney']/property[@name='Tags']/@value">,SNT_honey</append> 
 	
+	<!--remove trading stuff from the Athletic Helmet. Replace with a change to find honey-->
 	<!--remove the helmet-->
 	<remove xpath="/items/item[@name='armorAthleticHelmet']"/>
 	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
@@ -233,13 +463,12 @@
 			<property name="DescriptionKey" value="armorAthleticHelmetDesc"/>
 			<property name="DisplayType" value="armorAthleticHelmet"/>
 			<property name="ArmorGroup" value="groupAthletic"/>
-			<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+			<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 			<property name="EquipSlot" value="Head"/>
 			<property name="SoundPickup" value="headwear_cloth_grab"/>
 			<property name="SoundPlace" value="headwear_cloth_place"/>
 			<effect_group name="AthleticHelmet">
-				<!--change the mod slots-->
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
 				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
@@ -248,8 +477,10 @@
 				<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
 				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
 				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
-				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
-				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>
+				<!-- <passive_effect name="HypothermalResist" operation="base_add" value="20"/> -->
+				<!-- <passive_effect name="HyperthermalResist" operation="base_add" value="20"/> -->
+				
+				<display_value name="dFitnessBartering" value="-.02,-.04,-.06,-.08,-.1,-.2" tier="1,2,3,4,5,6"/>
 			</effect_group>
 
 			<!--change the effect from bartering to finding honey-->
@@ -259,7 +490,7 @@
 			</effect_group>
 
 			<property class="SDCS">
-				<property name="HeadGearName" value="Fitness"/>
+				<property name="Prefab" value="@:Entities/Player/{sex}/Gear/Fitness/HeadgearMorphMatrix/{race}{variant}/gearFitness{hair}Head.asset"/>
 				<property name="TransformName" value="head"/>
 				<property name="Excludes" value=""/>
 				<property name="HairMaskType" value="Hat"/>
@@ -283,13 +514,12 @@
 			<property name="DescriptionKey" value="armorPreacherHelmetDesc"/>
 			<property name="DisplayType" value="armorPreacherHelmet"/>
 			<property name="ArmorGroup" value="groupPreacher"/>
-			<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorPrecherHelmetCritChance"/>
+			<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorPrecherHelmetCritChance"/>
 			<property name="EquipSlot" value="Head"/>
 			<property name="SoundPickup" value="headwear_cloth_grab"/>
 			<property name="SoundPlace" value="headwear_cloth_place"/>
 			<effect_group name="PreacherHelmet">
-				<!--change the mod slots-->
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
 				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
@@ -298,18 +528,19 @@
 				<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
 				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
 				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
-				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
-				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>		
+				<!-- <passive_effect name="HypothermalResist" operation="base_add" value="20"/> -->
+				<!-- <passive_effect name="HyperthermalResist" operation="base_add" value="20"/> -->
+				
+
 			</effect_group>
-			<!--change the effect from bartering to acid -->
 			<effect_group>
 				<passive_effect name="LootProb" operation="perc_add" value="2,4,6,8,10,20" tier="1,2,3,4,5,6" tags="SNT_acid"/>
 				<display_value name="dLootProb" value=".02,.04,.06,.08,.1,.2" tier="1,2,3,4,5,6"/> 	
 			</effect_group>
-
+			
 			<property class="SDCS">
+				<property name="Prefab" value="@:Entities/Player/{sex}/Gear/Preacher/HeadgearMorphMatrix/{race}{variant}/gearPreacher{hair}Head.asset"/>
 				<property name="TransformName" value="head"/>
-				<property name="HeadGearName" value="Preacher"/>
 				<property name="Excludes" value=""/>
 				<property name="HairMaskType" value="Hat"/>
 			</property>
@@ -319,7 +550,7 @@
 	
 	<!--remove trading stuff from the Enforcer Helmet. Replace with a change -->
 	<!--add a ID tag to the drinkJarBeer for reference-->
-	<set xpath ="/items/item[@name='foodHoney']/property[@name='Tags']/@value">SNT_beer,drinks,foodSkill,fitness</set> 
+	<append xpath ="/items/item[@name='foodHoney']/property[@name='Tags']/@value">,SNT_beer</append> 
 	
 	<!--remove the helmet-->
 	<remove xpath="/items/item[@name='armorEnforcerHelmet']"/>
@@ -328,27 +559,26 @@
 	<insertAfter xpath="/items/item[@name='armorLumberjackBoots']">
 		<item name="armorEnforcerHelmet">
 			<property name="Extends" value="armorLightMaster" param1="CustomIcon"/>
-			<property name="DescriptionKey" value="armorEnforcerHelmetDesc"/>
-			<property name="DisplayType" value="armorEnforcerHelmet"/>
-			<property name="ArmorGroup" value="groupEnforcer"/>
-			<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg"/>
-			<property name="EquipSlot" value="Head"/>
-			<property name="SoundPickup" value="headwear_sunglasses_grab"/>
-			<property name="SoundPlace" value="headwear_sunglasses_place"/>
-			<effect_group name="EnforcerHelmet">
-				<!--change the mod slots-->
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
-				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
-				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
-				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
-				<passive_effect name="ElementalDamageResist" operation="base_add" value="8,12.3" tier="1,6" tags="heat,electrical"/>
-				<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
-				<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
-				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
-				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
-				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
-				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>
-			</effect_group>
+				<property name="DescriptionKey" value="armorEnforcerHelmetDesc"/>
+				<property name="DisplayType" value="armorEnforcerHelmet"/>
+				<property name="ArmorGroup" value="groupEnforcer"/>
+				<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+				<property name="EquipSlot" value="Head"/>
+				<property name="SoundPickup" value="headwear_sunglasses_grab"/>
+				<property name="SoundPlace" value="headwear_sunglasses_place"/>
+				<effect_group name="EnforcerHelmet">
+					<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+					<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+					<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
+					<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
+					<passive_effect name="ElementalDamageResist" operation="base_add" value="8,12.3" tier="1,6" tags="heat,electrical"/>
+					<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
+					<passive_effect name="BuffResistance" operation="base_add" value="0.041" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+					<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+					<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="lightArmorDeg"/>
+					<!-- <passive_effect name="HypothermalResist" operation="base_add" value="20"/> -->
+					<!-- <passive_effect name="HyperthermalResist" operation="base_add" value="20"/> -->
+				</effect_group>
 
 			<!--change the effect from bartering to cement-->
 			<effect_group>
@@ -357,7 +587,7 @@
 			</effect_group>
 
 			<property class="SDCS">
-				<property name="HeadGearName" value="Enforcer"/>
+				<property name="Prefab" value="@:Entities/Player/{sex}/Gear/Enforcer/HeadgearMorphMatrix/{race}{variant}/gearEnforcer{hair}Head.asset"/>
 				<property name="TransformName" value="head"/>
 				<property name="Excludes" value=""/>
 				<property name="HairMaskType" value="Full"/>
@@ -369,7 +599,7 @@
 	
 	<!--remove trading stuff from Ranger's Helmet. Replace with chance to find glue-->
 	<!--add a ID tag to the existing 'junk' tag of the glue for reference-->
-	<set xpath ="/items/item[@name='resourceGlue']/property[@name='Tags']/@value">junk,SNT_glue</set> 
+	<append xpath ="/items/item[@name='resourceGlue']/property[@name='Tags']/@value">,SNT_glue</append> 
 	<!--remove the helmet-->
 	<remove xpath="/items/item[@name='armorRangerHelmet']"/>
 	<!--put it back with changes - have to do the whole Item as the <effect_group> that the passive effect 
@@ -377,34 +607,33 @@
 	<insertAfter xpath="/items/item[@name='armorScavengerBoots']">
 		<item name="armorRangerHelmet">
 			<property name="Extends" value="armorMediumMaster" param1="CustomIcon"/>
-			<property name="DescriptionKey" value="armorRangerHelmetDesc"/>
-			<property name="DisplayType" value="armorRangerHelmet"/>
-			<property name="ArmorGroup" value="groupRanger"/>
-			<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,armorRangerBonus"/>
-			<property name="EquipSlot" value="Head"/>
-			<property name="SoundPickup" value="headwear_cloth_grab"/>
-			<property name="SoundPlace" value="headwear_cloth_place"/>
-			<effect_group name="RangerHelmet">
-				<!--change the mod slots-->
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/>
-				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
-				<passive_effect name="PhysicalDamageResist" operation="base_add" value="13,17.3" tier="1,6"/>
-				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
-				<passive_effect name="ElementalDamageResist" operation="base_add" value="13,17.3" tier="1,6" tags="heat,electrical"/>
-				<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
-				<passive_effect name="BuffResistance" operation="base_add" value="0.043,0.053" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
-				<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
-				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="mediumArmorDeg"/>
-				<passive_effect name="HypothermalResist" operation="base_add" value="20"/>
-				<passive_effect name="HyperthermalResist" operation="base_add" value="20"/>
-				
-				<passive_effect name="Mobility" operation="perc_add" value="-.049"/> <!-- Set .001 lower to resolve floating point rounding issues -->
-				<passive_effect name="StaminaChangeOT" operation="perc_add" value="-.0281" tags="walking"/>
-				<passive_effect name="StaminaChangeOT" operation="perc_add" value="-.0562" tags="running"/>
-				<display_value name="dStaminaChangeOT" value="-.56"/>
-				<passive_effect name="NoiseMultiplier" operation="perc_add" value=".1"/>
-				<display_value name="dNoiseMultiplier" value=".1"/>
-			</effect_group>
+				<property name="DescriptionKey" value="armorRangerHelmetDesc"/>
+				<property name="DisplayType" value="armorRangerHelmet"/>
+				<property name="ArmorGroup" value="groupRanger"/>
+				<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
+				<property name="EquipSlot" value="Head"/>
+				<property name="SoundPickup" value="headwear_cloth_grab"/>
+				<property name="SoundPlace" value="headwear_cloth_place"/>
+				<effect_group name="RangerHelmet">
+					<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+					<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+					<passive_effect name="PhysicalDamageResist" operation="base_add" value="13,17.3" tier="1,6"/>
+					<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
+					<passive_effect name="ElementalDamageResist" operation="base_add" value="13,17.3" tier="1,6" tags="heat,electrical"/>
+					<passive_effect name="ElementalDamageResist" operation="base_add" value="-.2,.2"/>
+					<passive_effect name="BuffResistance" operation="base_add" value="0.043,0.053" tags="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffAbrasionCatch,buffLaceration,buffInfectionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+					<passive_effect name="DegradationMax" operation="base_set" value="250,500" tier="1,6"/>
+					<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="mediumArmorDeg"/>
+					<!-- <passive_effect name="HypothermalResist" operation="base_add" value="20"/> -->
+					<!-- <passive_effect name="HyperthermalResist" operation="base_add" value="20"/> -->
+					
+					<passive_effect name="Mobility" operation="perc_add" value="-.049"/> <!-- Set .001 lower to resolve floating point rounding issues -->
+					<passive_effect name="StaminaChangeOT" operation="perc_add" value="-.0281" tags="walking"/>
+					<passive_effect name="StaminaChangeOT" operation="perc_add" value="-.0562" tags="running"/>
+					<display_value name="dStaminaChangeOT" value="-.56"/>
+					<passive_effect name="NoiseMultiplier" operation="perc_add" value=".1"/>
+					<display_value name="dNoiseMultiplier" value=".1"/>
+				</effect_group>
 
 			<!--change the effect from bartering to finding glue -->
 			<effect_group>
@@ -413,7 +642,7 @@
 			</effect_group>
 
 			<property class="SDCS">
-				<property name="HeadGearName" value="Ranger"/>
+				<property name="Prefab" value="@:Entities/Player/{sex}/Gear/Ranger/HeadgearMorphMatrix/{race}{variant}/gearRanger{hair}Head.asset"/>
 				<property name="TransformName" value="head"/>
 				<property name="Excludes" value=""/>
 				<property name="HairMaskType" value="Hat"/>
@@ -433,21 +662,41 @@
 		(Mary's Revenge is added as well in the weapons definition further down in this file)
 		(7% added to base lootstage if holding 44 weapon when looting) 
 		see buff.xml:buffGameEventController-->
-	<set xpath ="/items/item[@name='gunHandgunT2Magnum44']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,revolver,barrelAttachments,sideAttachments,smallTopAttachments,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
-	<set xpath ="/items/item[@name='gunHandgunT3DesertVulture']/property[@name='Tags']/@value">bookMagnumV4,weapon,ranged,revolver,holdBreathAiming,reloadPenalty,gun,shortRange,pistol,barrelAttachments,sideAttachments,smallTopAttachments,magazine,firingMode,attAgility,perkGunslinger,attachmentsIncluded,canHaveCosmetic,handgunSkill</set> 
+	<append xpath ="/items/item[@name='gunHandgunT2Magnum44']/property[@name='Tags']/@value">,bookMagnumV4</append> 
+	<append xpath ="/items/item[@name='gunHandgunT3DesertVulture']/property[@name='Tags']/@value">,bookMagnumV4</append> 
 	<!--the expanded drum mag dropped in the pigeons have diseases story - the mod can only be placed on the M60 so need to a specifc tag 'expandedDrumMag' to the M60 for it-->
-	<set xpath ="/items/item[@name='gunMGT3M60']/property[@name='Tags']/@value">expandedDrumMag,weapon,ranged,holdBreathAiming,reloadPenalty,gun,barrelAttachments,sideAttachments,smallTopAttachments,magazine,drumMagazine,bottomAttachments,mediumTopAttachments,attFortitude,perkMachineGunner,perkBookAutoWeapons,attachmentsIncluded,canHaveCosmetic,machinegunSkill</set> 
+	<append xpath ="/items/item[@name='gunMGT3M60']/property[@name='Tags']/@value">,expandedDrumMag</append> 
 	<!--end tags for story items-->
 
-	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
-	<set xpath="/items/item[@name='oldCash']/property[@name='FuelValue']/@value">30</set>
-
-	<!--set anvil and crucilble to be scrappable (by setting the wieght - will scrap to 57% of the weight for diff materials)-->
+	
+	<!--begin recycle code-->
+	
+	<!--Scrapping is controlled by setting the weight
+		Set anvil, bellows and crucible weights etc. -->
 	<set xpath="/items/item[@name='toolAnvil']/property[@name='Weight']/@value">400</set>
 	<set xpath="/items/item[@name='toolForgeCrucible']/property[@name='Material']/@value">Msteel</set>
 	<append xpath="/items/item[@name='toolForgeCrucible']">
 		<property name="Weight" value="667"/>
 	</append>
+	<set xpath="/items/item[@name='toolBellows']/property[@name='Material']/@value">MresourceLeather</set>
+	<append xpath="/items/item[@name='toolBellows']">
+		<property name="Weight" value="150"/>
+	</append>
+
+	<!--Vehicle parts.
+		Parts have their Material changed as well as their weight-->
+	<append xpath="/items/item[@name='vehicleWheels']"><property name="Weight" value="30"/></append>
+	<append xpath="/items/item[@name='vehicleMinibikeChassis']"><property name="Weight" value="200"/></append>
+	<append xpath="/items/item[@name='vehicleMinibikeHandlebars']"><property name="Weight" value="150"/></append>
+	<append xpath="/items/item[@name='vehicleBicycleChassis']"><property name="Weight" value="100"/></append>
+	<append xpath="/items/item[@name='vehicleBicycleHandlebars']"><property name="Weight" value="100"/></append>
+	<append xpath="/items/item[@name='vehicleMotorcycleChassis']"><property name="Weight" value="1600"/></append>
+	<append xpath="/items/item[@name='vehicleMotorcycleHandlebars']"><property name="Weight" value="350"/></append>
+	<append xpath="/items/item[@name='vehicleTruck4x4Chassis']"><property name="Weight" value="16000"/></append>
+	<append xpath="/items/item[@name='vehicleTruck4x4Accessories']"><property name="Weight" value="1134"/></append>
+	<append xpath="/items/item[@name='vehicleGyroCopterChassis']"><property name="Weight" value="9250"/></append>
+	<append xpath="/items/item[@name='vehicleGyroCopterAccessories']"><property name="Weight" value="1134"/></append>
+	<!--end recycle code-->
 	
 	
 	<!--solar panels can be repaired as they dont always come out at full health in loot-->
@@ -1054,11 +1303,6 @@
 			<property name="Group" value="Resources"/>
 		</item>
 		
-		
-		<lootgroup name="groupVehiclesSkillMagazines"> 
-			<item name="vehiclesSkillMagazine" count="15" />
-		</lootgroup>
-		
 		<!--airdrop AP ammo bundle-->
 		<item name="airdropAPAmmoBundle">
 				 <property name="Extends" value="SNTBundleTemplate"/>
@@ -1126,6 +1370,44 @@
 		<!--end Air Drop loot bundles -->	
 	</append>
 	
+	<!--bundles for other ammo types stuff - casings, bullet tips and buckshop.
+		see recipes.xml for other ammo bundles -->
+	<append xpath="/items">
+		<!--bundles for bullet casings and tips-->
+		<item name="bulletCasingBundle">
+			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="resourceBulletCasing"/>
+			<property name="DescriptionKey" value="bulletCasingBundleDesc"/> 
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletCasing"/>
+				<property name="Create_item_count" value="1000"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="bulletTipBundle">
+			<property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="resourceBulletTip"/>
+			<property name="DescriptionKey" value="bulletTipBundleDesc"/> 
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBulletTip"/>
+				<property name="Create_item_count" value="1000"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+		<item name="buckshotBundle">
+			<property name="Extends" value="SNTBundleTemplate"/>
+			<property name="CustomIcon" value="resourceBuckshot"/>
+			<property name="DescriptionKey" value="buckshotBundleDesc"/> 
+			<property name="Stacknumber" value="10"/>
+			<property class="Action0">
+				<property name="Create_item" value="resourceBuckshot"/>
+				<property name="Create_item_count" value="1000"/>
+			</property>
+			<property name="Group" value="Ammo/Weapons,Ammo"/>
+		</item>
+	</append>
 	
 	<!--adding bundles to scrap different kinds of ammo 
 		All bundles assume bundles of 50 (unless otherwise commented) when calculating scrap returns exccept TimedCharges (which uses bundle of 5 and 80% return)
@@ -1431,7 +1713,7 @@
 	
 	<!--GRIM TALES CODE - there is also some grim tales shared code above-->
 	<insertAfter xpath ="items/item[@name='qt_raphael']">
-		<!--books, mags etc for quests-->
+		<!--books, mags etc for general use-->
 		<item name="playerExplosiveBarrelSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
 			<property name="CreativeMode" value="Player"/>
@@ -1443,6 +1725,73 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
 			</effect_group>
 		</item>
+		
+		<!--The newspaper clippings tell a story, there are 4 parts to the story and the clippings are used 
+			in a recipe to create a 'full newspaper' to get the conclusion of the story.
+			Each Grim Tales story (currently 4) has a clipping somewhere in the story, so the 
+			player completes all the grim tales to get the newspaper story conclusion -->
+		<item name="resourceNewsPaperClipping1">
+			<property name="HoldType" value="45"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="newspaperDecor03"/>
+			<property name="DescriptionKey" value="resourceNewsPaperClipping1Desc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceNewsPaperClipping2">
+			<property name="HoldType" value="45"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="newspaperDecor03"/>
+			<property name="DescriptionKey" value="resourceNewsPaperClipping2Desc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceNewsPaperClipping3">
+			<property name="HoldType" value="45"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="newspaperDecor03"/>
+			<property name="DescriptionKey" value="resourceNewsPaperClipping3Desc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceNewsPaperClipping4">
+			<property name="HoldType" value="45"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="newspaperDecor03"/>
+			<property name="DescriptionKey" value="resourceNewsPaperClipping4Desc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--the final article-->
+		<item name="resourceNewsPaperArticle">
+			<property name="HoldType" value="45"/>
+			<property name="ItemTypeIcon" value="book"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="newspaperDecor02"/>
+			<property name="DescriptionKey" value="resourceNewsPaperArticleDesc"/>
+			<property name="Stacknumber" value="10"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<!--END books, mags etc for general use-->
 		
 		<!--Burial Site inspection quest (Mary's revenge)
 			Test code-->
@@ -1685,6 +2034,7 @@
 			
 			<!--chance for complete bleed out -->
 			<effect_group>
+				<!--no bleedout for Marys Revenge final boss or dopplegangers-->
 				<requirement name="!EntityTagCompare" target="other" tags="magrat,magratt"/>
 				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/> <!--default 25-->
 					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" target="other" buff="buffMarysRevengeBleedingTerminal"/>
@@ -1789,7 +2139,7 @@
 			<effect_group name="Power Attack">
 				<passive_effect name="EntityDamage" operation="perc_add" value="1" tags="secondary"/>
 				<passive_effect name="BlockDamage" operation="perc_add" value="1" tags="secondary"/>
-				<passive_effect name="AttacksPerMinute" operation="base_add" value="-50" tags="secondary"/>
+				<passive_effect name="AttacksPerMinute" operation="base_add" value="-0" tags="secondary"/>
 				<passive_effect name="StaminaLoss" operation="base_set" value="10" tags="secondary"/>
 				<!--slightly increase stamina regen-->
 				<passive_effect name="StaminaChangeOT" operation="perc_add" value=".25" tags="secondary"/>
@@ -1799,13 +2149,24 @@
 					<requirement name="EntityTagCompare" target="other" tags="animal"/>
 				</passive_effect>
 				<!--additional damage to ferals and radiated zombies for Magrats defense-->
-				<!--radiated also have the 'feral' tag so this is cummulative for radiated zombies-->
+				<!--radiated, charged and infernal also have the 'feral' tag so this is cummulative for radiated zombies-->
 				<passive_effect name="EntityDamage" operation="perc_add" value="2" tags="secondary"> <!-- +200% damage-->
 					<requirement name="EntityTagCompare" target="other" tags="feral"/>
 				</passive_effect>
 				<passive_effect name="EntityDamage" operation="perc_add" value="3" tags="secondary">  <!-- +500% damage-->
 					<requirement name="EntityTagCompare" target="other" tags="radiated"/>
+				</passive_effect> 
+				<passive_effect name="EntityDamage" operation="perc_add" value="7" tags="secondary">  <!-- +700% damage-->
+					<requirement name="EntityTagCompare" target="other" tags="charged"/>
 				</passive_effect>
+				<passive_effect name="EntityDamage" operation="perc_add" value="9" tags="secondary">  <!-- +900% damage-->
+					<requirement name="EntityTagCompare" target="other" tags="infernal"/>
+				</passive_effect>
+				<!--extra dismember change for charged and infernals-->
+				<passive_effect name="DismemberChance" operation="base_add" value="0.2">
+					<requirement name="EntityTagCompare" target="other" tags="charged,infernal"/>
+				</passive_effect>
+				
 				
 			</effect_group>
 			
@@ -1920,11 +2281,14 @@
 			<property name="CustomIconTint" value="239,200,162"/>
 			<property name="ItemTypeIcon" value="bundle"/>
 			<property name="DescriptionKey" value="rewardMarysRevengeBundleDesc"/>
-
+			<property class="Action0">
+				<property name="Create_item" value="marysRevengeHomemadeRifle,ammo44MagnumBulletAP,resourceMarysDiary"/>
+				<property name="Create_item_count" value="6,300,1"/>
+			</property>
 			<!-- we want to spawn some zombies but dont seem to be able to do that from here-
 				Have to call an event (cant spawn zombies from the event either when using SpawnEntity for some reason)
 				so then have to call a quest (from the event) that then spawns zombies and gives Mary's Revenge-->
-			<effect_group tiered="false">		
+			<effect_group tiered="false">	<reward type="Item" id="rewardMarysRevengeBundle" value="1"/>	
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="CallGameEvent" event="eventMarysRevengeArtifactContainerOpened"/>
 			</effect_group>
 		</item>
@@ -2105,6 +2469,7 @@
 			<property name="CustomIcon" value="cntTrashPile08"/>
 			<property name="CustomIconTint" value="190,150,100"/>
 			<property name="DescriptionKey" value="marysRevengeCovenHouseBundleDesc"/>
+
 			<property class="Action0">
 				<property name="Create_item" value="qt_MaryRevengeJudysGrave,resourceUsedToiletPaper,resourceLavenderFlowers,resourceUncookedRice"/> 
 				<property name="Create_item_count" value="1,1,1,1"/>  
@@ -2128,7 +2493,20 @@
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
-		
+		<!--vial of blood, judies corpse loot-->
+		<item name="resourceBloodVile">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaint"/>
+			<property name="CustomIcon" value="modDyeWhite"/>
+			<property name="CustomIconTint" value="149,52,54"/>
+			<property name="DescriptionKey" value="resourceBloodVileDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+	
 		<!--the output of the concoction the player creates from the hair and bones of Magrats sisters grave-->
 		<!--churchBellHanging  -->
 		<item name="resourceWitchBrew">
@@ -2155,6 +2533,8 @@
 			<property name="CustomIconTint" value="28,142,199"/>
 			<property name="ItemTypeIcon" value="bundle"/>
 			<property name="DescriptionKey" value="foodPumpkinJudyPieWholeDesc"/>
+			<property name="Group" value="Science,Medical,TCMedical"/>
+			
 			<property class="Action0">
 				<property name="Create_item" value="foodPumpkinJudyPieSlice"/>
 				<property name="Create_item_count" value="6"/>
@@ -2165,7 +2545,7 @@
 			<property name="Tags" value="food,fitness"/>
 			<property name="HoldType" value="31"/>
 			<property name="DisplayType" value="food"/>
-			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Food/parcelGenericPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="CustomIcon" value="foodPumpkinPie"/>
 			<property name="CustomIconTint" value="28,142,199"/>
@@ -2178,7 +2558,7 @@
 			<property class="Action0">
 				<property name="Class" value="Eat"/>
 				<property name="Delay" value="1.0"/>
-				<property name="Sound_start" value="player_eating"/>
+				<property name="Sound_start" value="eatSickSound"/>
 				<!-- jar from cooking food <property name="Create_item" value="drinkJarEmpty"/> -->
 			</property>
 			<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
@@ -2189,6 +2569,7 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffMarysRevengeFinalBossSummon">
 					<requirement name="!HasBuff" buff="buffMarysRevengeFinalBossSummon"/>
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="LT" value="1"/>
 				</triggered_effect>	
 			</effect_group>
 		</item>
@@ -2204,7 +2585,7 @@
 			<property name="Tags" value="food"/>
 			<property name="HoldType" value="31"/>
 			<property name="DisplayType" value="food"/>
-			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Food/parcelGenericPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="CustomIcon" value="glassDebris01"/>
@@ -2217,7 +2598,7 @@
 			<property class="Action0">
 				<property name="Class" value="Eat"/>
 				<property name="Delay" value="1.0"/>
-				<property name="Sound_start" value="eatMagratsEye"/>
+				<property name="Sound_start" value="eatSickSound"/>
 				<property name="Create_item" value="magratsEyeBile"/>
 			</property>
 			<effect_group tiered="false" name="Food Tier 0">
@@ -2229,7 +2610,7 @@
 			<property name="Tags" value="food"/>
 			<property name="HoldType" value="31"/>
 			<property name="DisplayType" value="food"/>
-			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Food/parcelGenericPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="CustomIcon" value="resourceScopeLens"/>
 			<property name="CustomIconTint" value="179,96,96"/>
@@ -2242,7 +2623,7 @@
 			<property class="Action0">
 				<property name="Class" value="Eat"/>
 				<property name="Delay" value="1.0"/>
-				<property name="Sound_start" value="eatMagratsEye"/>
+				<property name="Sound_start" value="eatSickSound"/>
 				<property name="Create_item" value="magratsEyeBile"/>
 			</property>
 
@@ -2289,26 +2670,223 @@
 		</item>
 		<!--END Magrats Eye-->
 		
+		<!--found gyro items-->
+		<!--the assassins pistol is the same as a generic pistol but has a built in silencer
+			and gives a large bonus to stealth damage. This gun is only ever spawned as level 6-->
+		<item name="assassinsPistol">
+			<property name="Tags" value="AP_Stealth,noSilencer,weapon,ranged,holdBreathAiming,reloadPenalty,gun,shortRange,pistol,barrelAttachments,sideAttachments,smallTopAttachments,magazine,firingMode,attAgility,perkGunslinger,9mmGun,attachmentsIncluded,canHaveCosmetic,handgunSkill"/>
+			<property name="DisplayType" value="rangedGun"/>
+			<property name="HoldType" value="1"/> 
+			<property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Pistol/PistolPrefab.prefab"/>
+			<property name="Material" value="MHandGunParts"/>
+			<property name="CustomIcon" value="gunHandgunT1Pistol"/>
+			<property name="CustomIconTint" value="209,200,185"/>
+			<property name="TintColor" value="209,200,185"/>
+			<property name="Weight" value="1"/>
+			<property name="ScrapTimeOverride" value="10.0"/>
+			<property name="RepairTools" value="resourceRepairKit"/>
+			<property name="DegradationBreaksAfter" value="false"/>
+			<property name="SoundJammed" value="weapon_jam"/>
+			<property name="Attachments" value="meleeToolFlashlight02"/>
+			<property name="CrosshairOnAim" value="true"/> <!-- aimTest -->
+			<property name="CrosshairUpAfterShot" value="true"/> <!-- aimTest -->
+			<property name="Sound_Sight_In" value="pistol_sight_in"/>
+			<property name="Sound_Sight_Out" value="pistol_sight_out"/>
+			<property name="LightSource" value="lightSource"/> <!-- Start: Needed for the attachment flashlight -->
+			<property name="ActivateObject" value="Attachments/flashlight/lightSource"/>
+			<property name="AttachmentFlashlight" value="flashlight02"/> <!-- End: Needed for the attachment flashlight -->
+			<property name="Group" value="Ammo/Weapons,Ranged Weapons"/>
+			<property name="RepairExpMultiplier" value="10.8"/>
+			<property name="LightValue" value=".45"/>
+			<property name="EconomicValue" value="500"/>
+			<property name="ShowQuality" value="true"/>
+			<property name="SoundUnholster" value="weapon_unholster"/>
+			<property name="SoundHolster" value="weapon_holster"/>
+			<property name="SoundPickup" value="pistol_grab"/>
+			<property name="SoundPlace" value="pistol_place"/>
+
+			<property class="Action0">
+				<property name="Class" value="Ranged"/>
+				<property name="Magazine_items" value="ammo9mmBulletBall"/>
+				<!--silencer stuff-->
+				<property name="Sound_start" value="AP_pistol_s_fire"/>   
+				<property name="Sound_loop" value="AP_pistol_s_fire"/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value="dryfire"/>
+				<property name="Sound_reload" value="pistol_reload"/>
+				<property name="AutoReload" value="false"/>
+				<property name="Particles_muzzle_fire" value="gunfire_pistol"/>
+				<property name="Particles_muzzle_fire_fpv" value="gunfire_pistol_fpv"/>
+				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".98"/>
+				<property name="triggerEffectTriggerPullDualsense" value="PistolTrigger"/>
+				<property name="triggerEffectTriggerPullXbox" value="PistolTrigger"/>
+				<property name="triggerEffectShootDualsense" value="PistolShoot"/>
+				<property name="triggerEffectShootXbox" value="PistolShoot"/>
+			</property>
+			<property class="Action1">
+				<property name="Class" value="Zoom"/>
+				<property name="Zoom_max_out" value="55"/>
+				<property name="Zoom_max_in" value="55"/>
+				<property name="SightsCameraOffset" value="0,.0008,0"/>
+				<property name="zoomTriggerEffectPullDualsense" value="PistolZoom"/>
+				<property name="zoomTriggerEffectPullXb" value="PistolZoom"/>
+			</property>
+			<effect_group name="gunHandgunT1Pistol">
+				<passive_effect name="MaxRange" operation="base_set" value="50" tags="perkGunslinger,9mmGun"/>
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="17" tags="perkGunslinger,9mmGun"/>
+				<passive_effect name="DamageFalloffRange" operation="perc_add" value="-.2,.2" tier="1,6" tags="perkGunslinger,9mmGun"/> <!-- random effective rng -->
+				<passive_effect name="RoundsPerMinute" operation="base_set" value="180" tags="perkGunslinger"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="1" tags="perkGunslinger"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="15" tags="perkGunslinger"/>
+				<!--changed modslots-->
+				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> 
+				<passive_effect name="ModPowerBonus" operation="perc_add" value=".10" tags="EntityDamage,BlockDamage"/>
+				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
+				<passive_effect name="EntityDamage" operation="base_add" value="5" tags="perkGunslinger"/> <!-- damage offset -->
+				<passive_effect name="EntityDamage" operation="perc_add" value="-.02,.02" tags="perkGunslinger"/> <!-- random EntityDmg -->
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05,.25" tier="2,6" tags="perkGunslinger"/> <!-- tier bonus -->
+				<passive_effect name="BlockDamage" operation="perc_add" value="-.08,.08" tags="perkGunslinger"/> <!-- random BlockDmg -->
+				<passive_effect name="BlockDamage" operation="perc_add" value=".15,.75" tier="2,6" tags="perkGunslinger"/> <!-- tier bonus -->
+				<passive_effect name="WeaponHandling" operation="perc_add" value="-.08,.08" tags="perkGunslinger"/> <!-- random WeaponHandling -->
+
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1.5" tags="perkGunslinger"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="1.5" tags="perkGunslinger"/>
+				<passive_effect name="SpreadMultiplierAiming" operation="base_set" value=".4" tags="perkGunslinger"/>
+				<passive_effect name="SpreadMultiplierCrouching" operation="base_set" value=".8" tags="perkGunslinger"/>
+				<passive_effect name="SpreadMultiplierWalking" operation="base_set" value="1.5" tags="perkGunslinger"/>
+				<passive_effect name="SpreadMultiplierRunning" operation="base_set" value="2.2" tags="perkGunslinger"/>
+
+				<passive_effect name="KickDegreesVerticalMin" operation="base_set" value=".7" tags="perkGunslinger"/>
+				<passive_effect name="KickDegreesVerticalMax" operation="base_set" value=".8" tags="perkGunslinger"/>
+				<passive_effect name="KickDegreesHorizontalMin" operation="base_set" value="-.25" tags="perkGunslinger"/>
+				<passive_effect name="KickDegreesHorizontalMax" operation="base_set" value=".25" tags="perkGunslinger"/>
+
+				<passive_effect name="IncrementalSpreadMultiplier" operation="base_set" value="2.0" tags="perkGunslinger,9mmGun"/>
+				<passive_effect name="WeaponHandling" operation="base_set" value=".95" tags="perkGunslinger"/> <!-- crosshair reset speed -->
+
+				<passive_effect name="DegradationMax" operation="base_set" value="300,400" tier="1,6" tags="perkGunslinger,9mmGun"/>
+				<passive_effect name="DegradationPerUse" operation="base_set" value="1" tags="perkGunslinger,9mmGun"/>
+			</effect_group>
+			
+			<!--stealth bonus-->
+			<effect_group tiered="false">
+				<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+				<requirement name="CVarCompare" cvar="_notAlerted" operation="GT" value="0" target="other"/>
+				<requirement name="ItemHasTags" tags="AP_Stealth"/>
+					<!--15x bonus on stealth --> 
+					<passive_effect name="DamageBonus" operation="base_add" value="11"/> 
+					<passive_effect name="EntityDamage" operation="perc_add" value="10"/>
+					<!--300% headshot damage on stealth-->
+					<passive_effect name="DamageModifier" operation="base_add" value="400" tags="head"/>
+					<!--extra damage for charged and infernals-->
+					<passive_effect name="DamageModifier" operation="base_add" value="200" tags="head"> 
+						<requirement name="EntityTagCompare" target="other" tags="charged"/>
+					</passive_effect>
+					<passive_effect name="DamageModifier" operation="base_add" value="300" tags="head">
+						<requirement name="EntityTagCompare" target="other" tags="infernal"/>
+					</passive_effect>
+			</effect_group>
+			
+			<!--silencer stuff-->
+			<property name="BarrelOffset" value="0,-.006,.127"/>
+			<property name="BarrelScale" value="1,1,1"/>
+			<effect_group tiered="false" name="internal attachment prefab (A19)">
+				<requirement name="HoldingItemHasTags" tags="attachmentsIncluded"/>
+					<triggered_effect trigger="onSelfHoldingItemCreated" action="SetTransformActive" active="true" parent_transform="#HeldItemRoot" transform_path="silencer"/>
+			</effect_group>
+		</item>
+		
+		<item name="resourcePilotsCorpse">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanCorpse3"/>
+			<property name="DescriptionKey" value="resourcePilotsCorpseDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceCIADudeCorpse">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanCorpse2"/>
+			<property name="DescriptionKey" value="resourceCIADudeCorpseDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="resourceCIASecurityTag">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="signPosterWantedMissing03"/>
+			<property name="CustomIconTint" value="236,217,198"/>
+			<property name="DescriptionKey" value="resourceCIASecurityTagDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item> 
+		<item name="resourceCIABriefingNote">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="CustomIcon" value="newspaperDecor03"/>
+			<property name="DescriptionKey" value="resourceCIABriefingNoteDesc"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="foundGyroRewardSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="gyrocopterStatic"/>
+			<property name="DescriptionKey" value="foundGyroRewardSchematicDesc"/>
+			<property name="Unlocks" value="vehicleGyroCopterAccessories,vehicleGyroCopterChassis"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="vehicleGyroCopterAccessories" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="vehicleGyroCopterChassis" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="2000"/>
+			</effect_group>
+		</item>
+		<!--END found gyro items-->
+		
 		<!--generic items for visuals in coffins and patrol car loot slots-->
 		<!--simple placeholder item for a gore block in the loot-->
-		<item name="resourceGoreBlockHumanBones">
+		<item name="resourceIpsloresRemains">
 			<property name="HoldType" value="45"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="CustomIcon" value="goreBlockHumanBones"/>
-			<property name="DescriptionKey" value="resourceGoreBlockHumanBones"/>
+			<property name="DescriptionKey" value="resourceIpsloresRemains"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
 		</item>
+		<item name="resourceMarysRemains">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="goreBlockHumanBones"/>
+			<property name="DescriptionKey" value="resourceMarysRemains"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
 		<item name="resourceGoreBlockHumanCorpse1">
 			<property name="HoldType" value="45"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="CustomIcon" value="goreBlockHumanCorpse2"/>
-			<property name="DescriptionKey" value="resourceGoreBlockHumanBones"/>
+			<property name="DescriptionKey" value="resourceGoreBlockHumanCorpse1"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
@@ -2319,7 +2897,7 @@
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="CustomIcon" value="goreBlockHumanCorpse"/>
-			<property name="DescriptionKey" value="resourceGoreBlockHumanBones"/>
+			<property name="DescriptionKey" value="resourceGoreBlockHumanCorpse2"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
@@ -2365,6 +2943,33 @@
 			<property name="Material" value="Morganic"/>
 			<property name="CustomIcon" value="cntPoliceCar01"/>
 			<property name="DescriptionKey" value="resourceYoDawg"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<item name="resourceLuggage">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="CustomIcon" value="cntLuggageMediumOpen"/>
+			<property name="DescriptionKey" value="resourceLuggage"/>
+			<property name="Stacknumber" value="1"/> 
+			<property name="EconomicValue" value="0"/>
+			<property name="Group" value="Resources"/>
+		</item>
+		
+		<!--end generic items-->
+	
+		<!--luggage for the found gyro storyline-->
+		<item name="foundGyroAgentLuggage">
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourceScrapPolymers"/>
+			<property name="CustomIcon" value="cntLuggageBigOpen"/>
+			<property name="DescriptionKey" value="foundGyroAgentLuggageDesc"/>
 			<property name="Stacknumber" value="1"/> 
 			<property name="EconomicValue" value="0"/>
 			<property name="Group" value="Resources"/>
@@ -2644,8 +3249,8 @@
 			<property name="Stacknumber" value="20"/>
 			<property class="Action0">
 				<!--dukes stash-->
-				<property name="Create_item" value="ammo9mmBulletAP,ammo44MagnumBulletAP,ammo762mmBulletAP,ammoRocketFrag,thrownGrenadeContact,thrownGrenade,thrownAmmoMolotovCocktail,ammoBundle44MagnumBulletBall,ammoBundle762mmBulletBall,ammoBundle9mmBulletBall,ammoBundleShotgunShell"/>
-				<property name="Create_item_count" value="150-350,150-350,150-350,20,6-25,6-25,6-25,8-12,13-17,3-17,8-12"/> 
+				<property name="Create_item" value="ammoBundleShotgunSlug,ammoBundle9mmBulletAP,ammoBundle44MagnumBulletAP,ammoBundle762mmBulletAP,ammoRocketFrag,thrownGrenadeContact,thrownGrenade,thrownAmmoMolotovCocktail"/>
+				<property name="Create_item_count" value="6-10,6-10,5-9,6-10,20,6-25,6-25,6-25"/> 
 			</property>
 		</item>		
 		
@@ -2830,7 +3435,7 @@
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="qt_spawnFinalInterloperLootDropDesc"/>
 			<property class="Action0">
-				<property name="QuestGiven" value="quest_InterloperEpilogueSpawn"/>
+				<property name="QuestGiven" value="quest_InterloperSupplySpawn"/>
 			</property>
 		</item>
 		<!--END These are interloper reward story-->
@@ -2929,7 +3534,7 @@
 		</item>	
 		<!--The message tube for the fourth pigeon (actually a bundle)-->
 		<item name="homingPigeonContainer4">
-			 <property name="Extends" value="SNTBundleTemplate"/>
+			<property name="Extends" value="SNTBundleTemplate"/>
 			<property name="CustomIcon" value="pipeSmallWallCap"/>
 			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="DescriptionKey" value="homingPigeonContainerDesc"/>
@@ -2947,7 +3552,7 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buff_homingPigeonNote4Trigger"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffPigeonOnFinalBoss"/>
 			</effect_group>	
-		</item>	
+		</item>		
 		<!--the final pigeon boss loot bundle-->
 		<item name="pigeonFinalBossBundle">
 			 <property name="Extends" value="SNTBundleTemplate"/>
@@ -2955,8 +3560,8 @@
 			<property name="CustomIconTint" value="210,210,33"/>
 			<property name="DescriptionKey" value="pigeonFinalBossBundleDesc"/>
 			<property class="Action0">
-				<property name="Create_item" value="qt_PigeonFinalLootNote,modShotgunBlockDamage,modM60DrumMagazine,drinkJarGrandpasWheelchairRacingElixir,drinkJarGrandpasThemsFightinWordsMoonshine,drinkJarGrandpasGunbeltOilSauce,drinkJarGrandpasForgettingElixir"/>
-				<property name="Create_item_count" value="1,1,1,3,3,3,1"/>  
+				<property name="Create_item" value="qt_PigeonFinalLootNote,modShotgunBlockDamage,modM60DrumMagazine,drinkJarGrandpasWheelchairRacingElixir,drinkJarGrandpasThemsFightinWordsMoonshine,drinkJarGrandpasGunbeltOilSauce,drinkJarGrandpasForgettingElixir,foodCropGraceCorn"/>
+				<property name="Create_item_count" value="1,1,1,3,3,3,1,10"/>  
 			</property>
 			<effect_group tiered="false">
 				<!--notify the buffs.xml:buffPigeonOnFinalBoss buff that the final boss loot has been delivered to the players inventory.
@@ -2965,7 +3570,7 @@
 				<!--call the reward event as the story is finished-->
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffPigeonsStoryFinishedReward"/> 
 			</effect_group>	
-		</item>	
+		</item>		
 		
 		<!--generic items for pigeon lootbags (Pigeons Carry Diseases storyline)-->
 		<item name="resourcePigeonPoop">
@@ -3141,11 +3746,24 @@
 			</effect_group>
 		</item>
 	</append>
-	
 	<!--END Interloper challenge code-->
-
-	<!--CHALLENGES code -->
+	<!--end grim tales code-->
 	
+	<!--no trader code-->
+	<!--remove the duke's note and replace with Survival No Trader text-->
+	<remove xpath="/items/item[@name='noteDuke01']"/>
+	<insertAfter xpath="/items/item[@name='blankNoteMaster']">
+		
+		<item name="noteDuke01">
+			<property name="Extends" value="blankNoteMaster"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="DescriptionKey" value="tutorialTipQuest01"/>
+			<property name="CustomIcon" value="challengeQuestMaster"/>
+			<property name="SoundPickup" value="map_grab"/>
+			<property name="SoundPlace" value="map_place"/>
+		</item>
+	</insertAfter>
+	<!--CHALLENGES code -->
 	<append xpath="/items">
 		<!--loot bundle for Challenge Group rewards. The default Challenge Group rewards are removed as they 
 		require a visit to the trader. Those quests are changed to drop this loot-->
@@ -3393,10 +4011,52 @@
 				<property name="Create_item_count" value="0"/>
 			</property>
 		</item>	
+		
+		<!--items used for recipes. The player gets the items for completing challenges. Then uses recipes to
+			choose wha tthey want as a reward-->
+		<!--<item name="challengeRewardGoodStuffBundle">
+			<property name="Extends" value="questRewardBundleMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="resourceWaterFilter"/>
+			<property name="CustomIconTint" value="169,220,230"/>
+			<property name="ItemTypeIcon" value="bundle"/>
+			<property name="DescriptionKey" value="challengeRewardGoodStuffBundleDesc"/>
+			<property class="Action0">
+				<property name="Class" value="OpenLootBundle"/>
+				<property name="Delay" value="0"/>
+				<property name="Sound_start" value="close_garbage"/>
+				<property name="LootList" value="challengeRewardGoodStuffSNT"/>
+			</property>
+		</item>		-->
+		<item name="challengeRewardLegendaryMeleeWeaponChoice">
+			<property name="CustomIcon" value="cntLootCrateBookstore"/>
+			<!--<property name="CustomIconTint" value="232,103,103"/> -->
+			<property name="DescriptionKey" value="challengeRewardLegendaryMeleeWeaponBundleDesc"/>
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="Stacknumber" value="10"/> <!-- STK loot -->
+			<property name="Group" value="Resources"/>
+		</item>
+		<item name="challengeRewardLegendaryRangedWeaponChoice">
+			<property name="CustomIcon" value="cntLootCrateBookstore"/>
+			<!--<property name="CustomIconTint" value="232,103,103"/> -->
+			<property name="DescriptionKey" value="challengeRewardLegendaryRangedWeaponBundleDesc"/>
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Weight" value="1"/>
+			<property name="Material" value="Mpaper"/>
+			<property name="Stacknumber" value="10"/> <!-- STK loot -->
+			<property name="Group" value="Resources"/>
+		</item>
 		<!--END individual reward items bundles-->
 		
 		<!--END other challenge reward bundles-->
-	
+		
 	</append>
 	<!--END CHALLENGES code -->
+	<!--no trader code-->
 </configs>

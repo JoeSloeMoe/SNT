@@ -54,6 +54,7 @@
 		replace and change to challenge to do 25 treasure maps-->
 	<remove xpath="challenges/challenge[@name='questTraderToTraderComplete']"/>
 	
+	
 	<!--put them all back in order with changes-->
 	<insertAfter xpath="challenges/challenge[@name='purchaseItems']">
 		<!--change sell items to buy (vending machines count as traders)-->
@@ -61,6 +62,7 @@
 			short_description_key="challengeSellItemsJoelShort" description_key="challengeSellItemsJoelDesc"
 			reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
 			<objective type="Trader" is_buy="true" count="15"/>
+			<property name="repeatable" value="true"/>
 		</challenge>
 	
 		<challenge name="questComplete" title_key="challengeQuestComplete" icon="ui_game_symbol_barter" group="Traders"
@@ -81,6 +83,7 @@
 			reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_2500">
 			<objective type="Craft" item="medicalFirstAidKit" count="5"/>
 		</challenge>
+		
+		
 	</insertAfter>
-
 </configs>

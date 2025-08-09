@@ -1,5 +1,5 @@
 <config>
-	<set xpath="/windows/window[@name='newContinueGame']/rect[@name='tabs']/rect[@name='tabsContents']/rect[@tab_key='xuiGameSettingsGeneral']">
+	<set xpath="/windows/window[@name='newContinueGame']/rect[@name='rightPanel']/rect[@name='tabs']/rect[@name='tabsContents']/rect[@tab_key='xuiGameSettingsGeneral']">
 		<!--<rect tab_key="xuiGameSettingsGeneral">-->
 		<grid pos="6,-40" rows="14" cell_width="525" cell_height="42" repeat_content="false" arrangement="vertical" >			
 			<gameoption name="ServerEnabled" title="goServerEnabled" value_wrap="false" value_type="bool" values="" display_names="goServerEnabledOff,goServerEnabledOn" value_localization_prefix="" />
@@ -17,31 +17,31 @@
 			<gameoption name="XPMultiplier" title="goXPMultiplier" value_wrap="false" value_type="int" values="25, 50, 75, 100, 125, 150, 175, 200, 300" display_names="" value_localization_prefix="goXPMultiplierValue" />
 			<gameoption name="DayNightLength" title="goDayLength" value_wrap="false" value_type="int" values="10, 20, 30, 40, 50, 60, 90, 120" display_names="" value_localization_prefix="goMinute" />
 			<gameoption name="DayLightLength" title="goDayLightLength" value_wrap="false" value_type="int" values="12, 14, 16, 18" display_names="" value_localization_prefix="goDayLightLengthValue" />					
-			
-			<!--this is Khaines code from mod:KHA21-12CraftQueue-->
-				<gameoption name="LandClaimCount" title="goLandClaimCount" value_wrap="false" value_type="int" values="1, 2, 3, 4, 5" display_names="" value_localization_prefix="goLandClaimCountValue" />
-			<!--end Khaine's code-->
+			<!--this is just uncommenting from the game code and adding some values, 64 zombies and 50 animals show as default when the 'Defaults' setting is used in the New Game Options-->
+			<gameoption name="MaxSpawnedZombies" title="goMaxSpawnedZombies" value_wrap="false" value_type="int" values="30, 50, 64, 75, 85, 100" display_names="" value_localization_prefix="" />
+			<gameoption name="MaxSpawnedAnimals" title="goMaxSpawnedAnimals" value_wrap="false" value_type="int" values="15, 30, 50, 65, 75, 85, 100" display_names="" value_localization_prefix="" />
+		
 		</grid>
 	</set>	
-	<set xpath="/windows/window[@name='newContinueGame']/rect[@name='tabs']/rect[@name='tabsContents']/rect[@tab_key='xuiGameSettingsBasic']">
-		<!--<rect tab_key="xuiGameSettingsBasic">-->
-		<grid pos="6,-77" rows="13" cell_width="525" cell_height="45" repeat_content="false" arrangement="vertical" >
-			<gameoption name="BloodMoonFrequency" title="goBloodMoonFrequency" value_wrap="false" values_from_gameserverconfig="true" value_type="int" values="" display_names="goDisabled" value_localization_prefix="goDay" />
-			<gameoption name="BloodMoonRange" title="goBloodMoonRange" value_wrap="false" value_type="int" values_from_gameserverconfig="true" values="" display_names="" value_localization_prefix="goDay" />
-			<gameoption name="BloodMoonWarning" title="goBloodMoonWarning" value_wrap="false" value_type="int" values_from_gameserverconfig="true" values="" display_names="goDisabled,goMorning,goEvening" value_localization_prefix="" />
-			<gameoption name="BloodMoonEnemyCount" title="goBloodMoonEnemyCount" value_wrap="false" value_type="int" values_from_gameserverconfig="true" values="" display_names="" value_localization_prefix="goEnemie" />
+	<set xpath="/windows/window[@name='newContinueGame']/rect[@name='rightPanel']/rect[@name='tabs']/rect[@name='tabsContents']/rect[@tab_key='xuiGameSettingsBasic']">
+
+		<grid pos="6,-77" rows="14" cell_width="525" cell_height="42" repeat_content="false" arrangement="vertical" >
+			<gameoption name="BloodMoonFrequency" title="goBloodMoonFrequency" value_wrap="false" value_type="int" values="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 20, 30" display_names="goDisabled" value_localization_prefix="goDay" />
+			<gameoption name="BloodMoonRange" title="goBloodMoonRange" value_wrap="false" value_type="int" values="0, 1, 2, 3, 4, 7, 10, 14, 20" display_names="" value_localization_prefix="goDay" />
+			<gameoption name="BloodMoonWarning" title="goBloodMoonWarning" value_wrap="false" value_type="int" values="-1, 8, 18" display_names="goDisabled,goMorning,goEvening" value_localization_prefix="" />
+			<gameoption name="BloodMoonEnemyCount" title="goBloodMoonEnemyCount" value_wrap="false" value_type="int" values="4, 6, 8, 10, 12, 16, 24, 32, 64" display_names="" value_localization_prefix="goEnemie" />
 			<gameoption name="ZombieMove" title="goZombieMove" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" value_localization_prefix="" />
 			<gameoption name="ZombieMoveNight" title="goZombieMoveNight" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" value_localization_prefix="" />
 			<gameoption name="ZombieFeralMove" title="goZombieFeralMove" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" value_localization_prefix="" />
 			<gameoption name="ZombieBMMove" title="goZombieBMMove" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" value_localization_prefix="" />
 			<gameoption name="ZombieFeralSense" title="goZombieFeralSense" value_wrap="false" value_type="int" values="" display_names="goOff,goZMDay,goZMNight,goZMAll" value_localization_prefix="" />
-			
-			<!--this is just uncommenting from the game code and adding some values-->
-			<gameoption name="MaxSpawnedZombies" title="goMaxSpawnedZombies" value_wrap="false" value_type="int" values="0, 10, 30, 60, 75, 85, 100" display_names="" value_localization_prefix="" />
-			<gameoption name="MaxSpawnedAnimals" title="goMaxSpawnedAnimals" value_wrap="false" value_type="int" values="0, 10, 30, 50, 60, 70, 75, 80, 90, 100" display_names="" value_localization_prefix="" />
-		
-			<gameoption name="AirDropFrequency" title="goAirDropFrequency" value_wrap="false" value_type="int" values_from_gameserverconfig="true" values="" display_names="goDisabled" value_localization_prefix="goAirDropValue" />
+			<gameoption name="AirDropFrequency" title="goAirDropFrequency" value_wrap="false" value_type="int" values="0, 24, 72, 168" display_names="goDisabled" value_localization_prefix="goAirDropValue" />
 			<gameoption name="AirDropMarker" title="goMarkAirDrops" value_wrap="false" value_type="bool" values="" display_names="" value_localization_prefix="" />
+			<gameoption name="BiomeProgression" title="goBiomeProgression" value_wrap="false" value_type="bool" values_from_gameserverconfig="true" values="" display_names="" value_localization_prefix="" />
+			<gameoption name="StormFreq" title="goStormFreq" value_wrap="false" value_type="int" values="0, 50, 100, 150, 200, 300, 400, 500" display_names="" value_localization_prefix="goBlockDamageValue" />
+			<!--this is Khaines code from mod:KHA21-12CraftQueue-->
+				<gameoption name="LandClaimCount" title="goLandClaimCount" value_wrap="false" value_type="int" values="1, 2, 3, 4, 5" display_names="" value_localization_prefix="goLandClaimCountValue" />
+			<!--end Khaine's code-->
 		</grid>
 	</set>			
 </config>
