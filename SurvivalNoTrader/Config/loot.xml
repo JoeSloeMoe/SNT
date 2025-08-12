@@ -263,6 +263,7 @@
 		<item name="airdropSteelDoorBundle" count="1" prob="0.05" force_prob="true" />
 		<item name="airdropSeedBundle" count="1" prob="0.05" force_prob="true" />
 		<item name="resourceLegendaryParts" count="5" prob="0.05" force_prob="true" />
+		<item name="cntVendingMachine" count="1" prob="0.05" force_prob="true" />
 		
 		<!--solar pack w random (level 2 and above) panel and bank-->
 		<item name="airdropSolarBankBundle" count="1" prob="0.05" force_prob="true" />
@@ -610,6 +611,8 @@
 		<item name="plantedGraceCorn1" count="1,3" prob="0.10" force_prob="true"/>
 		<!--chance for supercorn seed recipe-->
 		<item name="plantedGraceCorn1Schematic" count="1" prob="0.08" force_prob="true"/>
+		<item name="cntVendingMachine" count="1" prob="0.05" force_prob="true"/>
+		
 	</set>
 
 	<!--lootgroups: groupPOIStorageBox02,groupMorticianDrawer02,groupChem01, coffins and caskets - are all set to 'verylow' so are ignored-->
