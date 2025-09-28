@@ -1296,7 +1296,7 @@
 			<duration value="0"/>
 			<effect_group>
 				<!--increase Max Health-->
-				<passive_effect name="HealthMax" operation="base_add" value="30"/>
+				<passive_effect name="HealthMax" operation="base_add" value="50"/>
 				<!--increase natural healing speed 0.15 health/sec-->
 				<passive_effect name="HealthChangeOT" operation="base_add" value="0.15"/>
 				<!--decrease food loss per health point gained-->
@@ -1311,7 +1311,7 @@
 			<stack_type value="ignore"/>
 			<duration value="0"/>
 			<effect_group>
-				<passive_effect name="StaminaMax" operation="base_add" value="30"/>
+				<passive_effect name="StaminaMax" operation="base_add" value="50"/>
 				<!--Stamina Regen increase-->
 				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.1"/>
 				<!--decrease water loss per stamina point gained-->				
@@ -3815,4 +3815,5 @@
 	</append>		
 	<!--END lbu demolition perk support code for molotovs-->
 	
+
 </configs>
