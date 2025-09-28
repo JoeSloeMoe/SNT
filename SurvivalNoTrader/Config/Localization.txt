@@ -407,7 +407,7 @@ gyrocopterWreckChassis,blocks,block,,,Crashed Gyrocopter
 buffTest,buffs,Buff,,,Test
 pigeonFinalBoss,entityclasses,Entity,,,Curtis Pigeonface Colton
 buffGameEventController,buffs,Buff,,,Zombie Kills: 
-buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 4000.
+buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 3000.
 buffGraveArtifactComplete,buffs,Buff,,,Cursed Artifact-Strongbox 
 buffGraveArtifactCompleteDesc,buffs,Buff,,,Cursed Artifact-Strongbox
 milestoneBundleZombieKill,buffs,Buff,,,Mary reaches out to you from the grave
@@ -544,9 +544,9 @@ interloperRewardBookThree,items,Book,,,"Plissken's Survival Techniques Vol 3."
 interloperRewardBookFour,items,Book,,,"Plissken's Survival Techniques Vol 4." 
 interloperRewardBookFive,items,Book,,,"Plissken's Survival Techniques Vol 5." 
 buffInterloperRewardBookOne,buffs,Buff,,,"Plissken's Survival Techniques Vol 1." 
-buffInterloperRewardBookOneDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume One of Four. An indepth analysis by some guy named Plissken, seems to know what he's talking about. Reading this volume on health will:\nIncrease your Max Health by 30.\nIncrease natural healing speed 0.15h/sec.\nDecrease food loss per health gained by 50%\nIncrease your GameStage by 30.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookOneDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume One of Four. An indepth analysis by some guy named Plissken, seems to know what he's talking about. Reading this volume on health will:\nIncrease your Max Health by 50.\nIncrease natural healing speed 0.15h/sec.\nDecrease food loss per health gained by 50%\nIncrease your GameStage by 30.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
 buffInterloperRewardBookTwo,buffs,Buff,,,"Plissken's Survival Techniques Vol 2." 
-buffInterloperRewardBookTwoDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Two of Four. Plissken's second volume focusing on fitness. Reading this volume on fitness will:\nIncrease Max Stamina by 30.\nIncrease stamina regen speed by 10%\nDecrease water loss per stamina gained by 50%\nIncrease your Gamestage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookTwoDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Two of Four. Plissken's second volume focusing on fitness. Reading this volume on fitness will:\nIncrease Max Stamina by 50.\nIncrease stamina regen speed by 10%\nDecrease water loss per stamina gained by 50%\nIncrease your Gamestage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
 buffInterloperRewardBookThree,buffs,Buff,,,"Plissken's Survival Techniques Vol 3." 
 buffInterloperRewardBookThreeDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Three of Four. A study of speed and surprise in warfare. Reading this volume will:\nIncrease Run, Walk & Crouch Speeds by 10%.\nIncrease Jump Strength by 10%.\nIncrease Attacks per Minute by 10%.\nIncrease Reload Speed by 15%.\nIncrease Scavenging Speed by 20%.\nIncrease your GameStage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
 buffInterloperRewardBookFour,buffs,Buff,,,"Plissken's Survival Techniques Vol 4." 
@@ -905,4 +905,5 @@ perkPhysicianRank5LongDesc,progression,perk Int,,,"Use your knowledge of medicin
 
 buffDebug1,buffs,Buff,,,Stats Gamestage
 buffDebug2,buffs,Buff,,,Biome modifier
+
 buffDebug3,buffs,Buff,,,Biome Bonus
