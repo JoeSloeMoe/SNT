@@ -1,0 +1,14 @@
+<configs>
+	<!--Daytime Inside lighting - inside is a little bit lighter during the day
+		The first variable is the daytime value, less is lighter-->
+	<set xpath="/worldglobal/environment/property[@name='ambientInsideSkyScale']/@value">.65, .4</set> <!--default .8, .4-->
+	<!--Nightime Outside - outside is darker at night.
+		The second variable is the night time value (for outside). Less is darker-->
+	<set xpath="/worldglobal/environment/property[@name='ambientEquatorScale']/@value">.7, 0</set> <!--default .7, .45-->
+	<set xpath="/worldglobal/environment/property[@name='ambientGroundScale']/@value">.3, 0</set> <!--default .3, .05-->
+	<set xpath="/worldglobal/environment/property[@name='ambientSkyScale']/@value">1, 0</set> <!--default 1, .7-->
+	<set xpath="/worldglobal/environment/property[@name='ambientSkyDesat']/@value">0.7, .1</set> <!--default .7, .7-->
+	<!--no moon ambience-->
+	<set xpath="/worldglobal/environment/property[@name='ambientMoon']/@value">0, 0</set> <!--default .9, .3-->
+
+</configs>

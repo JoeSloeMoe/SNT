@@ -1,0 +1,738 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+noteDuke01,items,Quest - Note,,,Your background
+tutorialTipQuest01,Journal Tip,,,,"You are one of 4 siblings from the Harrington Clan out East. You run point for your crew.\nYour family is engaged in an extended war and the war brings you here. You're exploring this area to find new sources of weapons and supplies. \nYou've heard rumours that this area is rich for the pickings, with both the Duke's gang and the Traders moving in to sift through whatever remains of civilisation. \nYour objectives are:\n - establish a base that can withstand zombie attacks as a foothold in the territory.\n - disrupt the Duke's supply chain. Strip the good loot without tipping them off to your presence.\n - identify Trader locations. Map out the extent of their presence and capabilites. Determine if they are friend or foe."
+quest_BasicStart,Quest,Quest Info,,,Fresh Start
+quest_BasicStart_subtitle,Quest,Quest Info,,,"You have 4 exp points"
+quest_BasicStart_description,Quest,Quest Info,,,"You have 4 exp points"
+trader_Cough,UI,Subtitles,,,"Cough!"
+broodnest,Blocks,block,,,Brood Egg Nest
+broodnestInfo,Blocks,block,,,"Set up a comfy place for birds to nest in and lay eggs"
+broodnestHarvest,Blocks,block,,,Brood Nest Harvest 
+broodnestHarvestInfo,Blocks,block,,,"Birds have gone, maybe they've left some eggs"                     
+modArmorCigarDesc,item_modifiers,mod,,,Strength Attribute            +1\nBlock Damage                +10%
+buffDrunkGrandpasWheelchairRacingElixirDesc,buffs,Buff,,,"Grandpas Wheelchair Racin' Elixir\nHealth Amount +5\nHealth Restore 0.25h/sec\nBlock Damage +10%\nMovement Speed +10%\nStamina Regen +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nInhibits Hunger depletion from Health Regen\nInhibits Thirst depletion from Stamina Regen"
+buffDrunkGrandpasWheelchairRacingElixirName,buffs,Buff,,,"Grandpas Wheelchair Racin' Elixir"
+buffDrunkGrandpasWheelchairRacingElixirTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..."
+drinkJarGrandpasWheelchairRacingElixir,items,Food,,,Grandpa's Wheelchair Racin' Elixir
+drinkJarGrandpasWheelchairRacingElixirDesc,items,Food,,,"Grandpas Wheelchair Racin' Elixir\nHealth Amount +5\nHealth Restore 0.25h/sec\nBlock Damage +10%\nMovement Speed +10%\nStamina Regen +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\n\nSpecial:\nInhibits Hunger depletion from Health Regen\nInhibits Thirst depletion from Stamina Regen"
+drinkJarGrandpasWheelchairRacingElixirPromptDesc,items,Food,,,Drink?
+buffDrunkGrandpasThemsFightinWordsMoonshineDesc,buffs,Buff,,,"Grandpas Fightin' Words Moonshine\nMelee Damage +5%\nAttacks per min +5%\nResist:\n   Infection-Fatigue +10%\n   Laceration-Abrasions +10%\n   Stun-Strain-Bleeding +15%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nDamage Resistance +15%"
+buffDrunkGrandpasThemsFightinWordsMoonshineName,buffs,Buff,,,"Grandpas Fightin' Words Moonshine"
+buffDrunkGrandpasThemsFightinWordsMoonshineTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..,"
+drinkJarGrandpasThemsFightinWordsMoonshine,items,Food,,,Grandpas Fightin' Words Moonshine
+drinkJarGrandpasThemsFightinWordsMoonshineDesc,items,Food,,,"Grandpas Fightin' Words Moonshine\nMelee Damage +5%\nAttacks per min +5%\nResist:\n   Infection-Fatigue +10%\n   Laceration-Abrasions +10%\n   Stun-Strain-Bleeding +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\nDamage Resistance +15%"
+drinkJarGrandpasThemsFightinWordsMoonshinePromptDesc,items,Food,,,Drink?
+buffDrunkGrandpasGunbeltOilSauceDesc,buffs,Buff,,,"Grandpas Gunbelt Oil Sauce\nRanged Damage +5%\nRounds per min +5%\nWeapon Handling +10%\nReload Speed +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\n    Fire Resistance +25%\n    Explosion Resistance +25%"
+buffDrunkGrandpasGunbeltOilSauceName,buffs,Buff,,,"Grandpas Gunbelt Oil Sauce"
+buffDrunkGrandpasGunbeltOilSauceTooltip,buffs,Buff,,,"Get my wheelchair, lets do this..,"
+drinkJarGrandpasGunbeltOilSauce,items,Food,,,Grandpas Gunbelt Oil Sauce
+drinkJarGrandpasGunbeltOilSauceDesc,items,Food,,,"Grandpas Gunbelt Oil Sauce\nRanged Damage +5%\nRounds per min +5%\nWeapon Handling +10%\nReload Speed +10%\nDuration 1 Hour (stacks to 2hr) - Craft at Campfire\nSpecial:\n    Fire Resistance +25%\n    Explosion Resistance +25%"
+drinkJarGrandpasGunbeltOilSaucePromptDesc,items,Food,,,Drink?
+buffDrunkGrandpasAwesomeSauceChangedDesc,buffs,Buff,,,Focus your brain on identifying the quality loot. \nRaise Lootstage by 40 for 3 min.
+buffDrunkGrandpasAwesomeSauceChangedName,buffs,Buff,,,Grandpas Awesome Sauce
+buffDrunkGrandpasAwesomeSauceChangedTooltip,buffs,Buff,,,Tastes like brass or ass. Hard to tell.
+drinkJarGrandpasAwesomeSauce,items,Food,,,Grandpa's Awesome Sauce
+drinkJarGrandpasAwesomeSauceDesc,items,Food,,,Focus your brain on identifying the quality loot. \nRaise Lootstage by 40 for 3 min.
+drinkJarGrandpasAwesomeSauceSchematic,items,Food,,,Grandpa's Awesome Sauce Recipe
+statBonusRanger,ui_display,Item stat,,,Glue Loot Bonus
+armorRangerHelmet,items,Clothes,,,Ranger Hat
+armorRangerHelmetDesc,items,Clothes,,,"Medium Armor\nRangers can fix anything, especially while wearing a well crafted hat. Increases change to find glue.\n\nFull Set Bonus: Reload faster with Revolvers and Lever-Action Rifles."
+statBonusAthletic,ui_display,Item stat,,,Honey Loot Bonus
+statBonusNerdOutfit,ui_display,Item stat,,,Skill Book Loot Bonus
+armorAthleticHelmet,items,Clothes,,,Athletic Hat
+armorAthleticHelmetDesc,items,Clothes,,,"Light Armor\nFit and healthy. Increases chance to find honey.\n\nFull Set Bonus: Use less food and water."
+statBonusPreacher,ui_display,Item stat,,,Acid Loot Bonus
+armorPreacherHelmet,items,Clothes,,,Preacher Hat
+armorPreacherHelmetDesc,items,Clothes,,,"Light Armor\nThe cold stare of holy retribution in the Preachers eyes burns like acid. Increases chance to find acid.\n\nFull Set Bonus: Reduces the chance of critical injuries."
+statBonusEnforcer,ui_display,Item stat,,,Cement Loot Bonus
+armorEnforcerHelmet,items,Clothes,,,Enforcer Sunglasses
+armorEnforcerHelmetDesc,items,Clothes,,,"Light Armor\nAlways looking to enforce and reinforce. Increases chance to find beer.\n\nFull Set Bonus: .44 ammo does more damage and .44 Magnum and Desert Vulture reloads faster."
+foodPumpkinCheesecakeChanged,items,Food,,,Pumpkin Cheesecake.
+foodPumpkinCheesecakeChangedDesc,items,Food,,,This pumpkin cheesecake tastes delicious and grants you a +5% Lootstage Bonus.
+statMovementSpeedChanged,ui_display,Item stat,,,Movement Speed
+statGeneralDamageResist,ui_display,Item stat,,,Damage Resistance
+statReloadSpeedMultiplier,ui_display,Item stat,,,Reload Speed
+statFireResistance,ui_display,Item stat,,,Fire Resist
+statStunFatigueResistance1,ui_display,Item stat,,,Resist: Infection - Fatigue
+statStunFatigueResistance2,ui_display,Item stat,,,Resist: Laceration - Abrasion
+statStunFatigueResistance3,ui_display,Item stat,,,Resist: Stun - Sprain - Bleeding
+perkSweetToothDesc,progression,perk Int,,,Figure out how to make different kinds of sweets.\nEach discovery brings a small bonus to Lootstage\nNote: Jail Breakers now also have 95% lockpick time reduction.
+perkSweetToothName,progression,perk Int,,,Sweet Tooth 
+perkSweetToothRank1Desc,progression,perk Int,,,Make Rockbusters and Hackers \nBonus: Adds 4% to Lootstage\n
+perkSweetToothRank1LongDesc,progression,perk Int,,,Make Rock Busters and Hackers \nBonus: Adds 4% to Lootstage\n
+perkSweetToothRank2Desc,progression,perk Int,,,"Make Atom Junkies, Covert Cats and Oh Shit Drops\nBonus: Adds 4% more to Lootstage (8% Total)\n"
+perkSweetToothRank2LongDesc,progression,perk Int,,,"Make Atom Junkies, Covert Cats and Oh Shit Drops\nBonus: Adds 4% more to Lootstage (8% Total)\n"
+perkSweetToothRank3Desc,progression,perk Int,,,"Make Skull Crushers, Nerd Tats and Health Bars\nBonus: Adds 2% more to Lootstage (10% Total)\n"
+perkSweetToothRank3LongDesc,progression,perk Int,,,"Make Skull Crushers, Nerd Tats and Health Bars\nBonus: Adds 2% more to Lootstage (10% Total)\n"
+perkSweetToothRank4Desc,progression,perk Int,,,"Make Jail Breakers, Eye Kandy and Mega Crush Drinks\nBonus: Adds 2% more to Lootstage (12% Total)\n"
+perkSweetToothRank4LongDesc,progression,perk Int,,,"Make Jail Breakers, Eye Kandy and Mega Crush Drinks\nBonus: Adds 2% more to Lootstage (12% Total)\n"
+perkProductionLineDesc,progression,perk Int,,,Using your noggin' - refine your production line processes\n and save 20% or more by crafting resource bundles.\n
+perkProductionLineName,progression,perk Int,,,Production Line
+perkProductionLineRank1Desc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of Wooden blocks(100).\nSave 20% on packs of Cobblestone blocks(50).
+perkProductionLineRank1LongDesc,progression,perk Int,,,Save 20% on bundles of Glue(10).\nSave 20% on packs of Wooden blocks(100).\nSave 20% on packs of Cobblestone blocks(50).
+perkProductionLineRank2Desc,progression,perk Int,,,Save 20% on bundles of Duct Tape(10).\nSave 20% on packs of Concrete blocks(50).\nSave 30% on large packs of Cobblestone blocks(100).
+perkProductionLineRank2LongDesc,progression,perk Int,,,Save 20% on bundles of Duct Tape(10).\nSave 20% on packs of Concrete blocks(50).\nSave 30% on large packs of Cobblestone blocks(100).
+perkProductionLineRank3Desc,progression,perk Int,,,Save 20% on packs of Steel blocks(50).\nSave 30% on large packs of Duct Tape(50) & Glue(30).\nSave 30% on large packs of Concrete Blocks(100).
+perkProductionLineRank3LongDesc,progression,perk Int,,,Save 20% on packs of Steel blocks(50).\nSave 30% on large packs of Duct Tape(50) & Glue(30).\nSave 30% on large packs of Concrete Blocks(100).
+perkProductionLineRank4Desc,progression,perk Int,,,Save 30% on large packs of Steel Blocks(100).\nSave 30% on packs of Molotovs & Grenades(20).\nSave 50% on large packs of Fuel(10000).
+perkProductionLineRank4LongDesc,progression,perk Int,,,Save 30% on large packs of Steel Blocks(100).\nSave 30% on packs of Molotovs & Grenades(20).\nSave 50% on large packs of Fuel(10000).
+ammoGasCanBundleChanged,items,Item,,,Stack of Gas Cans (10000)
+ammoGasCanBundleChangedDesc,items,Item,,,This is a compact stack of 10000 gas cans. Use this item to open and unpack it.
+resourceGlueBundleChanged,items,Item,,,Stack of Glue (10)
+resourceGlueBundleChangedDesc,items,Item,,,This is a compact stack of 10 glue. Use this item to open and unpack it.
+resourceGlueBundleLargeChanged,items,Item,,,Stack of Glue (30)
+resourceGlueBundleLargeChangedDesc,items,Item,,,This is a compact stack of 30 glue. Use this item to open and unpack it.
+resourceDuctTapeBundleChanged,items,Item,,,Stack of Duct Tape (10)
+resourceDuctTapeBundleChangedDesc,items,Item,,,This is a compact stack of 10 duct tape. Use this item to open and unpack it.
+resourceDuctTapeBundleLargeChanged,items,Item,,,Large stack of Duct Tape (50)
+resourceDuctTapeBundleLargeChangedDesc,items,Item,,,This is a compact stack of 50 duct tape. Use this item to open and unpack it.
+resourceWoodBlockBundle,items,Item,,,Stack of Wood Blocks (100).
+resourceWoodBlockBundleDesc,items,Item,,,This is a compact stack of 100 Wood Blocks. Use this item to open and unpack it.
+thrownAmmoMolotovCocktailBundle,items,Item,,,Stack of Molotov Cocktails (20).
+thrownAmmoMolotovCocktailBundleDesc,items,Item,,,This is a compact stack of 20 Molotov Cocktails. Use this item to open and unpack it.
+thrownGrenadeBundle,items,Item,,,Stack of Grenades (20).
+thrownGrenadeBundleDesc,items,Item,,,This is a compact stack of 20 Grenades. Use this item to open and unpack it.
+thrownGrenadeContactBundle,items,Item,,,Stack of Contact Grenades (20).
+thrownGrenadeContactBundleDesc,items,Item,,,This is a compact stack of 20 Contact Grenades. Use this item to open and unpack it.
+cobblestoneShapesBundleChanged,items,Item,,,Stack of 50 Cobblestone Blocks
+cobblestoneShapesBundleChangedDesc,items,Item,,,This is a compact stack of 50 Cobblestone Blocks. Use this item to open and unpack it.
+concreteShapesBundleChanged,items,Item,,,Stack of 50 Concrete Blocks
+concreteShapesBundleChangedDesc,items,Item,,,This is a compact stack of 50 Concrete Blocks. Use this item to open and unpack it.
+steelShapesBundleChanged,items,Item,,,Stack of 50 Steel Blocks
+steelShapesBundleChangedDesc,items,Item,,,This is a compact stack of 50 Steel Blocks. Use this item to open and unpack it.
+cobblestoneShapesBundleLargeChanged,items,Item,,,Stack of 100 Cobblestone Blocks
+cobblestoneShapesBundleLargeChangedDesc,items,Item,,,This is a compact stack of 100 Cobblestone Blocks. Use this item to open and unpack it.
+concreteShapesBundleLargeChanged,items,Item,,,Stack of 100 Concrete Blocks
+concreteShapesBundleLargeChangedDesc,items,Item,,,This is a compact stack of 100 Concrete Blocks. Use this item to open and unpack it.
+steelShapesBundleLargeChanged,items,Item,,,Stack of 100 Steel Blocks
+steelShapesBundleLargeChangedDesc,items,Item,,,This is a compact stack of 100 Steel Blocks. Use this item to open and unpack it.
+scrap762AmmoBundle,items,Item,,,Stack of 50 scrapped 7.62 ammo.
+scrap762AmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 7.62 ammo.\nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap762HPAmmoBundle,items,Item,,,Stack of 50 scrapped 7.62 HP ammo.
+scrap762HPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 7.62 HP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap762APAmmoBundle,items,Item,,,Stack of 50 scrapped 7.62 AP ammo.
+scrap762APAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 7.62 AP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap9mmAmmoBundle,items,Item,,,Stack of 50 scrapped 9mm ammo.
+scrap9mmAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 9mm ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap9mmHPAmmoBundle,items,Item,,,Stack of 50 scrapped 9mm HP ammo.
+scrap9mmHPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 9mm HP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap9mmAPAmmoBundle,items,Item,,,Stack of 50 scrapped 9mm AP ammo.
+scrap9mmAPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 9mm AP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap44AmmoBundle,items,Item,,,Stack of 50 scrapped 44 Magnum ammo.
+scrap44AmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 44 Magnum ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap44HPAmmoBundle,items,Item,,,Stack of 50 scrapped 44 Magnum HP ammo.
+scrap44HPAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 44 Magnum HP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrap44APAmmoBundle,items,Item,,,Stack of 50 scrapped 44 Magnum AP ammo.
+scrap44APAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped 44 Magnum AP ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapShotgunAmmoBundle,items,Item,,,Stack of 50 scrapped Shotgun ammo.
+scrapShotgunAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped Shotgun ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapShotgunBreachingAmmoBundle,items,Item,,,Stack of 50 scrapped Shotgun Breaching ammo.
+scrapShotgunBreachingAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped Shotgun Breaching ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapShotgunSlugAmmoBundle,items,Item,,,Stack of 50 scrapped Shotgun Slug ammo.
+scrapShotgunSlugAmmoBundleDesc,items,Item,,,This is a compact stack of 50 scrapped Shotgun Slug ammo. \nCreate this bundle using ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapMolotovCocktailBundle,items,Item,,,Stack of 5 scrapped Molotov Cocktails.
+scrapMolotovCocktailBundleDesc,items,Item,,,This is a compact stack of 5 Molotov Cocktails.\nCreate this bundle using Molotov Cocktails to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapPipeBombBundle,items,Item,,,Stack of 5 scrapped Pipe Bombs.
+scrapPipeBombBundleDesc,items,Item,,,This is a compact stack of 5 Pipe Bombs.\nCreate this bundle using Pipe Bombs to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapthrownGrenadeBundle,items,Item,,,Stack of 5 scrapped Grenades.
+scrapthrownGrenadeBundleDesc,items,Item,,,This is a compact stack of 5 Grenades.\nCreate this bundle using Grenades to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapthrownGrenadeContactBundle,items,Item,,,Stack of 5 scrapped Contact Grenades.
+scrapthrownGrenadeContactBundleDesc,items,Item,,,This is a compact stack of 5 Contact Grenades.\nCreate this bundle using Contact Grenades to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it.
+scrapTimedChargesBundle,items,Item,,,Stack of 5 scrapped Timed Charges.
+scrapTimedChargesBundleDesc,items,Item,,,This is a compact stack of 5 Times Charges.\nCreate this bundle using Timed Charges to be scrapped.\nReturns 80% of materials.\nUse this item to open and unpack it.
+scrapTurretAmmoBundle,items,Item,,,Stack of 100 scrapped Junk Turret Ammo.
+scrapTurretAmmoBundleDesc,items,Item,,,"This is a compact stack of 100 scrapped Junk Turret Ammo.\nCreate this bundle using Junk Turret Ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it."
+scrapAPTurretAmmoBundle,items,Item,,,Stack of 100 scrapped AP Junk Turret Ammo.
+scrapAPTurretAmmoBundleDesc"This is a compact stack of 100 scrapped AP Junk Turret Ammo.\nCreate this bundle using AP Junk Turret Ammo to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it."
+scrapShellTurretAmmoBundle,items,Item,,,Stack of 100 scrapped Junk Turret Shells.
+scrapShellTurretAmmoBundleDesc"This is a compact stack of 100 scrapped Junk Turret Shells.\nCreate this bundle using Junk Turret Shells to be scrapped.\nReturns 75% of materials.\nUse this item to open and unpack it."
+bulletCasingBundle,items,Item,,,Box of 1000 Bullet Casings
+bulletCasingBundleDesc,items,Item,,,Box of 1000 Bullet Casings. \nUse this item to open and unpack it.
+bulletTipBundle,items,Item,,,Box of 1000 Bullet Tips
+bulletTipBundleDesc,items,Item,,,Box of 1000 Bullet Tips. \nUse this item to open and unpack it.
+buckshotBundle,items,Item,,,Box of 1000 Buckshot
+buckshotBundleDesc,items,Item,,,Box of 1000 Buckshot. \nUse this item to open and unpack it.
+9mmBundlebox,items,Item,,,Box of 100 9mm Ammo 
+9mmBundleboxDesc,items,Item,,,Box of 100 9mm Ammo. \nUse this item to open and unpack it.
+9mmBundleboxAP,items,Item,,,Box of 100 9mm AP Ammo
+9mmBundleboxAPDesc,items,Item,,,Box of 100 9mm AP Ammo. \nUse this item to open and unpack it.
+9mmBundleboxHP,items,Item,,,Box of 100 9mm HP Ammo.
+9mmBundleboxHPDesc,items,Item,,,Box of 100 9mm HP Ammo. \nUse this item to open and unpack it.
+44Bundlebox,items,Item,,,Box of 100 .44 Ammo
+44BundleboxDesc,items,Item,,,Box of 100 .44 Ammo. \nUse this item to open and unpack it.
+44BundleboxAP,items,Item,,,Box of 100 .44 AP Ammo
+44BundleboxAPDesc,items,Item,,,Box of 100 .44 AP Ammo. \nUse this item to open and unpack it.
+44BundleboxHP,items,Item,,,Box of 100 .44 HP Ammo.
+44BundleboxHPDesc,items,Item,,,Box of 100 .44 HP Ammo. \nUse this item to open and unpack it.
+762Bundlebox,items,Item,,,Box of 150 7.62 Ammo.
+762BundleboxDesc,items,Item,,,Box of 150 7.62 Ammo. \nUse this item to open and unpack it.
+762BundleboxAP,items,Item,,,Box of 150 7.62 AP Ammo
+762BundleboxAPDesc,items,Item,,,Box of 150 7.62 AP Ammo. \nUse this item to open and unpack it.
+762BundleboxHP,items,Item,,,Box of 150 7.62 HP Ammo
+762BundleboxHPDesc,items,Item,,,Box of 150 7.62 HP Ammo. \nUse this item to open and unpack it.
+ShotgunBundlebox,items,Item,,,Box of 150 Shotgun Shells
+ShotgunBundleboxDesc,items,Item,,,Box of 150 Shotgun Shells. \nUse this item to open and unpack it.
+ShotgunBundleboxSlug,items,Item,,,Box of 150 Shotgun Slugs
+ShotgunBundleboxSlugDesc,items,Item,,,Box of 150 Shotgun Slugs. \nUse this item to open and unpack it.
+ShotgunBundleboxBreaching,items,Item,,,Box of 150 Shotgun Breaching Slugs
+ShotgunBundleboxBreachingDesc,items,Item,,,Box of 150 Shotgun Breaching Slugs. \nUse this item to open and unpack it.
+xuiSelectChallengeInfo,UI,XUI,,,"Select a challenge to view or track the requirements.\n\nTrack a challenge by pressing the Track button or by using the quick action key.\n\nAfter successfully completing every challenge within a group, select each completed challenge marked [00FF00]GREEN[-]. Redeem a challenge by using the button or the quick action key.\n\nRedeeming all of the challenges in each group will give you a couple of rewards."
+challengeGathererPreciousDesc,Challenges,Challenge,,,"Reading [DECEA3]Art of Mining Vol 1[-] allows you to harvest [DECEA3]Gold Nuggets[-], [DECEA3]Silver Nuggets[-], and [DECEA3]Raw Diamonds[-] from [DECEA3]Ores[-].\n\nThese [DECEA3]Precious Elements[-] are mainly used in special Grandpa brew recipes.\n\nHarvest some [DECEA3]Precious Elements[-]."
+challengeReadMagazinesDesc,Challenges,Challenge,,,"[DECEA3]Crafting Skill Magazines[-] come in a wide range of topics. Reading them will increase your [DECEA3]Crafting Skill[-] which increases the [DECEA3]Quality[-] and/or [DECEA3]Technology Tier[-] of the item being crafted. You can track your [DECEA3]Crafting Skill[-] progression in the [DECEA3]Skills Window[-] and selecting the [DECEA3]Hammer[-] icon in the category header.\n\n[DECEA3]Crafting Skill Magazines[-] can be found in various loot containers such as [DECEA3]Mailboxes[-], [DECEA3]Crates[-] and [DECEA3]Safes[-]."
+challengeRewardBonusTraderQuest,Challenges,Challenge Group Reward,,,Start Quest
+challengeRewardBonusTradersReward,Challenges,Reward,,,Challenge Group Reward
+challengeMeetBob,Challenges,Challenge,,,Scout a Desert Trader
+challengeMeetBobDesc,Challenges,Challenge,,,"Scout a [DECEA3]Trader[-] in the [DECEA3]Desert[-]. Observe and note their specialty. See if you can tell how close they are to the Duke and his men."
+challengeMeetBobShort,Challenges,Challenge,,,Scout a Trader in the Desert Biome.
+challengeMeetHugh,Challenges,Challenge,,,Scout Snow Trader 
+challengeMeetHughDesc,Challenges,Challenge,,,"Scout a [DECEA3]Trader[-] in the [DECEA3]Snow[-]. Observe and note their specialty. See if you can tell how close they are to the Duke and his men."
+challengeMeetHughShort,Challenges,Challenge,,,Scout a Trader in the Snow Biome.
+challengeMeetJen,Challenges,Challenge,,,Scout Burnt Forest Trader
+challengeMeetJenDesc,Challenges,Challenge,,,"Scout a [DECEA3]Trader[-] in the [DECEA3]Burnt Forest[-]. Observe and note their specialty. See if you can tell how close they are to the Duke and his men."
+challengeMeetJenShort,Challenges,Challenge,,,Scout a Trader in the Burnt Forest Biome.
+challengeMeetJoel,Challenges,Challenge,,,Scout Wasteland Trader
+challengeMeetJoelDesc,Challenges,Challenge,,,"Scout a [DECEA3]Trader[-] in the [DECEA3]Wasteland[-]. Observe and note their specialty. See if you can tell how close they are to the Duke and his men."
+challengeMeetJoelShort,Challenges,Challenge,,,Scout a Trader in the Wasteland Biome.
+challengeMeetRekt,Challenges,Challenge,,,Scout Forest Trader 
+challengeMeetRektDesc,Challenges,Challenge,,,"Scout a [DECEA3]Trader[-] in the [DECEA3]Forest[-]. Observe and note their specialty. See if you can tell how close they are to the Duke and his men."
+challengeMeetRektShort,Challenges,Challenge,,,Scout a Trader in the Forest Biome.
+challengePurchaseItemsJoel,Challenges,Challenge,,,Buy 5 items from Vending Machines
+challengePurchaseItemsJoelDesc,Challenges,Challenge,,,"[DECEA3]Vending Machines[-] have a stock of [DECEA3]Food[-] and [DECEA3]Drink[-] available for purchase with casino coins. [DECEA3]Vending Machines[-] dont restock, they only have what they spawn with." 
+challengePurchaseItemsJoelShort,Challenges,Challenge,,,Buy 5 items from any Vending Machine.
+challengeSellItemsJoel,Challenges,Challenge,,,Buy 15 items from Vending Machines
+challengeSellItemsJoelDesc,Challenges,Challenge,,,"[DECEA3]Vending Machines[-] have a stock of [DECEA3]Food[-] and [DECEA3]Drink[-] available for purchase with casino coins. [DECEA3]Vending Machines[-] dont restock, they only have what they spawn with." 
+challengeSellItemsJoelShort,Challenges,Challenge,,,Buy 15 items from any Vending Machine.
+challengeQuestComplete,Challenges,Challenge,,,Buy 25 items from Vending Machines
+challengeQuestCompleteDesc,Challenges,Challenge,,,"[DECEA3]Vending Machines[-] have a stock of [DECEA3]Food[-] and [DECEA3]Drink[-] available for purchase with casino coins. [DECEA3]Vending Machines[-] dont restock, they only have what they spawn with." 
+challengeQuestCompleteShort,Challenges,Challenge,,,Buy 25 items from any Vending Machine.
+challengeQuestTierComplete,Challenges,Challenge,,,Craft 5 Herbal Antibiotics.
+challengeQuestTierCompleteDesc,Challenges,Challenge,,,"[DECEA3]Herbal Antibiotics[-] can be found in a variety of loot containers. Good for reducing infections by 10%! Craft 5 [DECEA3]Herbal Antibiotics[-]."
+challengeQuestTierCompleteShort,Challenges,Challenge,,,Craft 5 Herbal Antibiotics.
+challengeQuestTraderToTraderComplete,Challenges,Challenge,,,Craft 5 Medical Kits.
+challengeQuestTraderToTraderCompleteDesc,Challenges,Challenge,,,"[DECEA3]Medical Kits[-] stop bleeding, heal wounds, increase abrasion healing speed and suture lacerations. Craft 5 [DECEA3]Medical Kits[-]."
+challengeQuestTraderToTraderCompleteShort,Challenges,Challenge,,,Craft 5 Medical Kits.
+challengeGroupTradersQuests,Challenges,Challenge Group,,,Traders / Vending Machines / Medical 
+groupChallengeRewardBasicBundle,items,item,,,Challenge Reward Bundle
+groupChallengeRewardBasicBundleDesc,item,item,,,Challenge Reward Bundle.\nOpen for random bundle of Magazines, Schematics or Perk Books.
+challengeRewardPerkBookBundle,items,Reward,,,Reward Books Bundle
+challengeRewardPerkBookBundleDesc,items,Reward,,,Challenge Reward. \nRandom Books Bundle : Perk Books 
+challengeRewardSchematicBundle,items,Reward,,,Reward Schematics Bundle
+challengeRewardSchematicBundleDesc,items,Reward,,,Challenge Reward. \nRandom Books Bundle : Schematics
+challengeRewardSkillMagBundle,items,Reward,,,Reward Skill Magazine Bundle
+challengeRewardSkillMagBundleDesc,items,Reward,,,Challenge Reward.\nRandom Books Bundle : Skill Magazines
+groupChallengeRewardBasicAmmoBundle,items,Reward,,,Reward Ammo Bundle
+groupChallengeRewardBasicAmmoBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Ammo Stack
+groupChallengeRewardAPAmmoBundle,items,Reward,,,Reward AP Ammo Bundle
+groupChallengeRewardAPAmmoBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom AP Ammo Stack
+challengeRewardBasicAmmoBundle,items,Reward,,,Reward Ammo Bundle
+challengeRewardBasicAmmoBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Ammo Stack
+challengeRewardAPAmmoBundle,items,Reward,,,Reward AP Ammo Bundle
+challengeRewardAPAmmoBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom AP Ammo Stack
+challengeRewardThrownAmmoBundle,items,Reward,,,Reward Explosives Bundle
+challengeRewardThrownAmmoBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Explosives Stack
+challengeRewardArmorModBundle,items,Reward,,,Reward Armor Bundle
+challengeRewardArmorModBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Amor mod.
+challengeRewardGunModBundle,items,Reward,,,Reward Weapon Mods Bundle
+challengeRewardGunModBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Weapons mod.
+challengeRewardClothingModBundle,items,Reward,,,Reward Clothing Mod Bundle
+challengeRewardClothingModBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Clothing mod.
+challengeRewardPerkModBundle,items,Reward,,,Reward Perk Mod Bundle
+challengeRewardPerkModBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Perk mod.
+challengeRewardLegendaryMeleeWeaponBundle,items,Reward,,,Reward Melee Parts Choice Bundle
+challengeRewardLegendaryMeleeWeaponChoice,items,Reward,,,Reward Melee Parts Choice Bundle
+challengeRewardLegendaryMeleeWeaponBundleDesc,items,Reward,,,"Challenge Choice Reward.\nRandom Legendary Melee Weapons Crafting Bundle, Use recipes to select reward choice."
+challengeRewardLegendaryRangedWeaponBundle,items,Reward,,,Reward Ranged Parts Choice Bundle.
+challengeRewardLegendaryRangedWeaponChoice,items,Reward,,,Reward Ranged Parts Choice Bundle.
+challengeRewardLegendaryRangedWeaponBundleDesc,items,Reward,,,"Challenge Choice Reward.\nRandom Legendary Ranged Weapons Crafting Bundle, Use recipes to select reward choice."
+challengeRewardGoodStuffBundle,items,Reward,,,Reward Select Items Bundle.
+challengeRewardGoodStuffBundleDesc,items,Reward,,,Challenge Group Reward.\nRandom Select Item Bundle.
+advanced_survival_desc,Quests,Quest Info,,,Good job survivor! You've completed the Advanced Survival Challenge Group.
+crafting_desc,Quests,Quest Info,,,Good job survivor! You've completed the Crafting Challenge Group.
+farmer_desc,Quests,Quest Info,,,Good job survivor! You've completed the Farmer Challenge Group.
+gatherer_desc,Quests,Quest Info,,,Good job survivor! You've completed the Gatherer Challenge Group.
+harvesting_desc,Quests,Quest Info,,,Good job survivor! You've completed the Harvesting Challenge Group.
+healer_desc,Quests,Quest Info,,,Good job survivor! You've completed the Healer Challenge Group.
+homesteading_desc,Quests,Quest Info,,,Good job survivor! You've completed the Homesteading Challenge Group.
+hunter_desc,Quests,Quest Info,,,Good job survivor! You've completed one of the Hunter Challenges.
+survivor_desc,Quests,Quest Info,,,Good job survivor! You've completed the Survivor Challenge Group.
+trader_quests_desc,Quests,Quest Info,,,Good job survivor! You've completed the Trader Quests Challenge Group.
+zombie_slayer_desc,Quests,Quest Info,,,Good job survivor! You've completed one of the Zombie Slayer Challenges.
+marysRevengeHomemadeRifle,items,Gun,,,Mary's Revenge - Homemade bush rifle.
+marysRevengeHomemadeRifleDesc,items,Gun,,,"Mary's Revenge. Borne from the dark depths of vengeance. \nHas flawed barrel rifling that causes sporadic bullet tumble - 25% chance of inflicting lethal bleed out. Tumble bullet impact will knock zombies down.\nUses .44 Magnum ammo.\n300% Headshot damage\nMod with Shotgun Barrel Extender.\n8X Scope attachments have full focus range."
+rewardMarysRevengeBundle,items,Item,,,Mary's Revenge
+rewardMarysRevengeBundleDesc,items,Item,,,There are 6 in a Coven.
+marysRevengeArtifactContainer,items,Item,,,Mary's Revenge
+marysRevengeArtifactContainerDesc,items,Item,,,Mary's Revenge
+magratsEyeBile,items,Item,,,Salty Bile Mouth Vomit
+magratsEye,items,Item,,,"Magrat's left eye"
+modMagratTracker,item_modifiers,mod,,,All Is Well         
+modMagratTrackerDesc,item_modifiers,mod,,,"Town Cryer's witch finder lantern. Tuned by Ipslore to show Magrats aura but he never had a chance to use it. \n\nInstalls in Helmet as light. Turn light on to activate."         
+magratsEyeDesc,items,Item,,,"A strange smelling eyeball covered in red mucous and slime. At first glance it resembles hard crystal but it feels spongy in your hand. You feel it vibrating faintly as you hold it - you have a strong urge to consume it even though you suspect any side-effects may be permanent.\n\nUse (A) to consume.\n[Mary's Revenge Storyline]"
+buff_MagratsLeftEye,buffs,Buff,,,"Magrat's Left Eye" 
+buff_MagratsLeftEyeDesc,buffs,Buff,,,"You have the witches sight. Screamers are automatically tagged with an orange dot on the compass, map and on-screen. The undead sense the presence of the Eye and it aggravates them - your Game Stage is increased by 15.\n\nPermanent Buff." 
+marysRevengeCovenHouseScreamer,entityclasses,Entity,,,Coven House Disciple
+marysRevengeCovenHouseLootScreamer,entityclasses,Entity,,,Coven House Disciple
+graveKeeperDireWolf,entityclasses,Entity,,,Witch Bound Dire Wolf
+graveKeeperDireBear,entityclasses,Entity,,,Witch Bound Dire Bear
+animalPigeonFlock,entityclasses,Entity,,,Pigeon
+testgiveScreamerTrackingBuff,items,TEST,,,"Screamer tracking buff"
+testgiveScreamerTrackingBuffDesc,items,TEST,,,"gives the Screamer tracking buff from Marys Revenge - used for testing."
+testRemoveScreamerTrackingBuff,items,TEST,,,"Remove Screamer tracking buff"
+testRemoveScreamerTrackingBuffDesc,items,TEST,,,"Removes the Screamer tracking buff from Marys Revenge - used for testing."
+resourceMarysDiary,items,Book,,,"Mary's Torn and Bloodstained Diary" 
+resourceMarysDiaryDesc,items,Book,,,"Mary's diary details her daughter's kidnap and murder by a witch cult. Hard to read with pages torn and missing, you manage to piece together about 3 pages worth of legible entries.\n\n\nOpen to review the pages." 
+resourceMarysDiaryPage1,items,Book,,,"Page 1: Mary's Story" 
+resourceMarysDiaryPage1Desc,items,Book,,,"After her daughters death, Mary studied the cult and hunted down their stronghold. Through violent bloody assault Mary identified the cult's leader - Magrat The Seer. Mary drew Magrat into a trap by performing some kind of a ritual, but was overrun after a prolonged fight. There is some reference to a continual stream of dopplegangers and Mary being unable to identify and kill the real Magrat. Mary appears to have been able to engineer a retreat but was mortally wounded, her final act was to finish her diary in the hope of future vengeance. Whoever buried her took care to bury her with her last possessions." 
+resourceMarysDiaryPage2,items,Book,,,"Page 2: Mary's Revenge" 
+resourceMarysDiaryPage2Desc,items,Book,,,"Mary learnt some interesting things about the witch cult. She got this information by repeatedly bludgeoning a witch in the face with a spiked club. She had summoned Magrat using hair and bones from the grave of a cult priest. There are some notes on her last fight but her last diary entry, the cult's base location, stares at you from the page.\nYou consider your options.\n\n\nRead (A) to introduce yourself to Magrat the Seer." 
+resourceMarysDiaryPage3,items,Book,,,"Page 3: A side note" 
+resourceMarysDiaryPage3Desc,items,Book,,,"Scrawled in the diary's margins are random notes that when combined, describe some kind of Talisman that can be used to help defeat Magrat. The Talisman is buried in the disgarded grave of a witch named Ipslore the Red. From Mary's notes it doesn't look like she pursued the Talisman, the warnings about the grave being protected by beasts from hell may have had something to do with it.\n\n[Mary's Revenge Optional]\nRead (A) to hunt down the Talisman." 
+marysRevengeFinalBossBundle,items,Loot Bundle,,,"Magrat the Witch Seer's bloodied remains"
+marysRevengeFinalBossBundleDesc,items,Corpse,,,"A gleam of light from the corpse catches your eye. You consider digging around in the mess to fish it out.\n\nOpen to dig through the remains. "
+marysRevengeFinalBossLoot,entityclasses,Entity,,,Magrat the Witch Seer's Loot
+EntityMarysRevengeBossLoot,entityclasses,Entity,,,Magrat the Witch Seer's Loot
+marysRevengeFinalBoss,entityclasses,Entity,,,Magrat the Witch Seer
+marysRevengeFinalBossMinion,entityclasses,Entity,,,Magrat the Witch Seer
+marysRevengeFinalBossMinion2,entityclasses,Entity,,,Magrat the Witch Seer
+marysRevengeSummoningPieGroup,Quest,Quest Info,,,"Preparing for Magrat"
+graveRobbingCovenHouse,Quest,Coven House,,,"Coven House"
+graveRobbingCovenHouse_description,Quest,Coven House,,,"You're looking for artifacts from a Witch Seer's grave to summon Magrat the Seer. Scout the witch cult's lair called Coven House and introduce yourself. Persuade any witches you meet to share the location of a cult priest's grave with you. \n\n[Mary's Revenge storyline]"
+graveRobbingCovenHouse_offer,Quest,Coven House,,,"You're looking for artifacts from a Witch Seer's grave to summon Magrat the Seer. Scout the witch cult's lair called Coven House and introduce yourself. Persuade any witches you meet to share the location of a cult priest's grave with you. \n\n[Mary's Revenge storyline]"
+graveRobbingCovenHouseName,Quest,Coven House,,,[00FFB4]Find a grave location[-]
+graveRobbingCovenHouse_subtitle,Quest,Coven House,,,Secure Coven House
+graveRobbingCovenHouse_hint1,Quest,Coven House,,,[00FFB4]Secure the Witch's Lair[-]
+EntityMarysRevengeCovenHouseLoot,entityclasses,Entity,,,Cherished Possessions
+marysRevengeCovenHouseBundle,items,Loot Bundle,,,"Witch's Belongings"
+marysRevengeCovenHouseBundleDesc,items,Loot Bundle,,,"A small box with some cherished possessions."
+resourceWitchesHair,items,Witches Hair,,,"Lock of witches hair" 
+resourceWitchesHairDesc,items,Witches Hair,,,"Grimey lock of rotting witches hair from Judie's grave. Boiling this down in an alchemy recipe creates a vestige brew. The brew is used in a recipe that can be used to summon the witch cult leader Margat the Seer. Watch out for the fleas.\n\n[Mary's Revenge storyline]" 
+resourceUsedToiletPaper,items,Toilet Paper,,,"Much used toilet paper" 
+resourceLavenderFlowers,items,Flowers,,,"Lavender Flowers"
+resourceUncookedRice,items,Rice,,,"Uncooked Rice"
+qt_MaryRevengeJudysGrave,items,Grave Ritual,,,"Witch Seer Grave Location"
+qt_MaryRevengeJudysGraveDesc,items,Grave Ritual,,,"Crudely written instructions to guide some kind of occult bloodletting ritual for Magrat's sister (Judie's) grave. A scrawled map shows the witch's grave location.\n\nRead (A) to dig up Judie the Witch's corpse and take what you need before anyone else can mess with the grave.\n\n[Mary's Revenge storyline]"
+createSummoningPie,Quest,Summoning Magrat,,,"The ultimate insult"
+createSummoningPie_description,Quest,Summoning Magrat,,,"Create a cursed pie from Judie's bones and hair. Consuming a slice of the pie will invoke Magrat's wrath.\n\nIn her diary, Mary's was somewhat vague about possible side-effects from eating the pie.\n\nUse (A) to Summon Magrat.\n[Mary's Revenge storyline]"
+createSummoningPieName,Quest,Summoning Magrat,,,[00FFB4]Create a Cursed Pumkin Pie[-]
+createSummoningPie_subtitle,Quest,Summoning Magrat,,,Poke the Bear 
+createSummoningPie_hint1,Quest,Summoning Magrat,,,[00FFB4]Gather Bone from Judie's Grave[-]
+createSummoningPie_hint2,Quest,Summoning Magrat,,,[00FFB4]Gather Hair from Judie's Grave[-]
+createSummoningPie_hint3,Quest,Summoning Magrat,,,[00FFB4]Cut a Cursed Pumkin Pie into slices[-]
+graveRobbingMagratsSisterGroup,Quest,Quest Info,,,"Coven House, Map to secret grave." 
+marysRevengeGraveScreamer,entityclasses,Entity,,,"Judie's Corpse Warden"
+resourceDeadBird,items,Dead Bird,,,"Half eaten putrefying bird" 
+resourceIpsloresBoots,items,Old Boots,,,"Ipslore's Boots"
+resourceIpsloresBootsDesc,items,Old Boots,,,"Ipslore's fancy boots, not your size."
+resourceDiscWorldBook,items,Special Book,,,"Disk-something"
+resourceDiscWorldBookDesc,items,Special Book,,,"A worn dusty old book, clearly a series worth reading. The title is hard to read. Disc something, maybe Disc Wonder or Disc World? Who knows...."
+resourceCultBoneJudy,items,Bone,,,"Strange bone" 
+resourceCultBoneJudyDesc,items,Bone,,,"A strange blue bone from Judie's grave. Twisted and deformed, it must have been painful to walk on. There is an outline of a red eye burned into the side of the bone.\nBoiling this down in an alchemy recipe creates a vestige brew. The brew is used in a recipe used to summon the witch leader Margat the Seer.\n\n[Mary's Revenge storyline]" 
+resourceCultBone,items,Bone,,,"Bone" 
+resourceCultBoneDesc,items,Bone,,,"A bone from an animal, tainted with the hue and stench of witch binding." 
+graveRobbingMagratsSister,Quest,Grave Robbing,,,"Judie Witch's Bones"
+graveRobbingMagratsSister_description,Quest,Grave Robbing,,,"The summoning ritual requires you to consume an extract from the bones and hair of a Witch Seer. Following the instructions in Mary's diary, you need to dig up Judie Witch's grave and make a pie using her hair and bones. The notes describe consuming the pie in a ritual to summon Magrat.\nYou copy the recipe for the ritual and start looking for the grave, hoping you read the notes correctly.\n\n[Mary's Revenge storyline]"
+graveRobbingMagratsSister_offer,Quest,Grave Robbing,,,"The summoning ritual requires you to consume an extract from the bones and hair of a Witch Seer. Following the instructions in Mary's diary, you need to dig up Judie Witch's grave and make a pie using her hair and bones. The notes describe consuming the pie in a ritual to summon Magrat.\nYou copy the recipe for the ritual and start looking for the grave, hoping you read the notes correctly.\n\n[Mary's Revenge storyline]"
+graveRobbingMagratsSisterName,Quest,Grave Robbing,,,[00FFB4]Loot Judie's grave[-]
+graveRobbingMagratsSister_subtitle,Quest,Grave Robbing,,,Loot the bones
+graveRobbingMagratsSister_hint1,Quest,Grave Robbing,,,[00FFB4]Loot bones from the grave[-]
+graveRobbingMagratsSisterComplete,Quest,Quest Info,,,[00FFB4]Judie Witch's grave has been opened[-]
+graveRobbingTwoCoffinClosed,blocks,Block,,,Judie's Casket
+graveRobbingTwoCoffinCracked,blocks,Block,,,Judie's Casket
+graveRobbingTwoCoffinOpen,blocks,Block,,,Judie's Casket
+graveRobbingCovenHouseScreamerSpawn,Quest,Quest Info,,,Hunt the witch.
+graveRobbingCovenHouseScreamerSpawnName,Quest,Grave Robbing,,,[00FFB4]Kill the witch[-]
+graveRobbingCovenHouseScreamerSpawn_offer,Quest,Grave Robbing,,,"Witches will chant at the priest's grave. Kill the witch to get a map to the location of the priest's grave.\n\n[Mary's Revenge storyline]"
+graveRobbingJudysScreamerSpawn,Quest,Quest Info,,,Cult Lunatics
+graveRobbingJudysScreamerSpawnName,Quest,Grave Robbing,,,[00FFB4]Kill the cult members[-]
+graveRobbingJudysScreamerSpawn_offer,Quest,Grave Robbing,,,"There are witches guarding Judie's grave, discuss your concerns with them.\n\n[Mary's Revenge storyline]"
+resourceJudysCorpse,items,Item,,,"Judie Witch's Rotting Corpse"
+resourceJudysCorpseDesc,items,Item,,,"Oozing worm riddled carcass of a witch called Judie.\n\nThe stench is overpowering."
+resourceBloodVile,items,Item,,,"Vial of Blood"
+resourceBloodVileDesc,items,Item,,,"A small vial of blood"
+foodPumpkinJudyPieWhole,items,Food,,,Cursed Pumkin Pie
+foodPumpkinJudyPieWholeDesc,items,Food,,,"Cold and sticky Judie Witch bone and hair Pumpkin Pie.\nOpen to cut into slices.\n\n[Mary's Revenge storyline]"
+foodPumpkinJudyPieSlice,items,Food,,,A Slice Of Cursed Pumkin Pie
+foodPumpkinJudyPieSliceDesc,items,Food,,,"Disgusting slice of Judie Witch bone and hair Pumpkin Pie.\n\nAn underlined passage in Mary's diary warns that consuming this pie will enrage Judie's sister Magrat the Seer and cause her vengeful manifestation. Quick and strong, Magrat will most likely hunt you when out in the open.\n\nMary's strategic notes:\nTry get a height advantage.\nWhile Magrats alive, damaging her dopplegangers encourages more spawns.\nThe bleed effect of Mary's rifle didn't affect Magrat.\nThe Talisman Side Quest may be helpful.\n[Mary's Revenge storyline]"
+resourceWitchBrew,items,Rice,,,"Ubuqili Brew"
+resourceWitchBrewDesc,items,Rice,,,"Specially prepared Ubuqili essence. Has an acidic rotting stink that penetrates deap into your sinuses and stings your eyes. Used in the preparation of summoning a Witch Seer.\n\n[Mary's Revenge storyline]"
+quest_TestCode,Quest,Test code,,,Quest_test_code
+quest_KillMagratID,Quest,Kill Magrat,,,Magrat the Seer 
+quest_KillMagrat,Quest,Kill Magrat,,,Kill Magrat the Seer 
+quest_KillMagratName,Quest,Homing Pigeons,,,[00FFB4]Kill Magrat the Seer[-]
+quest_KillMagratDesc,Quest,Challenge Info,,,"Tracking your every position and hidding behind dopplegangers, Magrat seeks to enslave and sacrifice you. \n\n\n\n[Mary's Revenge Storyline]"
+resourcePieceOfCheese,items,Cheese,,,"Cheese Wedge"
+resourcePieceOfCheeseDesc,items,Cheese,,,"Cheese wedge that looks like cheddar but isnt, certainly doesn't smell like cheddar. You wonder where the ingredients for the cheese would come from..."
+marysRevengeMagratsSacrificialKnife,items,Knife,,,Concitatio.
+marysRevengeMagratsSacrificialKnifeDesc,items,Knife,,,"Magrat's ancient clunaclus, Concitatio. A lethal sacrificial witch-blade that found its way to Magrat the Witch Seer. Like her sister Judie, Magrat was a depraved sadistic  itch with a tendancy towards psychotic outbursts and the knife reflected her creative outlook on life. The words [FFFFCC]Laetitia Poena[-] are embossed on the hilt.\n\nBy examining Concitatio you learn some of her basic stats but she was Magrats personal blade and her real powers remain unknown to you."
+buffMarysRevengeFinalBossSummonDisplay,buffs,Buff,,,Cursed
+buffMarysRevengeFinalBossSummon,buffs,Interloper,,,"Kill Magrat the Seer"
+buffMarysRevengeFinalBossSummonDesc,buffs,Interloper,,,"You spit in the witch-seer Magrat's face and consume the essense of her sister. You embody the curse of Judie Witch and summon Magrat to a no rules battle to the death. Deliver Mary's vengence and defeat Magrat.\n\nMagrat's strategy focuses on spawning dopplegangers at random to confuse, overpower and rip her enemies to shreds. She will continue to spawn at random intervals to dominate and destroy you until you kill her.\n\n[Mary's Revenge Storyline]"
+buffMarysRevengeFinalBossSummonName,buffs,Interloper,,,"Kill Magrat the Seer."
+buffMarysRevengeFinalBossSummonTooltip,buffs,Interloper,,,"Kill Magrat."
+quest_SpawnMagrat,Quest,Kill Magrat,,,Kill Magrat the Seer 
+quest_SpawnMagratName,Quest,Kill Magrat,,,[00FFB4]Kill Magrat the Seer[-]
+quest_SpawnMagratDesc,Quest,Challenge Info,,,"Tracking your every position and hidding behind dopplegangers, Magrat seeks to enslave and sacrifice you. \n\n\n\n[Mary's Revenge Storyline]"
+quest_SpawnMagratMinions,Quest,Kill Magrat,,,A doppleganner has joined the fight!
+quest_SpawnMagratMinionsName,Quest,Kill Magrat,,,[00FFB4]Kill Magrat the Seer[-]
+quest_SpawnMagratMinionsDesc,Quest,Challenge Info,,,"A doppleganger has joined the fight - kill Magrat to stop the dopplegangers spawning. \n\n\n\n[Mary's Revenge Storyline]"
+qt_RunMarysRevengeFinalBoss,items,Encrypted Note,,,MarysRevenge Final Boss
+qt_RunMarysRevengeFinalBossDesc,items,Encrypted Note,,,"Test code to run the final interaction of the Marys Revenge story. Spawns final boss and dopplegangers"
+graveRobbingIpsloreTheRed,Quest,Mary's Revenge,,,"Find Ipslore's Talisman"
+graveRobbingIpsloreTheRedName,Quest,Mary's Revenge,,,[00FFB4]Ipslore's Folly[-]
+graveRobbingIpsloreTheRed_offer,Quest,Mary's Revenge,,,"The power of the Witch Sisters, Magrat and Judie, is in their innate ability to summon dopplegangers.\nDuring the war for control of the witch cult, Ipslore the Red created 2 Talismans to mark Magrat and Judie apart from their dopplegangers. He used one to great effect to mark and kill Judie in an ambush, but while the Talisman could identify the true Magrat it was not very useful at detecting rat poison. Ipslore died an agonising death from renal failure and a prolapsed anus. In death his power lingers and his grave is protected by beasts from hell.\n\n[Mary's Revenge Storyline]"			
+graveRobbingIpsloreTheRedGroup,Quest,Mary's Revenge,,,Ipslore's Folly
+graveRobbingIpsloreTheRed_hint1,Quest,Quest Info,,,[00FFB4]Beware the Gravekeepers[-]
+quest_SpawnGraveKeeperDireWolf,Quest,Hell's Gatekeeper,,,Kill the Grave Keeper 
+quest_SpawnGraveKeeperDireWolfName,Quest,Hell's Gatekeeper,,,[00FFB4]Kill the Grave keeper[-]
+quest_SpawnGraveKeeperDireWolfDesc,Quest,Challenge Info,,,"You have disturbed a grave protected by a witch's death song. A beast fron hell protects the grave and is hunting you.\n\n\n\n[Mary's Revenge Storyline]"
+quest_SpawnGraveKeeperDireBear,Quest,Kill Magrat,,,Kill the Grave Keeper
+quest_SpawnGraveKeeperDireBearName,Quest,Hell's Gatekeeper,,,[00FFB4]Kill the Grave Keeper[-]
+quest_SpawnGraveKeeperDireBearDesc,Quest,Hell's Gatekeeper,,,"You have disturbed a grave protected by a witch's death song. A beast fron hell protects the grave and is hunting you.\n\n\n\n[Mary's Revenge Storyline]"
+resourcePilotsCorpse,items,Item,,,"Pilots Corpse"
+resourcePilotsCorpseDesc,items,Item,,,"The mangled corpse of the pilot, doesn't seem like gyrocopters have airbags. From his state of decomposition, you figure he died about a week or two ago. There is a big hole where his forehead used to be. You poke your finger inside to see if there's anything interesting. A worm squishes out of an eye socket from the pressure of your finger wagging around in the gunk. You dont find anything and as you squeeze some sticky cruor from under your fingernails you wonder if maybe you should've worn gloves or something."
+resourceCIADudeCorpse,items,Item,,,"Special Agent's Corpse"
+resourceCIADudeCorpseDesc,items,Item,,,"The dead man appears to be some kind of Special Agent and clearly didn't die from the crash. You count 5, maybe 6 bullet wounds to his chest and there's not much left of the back of his head. A pistol falls from his shoulder holster as you move him. He appears to have been carrying something that someone desperately wanted. His right hand has been sawn-off at the wrist and the remains of his hand and some bloodied handcuffs lay on the floor attached to an empty briefcase."
+resourceCIASecurityTag,items,Item,,,"Fake IDs"
+resourceCIASecurityTagDesc,items,Item,,,"Several different IDs and aliases. A variety of interesting names and professions with the dead agent's picture smiling wistfully in each of them."
+resourceCIABriefingNote,items,Item,,,"Briefing Note"
+resourceCIABriefingNoteDesc,items,Item,,,"A torn and crumpled note. Flattening it out shows it to be a Top Secret Briefing Note. You can't make much out through the bloodstains. The whole scene reflects a grim tale but there's nothing to indicate what the Agent was so desperate to protect."
+foundGyroRewardSchematic,items,Traps,,,Gyro World
+foundGyroRewardSchematicDesc,items,Traps,,,"Gyro World. \nIts all greek to me! Gyro maintenance & piloting for dummies. Learn the Gyro Accessories and Chassis recipes."
+foundGyroAgentLuggage,items,Item,,,Small Reinforced Case
+foundGyroAgentLuggageDesc,items,Item,,,"An empty smashed metal case. A bloodied hand dangles from a set of handcuffs still attached to the handle. It looks like took a long while to get into the case using a variety of methods." 
+assassinsPistol,items,Pistol,,,Welrod MkXV11 9mm
+assassinsPistolDesc,items,Pistol,,,"Rare sanitised SOE Stealth Pistol. A quiet blow-back pistol with low heat generation. Uses a combination of a polyaramide bolt and an oil-tempered chrome vanadium recoil spring to support 124-grain 9mm ammunition. As a blowback pistol it does not support AP or HP ammo.\n\nSneak Bonuses:\nSneak Damage 10X.\nSneak Headshot Damage 400%."
+
+gyrocopterWreck,blocks,block,,,Crashed Gyrocopter
+gyrocopterWreckChassis,blocks,block,,,Crashed Gyrocopter
+buffTest,buffs,Buff,,,Test
+pigeonFinalBoss,entityclasses,Entity,,,Curtis Pigeonface Colton
+buffGameEventController,buffs,Buff,,,Zombie Kills: 
+buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 3000.
+buffGraveArtifactComplete,buffs,Buff,,,Cursed Artifact-Strongbox 
+buffGraveArtifactCompleteDesc,buffs,Buff,,,Cursed Artifact-Strongbox
+milestoneBundleZombieKill,buffs,Buff,,,Mary reaches out to you from the grave
+testbuffmsg,buffs,Buff,,,Buff test Msg
+resourceNewsPaperClipping1,items,Clipping,,,"Clipping 1"
+resourceNewsPaperClipping1Desc,items,Clipping,,,"Clipping 1"
+resourceNewsPaperClipping2,items,Clipping,,,"Clipping 2"
+resourceNewsPaperClipping2Desc,items,Clipping,,,"Clipping 2"
+resourceNewsPaperClipping3,items,Clipping,,,"Clipping 3"
+resourceNewsPaperClipping3Desc,items,Clipping,,,"Clipping 3"
+resourceNewsPaperClipping4,items,Clipping,,,"Clipping 4"
+resourceNewsPaperClipping4Desc,items,Clipping,,,"Clipping 4"
+resourceNewsPaperArticle,items,Article,,,"Article 1"
+resourceNewsPaperArticleDesc,items,Article,,,"Article 1"
+
+questMarysRevengeArtifactContainerOpened,Quest,Challenge Info,,,Cursed Container.
+questMarysRevengeArtifactContainerOpenedName,Quest,Challenge Info,,,[00FFB4]Cursed Container[00FFB4]
+questMarysRevengeArtifactContainerOpenedDesc,Quest,Challenge Info,,,Break open the cursed container to get the Artifact inside.
+qt_burialSiteMarysRevengeNote,items,Quest - Burial Site,,,Inspect Burial Site - Mary's Revenge
+qt_burialSiteMarysRevengeCovenHouse,items,Quest - Burial Site,,,"Coven House - Marys Revenge"
+qt_burialSiteMarysRevengeCovenHouseDesc,items,Quest - Burial Site,,,"Test code - starts Coven House chapter of Mary's Revenge"
+qt_burialPatrolCarNote,items,Missing Patrol Car,,,Dirty old Police Notebook: Missing Schematics
+qt_burialPatrolCarNoteDesc,items,Missing Patrol Car,,,"After discovering the Crowd Control mod could be further modified to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the new mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car.\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
+pigeonSpawn,items,Homing Pigeons,,,"Intercept Homing Pigeon"
+quest_SpawnHomingPigeon1,Quest,Challenge Info,,,Intercept Puffy the Homing Pigeon
+quest_SpawnHomingPigeon1Name,Quest,Homing Pigeons,,,[00B4FF]Intercept Puffy the Homing Pigeon[-]
+quest_SpawnHomingPigeon1Desc,Quest,Challenge Info,,,"Some kind of pigeon. Intercept the pigeon to see what going on. \n\nIf you dont succeed, maybe you'll see the pigeon again.\n\n\n\n[Pigeons Carry Diseases Storyline]"
+quest_SpawnHomingPigeon2,Quest,Challenge Info,,,Intercept Coco the Homing Pigeon
+quest_SpawnHomingPigeon2Name,Quest,Homing Pigeons,,,[00B4FF]Intercept Coco the Homing Pigeon[-]
+quest_SpawnHomingPigeon2Desc,Quest,Challenge Info,,,"Another pigeon. Intercept it to see what going on. \n\nIf you dont succeed, maybe you'll see the pigeon again.\n\n\n\n[Pigeons Carry Diseases Storyline]"
+quest_SpawnHomingPigeon3,Quest,Challenge Info,,,Intercept Plop the Homing Pigeon
+quest_SpawnHomingPigeon3Name,Quest,Homing Pigeons,,,[00B4FF]Intercept Plop the Homing Pigeon[-]
+quest_SpawnHomingPigeon3Desc,Quest,Challenge Info,,,"A third pigeon. Intercept it to see what going on. \n\nIf you dont succeed, maybe you'll see the pigeon again.\n\n\n\n[Pigeons Carry Diseases Storyline]"
+quest_SpawnHomingPigeon4,Quest,Challenge Info,,,Intercept Sparkle the Homing Pigeon
+quest_SpawnHomingPigeon4Name,Quest,Homing Pigeons,,,[00B4FF]Intercept Sparkle the Homing Pigeon[-]
+quest_SpawnHomingPigeon4Desc,Quest,Challenge Info,,,"A fourth pigeon. Intercept it to see what going on. \n\nIf you dont succeed the pigeon will probably come back a few more times.\n\n[Pigeons Carry Diseases Storyline]"
+quest_ScoutTraderWasteland,Quest,Quest Info,,,Scout Trader - Wasteland
+quest_ScoutTraderWasteland1,Quest,Quest Info,,,Scout Trader - Wasteland 1/1
+quest_ScoutTraderWasteland1_description,Quest,Quest Info,,,"Check out this Trader in the Wastelands. \nYou are thirsty for information. Snoop around, someone might dish some juice and spill the tea." 
+quest_ScoutTraderWasteland1_hint1,Quest,Quest Info,,,[FFB400]Follow the on-screen navigation icon and head towards the trader.[-]
+quest_ScoutTraderWasteland1_hint2,Quest,Quest Info,,,[FFB400]Follow the navigation icon to find the trader inside.\nTry checking the trader's inventory to complete this quest.[-]
+quest_ScoutTraderWasteland1_subtitle,Quest,Quest Info,,,Scout Trader
+quest_ScoutTraderSnow,Quest,Quest Info,,,Scout Trader - Snow
+quest_ScoutTraderSnow1,Quest,Quest Info,,,Scout Trader - Snow 1/1
+quest_ScoutTraderSnow1_description,Quest,Quest Info,,,"Recon the Trader living out in the snow biome. Scout out their location and see if you can pick up any interesting local chatter."
+quest_ScoutTraderSnow1_hint1,Quest,Quest Info,,,[FFB400]Follow the on-screen navigation icon and head towards the trader.[-]
+quest_ScoutTraderSnow1_hint2,Quest,Quest Info,,,[FFB400]Follow the navigation icon to find the trader inside.\Try checking the trader's inventory to complete this quest.[-]
+quest_ScoutTraderSnow1_subtitle,Quest,Interloper,,,[FFB400]Scout Trader[-]
+quest_Interloper_ScoutTraderOne,Quest,Interloper,,,"Visit the Trader and chat with them, see if you can pick up any info on any Special Supply drops. \nThey probably don't trust you but its worth a try.\n\n[Interloper storyline]"
+quest_Interloper_ScoutTraderOneName,Quest,Interloper,,,[FFB400]Scout Trader for info.[-]
+quest_Interloper_ScoutTraderOne_description,Quest,Interloper,,,"Visit the Trader and chat with them, see if you can pick up any info on any Special Supply drops. \nThey probably don't trust you but its worth a try.\n\n[Interloper storyline]"
+quest_Interloper_ScoutTraderOne_hint1,Quest,Interloper,,,[FFB400]Suss out the Trader.[-]
+quest_Interloper_ScoutTraderOne_hint2,Quest,Interloper,,,[FFB400]Chat with the trader inside.[-]
+quest_Interloper_ScoutTraderOne_subtitle,Quest,Interloper,,,Chat to the Trader.
+quest_Interloper_ScoutTraderTwo,Quest,Interloper,,,"The first had no interest in talking about any Supply Crates. Try visit another Trader to see if there's anything going around about this Special Supply drop. \nIf you're ignored again, there's always something else you can try.\n\n[Interloper storyline]"
+quest_Interloper_ScoutTraderTwoName,Quest,Interloper,,,[FFB400]Scout 2nd Trader for info.[-]
+quest_Interloper_ScoutTraderTwo_description,Quest,Interloper,,,"The first Trader had no interest in talking about any Supply Crates. Visit another Trader and see if there's anything going around about any Special Supply drops. \nIf you're ignored again, there's always something else you can try.\n\n[Interloper storyline]"
+quest_Interloper_ScoutTraderTwo_hint1,Quest,Interloper,,,[FFB400]Check out the 2nd Trader.[-]
+quest_Interloper_ScoutTraderTwo_hint2,Quest,Interloper,,,[FFB400]See if the Trader will talk to you.[-]
+quest_Interloper_ScoutTraderTwo_subtitle,Quest,Interloper,,,Scout 2nd Trader for info.
+quest_Interloper_MaliciousActorName,Quest,Interloper,,,[FFB400]The Sound of Silence.[-]
+quest_Interloper_MaliciousActor,Quest,Interloper,,,"Interloper: The Sound of Silence"
+quest_Interloper_MaliciousActor_description,Quest,Interloper,,,"Not getting anywhere with the Traders you decide to set up some surveilance near a Trader to listen in on any local chatter or radio traffic\n\nBuild a Signal Receiver and place it in your base, then build a Signal Capture and Transmitter device. Place the SCT device near a Trader, it will pick any chatter related to SUPPLY CRATES or DROPS. You will get a notification if/when any matching phrases are intercepted.\n\n[Interloper storyline]"
+quest_Interloper_MaliciousActor_hint1,Quest,Interloper,,,[FFB400]Gather Signal Receiver(SR).[-]
+quest_Interloper_MaliciousActor_hint2,Quest,Interloper,,,[FFB400]Place Signal Receiver(SR).[-]
+quest_Interloper_MaliciousActor_hint3,Quest,Interloper,,,[FFB400]Gather Signal Capture and Transmitter(SCT).[-]
+quest_Interloper_MaliciousActor_hint4,Quest,Interloper,,,[FFB400]Locate a suitable Trader.[-]
+quest_Interloper_MaliciousActor_hint5,Quest,Interloper,,,[FFB400]Place the SCT near the Trader[-]
+quest_Interloper_MaliciousActor_subtitle,Quest,Interloper,,,The Sound of Silence.
+quest_Interloper_InterceptTheSupplies,Quest,Interloper,,,"Intercept The Supplies"
+quest_Interloper_InterceptTheSupplies_description,Quest,Interloper,,,"Your evesdropping has given you an opportunity to intercept a valuable Supply Drop intended for the Duke. Its been dropped at an abandoned base by mistake. At least one squad was sent to retrieve it but never returned.\n\nYou dont know if the drop was moved or still where it landed. The drop has a weak location signal but if you can get the bases' network power working it will amplify the Supply Drop's beacon. The place sounds brutal and was abandoned in a hurry so there's probably still a main loot stash somewhere. [DECEA3]The priority is to secure the Supply Crate whatever way you can.[-]\n\nYou may need explore to find the drop location, you only have a hint that its somewhere in the wasteland.  [Interloper storyline]"
+quest_Interloper_InterceptTheSuppliesName,Quest,Interloper,,,[FFB400]Intercept The Supplies[-]
+quest_Interloper_InterceptTheSupplies_subtitle,Quest,Interloper,,,Intercept The Supplies
+quest_Interloper_InterceptTheSupplies_hint1,Quest,Interloper,,,[FFB400]Locate the Supplies.[-]
+quest_Interloper_InterceptTheSupplies_hint2,Quest,Interloper,,,[FFB400]Locate the Supplies.[-]
+quest_Interloper_EpilogueName,Quest,Interloper,,,[FFB400]Trust Must Be Earned[-]
+quest_Interloper_Epilogue,Quest,Interloper,,,"Trust Must Be Earned"
+quest_Interloper_Epilogue_description,Quest,Interloper,,,"You got an offer to trade the special magazines you picked up from the supply crate loot. \n\nGet a drop bag of the magazines. Then go to the drop point and place it down somwhere near. Once placed you will pick up your trade at another location for everyone's safety and privacy. \n\n[Interloper Storyline]"
+quest_Interloper_Epilogue_hint1,Quest,Interloper,,,"Gather the Magazine Dropbag." 
+quest_Interloper_Epilogue_hint2,Quest,Interloper,,,[FFB400]Go to the drop point.[-]
+quest_Interloper_Epilogue_hint3,Quest,Interloper,,,[FFB400]Place the Dropbag on the ground somewhere.[-]
+quest_Interloper_Epilogue_hint4,Quest,Interloper,,,[FFB400]Pick up the Trade Drop.[-]
+quest_Interloper_Epilogue_subtitle,Quest,Interloper,,,Interloper Epilogue.
+quest_InterloperStoryEpilogue,Quest,Interloper,,,"Interloper Storyline"
+interloperSupplyDropSpawn,items,Interloper,,,"[FFB400]Locate Supply Drop[-]"
+interloperSupplyDropSpawnDesc,items,Interloper,,,"Locate the Supply Drop and recover the special package."
+interloperSupplyDropSpawnSubtitle,items,Interloper,,,"Recover Package."
+quest_PigeonsEpilogueTest,Quest,Pigeon Fancier,,,"TEST."
+quest_PigeonsEpilogue,Quest,Pigeon Fancier,,,"An easy steal"
+quest_PigeonsEpilogue_description,Quest,Pigeon Fancier,,,"Seems the pigeon fancier cant keep his mouth shut. Go and investigate and see if there's anything worth taking.\n\n[Pigeons Carry Diseases storyline]"
+quest_PigeonsEpilogue_offer,Quest,Pigeon Fancier,,,"Another dead pigeon, another loot cache. Grab the loot before anyone else picks it up.\n\n[Pigeons Carry Diseases storyline]"
+quest_PigeonsEpilogueName,Quest,Pigeon Fancier,,,[00B4FF]Steal the cache[-]
+quest_PigeonsEpilogue_subtitle,Quest,Pigeon Fancier,,,Steal the cache
+quest_PigeonsEpilogue_hint1,Quest,Pigeon Fancier,,,[00B4FF]Steal the cache[-]
+quest_PigeonsEpilogue_hint2,Quest,Pigeon Fancier,,,[00B4FF]Steal the cache[-]
+buffPigeonOnFinalBossDisplayDesc,buffs,Buff,,,"You are being hunted! Its almost like someone doesn't appreciate your pigeon interaction skills and intends to eviscerate you.\nKill the Pigeon Fancier!\n\n[Pigeons Carry Diseases storyline]"
+buffPigeonOnFinalBossDisplayName,buffs,Buff,,,"Hunted"
+buffPigeonOnFinalBossDisplayTooltip,buffs,Buff,,,"You're being hunted!"
+quest_PigeonsEpilogueSpawn,items,Interloper,,,"You're being hunted! Kill the Pigeon Fancier!"
+quest_PigeonsEpilogueSpawnDesc,items,Interloper,,,"You are being hunted! Looks like someone deosn't appreciate your pigeon interaction skills and is hunting you.\nKill the Pigeon Fancier!\n\n[Pigeons Carry Diseases storyline]"
+quest_PigeonsEpilogueSpawnName,items,Interloper,,,[00B4FF]Hunted![-]
+quest_PigeonsEpilogueSpawn_hint1,Quest,Pigeon Fancier,,,[00B4FF]Kill the Pigeon Fancier[-]
+quest_InterloperEpilogueSpawn,items,Interloper,,,"Pickup the trade drop."
+quest_InterloperEpilogueSpawnDesc,items,Interloper,,,"Pick up the drop for the mutually beneficial trade deal."
+quest_InterloperEpilogueSpawnName,items,Interloper,,,[FFB400]Pickup the trade drop.[-]
+buffInterloperSpyMessageReceived,buffs,Buff,,,<<|>>
+buffInterloperFirstSpyMessageReceived,buffs,Interloper,,,"First Interloper Transmission Received."
+buffInterloperFirstSpyMessageReceivedDesc,buffs,Interloper,,,"The Signal Receiver has received its first data dump from the spy device that you placed near the Trader.\nActivate(E) the Signal Receiver to retrieve the data, might be something useful about the Special Supply Drop.\n\nYou can always create and place another Signal Receiver if you dont have the original."
+buffInterloperFirstSpyMessageReceivedName,buffs,Interloper,,,"First Interloper Transmission Received."
+buffInterloperFirstSpyMessageReceivedTooltip,buffs,Interloper,,,"First Interloper Transmission Received. Activate(E) the Signal Receiver to retrieve the msg."
+buffInterloperSecondSpyMessageReceived,buffs,Interloper,,,"Second Interloper Transmission Received."
+buffInterloperSecondSpyMessageReceivedDesc,buffs,Interloper,,,"The Signal Receiver has received a second data dump from the spy device that you placed near the Trader.\nActivate(E) the Signal Receiver to retrieve the data, might be something useful about the Special Supply Drop.\n\nYou can always create and place another Signal Receiver if you dont have the original."
+buffInterloperSecondSpyMessageReceivedName,buffs,Interloper,,,"Second Interloper Transmission Received."
+buffInterloperSecondSpyMessageReceivedTooltip,buffs,Interloper,,,"Second Interloper Transmission Received. Activate(E) the Signal Receiverto retrieve the msg."
+buffInterloperThirdSpyMessageReceived,buffs,Interloper,,,"Third Interloper Transmission Received."
+buffInterloperThirdSpyMessageReceivedDesc,buffs,Interloper,,,"The Signal Receiver has received a third data dump from the spy device that you placed near the Trader.\nActivate(E) the Signal Receiver to retrieve the data. Maybe something to do with the Special Supply Drop.\n\nYou can always create and place another Signal Receiver if you dont have the original."
+buffInterloperThirdSpyMessageReceivedName,buffs,Interloper,,,"Third Interloper Transmission Received."
+buffInterloperThirdSpyMessageReceivedTooltip,buffs,Interloper,,,"Third Interloper Transmission Received. Activate(E) the Signal Receiver to retrieve the msg."
+interloperSpecialMagOne,items,Magazine,,,"Leather & Horses Vol 3. June 1982"
+interloperSpecialMagOneDesc,items,Magazine,,,"Summer fun with stirrups. See the latest trends modelled by Summer Daisy and Tricky Silver.\n\nSpecial expose: Petunia shows off her 16.2HH rump."
+interloperSpecialMagTwo,items,Magazine,,,"Leather & Horses Vol 7. March 1983"
+interloperSpecialMagTwoDesc,items,Magazine,,,"Luscious Braids: A review of this years sexiest braid patterns. \nContinental or Western - which is more appealing? Glossy pics inside!"
+interloperSpecialMagThree,items,Magazine,,,"Leather & Horses Vol 21. August 1985"
+interloperSpecialMagThreeDesc,items,Magazine,,,"Special Collectors Centerfolds Edition: All your favorite models showing of their ass ets.\nSpecial appearances by your old favorites; Dreamy, Bluebell and Calliope."
+interloperSpecialMagFour,items,Magazine,,,"Leather & Horses Vol 23. December 1985"
+interloperSpecialMagFourDesc,items,Magazine,,,"Winter Special: Snuggle up with your favourite models for the holidays. By popular demand we have a special centerfold guest: Clementine shows us her reindeer cosplay with extra large horns and exquisite shoe fashion."
+interloperSpecialTissues,items,Tissues,,,"Box of Tissues."
+interloperSpecialTissuesDesc,items,Tissues,,,"Box of extra soft tissues.\n\nNot useful to you."
+interloperMicrophone,items,Tissues,,,"Microphone."
+interloperMicrophoneDesc,items,Tissues,,,"Small microphone.\n\nUsed in the Interloper:Signal Receiver recipe."
+interloperRewardBookOne,items,Book,,,"Plissken's Survival Techniques Vol 1." 
+interloperRewardBookTwo,items,Book,,,"Plissken's Survival Techniques Vol 2." 
+interloperRewardBookThree,items,Book,,,"Plissken's Survival Techniques Vol 3." 
+interloperRewardBookFour,items,Book,,,"Plissken's Survival Techniques Vol 4." 
+interloperRewardBookFive,items,Book,,,"Plissken's Survival Techniques Vol 5." 
+buffInterloperRewardBookOne,buffs,Buff,,,"Plissken's Survival Techniques Vol 1." 
+buffInterloperRewardBookOneDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume One of Four. An indepth analysis by some guy named Plissken, seems to know what he's talking about. Reading this volume on health will:\nIncrease your Max Health by 50.\nIncrease natural healing speed 0.15h/sec.\nDecrease food loss per health gained by 50%\nIncrease your GameStage by 30.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookTwo,buffs,Buff,,,"Plissken's Survival Techniques Vol 2." 
+buffInterloperRewardBookTwoDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Two of Four. Plissken's second volume focusing on fitness. Reading this volume on fitness will:\nIncrease Max Stamina by 50.\nIncrease stamina regen speed by 10%\nDecrease water loss per stamina gained by 50%\nIncrease your Gamestage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookThree,buffs,Buff,,,"Plissken's Survival Techniques Vol 3." 
+buffInterloperRewardBookThreeDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Three of Four. A study of speed and surprise in warfare. Reading this volume will:\nIncrease Run, Walk & Crouch Speeds by 10%.\nIncrease Jump Strength by 10%.\nIncrease Attacks per Minute by 10%.\nIncrease Reload Speed by 15%.\nIncrease Scavenging Speed by 20%.\nIncrease your GameStage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookFour,buffs,Buff,,,"Plissken's Survival Techniques Vol 4." 
+buffInterloperRewardBookFourDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Four of Four. Plissken's notes on sticky fingers. Reading this volume will:\nReduce Lockpicking time by 97%\nLockpicking is always successful.\nIncrease loot quantity for Safes and Treasure Chests by 25%. \nIncrease your GameStage by 20.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookFive,buffs,Buff,,,"Plissken's Survival Techniques Vol 5." 
+buffInterloperRewardBookFiveDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Five of Five.\nIncrease General Damage Resist by 25%.\nIncrease Elemental Damage Resist by 25%.\nIncrease Physical Damage Resist by 25%.\nIncrease GameStage by 50.\n\nChanges are permanent for the rest of the game."		
+qt_spawnFinalInterloperLootDrop,items,Book,,,"Spawn final interloper loot"
+qt_spawnFinalInterloperLootDropDesc,items,Book,,,"TEST CODE: spawn the final supply crate loot drop for the interloper story"
+interloperSupplyCrateMagazineBundle,items,Bundle,,,"Special Magazine Bundle"
+interloperSupplyCrateMagazineBundleDesc,items,Bundle,,,"A bundle of interesting 'collectors' Magazines. If this was the Duke's special delivery then someone might be willing to pay some good money to get their hands on it. Probably worth keeping for a bit.\n\n[Interloper Storyline]"
+interloperSupplyCrateDukesBundle,items,Bundle,,,"Personal Supply Package"
+interloperSupplyCrateDukesBundleDesc,items,Bundle,,,"Supply box for the Duke's personal use. There is something in here that everyone seems to want to get their hands on."
+interloperSupplyCrateAmmoBundle,items,Bundle,,,"Ammo Supplies"
+interloperSupplyCrateAmmoBundleDesc,items,Bundle,,,"Personal ammo resupply box. Open when space available."
+interloperEpilogueRewardBundle,items,Bundle,,,"A Bundle of Survival books"
+interloperEpilogueRewardBundleDesc,items,Bundle,,,"A Bundle of Plissken's Survival Training books."
+interloperSecretDrop,items,Supply Drop,,,"Missing Supply Drop"
+interloperTradeDrop,items,Trade Drop,,,"Interloper Epilogue Trade Drop"
+interloperTradeDropBag,items,Bundle,,,"Magazine Drop Bag"
+interloperTradeDropBagDesc,items,Bundle,,,"Used to trade the unique contents of the Special Supply Drop.\n\n[Interloper Storyline]"
+ObjectiveTreasureChest_keyword,Quest,Keywords,,,Distance:
+ttTreasureRadiusReduced,UI,Tooltip,,,.
+buriedPatrolCar,Quest,Challenge Info,,,Missing Patrol Car
+buriedPatrolCar_offer,Quest,Challenge Info,,,"After discovering the Crowd Control mod could be further modified to stop Rad regeneration, Sheriff Rosco P. Coltrane was tasked with delivering the mod design to Central Operations.\nHe never arrived. Police believe he was ambushed by the Hazzard Gang and their young kid; 'Duke' - real name Cletus Hogg III.\nThe dusty notebook contains a map to the last known location of his Patrol Car. Well armed and caution are advised.\n\n[Note! On completion this quest will show as 'Failed'. As long as you retrieve the loot you are fine.]"  
+graveRobbingOne,Quest,Challenge Info,,,"Mary calls to you from the grave"
+graveRobbingOneName,Quest,Challenge Info,,,[00FFB4]Mary's Revenge[-]
+graveRobbingOne_offer,Quest,Challenge Info,,,"Mary's Revenge. A cursed burial site and a fevered voice from a dream. 'Revenge me, kill them, kill them; VENGEANCE!'"
+graveRobbingOneCoffinClosed,blocks,Block,,,Mary's Coffin
+graveRobbingOneCoffinCracked,blocks,Block,,,Mary's Coffin
+graveRobbingOneCoffinOpen,blocks,Block,,,Mary's Coffin
+graveRobbingThreeCoffinClosed,blocks,Block,,,Ipslore's Coffin
+graveRobbingThreeCoffinCracked,blocks,Block,,,Ipslore's Coffin
+graveRobbingThreeCoffinOpen,blocks,Block,,,Ipslore's Coffin
+graveRobbingCoffinRandomHelper,blocks,Block,,,= Grave Robbing Coffin = Random Helper =
+graveRobbingCoffinRandomHelperDesc,blocks,Block,,,Grave Robbing Coffin helper - used for spawning Grave Robbing Coffins
+advancedClothingMesh,items,Item,,,Advanced Clothing Mesh
+advancedClothingMeshDesc,items,Item,,,"A lightweight material with a green hue. The text [DECEA3]CC VK62-3 ONLY[-] is stamped in the lower right hand corner. Seems like something worth keeping.\n\nOnly found in forced opened Police Cars."
+hafniumHydrideMagnet,items,Item,,,Hafnium Hydride Magnet
+hafniumHydrideMagnetDesc,items,Item,,,"A rare exotic HfH2 Magnet. You have a distant memory of an article in [FFB400]Gearheads and Ape Hangers[-] about how a Hydride magnet was once used to perform a side-channel attack by exposing electrical emanations at a military DEMARC Point (POD). Seems like a useful thing to keep.\n\nOnly found in forced opened Police Cars."
+chargedNiCdBattery,items,Item,,,Cobalt Oxide Battery
+chargedNiCdBatteryDesc,items,Item,,,"A Cobalt Oxide Battery, at least thats what it says on the side. A battery unlike any other you've seen before. It looks brand new and still in its plastic wrapper so might be worth keeping.\n\nOnly found in forced opened Police Cars."
+modCrowdControl,item_modifiers,Mod,,,Crowd Control Mod  
+modCrowdControlDesc,item_modifiers,Mod,,,Tikola Nesla's Crowd Control Mod. Originally developed to keep his relative's kids at a distance during family barbecues.\nToned down for Military & Police operations.\n - 25% chance to ragdoll-shock on contact\n - Disables Rad regen for 90sec\n - Reduces HP loss by 5%\n - Installs in chest armour\n\n  	[Parts found in forced open police cars]
+modCrowdControlSchematic,item_modifiers,mod,,,Schematic for Tikola Nesla's CrowdControl Mod
+modShotgunBlockDamage,item_modifiers,Mod,,,Block Damage Shotgun Mod 
+modShotgunBlockDamageDesc,item_modifiers,Mod,,,"Reduces almost all shotgun damage to Cobblestone, Concrete & Steel Blocks.\nDamage to Wood Blocks increased by 400%" 
+modM60DrumMagazine,item_modifiers,Mod,,,High Capacity Magazine Mod
+modM60DrumMagazineDesc,item_modifiers,Mod,,,"Drum magazine for the M60. Double the capacity of standard Drum Magazines."
+airdropTreasureLargeBundle,items,Item,,,Stack of 8 treasure maps.
+airdropTreasureLargeBundleDesc,items,Item,,,A stack of 8 treasure maps. \nUse this item to open and unpack it.
+airdropTreasureSmallBundle,items,Item,,,Stack of 4 treasure maps.
+airdropTreasureSmallBundleDesc,items,Item,,,A stack of 4 treasure maps. \nUse this item to open and unpack it.
+airdropSeedBundle,items,Item,,,Bundle of 40 random Seeds.
+airdropSeedBundleDesc,items,Item,,,Bundle of 40 random generic farming seeds (No plants or Supercorn).\nUse this item to open and unpack it.
+airdropVehiclesMagazineBundle,items,Item,,,Bundle of Vehicle Magazines.
+airdropVehiclesMagazineBundleDesc,items,Item,,,Bundle of Vehicle Skill magazines.\nUse this item to open and unpack it.
+airdropAPAmmoBundle,items,Item,,,Bundle of 300 random AP Bullets.
+airdropAPAmmoBundleDesc,items,Item,,,Bundle of 300 random AP Bullets. \nAP 9mm\nAP 7.62\nAP 44\nSlugs\nUse this item to open and unpack it.
+airdropBookBundle,items,item,,,A couple of random books
+airdropBookBundleDesc,items,item,,,A couple of random books
+airdropSolarBankBundle,items,item,,,Small Solar bundle
+airdropSolarBankBundleDesc,items,item,,,Small Solar bundle
+airdropSteelDoorBundle,items,item,,,Random Steel Doors bundle
+airdropSteelDoorBundleDesc,items,item,,,Random Steel Doors bundle
+modMilitaryStructuralBrace,item_modifiers,Mod,,,Specialist Structural Brace
+modMilitaryStructuralBraceDesc,item_modifiers,Mod,,,"Rare experimental Brace made from a combination of fluoroelastomer and polytetrafluoroethylene. Has a polymetric lipid nanparticle sheathing.\n\nThis modification is for melee weapons, tools and bows: \n - lowers Degradation by 25%.\n - increases Block and Entity damage by 10%." 
+resourceMarysRemains,items,Item,,,"Mary's Remains"
+resourceIpsloresRemains,items,Item,,,"Ipslore's Corpse"
+resourceGoreBlockHumanCorpse1,items,Item,,,Human Remains
+resourceGoreBlockHumanCorpse2,items,Item,,,Human Remains
+resourceConeConstruction,items,Item,,,Construction Cone
+resourceCobweb,items,Item,,,Cobweb
+resourcegGraveStone,items,Item,,,Battered Old Gravestone
+resourceHubcap,items,Item,,,Hubcap
+resourceYoDawg,items,Item,,,"Yo dawg"
+resourceYoDawgDesc,items,Item,,,"Yo dawg, I heard you like police cars ..."
+resourceLuggage,items,Item,,,Empty Broken Luggage
+resourceLetterV,items,Item,,,V
+resourceLetterE,items,Item,,,E
+resourceLetterN,items,Item,,,N
+resourceLetterG,items,Item,,,G
+resourceLetterC,items,Item,,,C
+resourceLetterA,items,Item,,,A
+resourcePigeonPoop,items,Item,,,Bird shit.
+resourcePigeonLice,items,Item,,,Lice.
+resourcePigeonMush,items,Item,,,Bits of tapeworm.
+resourcePigeonTracker,items,Item,,,PigTag.
+resourcePigeonTrackerDesc,items,Item,,,PigTag - Pigeon Tracker\n\nNot useful to you.
+resourcePigeonBand1,items,Item,,,Puffy's ID band. 
+resourcePigeonBand2,items,Item,,,CooCoo's ID band. 
+resourcePigeonBand3,items,Item,,,Plop's ID band.
+resourcePigeonBand4,items,Item,,,Sparkle's ID band.
+resourcePigeonBandDesc1,items,Item,,,Puffy's ID band CFF 32 45 27 13822771. \n\nNot useful for anything.
+resourcePigeonBandDesc2,items,Item,,,CooCoo's ID band CFF 32 45 17 17203J21.\n\nNot useful for anything.
+resourcePigeonBandDesc3,items,Item,,,Plop's ID band CFF 32 45 32 4279HR04.\n\nNot useful for anything.
+resourcePigeonBandDesc4,items,Item,,,Sparkle's ID band CFF 32 45 54 6215VY1.\n\nNot useful for anything.
+EntityHomingPigeon1,entityclasses,Entity,,,Puffy the Homing Pigeon
+EntityHomingPigeon2,entityclasses,Entity,,,CooCoo the Homing Pigeon
+EntityHomingPigeon3,entityclasses,Entity,,,Plop the Homing Pigeon
+EntityHomingPigeon4,entityclasses,Entity,,,Sparkle the Homing Pigeon
+homingPigeonNote1Desc,items,Encrypted Note,,,"A scribbled note attached to an infected pigeon who appears to be named 'Puffy'.\n\n//Hey Zeke, I've run out of options. I think channel Echo is compromised so I'm using my precious homing pigeons from now on. Key for messages will be KT_SKY27. Take care of my girls when they arrive, I don't know what I would do if anything happened to them.//\n\nThe note is unsigned."
+homingPigeonNote2Desc,items,Encrypted Note,,,"A coded message deciphered with the Key: KT_SKY27. Splattered in blood, the text is hard to read.\n\n//Zeke, a sample of what I can get my hands on. There is something big going down near one of the traders, I'll see what I can find out. Puffy still hasn't returned, I keep thinking someone's hurt her and its stressing me the hell out.//"
+homingPigeonNote4Desc,items,Encrypted Note,,,"A coded message deciphered with the Key: KT_SKY27. This note is written clearly and purposefully.\n\n//As agreed, we've left the stash at a drop-house. Its the last payment so its a bit bigger than normal. Here are the coords, make sure you pick it up as soon as possible.//\n\nAn abrupt note, devoid of rantings about pigeons. The stash isn't too far away, might be worth taking a look. Read(A) to begin."
+homingPigeonNote1,items,Encrypted Note,,,"Puffy's Note."
+homingPigeonNote2,items,Encrypted Note,,,"CooCoo's Note."
+resourcePigeonBossMarker,items,Item,,,Marked For Death
+resourcePigeonBossMarkerDesc,items,Item,,,"You're being hunted and have been marked for death."
+interloperSpywareSetupCompleteNote,items,Interloper,,,"The Sound of Silence."
+interloperSpywareSetupCompleteNoteDesc,items,MaliciousActor,,,"The spyware has been set up, hopefully it will pick something up. \n\nThe transmitter will send anything it captures to the Receiver and you'll get a notification. It's a simple device and only capable of picking up phrases around the key words: SUPPLY, CRATE & DROP."
+interloperMaliciousActorSpywareNoteBundle,items,Item,,,Sound of Silence Notebook
+interloperMaliciousActorSpywareNoteBundleDesc,items,Item,,,"Interloper Special Notebook, open to view contents.\n\n[Must open to continue Interloper Story.]"
+qt_InterloperFirstTransmissionReceived,items,Interloper,,,"Transmission: Interesting tidbits."
+qt_InterloperFirstTransmissionReceivedDesc,items,Interloper,,,"The transmitter only captures a few words around key phrases, the transmission reads:\n\n...DROP a duece, so Henson shot him. Now we'll have to find another pilot to do the SUPPLY DROP run. Tell the man that we know his SUPPLY is low and we will still deliver on ...\n\nThe transmission ends."   
+qt_InterloperThirdTransmissionReceived,items,Interloper,,,"Transmission: A Fair Trade?"
+qt_InterloperThirdTransmissionReceivedDesc,items,Interloper,,,"This transmission doesnt use key word capture - someone has interfered with the Transmitter.\n\nWhoever you are, we know you retrieved the Supply Crate. There were men watching the old base and we figured this transmitter out. Your antics are quite impressive and I'll make you a deal. You drop the 'special' Magazine Bundle at a specific spot and I'll trade you something much better. No games, a straight trade!\nHead to this location for the swap and come alone.\n\nRead (A) to start the trade."   
+interloperInterceptSupplyCrateComplete,items,Interloper,,,"Supply Crate Intercepted"
+interloperInterceptSupplyCrateCompleteDesc,items,Interloper,,,"You've intercepted the special delivery for the Duke. The magazine bundle looks to be particularly valuable and should be kept safe. Maybe take a couple of days to think about how best to use this situation to your advantage."   
+qt_InterloperSecondTransmissionReceived,items,Interloper,,,"Transmission: Private Conversations."
+qt_InterloperSecondTransmissionReceivedDesc,items,Interloper,,,"The transmitter only captures a few words around key phrases, the transmission reads:\n\n...SUPPLY DROPs gone. Your nobhead pilot DROPped it over the abandoned base, not the new one ..... wasteland, lost many brothers and SUPPLYs trying. There was something very special in that DROP for the Duke. Tracking freq is 635KHz at 12m max, retrieve the SUPPLY CRATE or you are all dead. You fu...\n\nYou finally get a lead on the special supply drop. They seem to have lost it and the msg is vague about where the crate was dropped. However, you can probably identify the location if you can get within a couple of kms. Explore the map to find the Supply Drop - Read(A)."
+qt_InterloperStoryNoteMaliciousActor,items,Interloper,,,The Sound of Silence.
+qt_InterloperStoryNoteMaliciousActorDesc,items,Interloper,,,"Not getting anywhere with the Traders and start getting a little impatient. You decide to set up a surveilance device near a Trader to listen in on any local chatter or radio traffic.\n\nBuild and place a Signal Receiver(SR) then build a Signal Capture and Transmitter (SCT) device. Place the SCT device near a Trader. \nRead(A) to begin Interloper : The Sound of Silence."
+qt_InterloperStoryNote,items,Encrypted Note,,,Plop's Note: Scout around Traders for information.
+qt_InterloperStoryNoteDesc,items,Encrypted Note,,,"A coded message deciphered with the Key: KT_SKY27.\n\n//Someone's killing my babies Zeke! I'm so stressed out, feels like my head is on fire.\nI got some of the info you wanted: The 2nd 'special' package is a supply drop and its hot. I almost got busted near the Trader getting the info so I'm going silent for a bit.//\n\nThe note also mentions a couple of Trader locations. You consider snooping around the Traders to find out more about a 'special' supply drop.\nRead(A) to begin the Interloper Story."
+qt_InterloperStoryNote2,items,Encrypted Note,,,Scout the second Trader mentioned in the pigeon note.
+qt_InterloperStoryNote2Desc,items,Encrypted Note,,,"You got absolutely nothing from the first Trader. Time to try the second Trader that was mentioned in the note from the pigeon.\nRead(A) to find the second Trader."
+homingPigeonNote4,items,Encrypted Note,,,"Sparkle's Note."
+qt_PigeonFinal,items,Encrypted Note,,,"Sparkle's Note."
+qt_PigeonFinalLootNote,items,Note to self,,,Curtis 'pigeonface' Colton's list
+qt_PigeonFinalLootNoteDesc,items,Note to self,,,"Curtis 'pigeonface' Colton's To Do List:\n1) Have breakfast.\n2) Clean teeth.\n3) Ambush pigeon killer.\n4) Sing the pigeon song while pummeling pigeon killer's face.\n5) Drop off weapons supply on way home.\n\n[Doesn't seem like you'll be running into any more pigeons.]"
+homingPigeonContainerDesc,items,Message Tube,,,"A standard homing pigeon message tube. Small and lightweight, but still useful for messages and very small items.\n\nOpen to examine contents."
+homingPigeonContainer1,items,Message Tube,,,"Puffy the pigeon's Message Tube."
+homingPigeonContainer2,items,Message Tube,,,"CooCoo the pigeon's Message Tube."
+homingPigeonContainer3,items,Message Tube,,,"Plop the pigeon's Message Tube."
+homingPigeonContainer4,items,Message Tube,,,"Sparkle the pigeon's Message Tube."
+animalHomingPigeonOne,entityclasses,Entity,,,Puffy the homing pigeon
+animalHomingPigeonTwo,entityclasses,Entity,,,CooCoo the homing pigeon
+animalHomingPigeonThree,entityclasses,Entity,,,Plop the homing pigeon
+animalHomingPigeonFour,entityclasses,Entity,,,Sparkle the homing pigeon
+pigeonFinalBossBundle,items,Loot Bundle,,,"Pigeon Fancier's Loot"
+pigeonFinalBossBundleDesc,items,Message Tube,,,"A delivery package crudely wrapped in some kind of blanket. It exudes a tangy smell, a combination of body odour and moldy chicken feed.\n\nUse to open and unpack."
+EntityPigeonBossLoot,entityclasses,Entity,,,Pigeonface's Loot
+interloperReceiverBlock,blocks,block,,,Signal Receiver (SR)
+interloperReceiverBlockDesc,blocks,block,,,"Signal Receiver(SR) that gets paired with a Signal Capture and Transmitter(SCT) device.\nIn the default configuration, the SCT device uses sounds and radio scanners to listen for specific patterns or sound combinations. When a match is found it will transmit the results to the SR. The SCT uses mutiple scan types including local voice and short wave radio."
+interloperTransmitterBlock,blocks,block,,,Signal Capture and Transmitter (SCT)
+interloperTransmitterBlockDesc,blocks,block,,,"Signal Capture and Transmitter(SCT) that gets paired with a Signal Receiver(SR) device.\nIn the default configuration, the SCT device uses sounds and radio scanners to listen for specific patterns or sound combinations. When a match is found it will transmit the results to the SR. The SCT uses mutiple scan types including local voice and short wave radio."
+cntPoliceCar01BuriedDesc,blocks,block,,,Missing Patrol Car
+cntPoliceCar01Buried,blocks,block,,,Missing Patrol Car
+cntPoliceCar01AlarmLockedBuried,blocks,block,,,Locked Missing Patrol Car
+cntPoliceCar01AlarmUnlockedBuried,blocks,block,,,Unlocked Missing Patrol Car
+quest_buriedPatrolCarComplete,Quest,Quest Info,,,Patrol Car Unlocked
+bookEnforcerIntimidation,items,perk book,,,Magnum Enforcer Vol 4
+perkEnforcerIntimidationDesc,progression,perk book,,,Looting with any .44 weapon drawn gives you a +7 base lootstage boost.
+perkEnforcerIntimidationLongDesc,progression,perk book,,,Intimidation: Tired of getting shitty loot? Time to show the loot 
+coffinClockBroken,items,Item,,,Broken Clock
+coffinWoodSpikes,items,Item,,,Shattered Defences
+playerExplosiveBarrel,blocks,Block,,,High Explosive Barrel - Kills Zombies
+playerExplosiveBarrelDesc,blocks,Block,,,A well positioned barrel can cause chaos.\nEntity Damage 1800\nBlast Radius 7\nBlock Damage 20\nBlock Damage Radius 4.\nHarvest (e.g. with a pickaxe) for pickup after placement. 
+playerExplosiveBarrelSchematic,items,Traps,,,High Explosive Barrel Schematic
+playerExplosiveBarrelSchematicDesc,items,Traps,,,Learn the High Explosive Barrel Recipe
+thrownTimedChargeDesc,items,Gun,,,"A shaped charge designed for delicate work like blowing off a safe lock, a door, or a zombie's head. Automatically detonates after 5 seconds. Want to bring the house down? Try some dynamite instead.\nArm with [action:local:Secondary]\nThrow with [action:local:Primary]\n\nUsed as Impact Trigger in High Explosive Barrels"
+modMeleeStunBatonRepulsorDesc,item_modifiers,Mod,,,Install this mod into a stun baton and send zombies flying on the charged hit.\nIngredient for the CrowdControl Mod recipe.
+modGunMeleeRadRemoverDesc,item_modifiers,mod,,,Will disable the regeneration ability of radiated zombies for 90 seconds.\nIngredient in the CrowdControl Mod recipe.
+
+apparelCigarDesc,items,Clothes,,,Look intimidating and get a better deal from traders. Boosts strength and adds block damage!
+perkUrbanCombatCigarLongDesc,progression,perk  book,,,"Cigars: Cigars boost your strength and increase your block damage. Learn to craft cigars."
+mmGoMaxZombies,,,Main Menu Game Options,KgNone,Max Zombies Alive
+goMaxZombies,,UI,Menu,KgNone,Max Zombies Alive
+goMaxZombiesDesc,,UI,Menu,KgNone,Maximum amount of zombies that can spawn in the world.
+goZombies,,UI,Menu,New,{0} Zombies
+mmGoMaxAnimals,,,Main Menu Game Options,KgNone,Max Animals Alive
+goMaxAnimals,,UI,Menu,KgNone,Max Animals Alive
+goMaxAnimalsDesc,,UI,Menu,KgNone,Maximum amount of animals that can spawn in the world.
+goAnimals,,UI,Menu,New,{0} Animals
+mmGoLandClaimCount,,,Main Menu Game Options,KgNone,Land Claim Amount
+goLandClaimCount,,UI,Menu,KgNone,Claim Amount
+goLandClaimCountDesc,,UI,Menu,KgNone,The amount of land claim blocks a player can have active.
+goLandClaimCountValue,,UI,Menu,KgNone,{0} block
+goLandClaimCountValues,,UI,Menu,KgNone,{0} blocks	
+goLandClaimCountDesc,,UI,Menu,KgNone,The amount of land claim blocks a player can have active.
+gunPartsGroupDesc,items,Gun,,,"Scrap advanced armor, tools and weapons to acquire these items. Use them to craft new items. \nSelect: Recipes->Iron to scrap"
+gyrocopterWreck,blocks,block,,,Crashed Gyrocopter
+gyrocopterWreckChassis,blocks,block,,,Crashed Gyrocopter
+gyrocopterWreckAccessories,blocks,block,,,Broken Gyrocopter - destroy for Parts
+
+
+buffDebug1,buffs,Buff,,,Skill Perk Level
+buffDebug2,buffs,Buff,,,Biome modifier
+buffDebug3,buffs,Buff,,,Biome Bonus

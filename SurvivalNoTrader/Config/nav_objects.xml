@@ -1,0 +1,214 @@
+<configs>
+	<append xpath="/nav_object_classes">
+		<!--Grim tales code-->
+		<!--nav object for Magrat's Left Eye - Mary's revenge story.
+			Magrat's Left Eye gives a permanent buff that auto tracks screamers.
+			The screamerTrackingSNT nav object gets attached to screamers in entityclasses.xml. 
+			Similar to animal tracking but doesnt require crouching and is specific to screamers-->
+		<nav_object_class name="screamerTrackingSNT">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+
+			<map_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="-1"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="true"/>
+			</map_settings>
+
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="2048"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.85,0" />
+			</onscreen_settings>
+		</nav_object_class>
+		
+		<!--nav object Magrat herself. The player can find an artifact to identify/track Magrat in the final battle.-->
+		<nav_object_class name="screamerTrackingMagrat">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+			
+			<map_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="-1"/>
+				<property name="color" value="28,142,199"/>
+				<property name="has_pulse" value="true"/>
+			</map_settings>
+
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="2048"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="28,142,199"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="28,142,199"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.95,-0.05" />
+			</onscreen_settings>
+		</nav_object_class>
+		
+		<!--nav object for screamers used in the quests.xml:graveRobbingCovenHouseScreamerSpawn quest.
+			The player can track the screamers spawned as one of the screamers contains the map that they
+			need find Margrat's sisters grave-->
+		<nav_object_class name="screamerTrackingCovenHouse">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+
+			<map_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="-1"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+			</map_settings>
+
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="2048"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<!--<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.85,0" />
+			</onscreen_settings>-->
+		</nav_object_class>
+		
+		<!--nav object for the lootbag containing a map to Margrat's sisters grave (Judy)
+			Used in the quests.xml:graveRobbingCovenHouseScreamerSpawn quest.-->
+		<nav_object_class name="lootbagTrackingCovenHouse">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+
+			<map_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="-1"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+			</map_settings>
+
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="2048"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.2,0" /> 
+			</onscreen_settings>
+		</nav_object_class>
+		
+		
+		<!--nav object for the Pigeons Carry diseases storyline final boss-->
+		<nav_object_class name="bossTrackingFinalPigeon">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="50"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,2.3,0" />
+			</onscreen_settings>
+		</nav_object_class>
+		
+		<!--nav object for the Pigeons Carry diseases final boss LOOT BAG-->
+		<nav_object_class name="lootbagTrackingFinalPigeon">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+
+			<map_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="-1"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+			</map_settings>
+			
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="2048"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,0,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.2,0" />
+			</onscreen_settings>
+			
+		</nav_object_class>
+	</append>
+</configs>

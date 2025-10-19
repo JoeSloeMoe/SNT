@@ -4,6 +4,7 @@ https://community.7daystodie.com/topic/34585-survival-no-trader/#comment-546720
 A mod balanced for game play without Traders.
 This mod removes the ability to trade and get quests from Traders. Traders are still present in the world as part of the storyline, they just ignore you.
 
+Special thanks to FilUnderscore. This mod incorporates FilUnderscore's Improved Hordes mod (*see end for details).
 Special thanks to Khaine. This mod contain some code from Kaine's modlets (**see end for details).
 
 Background: You are one of 4 siblings from the Harrington Clan out East. You run point for your crew.
@@ -26,15 +27,13 @@ Includes a small collection of stories and challenges that give a glimpse into t
 
 Changed progression tree to work alongside Action Skills - Learn By Use (Action Skills):
 	Applies to the tools and weapons for the following Perks:
-    General: Lucky Looter
-	Perception: DeadEye, Demolition Expert, SpearMaster, Salvage
-	Strength: Boomstick, PummelPete, SkullCrusher, Miner69r/Motherload.
-	Fortitude: Brawler, MachineGunner
-	Agility: Archery, Gunslinger, DeepCuts, Hidden Strike
-	Intellect: Electrocutioner, Robotics, Physician
+    Perception: DeadEye, Demolition Expert, SpearMaster, Salvage
+    Strength: Boomstick, PummelPete, SkullCrusher, Miner69r/Motherload.
+    Fortitude: Brawler, MachineGunner
+    Agility: Archery, Gunslinger, DeepCuts, Hidden Strike
+    Intellect: Electrocutioner, Robotics
 	
 	Learn By Use is also available as a standalone XML modlet:
-	The standalone Learn By Use also includes Bartering and Daring Adventure (not presen tin this mod as there is no Trader interaction)
 	
 There are a number of general modifications and additions to gameplay. Most are subtle and may not be overly noticable. 
 Some that might be handy to know when starting a game:
@@ -53,7 +52,6 @@ Some that might be handy to know when starting a game:
 - Tweeked weather patterns, daytime indoors is slightly brighter, nightime outdoors is much darker. 
 - Jail Breakers now give over 95% reduction to lockpicking time in addition to standard unbreakable pick buff. 
 - Modified Random Gen for new generated maps. Increased number and size of towns and cities on default and large maps.
-- Storms dont damage health instead some player stats are reduced and some zombie stats are increased (progressively from burnt 5%, desert 10%, snow 15% and wasteland 20%)
 
 
 Config variables:
@@ -63,6 +61,10 @@ There are a number of config variables for the Survival No Trader mod. See buffs
 License:
 The majority of the code free to use license (see caveat below) and is commented. If you use any of the code, a thanks would be nice.
 This mod contains clearly marked code from Khaine and FilUnderscore. Their code can only be used with their permission as per their license agreements.
+
+Special thanks to:
+*This mod integrates Improved Hordes from FilUnderscore:
+	https://community.7daystodie.com/topic/26781-improved-hordes-v10/page/17/?_fromLogout=1
 
 **This mod also includes code from the following QOL User Interface modlets by Khaine
  - 3 Slot Forge from mod:KHA21-3SlotForge
@@ -104,10 +106,3 @@ Version 1.2 - V1.0 release.
  - Grim Tales:
 		- Minor ammo loot balance.
 		- Code cleanup for Pigeons Carry Diseases boss encounter.
-
-2.0.1 9th Aug 2025
-  - Compatibiliy with 2.x
-  - Storms dont damage health instead some player stats are reduced and some zombie stats are increased (progressively from burnt 5%, desert 10%, snow 15% and wasteland 20%)
-  - A number of updates to Learn By Use for balance
-  - A number of updates to Grim Tales for immersion
-  

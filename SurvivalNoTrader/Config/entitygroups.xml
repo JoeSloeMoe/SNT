@@ -1,0 +1,152 @@
+ <configs>
+	 <!--Reduces Plague Spitter to 1/4 of default spawns, reduces rate of spawns as well.
+		Reduces Frost Claw to 1/4 of default spawns, reduces rate of spawns as well.
+
+		See challenges.xml: To compensate for reduced spawns
+		Reduces biome badge ‘Kill’ requirement for Plague Spitter from 10 to 6;
+		Reduces biome badge ‘Kill’ requirement for Frost Claw from 15 to 9;
+	-->
+	<remove xpath="entitygroups/entitygroup[@name='ZombiesDesertNight']"/>
+	<remove xpath="entitygroups/entitygroup[@name='ZombiesDesert']"/>
+	<remove xpath="entitygroups/entitygroup[@name='ZombiesSnow']"/>
+	<remove xpath="entitygroups/entitygroup[@name='ZombiesSnowNight']"/>
+	
+	<insertAfter xpath="entitygroups/entitygroup[@name='ZombiesBurntForestNight']">
+		<entitygroup name="ZombiesDesert">
+			zombiePlagueSpitter, 0.25
+			zombieSteveCrawler, .05
+			zombieBiker, .1
+			zombiePartyGirl, .1
+			zombieUtilityWorker, .1
+			zombieJanitor, .1
+			zombieLumberjack, .1
+			zombieNurse, .1
+			zombieFatHawaiian, .1
+		</entitygroup>
+
+		<entitygroup name="ZombiesDesertNight">
+			zombiePlagueSpitter, .03
+			zombiePlagueSpitterFeral, .1
+			zombieBikerFeral, .1
+			zombiePartyGirl, .1
+			zombieUtilityWorker, .1
+			zombieJanitor, .1
+			zombieLumberjack, .1
+			zombieNurse, .1
+		</entitygroup>
+
+		<!-- *** BIOME_ZOMBIES_SNOW_GROUP -->
+		<entitygroup name="ZombiesSnow">
+			zombieFrostclaw, 0.25
+			zombieLumberjack, .05
+			zombieBiker, .1
+			zombiePartyGirl, .1
+			zombieUtilityWorker, .1
+			zombieJanitor, .1
+			zombieLumberjack, .1
+			zombieNurse, .1
+			zombieFatHawaiian, .1
+		</entitygroup>
+
+		<entitygroup name="ZombiesSnowNight">
+			zombieFrostclaw, 0.3
+			zombieFrostclawFeral, .1
+			zombieLumberjack, .05
+			zombieLumberjackFeral, .05
+			zombieBikerFeral, .1
+			zombieUtilityWorker, .1
+			zombieJanitor, .1
+			zombieLumberjack, .1
+			zombieFatHawaiian, .1
+		</entitygroup>
+	</insertAfter>	
+	
+	<append xpath="/entitygroups">
+		<!-- Entity Group to add a very small chance for bears in environments -->
+		<!-- NONE must not be the first entry since first name determines if enemy group -->
+		<entitygroup name="EnemyBearChanged">
+			animalBear, 1
+			none, 99
+		</entitygroup>
+		<!-- Entity Group to add a very small chance for wolves in environments -->
+		<!-- NONE must not be the first entry since first name determines if enemy group -->
+		<entitygroup name="EnemyWolfChanged">
+			animalDireWolf, 1
+			none, 99
+		</entitygroup>
+		<!-- Entity Group to add a very small chance for zombie bears in environments -->
+		<!-- NONE must not be the first entry since first name determines if enemy group -->
+		<entitygroup name="EnemyZombieBearChanged">
+			animalZombieBear, 1
+			none, 99
+		</entitygroup>
+		
+		<!--Marys Revenge story code-->
+		<entitygroup name="MarysRevengeCovenHouseSpawnGroup">
+			marysRevengeCovenHouseScreamer
+		</entitygroup>
+		<entitygroup name="MarysRevengeCovenHouseLootSpawnGroup">
+			marysRevengeCovenHouseLootScreamer
+		</entitygroup>
+		<entitygroup name="MarysRevengeScreamerSpawnGroup">
+			marysRevengeGraveScreamer
+		</entitygroup>
+		<entitygroup name="MagratSpawnGroup">
+			marysRevengeFinalBoss
+		</entitygroup>
+		<entitygroup name="MagratMinionSpawnGroup">
+			marysRevengeFinalBossMinion
+		</entitygroup>
+		<entitygroup name="GraveKeeperDireWolfGroup">
+			graveKeeperDireWolf
+		</entitygroup>
+		<entitygroup name="GraveKeeperDireBearGroup">
+			graveKeeperDireBear
+		</entitygroup>
+		
+		<entitygroup name="RadiatedScreamerSpawnGroup">
+			zombieScreamerRadiated
+		</entitygroup>
+		<entitygroup name="FeralScreamerSpawnGroup">
+			zombieScreamerFeral
+		</entitygroup>
+		<entitygroup name="ScreamerSpawnGroup">
+			zombieScreamer
+		</entitygroup>
+		<!--end Marys Revenge story code-->
+		
+		<!--code for Interloper story -->
+		<!--spawn a special supply crate see quests:quest_Interloper_InterceptTheSupplies-->
+		<entitygroup name="InterloperDrop">
+			interloperSecretDrop
+		</entitygroup> 
+		<!--spawn a reward/trade supply crate see quests:quest_InterloperEpilogueSpawn-->
+		<entitygroup name="InterloperEpilogue">
+			interloperTradeDrop
+		</entitygroup> 
+		
+		<!--end interloper story code-->
+		
+		<!--PigeonsCarryDiseases story spawn code-->
+		<entitygroup name="PigeonOneSpawnGroup">
+			animalHomingPigeonOne
+		</entitygroup>
+		<entitygroup name="PigeonTwoSpawnGroup">
+			animalHomingPigeonTwo
+		</entitygroup>
+		<entitygroup name="PigeonThreeSpawnGroup">
+			animalHomingPigeonThree
+		</entitygroup>
+		<entitygroup name="PigeonFourSpawnGroup">
+			animalHomingPigeonFour
+		</entitygroup>
+		<entitygroup name="PigeonFinalBossSpawnerGroup">
+			pigeonFinalBoss
+		</entitygroup>
+		<entitygroup name="PigeonFinalFlockSpawnerGroup">
+			animalPigeonFlock
+		</entitygroup>
+		<!--end PigeonsCarryDiseases spawn code-->
+	</append>
+	
+ </configs>

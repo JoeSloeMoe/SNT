@@ -1,0 +1,42 @@
+
+ <configs>
+	<!--Example logging 
+	<triggered_effect trigger="onSelfBuffStart" action="LogMessage" message="   One shot buff started"/>
+	<triggered_effect trigger="onSelfBuffStack" action="LogMessage" message="   One shot buff STACKED"/>-->
+			
+	<!-- vending machines refresh time for drinks (id=4) & food (id=10) - set to huge time-->
+ 	<set xpath="/traders/trader_info[@id='4']/@reset_interval">4000</set>
+	<set xpath="/traders/trader_info[@id='10']/@reset_interval">4000</set>
+	
+	<!-- remove Sugarbutts from Vending machines -->
+	<remove xpath="/traders/trader_item_groups/trader_item_group[@name='foodCandy']/item[@name='drugSugarButts']"/>
+		
+	<!-- put the new Grandpas long duration drinks in the vending machines --> 
+	<!-- create new drink group -->
+	<insertAfter xpath="/traders/trader_item_groups/trader_item_group[@name='drinkSpecialVending']">
+		<trader_item_group name="GrandpasJuice">
+			<item name="drinkJarGrandpasThemsFightinWordsMoonshine" prob="0.05" force_prob="true"/>
+			<item name="drinkJarGrandpasGunbeltOilSauce" prob="0.05" force_prob="true"/>
+			<item name="drinkJarGrandpasWheelchairRacingElixir" prob="0.05" force_prob="true"/>
+			<item name="drinkJarYuccaJuice" prob="0.05"/><!--Filler, can be any drink-->
+		</trader_item_group>	
+	</insertAfter>
+	<!-- add group to drink vending machine -->
+	<append xpath="/traders/trader_info[@id='4']">
+		<trader_items>
+			<item group="GrandpasJuice" count="0,1"/>
+		</trader_items>
+	</append>
+	
+	<!-- Trader Mute Note: used in npc.xml, all traders have their traderInfo replaced with this one so they dont trade 
+		 NOte: Traders are not destructable so they have opening and closing times, 
+				The Loud opening and closing annoucements are muted. 
+				Making them destructable would necessitate a DLL and this mod is intended to be XML only -->
+	<insertAfter xpath="/traders/trader_info[@id='10']">
+		<trader_info id="33" reset_interval="3" allow_sell="false" open_time="6:05" close_time="21:50">
+		<!-- nothing to trade -->
+		</trader_info>
+	</insertAfter>
+
+</configs>
+ 

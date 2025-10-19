@@ -1,0 +1,55 @@
+<configs>
+
+	<!--placeholder for the Gyro in the world, use the Working stiffs truck placeholder as its spawns less than cars.
+		This is for the found Gyro storyline, not implemented yet but the initial gyro find is in the world-->
+	<set xpath="/blockplaceholders/placeholder[@name='cntServiceTruckWorkingStiffToolsRandomLootHelper']">
+		<block name="air" prob=".66"/>
+		<block name="gyrocopterWreckChassis" prob="0.07"/> <!--default 0.07-->
+		<block name="cntServiceTruckWorkingStiffTools" prob=".27"/>
+	</set> 
+	
+	<!--code for testing 
+		replaces most vehicle spawns with whatever is listed below
+		
+	
+	<set xpath="/blockplaceholders/placeholder[@name='carsRandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='carWrecksRandomHelper']">	
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntCar03SedanDamage0RandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+		<block name="air" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntCar03SedanDamage1RandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+		<block name="air" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSedan01RandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSedan01AirRandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntMinivan01RandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntMinivan01AirRandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSUV01RandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntSUV01AirRandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntPickupTruck01RandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>
+	<set xpath="/blockplaceholders/placeholder[@name='cntPickupTruck01AirRandomHelper']">
+		<block name="cntPoliceCar01" prob="1"/>
+	</set>-->
+	
+	<!--END test code-->
+</configs>

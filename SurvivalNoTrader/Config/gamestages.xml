@@ -1,0 +1,188 @@
+ <configs>
+ 
+	<append xpath="/gamestages">
+		<!--Marys Revenge Story code-->
+		<!--spawners for Coven House chapter of Mary revenge -->
+		<!--the player goes to the Coven House to retrieve the location of Magrats Sisters grave. 
+			Screamer spawns as the player finishes the Clear Quest at the Coven House.-->
+		
+		<!--screamer without loot-->
+		<spawner name="MarysRevengeCovenHouseSpawner">
+			<gamestage stage="1">
+				<spawn group="MarysRevengeCovenHouseSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="MarysRevengeCovenHouseSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="MarysRevengeCovenHouseSpawner" count="1"/>
+		</group>
+		<!--screamer with loot-->
+		<spawner name="MarysRevengeCovenHouseLootSpawner">
+			<gamestage stage="1">
+				<spawn group="MarysRevengeCovenHouseLootSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="MarysRevengeCovenHouseLootSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="MarysRevengeCovenHouseLootSpawner" count="1"/>
+		</group>
+		<!--END spawners for Coven House chapter of Mary revenge -->
+		
+		<!--spawner for screamers that protect Magrats Sister's grave-->
+		<spawner name="MarysRevengeScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="MarysRevengeScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="MarysRevengeScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="MarysRevengeScreamerSpawner" count="1"/>
+		</group>
+		<!--spawners for the beasts protecting Ipslore's grave (Mary's Revenge Side Quest)-->
+		<spawner name="GraveKeeperDireWolfSpawner">
+			<gamestage stage="1">
+				<spawn group="GraveKeeperDireWolfGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="GraveKeeperDireWolfSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="GraveKeeperDireWolfSpawner" count="1"/>
+		</group>
+		<spawner name="GraveKeeperDireBearSpawner">
+			<gamestage stage="1">
+				<spawn group="GraveKeeperDireBearGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="GraveKeeperDireBearSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="GraveKeeperDireBearSpawner" count="1"/>
+		</group>
+		<!--END Spawners for the beasts protecting Ipslore's grave (Mary's Revenge Side Quest)-->
+		
+		<!--final boss (Magrat) spawner-->
+		<spawner name="MagratSpawner">
+			<gamestage stage="1">
+				<spawn group="MagratSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="MagratSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="MagratSpawner" count="1"/>
+		</group>
+		<!--Boss's minion spawner-->
+		<spawner name="MagratMinionSpawner">
+			<gamestage stage="1">
+				<spawn group="MagratMinionSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="MagratMinionSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="MagratMinionSpawner" count="1"/>
+		</group>
+		<!--generic screamer spawners-->
+		<!--radiated screamers-->
+		
+		<spawner name="RadiatedScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="RadiatedScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="RadiatedScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="RadiatedScreamerSpawner" count="1"/>
+		</group>
+		<!--feral screamers-->
+		<spawner name="FeralScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="FeralScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="FeralScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="FeralScreamerSpawner" count="1"/>
+		</group>
+		<!--screamers-->
+		<spawner name="ScreamerSpawner">
+			<gamestage stage="1">
+				<spawn group="ScreamerSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="ScreamerSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="ScreamerSpawner" count="1"/>
+		</group>
+		<!--END Marys Revenge story code-->
+		
+		
+		<!--interloper story code-->
+		<!--spawns the supply crate for the interloper:quest_Interloper_InterceptTheSupplies chapter-->
+		<spawner name="InterloperDropSpawner">
+			<!--if only the first gamestage used, then it will cascade to all gamestages-->
+			<gamestage stage="1">
+				<spawn group="InterloperDrop" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="InterloperDropSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="InterloperDropSpawner" count="1"/>
+		</group>
+		
+		<!--spawns the supply crate for the interloper:quest_InterloperEpilogueSpawn chapter-->
+		<spawner name="InterloperEpilogueSpawner">
+			<gamestage stage="1">
+				<spawn group="InterloperEpilogue" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="InterloperEpilogueSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="InterloperEpilogueSpawner" count="1"/>
+		</group>
+		<!--END interloper story code-->
+		
+		<!--pigeon spawners for PigeonsCarryDiseases story-->
+		<!--first pigeon-->
+		<spawner name="PigeonOneSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonOneSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonOneSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonOneSpawner" count="1"/>
+		</group>
+		<!--Second pigeon-->
+		<spawner name="PigeonTwoSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonTwoSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonTwoSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonTwoSpawner" count="1"/>
+		</group>
+		<!--third pigeon-->
+		<spawner name="PigeonThreeSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonThreeSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonThreeSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonThreeSpawner" count="1"/>
+		</group>
+		<!--fourth pigeon-->
+		<spawner name="PigeonFourSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonFourSpawnGroup" num="1" maxAlive="1" duration="1000"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonFourSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonFourSpawner" count="1"/>
+		</group>
+		<!--spawner for final chapter 'boss'-->
+		<spawner name="PigeonFinalBossSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonFinalBossSpawnerGroup" num="1" maxAlive="1" duration="10"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonFinalBossSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonFinalBossSpawner" count="1"/>
+		</group>
+		<!--spawner for the final (above) boss's flock of pigeons-->
+		<spawner name="PigeonFinalFlockSpawner">
+			<gamestage stage="1">
+				<spawn group="PigeonFinalFlockSpawnerGroup" num="1" maxAlive="1" duration="10"/>
+			</gamestage>
+		</spawner>
+		<group name="PigeonFinalFlockSpawner" emptyChance="0" decoyChance="0" decoy1hpChance="0">
+			<spawner name="PigeonFinalFlockSpawner" count="1"/>
+		</group>
+		
+		<!--END pigeons carry diseases story code-->
+	</append>
+ </configs>

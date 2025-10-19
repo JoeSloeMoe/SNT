@@ -1,0 +1,1835 @@
+<configs>
+
+
+	<!--debugging buffs-->
+	<append xpath="/buffs">	
+		<buff name="buffDebug1" name_key="buffDebug1" description_key="buffDebug1" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value value=".buffDebug1Display"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffDebug1Display" operation="set" value="0"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDebug1Display" operation="set" value="@buffDebug1Var"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDebug1Display" operation="set" value="0"/>
+			</effect_group>
+
+		</buff>
+		<buff name="buffDebug2" name_key="buffDebug2" description_key="buffDebug2" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value value=".buffDebug2Display"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffDebug2Display" operation="set" value="0"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDebug2Display" operation="set" value="@buffDebug2Var"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDebug2Display" operation="set" value="0"/>
+			</effect_group>
+
+		</buff>
+		
+		<buff name="buffDebug3" name_key="buffDebug3" description_key="buffDebug3" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value value=".buffDebug3Display"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffDebug3Display" operation="set" value="0"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDebug3Display" operation="set" value="@buffDebug3Var"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDebug3Display" operation="set" value="0"/>
+			</effect_group>
+
+		</buff>
+	</append>
+	<!--END debugging buffs-->
+
+	<!--storm buffs - storms are changed to have changes to basic game effects and remove the helath damage.
+	    Each biome increases the effects increasing from burnt, desert, snow and then wasteland.
+		NOTE: storm effect code is also added to animalTemplateHostile and zombieTemplateMale, see entityclasses.xml-->
+	<remove xpath="/buffs/buff[@name='buffBurnt_Storm']"/>
+	<remove xpath="/buffs/buff[@name='buffDesert_Storm']"/>
+	<remove xpath="/buffs/buff[@name='buffSnow_Storm']"/>
+	<remove xpath="/buffs/buff[@name='buffWasteland_Storm']"/>
+	
+	<insertAfter xpath="/buffs/buff[@name='buffHazard_Slow']">
+		<!--burnt storm-->
+		<buff name="buffBurnt_Storm" name_key="buffBurnt_StormName" description_key="buffBurnt_StormDesc" icon="ui_game_symbol_storm" icon_color="150,100,50" icon_blink="true">
+			<damage_type value="weather"/>
+			<update_rate value="1"/>
+			
+			<effect_group><!-- Start/stop -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="10" effect_name="StormBurnt">
+					<requirement name="!HasBuff" buff="god"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="10" effect_name="StormBurnt"/>
+				<triggered_effect trigger="onSelfLeaveGame" action="RemoveBuff" buff="buffBurnt_Storm"/>
+			</effect_group>
+
+			<effect_group>
+				<requirement name="!HasBuff" buff="god"/>
+					<!--increase game stage-->
+					<passive_effect name="GameStage" operation="perc_add" value="0.05"/>
+					<!--reduce everything else-->
+					<passive_effect name="EntityDamage" operation="perc_subtract" value="0.05"/>
+					<passive_effect name="BlockDamage" operation="perc_subtract" value="0.05"/>
+					
+					<passive_effect name="StaminaChangeOT" operation="perc_subtract" value="0.05"/>
+					<passive_effect name="PhysicalDamageResist" operation="perc_subtract" value="0.05"/>
+					<passive_effect name="ElementalDamageResist" operation="perc_subtract" value="0.05"/>
+					<passive_effect name="BuffResistance" operation="perc_subtract" value="0.05" />
+					<passive_effect name="Mobility" operation="perc_subtract" value="0.05"/>
+					
+					<passive_effect name="AttacksPerMinute" operation="perc_subtract" value="0.02"/>
+					<passive_effect name="ReloadSpeedMultiplier" operation="perc_subtract" value="0.02"/>
+			</effect_group>
+		</buff>
+		<!--desert storm-->
+		<buff name="buffDesert_Storm" name_key="buffDesert_StormName" description_key="buffDesert_StormDesc" icon="ui_game_symbol_storm" icon_color="200,200,100" icon_blink="true">
+			<damage_type value="weather"/>
+			<update_rate value="1"/>
+		
+			<effect_group><!-- Start/stop -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="10" effect_name="StormDesert">
+					<requirement name="!HasBuff" buff="god"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="10" effect_name="StormDesert"/>
+				<triggered_effect trigger="onSelfLeaveGame" action="RemoveBuff" buff="buffDesert_Storm"/>
+			</effect_group>
+
+			<effect_group>
+				<requirement name="!HasBuff" buff="god"/>
+					<!--increase game stage-->
+					<passive_effect name="GameStage" operation="perc_add" value="0.1"/>
+					<!--reduce everything else-->
+					<passive_effect name="EntityDamage" operation="perc_subtract" value="0.1"/>
+					<passive_effect name="BlockDamage" operation="perc_subtract" value="0.1"/>
+					
+					<passive_effect name="StaminaChangeOT" operation="perc_subtract" value="0.1"/>
+					<passive_effect name="PhysicalDamageResist" operation="perc_subtract" value="0.1"/>
+					<passive_effect name="ElementalDamageResist" operation="perc_subtract" value="0.1"/>
+					<passive_effect name="BuffResistance" operation="perc_subtract" value="0.1" />
+					<passive_effect name="Mobility" operation="perc_subtract" value="0.1"/>
+					
+					<passive_effect name="AttacksPerMinute" operation="perc_subtract" value="0.04"/>
+					<passive_effect name="ReloadSpeedMultiplier" operation="perc_subtract" value="0.04"/>
+			</effect_group>
+		</buff>
+		<!--snow storm-->
+		<buff name="buffSnow_Storm" name_key="buffSnow_StormName" description_key="buffSnow_StormDesc" icon="ui_game_symbol_storm" icon_color="179,255,255" icon_blink="true">
+			<damage_type value="weather"/>
+			<update_rate value="1"/>
+
+			<effect_group><!-- Start/stop -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="10" effect_name="StormSnow">
+					<requirement name="!HasBuff" buff="god"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="10" effect_name="StormSnow"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="!HasBuff" buff="god"/>
+					<!--increase game stage-->
+					<passive_effect name="GameStage" operation="perc_add" value="0.15"/>
+					<!--reduce everything else-->
+					<passive_effect name="EntityDamage" operation="perc_subtract" value="0.15"/>
+					<passive_effect name="BlockDamage" operation="perc_subtract" value="0.15"/>
+					
+					<passive_effect name="StaminaChangeOT" operation="perc_subtract" value="0.15"/>
+					<passive_effect name="PhysicalDamageResist" operation="perc_subtract" value="0.15"/>
+					<passive_effect name="ElementalDamageResist" operation="perc_subtract" value="0.15"/>
+					<passive_effect name="BuffResistance" operation="perc_subtract" value="0.15" />
+					<passive_effect name="Mobility" operation="perc_subtract" value="0.15"/>
+					
+					<passive_effect name="AttacksPerMinute" operation="perc_subtract" value="0.06"/>
+					<passive_effect name="ReloadSpeedMultiplier" operation="perc_subtract" value="0.06"/>
+			</effect_group>
+		</buff>
+		<!--wasteland storm-->
+		<buff name="buffWasteland_Storm" name_key="buffWasteland_StormName" description_key="buffWasteland_StormDesc" icon="ui_game_symbol_storm" icon_color="100,255,100" icon_blink="true">
+			<damage_type value="weather"/>
+			<update_rate value="1"/>
+
+			<effect_group><!-- Start/stop -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="10" effect_name="StormWasteland">
+					<requirement name="!HasBuff" buff="god"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="10" effect_name="StormWasteland"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="!HasBuff" buff="god"/>
+					<!--increase game stage-->
+					<passive_effect name="GameStage" operation="perc_add" value="0.2"/>
+					<!--reduce everything else-->
+					<passive_effect name="EntityDamage" operation="perc_subtract" value="0.2"/>
+					<passive_effect name="BlockDamage" operation="perc_subtract" value="0.2"/>
+					
+					<passive_effect name="StaminaChangeOT" operation="perc_subtract" value="0.2"/>
+					<passive_effect name="PhysicalDamageResist" operation="perc_subtract" value="0.2"/>
+					<passive_effect name="ElementalDamageResist" operation="perc_subtract" value="0.2"/>
+					<passive_effect name="BuffResistance" operation="perc_subtract" value="0.2" />
+					<passive_effect name="Mobility" operation="perc_subtract" value="0.2"/>
+					
+					<passive_effect name="AttacksPerMinute" operation="perc_subtract" value="0.08"/>
+					<passive_effect name="ReloadSpeedMultiplier" operation="perc_subtract" value="0.08"/>
+			</effect_group>
+		</buff>
+	</insertAfter>
+	<!--END storm buffs-->
+	
+	<append xpath="/buffs">
+		<!--example log var value to screen
+				<triggered_effect trigger="onSelfBuffStart" action="CVarLogValue" cvar="@varname"/>
+		-->
+		
+		<!-- *** buffDrunkGrandpasWheelchairRacingElixir -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasWheelchairRacingElixir -->
+		<buff name="buffDrunkGrandpasWheelchairRacingElixir" name_key="buffDrunkGrandpasWheelchairRacingElixirName" description_key="buffDrunkGrandpasWheelchairRacingElixirDesc" tooltip_key="buffDrunkGrandpasWheelchairRacingElixirName" icon="ui_game_symbol_add" icon_color="255,152,152">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasWheelchairRacingElixirDisplay"/>
+			<display_value_format value="time"/>
+				
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasWheelchairRacingElixirDisplay" operation="set" value="@$buffGrandpasWheelchairRacingElixirDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasWheelchairRacingElixirDisplay" operation="divide" value="@$MetabolismDuration"/> 
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasWheelchairRacingElixir">
+					<requirement name="CVarCompare" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasWheelchairRacingElixirDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasWheelchairRacingElixirDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="BlockDamage" operation="perc_add" value="0.05"> 
+					<requirement name="HoldingItemHasTags" tags="melee"/>
+				</passive_effect>
+				
+				<passive_effect name="HealthChangeOT" operation="base_add" value="0.25"/>
+				<passive_effect name="HealthMax" operation="base_add" value="5"/>
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.1"/>
+				<passive_effect name="RunSpeed" operation="perc_add" value="0.1"/>
+				<passive_effect name="WalkSpeed" operation="perc_add" value="0.1"/>
+					
+				<!-- special drink effects -->
+				<passive_effect name="FoodLossPerHealthPointGained" operation="base_set" value="0" />
+				<passive_effect name="WaterLossPerStaminaPointGained" operation="base_set" value="0"/> 
+			</effect_group>
+		</buff>
+		
+		<!-- *** buffDrunkGrandpasThemsFightinWordsMoonshine -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasThemsFightinWordsMoonshine -->
+		<buff name="buffDrunkGrandpasThemsFightinWordsMoonshine" name_key="buffDrunkGrandpasThemsFightinWordsMoonshineName" description_key="buffDrunkGrandpasThemsFightinWordsMoonshineDesc" tooltip_key="buffDrunkGrandpasThemsFightinWordsMoonshineName" icon="ui_game_symbol_melee" icon_color="0,171,255" >
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasThemsFightinWordsMoonshineDisplay"/>
+			<display_value_format value="time"/>
+				
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasThemsFightinWordsMoonshineDisplay" operation="set" value="@$buffGrandpasThemsFightinWordsMoonshineDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasThemsFightinWordsMoonshineDisplay" operation="divide" value="@$MetabolismDuration"/> 
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasThemsFightinWordsMoonshine">
+					<requirement name="CVarCompare" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasThemsFightinWordsMoonshineDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasThemsFightinWordsMoonshineDuration" operation="set" value="0"/>
+			
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.05" >
+					<requirement name="HoldingItemHasTags" tags="melee"/> 
+				</passive_effect>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.05">
+					<requirement name="HoldingItemHasTags" tags="melee"/> 
+				</passive_effect>
+	
+				<passive_effect name="GeneralDamageResist" operation="perc_add" value="0.15"/>
+				<!-- 10% increase in melee type resistances e.g. fatigue, sprains, abrasions, infection etc. -->
+				<passive_effect name="BuffResistance" operation="base_add" value=".1" tags="buffInfectionCatch,buffInfectionMain,buffFatiguedTrigger,buffLaceration,buffAbrasionCatch"/>
+				<passive_effect name="BuffResistance" operation="base_add" value=".15" tags="buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffInjuryBleedingBarbedWire"/>
+	
+			</effect_group>
+		</buff>
+		
+		<!-- *** buffDrunkGrandpasGunbeltOilSauce -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasGunbeltOilSauce -->
+		<buff name="buffDrunkGrandpasGunbeltOilSauce" name_key="buffDrunkGrandpasGunbeltOilSauceName" description_key="buffDrunkGrandpasGunbeltOilSauceDesc" tooltip_key="buffDrunkGrandpasGunbeltOilSauceName" icon="ui_game_symbol_gunslinger" icon_color="0,255,171">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasGunbeltOilSauceDisplay"/>
+			<display_value_format value="time"/>
+				
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasGunbeltOilSauceDisplay" operation="set" value="@$buffGrandpasGunbeltOilSauceDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasGunbeltOilSauceDisplay" operation="divide" value="@$MetabolismDuration"/> 
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasGunbeltOilSauce">
+					<requirement name="CVarCompare" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasGunbeltOilSauceDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasGunbeltOilSauceDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group> 
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" >
+					<requirement name="HoldingItemHasTags" tags="ranged"/>
+				</passive_effect>
+				
+				<passive_effect name="WeaponHandling" operation="perc_add" value="0.1" />
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.1" />
+				<passive_effect name="RoundsPerMinute" operation="perc_add" value="0.05"/>
+				<!-- drink special effect -->
+				<!-- resistance to fire -->
+				<passive_effect name="BuffResistance" operation="base_add" value="0.25" tags="buffBurningElement,buffIsOnFire,buffBurningEnvironment,buffBurningFlamingArrow,buffBurningMolotov,buffBurning,buffBurningWeapon,buffShocked,buffDemonFireball,buffBurningMolotovDM1,buffBurningMolotovDM2,buffBurningMolotovDM3,buffBurningMolotovDM4,buffBurningMolotovDM5,buffBurningFlamingArrowDM1,buffBurningFlamingArrowDM2,buffBurningFlamingArrowDM3,buffBurningFlamingArrowDM4,buffBurningFlamingArrowDM5"/>
+				<passive_effect name="ElementalDamageResist" operation="base_add" value="0.25" tags="heat,electrical"/>
+			</effect_group>
+
+		</buff>
+		
+		<!-- *** buffDrunkGrandpasAwesomeSauceChanged -->
+		<!-- TRIGGERED_BY: Items = drinkJarGrandpasAwesomeSauce -->
+		<!-- Temporarily increases Base lootstage by 30 -->
+		<buff name="buffDrunkGrandpasAwesomeSauceChanged" name_key="buffDrunkGrandpasAwesomeSauceChangedName" description_key="buffDrunkGrandpasAwesomeSauceChangedDesc" tooltip_key="buffDrunkGrandpasAwesomeSauceChangedTooltip" icon="ui_game_symbol_candy_eye_candy">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGrandpasAwesomeSauceChangedDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasAwesomeSauceChangedDisplay" operation="set" value="@$buffGrandpasAwesomeSauceChangedDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGrandpasAwesomeSauceChangedDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrunkGrandpasAwesomeSauceChanged">
+					<requirement name="CVarCompare" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGrandpasAwesomeSauceChangedDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffGrandpasAwesomeSauceChangedDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group>
+				<passive_effect name="LootStage" operation="base_add" value="30"/>
+			</effect_group>
+		</buff>
+		
+		<!-- *** buffPumpkinCheesecakeChanged -->
+		<!-- TRIGGERED_BY: Items = foodPumpkinCheesecake -->
+		<!-- Temporarily increases lootstage by 5% -->
+		<buff name="buffPumpkinCheesecakeChanged" name_key="foodPumpkinCheesecakeChanged" description_key="foodPumpkinCheesecakeChangedDesc" icon="ui_game_symbol_fork">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffPumpkinCheesecakeChangedDisplay"/>
+			<display_value_format value="time"/>
+
+			<effect_group>
+				<passive_effect name="LootStage" operation="perc_add" value="0.05"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffPumpkinCheesecakeChangedDuration" operation="subtract" value="@$MetabolismDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffPumpkinCheesecakeChangedDisplay" operation="set" value="@$buffPumpkinCheesecakeChangedDuration"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffPumpkinCheesecakeChangedDisplay" operation="divide" value="@$MetabolismDuration"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPumpkinCheesecakeChanged">
+					<requirement name="CVarCompare" cvar="$buffPumpkinCheesecakeChangedDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffPumpkinCheesecakeChangedDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffPumpkinCheesecakeChangedDuration" operation="set" value="0"/>
+			</effect_group>
+		</buff>
+	
+		
+		<!--crouching buff code-->
+			<!-- this buff reduces stamina usage for ranged weapons while crouch ADS.
+				This is called by buffCrouchAimingEffects when the player start aiming down the weapon sights.
+				It is removed by buffCrouchAimingEffects when the player stops aiming down the weapon sights.
+				
+				The 'stamina loss reduction' is actually INCREASING player stamina regen (StaminaChangeOT) by 20% 
+				which in turn slows stamina loss down when ADS. 
+				So the actual reduction amount will depend on any other stamina effects the player might have active as well.-->
+			<buff name="buffCrouchAimingStamina" hidden="true"  >
+				<stack_type value="ignore"/>
+				<duration value="0"/>
+
+				<effect_group>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="HoldingItemHasTags" tags="weapon,ranged"/>
+						<passive_effect name="StaminaChangeOT" operation="perc_add" value=".52" />
+				</effect_group>
+			</buff>
+		
+			
+			<!-- this buff will apply stabilisation effects on any ranged weapon when crouched-->
+			<buff name="buffCrouchAimingEffects" hidden="true" remove_on_death="false">
+				<stack_type value="replace"/>
+				<duration value="0"/>
+				<!--
+					Crouching improves ranged weapon aiming and handling etc. It also cuts down on stamin usage when aiming down sights
+				-->
+				
+				<effect_group>
+					<requirement name="CVarCompare" cvar="_crouching" operation="Equals" value="1"/>
+					<requirement name="HoldingItemHasTags" tags="weapon,ranged"/>
+						<passive_effect name="WeaponHandling" operation="perc_add" value=".13"/> <!--same as forgrip-->
+						<passive_effect name="SpreadMultiplierCrouching" operation="perc_add" value="-.15"/><!--same as forgrip-->
+						<passive_effect name="SpreadMultiplierAiming" operation="perc_add" value="-.08"/> <!--same as bipod-->				
+						<passive_effect name="DamageFalloffRange" operation="perc_add" value=".1"/> <!--1/2 of gun barrel extender-->
+						<passive_effect name="MaxRange" operation="perc_add" value=".1"/><!--1/2 of gun barrel extender-->
+						<!--kickback same as forgrip-->
+						<passive_effect name="KickDegreesVerticalMin" operation="perc_add" value="-.5"/>
+						<passive_effect name="KickDegreesVerticalMax" operation="perc_add" value="-.5"/>
+						<passive_effect name="KickDegreesHorizontalMin" operation="perc_add" value="-.5"/>
+						<passive_effect name="KickDegreesHorizontalMax" operation="perc_add" value="-.5"/>				
+				</effect_group>
+				<!--add or remove the stamina buff for ADS-->
+				<effect_group>
+					<triggered_effect trigger="onSelfAimingGunStart" action="AddBuff" buff="buffCrouchAimingStamina">
+						<requirement name="!HasBuff" buff="buffCrouchAimingStamina"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfAimingGunStop" action="RemoveBuff" buff="buffCrouchAimingStamina"/> 
+				</effect_group>
+				<!--end crouching code-->
+			</buff>
+		<!--end crouching buff code-->
+		
+		<!--set the jail breaker kandy to do instant unlock
+			'Instant' as much as possible - system stops working if 
+			unlock time set to 0. Set it to 0.03 instead-->
+		<remove xpath="/buffs/buff[@name='buffDrugJailBreakers']"/>
+		<insertAfter xpath="/buffs/buff[@name='buffDrugHealthBar']">
+			<buff name="buffDrugJailBreakers" name_key="drugJailBreakers" description_key="drugJailBreakersDesc" icon="ui_game_symbol_candy_jail_breakers">
+				<stack_type value="replace"/>
+				<duration value="0"/>
+				<display_value value=".buffDrugJailBreakersDisplay"/>
+				<display_value_format value="time"/>
+
+				<effect_group>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="subtract" value="@$MetabolismDuration"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="@$buffDrugJailBreakersDuration"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="divide" value="@$MetabolismDuration"/>
+				</effect_group>
+
+				<effect_group>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDrugJailBreakers">
+						<requirement name="CVarCompare" cvar="$buffDrugJailBreakersDuration" operation="LTE" value="0"/>
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffDrugJailBreakersDisplay" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffDrugJailBreakersDuration" operation="set" value="0"/>
+				</effect_group>
+
+				<effect_group>
+					<passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
+					<passive_effect name="LockPickTime" operation="perc_set" value="0.03"/>
+				</effect_group>
+			</buff>
+		</insertAfter>
+		
+		<!--START GRIM TALES CODE-->
+		<!--START pigeons carry diseases story code-->
+		
+		<!--buffs to set triggers for events used by the monitoring buffs. These trigger buffs are called 
+			when the player opens bundles etc.-->
+		<buff name="buff_homingPigeonNote1Trigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="homingPigeonNote1Trigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_homingPigeonNote1Trigger" />
+			</effect_group>
+		</buff>	
+		<buff name="buff_homingPigeonNote2Trigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="homingPigeonNote2Trigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_homingPigeonNote2Trigger" />
+			</effect_group>
+		</buff>	
+		<buff name="buff_homingPigeonNote3Trigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="homingPigeonNote3Trigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_homingPigeonNote3Trigger" />
+			</effect_group>
+		</buff>	
+		<buff name="buff_homingPigeonNote4Trigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="homingPigeonNote4Trigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_homingPigeonNote4Trigger" />
+			</effect_group>
+		</buff>	
+		<buff name="buff_homingPigeonBossFinalTrigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="homingPigeonBossFinalTrigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_homingPigeonBossFinalTrigger" />
+			</effect_group>
+		</buff>
+		<!--END buffs to set triggers for events used by the monitoring buffs-->
+		
+		<!--buff that sends out the first pigeon - if the delivery is not received it will resend the pigeon-->
+		<buff name="buffFirstPigeonDelivery" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<effect_group>
+				<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$firstPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
+			</effect_group>
+			
+			<effect_group>
+				<!--Spawn the first pigeon - this can run multiple times of the person doesnt receive the delivery from the pigeon-->
+				<requirement name="PlayerLevel" operation="GTE" value="@firstPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="firstPigeonMsgReceived" operation="LT" value="1"/>
+				<!--if not in a countdown between pigeon spawns-->
+				<requirement name="CVarCompare" cvar="$firstPigeonSpawnCountdown" operation="LT" value="1"/> 
+				<!--will only spawn pigeonSpawnAttempts number of times-->
+				<requirement name="CVarCompare" cvar="$firstPigeonSpawnCount" operation="LT" value="@pigeonSpawnAttempts"/>
+
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+
+					<!--spawn the pigeon, start a countdown, if the player doesnt have the delivery by the end of the countdown  - will send out another pigeon after countdown-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$firstPigeonSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$firstPigeonSpawnCountdown" operation="set" value="@pigeonSpawnCountdown"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeon1"/>
+					
+			</effect_group>
+			
+			<effect_group>
+					<!--if pigeons delivery received then close out and remove buff-->
+					<requirement name="CVarCompare" cvar="firstPigeonMsgReceived" operation="LT" value="1"/> 
+					<requirement name="CVarCompare" cvar="$firstPigeonSpawnCount" operation="GTE" value="1"/> 
+					<!--trigger set when the player opens the first pigeon's message tube, indicates the player has received the msg in the tube-->
+					<requirement name="CVarCompare" cvar="homingPigeonNote1Trigger" operation="GTE" value="1"/> 
+					<!--<requirement name="PlayerItemCount" item_name="homingPigeonNote1" operation="GTE" value="1"/>-->
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="firstPigeonMsgReceived" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="firstPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFirstPigeonDelivery"/>
+			</effect_group>
+						
+			<effect_group>
+					<!--if more than pigeonSpawnAttempts attempts to deliver the pigeon delivery then mark as received so no more attempts are made-->
+					<requirement name="CVarCompare" cvar="$firstPigeonSpawnCount" operation="GTE" value="@pigeonSpawnAttempts"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="firstPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFirstPigeonDelivery"/>
+			</effect_group>
+			
+			<effect_group>
+					<!--if the pigeon delivery is not received, tick down counter until next pigeon delivery sent-->
+					<requirement name="CVarCompare" cvar="$firstPigeonSpawnCountdown" operation="GT" value="0"/>
+					<requirement name="CVarCompare" cvar="firstPigeonMsgReceived" operation="LT" value="1"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$firstPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+				
+		</buff>
+		
+		<!--buff that sends out the second pigeon - if the  delivery is not received it will resend the pigeon-->
+		<buff name="buffSecondPigeonDelivery" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$secondPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
+			</effect_group>
+			
+			<effect_group>
+				<!--Spawn the second pigeon - this can run multiple times of the person doesnt receive the delivery from the pigeon-->
+				<requirement name="PlayerLevel" operation="GTE" value="@secondPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="secondPigeonMsgReceived" operation="LT" value="1"/>
+				<!--if not in a countdown between pigeon spawns-->
+				<requirement name="CVarCompare" cvar="$secondPigeonSpawnCountdown" operation="LT" value="1"/> 
+				<!--will only spawn pigeonSpawnAttempts number of times-->
+				<requirement name="CVarCompare" cvar="$secondPigeonSpawnCount" operation="LT" value="@pigeonSpawnAttempts"/>
+
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+				
+					<!--spawn the pigeon, start a countdown, if the player doesnt have the delivery by the end of the countdown  - will send out another pigeon-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$secondPigeonSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$secondPigeonSpawnCountdown" operation="set" value="@pigeonSpawnCountdown"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeon2"/>
+					
+			</effect_group>
+			
+			<effect_group>
+					<!--if pigeons delivery received then close out and remove buff-->
+					<requirement name="CVarCompare" cvar="secondPigeonMsgReceived" operation="LT" value="1"/> 
+					<requirement name="CVarCompare" cvar="$secondPigeonSpawnCount" operation="GTE" value="1"/> 
+					<!--trigger set when the player opens the second pigeon's message tube, indicates the player has received the msg in the tube-->
+					<requirement name="CVarCompare" cvar="homingPigeonNote2Trigger" operation="GTE" value="1"/>
+					<!--<requirement name="PlayerItemCount" item_name="homingPigeonNote2" operation="GTE" value="1"/>-->
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="secondPigeonMsgReceived" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="secondPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSecondPigeonDelivery"/>
+			</effect_group>
+						
+			<effect_group>
+					<!--if more than pigeonSpawnAttempts attempts to deliver the pigeon delivery then mark as complete so no more attempts are made-->
+					<requirement name="CVarCompare" cvar="$secondPigeonSpawnCount" operation="GTE" value="@pigeonSpawnAttempts"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="secondPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffSecondPigeonDelivery"/>
+			</effect_group>
+			
+			<effect_group>
+					<!--if the pigeon delivery is not received, tick down counter until next pigeon delivery sent-->
+					<requirement name="CVarCompare" cvar="$secondPigeonSpawnCountdown" operation="GT" value="0"/> 
+					<requirement name="CVarCompare" cvar="secondPigeonMsgReceived" operation="LT" value="1"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$secondPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+
+		</buff>
+		
+		<!--buff that sends out the third pigeon - if the delivery is not received it will resend the pigeon-->
+		<buff name="buffThirdPigeonDelivery" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$thirdPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
+			</effect_group>
+			
+			<effect_group>
+				<!--Spawn the third pigeon - this can run multiple times of the person doesnt receive the delivery from the pigeon-->
+				<requirement name="PlayerLevel" operation="GTE" value="@thirdPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="thirdPigeonMsgReceived" operation="LT" value="1"/>
+				<!--if not in a countdown between pigeon spawns-->
+				<requirement name="CVarCompare" cvar="$thirdPigeonSpawnCountdown" operation="LT" value="1"/> 
+				<!--will only spawn pigeonSpawnAttempts number of times-->
+				<requirement name="CVarCompare" cvar="$thirdPigeonSpawnCount" operation="LT" value="@pigeonSpawnAttempts"/>
+
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+				
+					<!--spawn the pigeon, start a countdown, if the player doesnt have the delivery by the end of the countdown  - will send out another pigeon-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$thirdPigeonSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$thirdPigeonSpawnCountdown" operation="set" value="@pigeonSpawnCountdown"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeon3"/>
+					
+			</effect_group>
+			
+			<effect_group>
+					<!--if pigeons delivery received then close out and remove buff-->
+					<requirement name="CVarCompare" cvar="thirdPigeonMsgReceived" operation="LT" value="1"/> 
+					<requirement name="CVarCompare" cvar="$thirdPigeonSpawnCount" operation="GTE" value="1"/>
+					<!--trigger set when the player opens the third pigeon's message tube, indicates the player has received the msg in the tube-->
+					<requirement name="CVarCompare" cvar="homingPigeonNote3Trigger" operation="GTE" value="1"/>
+					<!--<requirement name="PlayerItemCount" item_name="qt_InterloperStoryNote" operation="GTE" value="1"/>-->
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="thirdPigeonMsgReceived" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="thirdPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffThirdPigeonDelivery"/>
+			</effect_group>
+						
+			<effect_group>
+					<!--if more than pigeonSpawnAttempts attempts to deliver the pigeon delivery then mark as received so no more attempts are made-->
+					<requirement name="CVarCompare" cvar="$thirdPigeonSpawnCount" operation="GTE" value="@pigeonSpawnAttempts"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="thirdPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffThirdPigeonDelivery"/>
+			</effect_group>
+			
+			<effect_group>
+					<!--if the pigeon delivery is not received, tick down counter until next pigeon delivery sent-->
+					<requirement name="CVarCompare" cvar="$thirdPigeonSpawnCountdown" operation="GT" value="0"/> 
+					<requirement name="CVarCompare" cvar="thirdPigeonMsgReceived" operation="LT" value="1"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$thirdPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+
+		</buff>
+		
+		<!--buff that send out the fourth pigeon - if the delivery is received it will resend the pigeon-->
+		<buff name="buffFourthPigeonDelivery" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$fourthPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
+			</effect_group>
+			
+			<effect_group>
+				<!--Spawn the fourth pigeon - this can run multiple times of the person doesnt receive the delivery from the pigeon-->
+				<requirement name="PlayerLevel" operation="GTE" value="@fourthPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="fourthPigeonMsgReceived" operation="LT" value="1"/>
+				<!--if not in a countdown between pigeon spawns-->
+				<requirement name="CVarCompare" cvar="$fourthPigeonSpawnCountdown" operation="LT" value="1"/> 
+				<!--will only spawn pigeonSpawnAttempts number of times-->
+				<requirement name="CVarCompare" cvar="$fourthPigeonSpawnCount" operation="LT" value="@pigeonSpawnAttempts"/>
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+					<!--spawn the pigeon, start a countdown, if the player doesnt have the delivery by the end of the countdown  - will send out another pigeon-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$fourthPigeonSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$fourthPigeonSpawnCountdown" operation="set" value="@pigeonSpawnCountdown"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeon4"/>
+					
+			</effect_group>
+			
+			<effect_group>
+					<!--if pigeons delivery received then close out and remove buff-->
+					<requirement name="CVarCompare" cvar="fourthPigeonMsgReceived" operation="LT" value="1"/> 
+					<requirement name="CVarCompare" cvar="$fourthPigeonSpawnCount" operation="GTE" value="1"/>
+					<!--set when the player opens the fourth pigeon's message tube, indicates the player has received the msg in the tube-->
+					<requirement name="CVarCompare" cvar="homingPigeonNote4Trigger" operation="GTE" value="1"/>
+					<!--<requirement name="PlayerItemCount" item_name="qt_PigeonFinal" operation="GTE" value="1"/>-->
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="fourthPigeonMsgReceived" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="fourthPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFourthPigeonDelivery"/>
+			</effect_group>
+						
+			<effect_group>
+					<!--if more than pigeonSpawnAttempts attempts to deliver the pigeon delivery then mark as received so no more attempts are made-->
+					<requirement name="CVarCompare" cvar="$fourthPigeonSpawnCount" operation="GTE" value="@pigeonSpawnAttempts"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="fourthPigeonDeliveryComplete" operation="add" value="1"/>
+						<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFourthPigeonDelivery"/>
+			</effect_group>
+			
+			<effect_group>
+					<!--if the pigeon delivery is not received, tick down counter until next pigeon delivery sent-->
+					<requirement name="CVarCompare" cvar="$fourthPigeonSpawnCountdown" operation="GT" value="0"/> 
+					<requirement name="CVarCompare" cvar="fourthPigeonMsgReceived" operation="LT" value="1"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$fourthPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+
+		</buff>
+		
+		
+		<!--buff that manages the PigeonsCarryDiseases story and the start of the Interloper story which is delivered by the third pigeon.
+			See buffStatusCheck01 for variable initialisation-->
+		<buff name="buffPigeonsCarryDiseasesStory" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<!--Spawn the first pigeon - the buffFirstPigeonDelivery buff will loop multiple times if the person doesnt receive the msg from the pigeon
+				Up to a max pigeonSpawnAttempts number of times-->
+			<effect_group>
+				<!--time to send the pigeon-->
+				<requirement name="PlayerLevel" operation="GTE" value="@firstPigeonLevel"/>
+				<!--check if already done-->
+				<requirement name="CVarCompare" cvar="firstPigeonDeliveryComplete" operation="LT" value="1"/>
+				<!--check if in the process of being done-->
+				<requirement name="!HasBuff" buff="buffFirstPigeonDelivery"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffFirstPigeonDelivery"/>
+			</effect_group>
+			
+			<!--Spawn the second pigeon - the buffSecondPigeonDelivery buff will loop multiple times if the person doesnt receive the msg from the pigeon
+				Up to a max pigeonSpawnAttempts number of times-->
+			<effect_group>
+				<requirement name="PlayerLevel" operation="GTE" value="@secondPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="firstPigeonDeliveryComplete" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="secondPigeonDeliveryComplete" operation="LT" value="1"/> 
+				<requirement name="!HasBuff" buff="buffSecondPigeonDelivery"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSecondPigeonDelivery"/>
+			</effect_group>
+			
+			<!--Spawn the third pigeon - the buffThirdPigeonDelivery buff will loop multiple times if the person doesnt receive the msg from the pigeon
+				Up to a max pigeonSpawnAttempts number of times-->
+			<effect_group>
+				<requirement name="PlayerLevel" operation="GTE" value="@thirdPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="secondPigeonDeliveryComplete" operation="GTE" value="1"/> 
+				<requirement name="CVarCompare" cvar="thirdPigeonDeliveryComplete" operation="LT" value="1"/>
+				<requirement name="!HasBuff" buff="buffThirdPigeonDelivery"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffThirdPigeonDelivery"/>
+			</effect_group>
+			
+			<!--Spawn the fourth pigeon - the buffFourthPigeonDelivery buff will loop multiple times if the person doesnt receive the msg from the pigeon
+				Up to a max pigeonSpawnAttempts number of times-->
+			<effect_group>
+				<requirement name="PlayerLevel" operation="GTE" value="@fourthPigeonLevel"/>
+				<requirement name="CVarCompare" cvar="thirdPigeonDeliveryComplete" operation="GTE" value="1"/> 
+				<requirement name="CVarCompare" cvar="fourthPigeonDeliveryComplete" operation="LT" value="1"/>
+				<requirement name="!HasBuff" buff="buffFourthPigeonDelivery"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffFourthPigeonDelivery"/>
+			</effect_group>
+			
+			<!--remove this buff when all pigeon's messages delivered-->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="fourthPigeonDeliveryComplete" operation="GTE" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPigeonsCarryDiseasesStory"/>
+			</effect_group>
+			
+		</buff>
+		<!--END buff that manages the pigeonsCarryDiseases storyline-->
+		
+		<!--this buff displays that the player is being hunted by the pigeon final boss.
+			The code for the pigeon final boss is in buffPigeonOnFinalBoss below. 
+			This buff is just used for the UI Display as the display text has a different lifespan 
+			than buffPigeonOnFinalBoss or buff_trackPigeonFinalBoss-->
+		<buff name="buffPigeonOnFinalBossDisplay" name_key="buffPigeonOnFinalBossDisplayName" description_key="buffPigeonOnFinalBossDisplayDesc" tooltip_key="buffPigeonOnFinalBossDisplayTooltip" icon="ui_game_symbol_skull" icon_color="0,180,255" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--this buff deoesnt do anything, the code is just filler and doesnt run
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffPigeonOnFinalBossDisplay" >
+					<requirement name="!HasBuff" buff="buffPigeonOnFinalBossDisplay"/></triggered_effect>
+			</effect_group>-->
+		</buff>	
+		
+		<!--This buff tracks the Final Pigeon Boss specifically for the quests:quest_PigeonsEpilogue quest.
+			Removed when buffPigeonOnFinalBoss is removed-->
+		<buff name="buff_trackPigeonFinalBoss" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingPigeonBoss,trackingPigeonBossLoot"/>
+			</effect_group>
+		</buff>	
+		
+		<!--buff will monitor the final pigeon story boss. If the player doesn't get the final loot. The buff
+			will resend the final boss up to 5 times (pigeonSpawnAttempts) -->
+		<buff name="buffPigeonOnFinalBoss" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--if the player has the final loot then we can close out everything end remove this buff.
+				Also remove buff if max total number of boss spawned and no result.-->
+			<effect_group>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPigeonOnFinalBoss">
+						<!--set when the player opens the final pigeon boss's loot, which means the story is complete-->
+						<requirement name="CVarCompare" cvar="homingPigeonBossFinalTrigger" operation="GTE" value="1"/>
+						<!--<requirement name="PlayerItemCount" item_name="qt_PigeonFinalLootNote" operation="GTE" value="1"/>-->
+					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPigeonOnFinalBoss">
+						<requirement name="CVarCompare" cvar="finalPigeonBossSpawnComplete" operation="GTE" value="1"/> 
+					</triggered_effect>
+					<!--OR didnt work before - supposed to be fixed in 1.0 but am not 100% sure
+					<requirements compare_type="or">
+						<requirement name="CVarCompare" cvar="homingPigeonBossFinalTrigger" operation="GTE" value="1"/>
+						<requirement name="CVarCompare" cvar="finalPigeonBossSpawnComplete" operation="GTE" value="1"/>
+					</requirements>
+					-->
+			</effect_group>
+			
+			<!--the first boss spawn happens when the quest_PigeonsEpilogue quest is completed. The rest of the boss spawns
+				are from a countdown. IF the boss's loot isnt picked up by the player before the countdown expires it is assumed
+				something failed and the boss will be spawned again up to a max pigeonSpawnAttempts (config var) number if times-->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="LT" value="1"/> 
+				<requirement name="CVarCompare" cvar="spawnPigeonBossTrigger" operation="GTE" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCount" operation="add" value="1"/>
+					<!--add a buff to red-dot the final boss and the boss' loot for the player-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buff_trackPigeonFinalBoss" >
+						<requirement name="!HasBuff" buff="buff_trackPigeonFinalBoss"/></triggered_effect>
+					<!--add a buff to display that the player is being hunted by the boss -->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffPigeonOnFinalBossDisplay" >
+						<requirement name="!HasBuff" buff="buffPigeonOnFinalBossDisplay"/></triggered_effect>
+					
+					<!--spawn final boss-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeonBoss"/>
+					<!--set the countdown for the next boss spawn if the loot isnt received-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCountdown" operation="set" value="randomint(3600,7200)"/>  <!--this is in seconds. Default 3600 (60min), 7200(120min)-->
+			</effect_group>
+				
+			<effect_group>
+				<!--if countdown is 0 and final loot not received - resend-->
+				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="LT" value="@pigeonSpawnAttempts"/>
+				<!--if not in a countdown between boss spawns-->
+				<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCountdown" operation="LT" value="1"/> 
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+					<!--spawn the boss, start a countdown, if the player doesnt have the delivery by the end of the countdown  - will send out another boss-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCountdown" operation="set" value="randomint(3600,7200)"/>  <!--this is in seconds. Default 3600 (60min), 7200(120min)-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_pigeonBoss"/>
+					<!-- mark as done if this is the final boss spawn-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnComplete" operation="add" value="1">
+						<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCount" operation="GTE" value="@pigeonSpawnAttempts"/>
+					</triggered_effect>
+			</effect_group>
+						
+			<effect_group>
+					<!--if the Boss loot delivery is not received, tick down counter until next boss spawned -->
+					<requirement name="CVarCompare" cvar="finalPigeonBossSpawnCountdown" operation="GT" value="0"/> 
+						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="finalPigeonBossSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>	
+			
+			<!--clean up when buff removed-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buff_trackPigeonFinalBoss">
+					<requirement name="HasBuff" buff="buff_trackPigeonFinalBoss"/></triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffPigeonOnFinalBossDisplay">
+					<requirement name="HasBuff" buff="buffPigeonOnFinalBossDisplay"/></triggered_effect>
+			</effect_group>
+
+		</buff>
+
+		<!--this buff gives the reward for the pigeons carry diseases storyline completion.
+			Called from items.xml:pigeonFinalBossBundle -->
+		<buff name="buffPigeonsStoryFinishedReward" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+
+			<!--call the event to reward the player-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="action_PigeonsFinishReward"/>			
+			</effect_group>
+			
+			<!--remove this buff as only used to call the action event above-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffPigeonsStoryFinishedReward" />
+			</effect_group>
+		</buff>
+	
+		<!--END pigeons carry diseases story code-->
+		
+		
+		<!--START interloper buffs-->
+
+		<!--player gets this buff when the first msg is received at the Receiver (blocks.xml:buffInterloperMessageReceiver)
+			It sets a couple of vars then removes itself. Called from buffInterloperStory -->
+			
+		<buff name="buffInterloperFirstSpyMessageReceived" name_key="buffInterloperFirstSpyMessageReceivedName" description_key="buffInterloperFirstSpyMessageReceivedDesc" tooltip_key="buffInterloperFirstSpyMessageReceivedTooltip" icon="ui_game_symbol_talk" icon_color="255,180,0" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value_key value="buffInterloperSpyMessageReceived"/>
+			<display_value value="xxx"/>
+
+			<effect_group>
+				<!--mark the first msg as being available at the Receiver-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperFirstSpyMsgReceived" operation="set" value="1"/>
+				<!--this var will stay true until the story completes as the player can retrieve old msgs until a new msg comes in-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSpyMsgAvailable" operation="set" value="1"/>
+			</effect_group>
+		</buff>
+		
+		<!--player gets this buff when the second msg is received at the Receiver (blocks.xml:buffInterloperMessageReceiver)
+			It sets a couple of vars then removes itself. Called from buffInterloperStory
+			The name and desc keys are generic-->
+		<buff name="buffInterloperSecondSpyMessageReceived" name_key="buffInterloperSecondSpyMessageReceivedName" description_key="buffInterloperSecondSpyMessageReceivedDesc" tooltip_key="buffInterloperSecondSpyMessageReceivedTooltip" icon="ui_game_symbol_talk" icon_color="255,180,0" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value_key value="buffInterloperSpyMessageReceived"/>
+			<display_value value="xxx"/>
+			
+			<effect_group>
+				<!--turn off the first spy message received notification-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperFirstSpyMsgReceived" operation="set" value="0"/>
+				<!--remove the first message buff if for some reason it isnt already removed-->
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffInterloperFirstSpyMessageReceived" >
+					<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				</triggered_effect>
+				<!--mark the s msg as being available at the Receiver-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSecondSpyMsgReceived" operation="set" value="1"/>
+			</effect_group>
+			
+
+		</buff>
+		
+		
+		<!--player gets this buff when the third msg is received at the Receiver (blocks.xml:buffInterloperMessageReceiver)
+			It sets a couple of vars then removes itself. Called from buffInterloperStory-->
+		<buff name="buffInterloperThirdSpyMessageReceived" name_key="buffInterloperThirdSpyMessageReceivedName" description_key="buffInterloperThirdSpyMessageReceivedDesc" tooltip_key="buffInterloperThirdSpyMessageReceivedTooltip" icon="ui_game_symbol_talk" icon_color="255,180,0" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value_key value="buffInterloperSpyMessageReceived"/>
+			<display_value value="xxx"/>
+
+			<effect_group>
+				<!--turn off the second spy message received notification-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSecondSpyMsgReceived" operation="set" value="0"/>
+				<!--remove the second message buff if for some reason it isnt already removed-->
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffInterloperSecondSpyMessageReceived" >
+					<requirement name="HasBuff" buff="buffInterloperSecondSpyMessageReceived"/>
+				</triggered_effect>
+				<!--mark the third msg as being available at the Receiver-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperThirdSpyMsgReceived" operation="add" value="1"/>
+			</effect_group>
+			
+		</buff>
+		
+		<!--this buff is called when gameevents.xml:interloperCheckMessageReceivedAction 
+			delivers a msg into the players inventory-->
+		<buff name="buffInterloperSpyMsgDelivered" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--if the first transmission was the one received then intialise the Second Transmission Countdown.
+				The second Transmission follows automatically so needs a countdown. The Third transmissions is not automatic
+				as the Third transmission occurs later in the story, so it doesnt have a countdown.-->
+			<effect_group>
+				<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				<requirement name="CVarCompare" cvar="interloperSecondTransmissionCountdown" operation="LT" value="1"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSecondTransmissionCountdown" operation="set" value="randomint(7800,15000)"/> <!--default randomint(7800,15000) : 7800(130min), 15000(250min) where 60min==default 7dtd day length-->
+			</effect_group>
+
+			<!--mark each transmission as being delivered as needed.-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperFirstTransmissionDelivered" operation="set" value="1">
+					<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"  cvar="interloperSecondTransmissionDelivered" operation="set" value="1">
+					<requirement name="HasBuff" buff="buffInterloperSecondSpyMessageReceived"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"  cvar="interloperThirdTransmissionDelivered" operation="set" value="1">
+					<requirement name="HasBuff" buff="buffInterloperThirdSpyMessageReceived"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<!--cleanup-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperSpyMsgDelivered" /> 
+			</effect_group>
+			
+		</buff>
+		
+		<!--this buff is called when gameevents.xml:interloperCheckMessageReceivedAction 
+			delivers the first msg into the players inventory-->
+		<buff name="buffInterloperFirstSpyMsgDelivered" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--if the first transmission was received then intialise the Second Transmission Countdown.
+				The Third transmission is not automatic as the Third transmission occurs later in the story, so it doesnt have a countdown.-->
+			<effect_group>
+				<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				<requirement name="CVarCompare" cvar="interloperSecondTransmissionCountdown" operation="LT" value="1"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSecondTransmissionCountdown" operation="set" value="randomint(7800,15000)"/> <!--default randomint(7800,15000) :  7800(130min), 15000(250min) where 60min==default 7dtd day length-->
+			</effect_group>
+
+			<!--mark the transmission as being delivered-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperFirstTransmissionDelivered" operation="set" value="1">
+					<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<!--cleanup-->
+			<effect_group>
+				<!--remove the buff that tells the player to pick up the message-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperFirstSpyMessageReceived">
+					<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				</triggered_effect>
+				<!--remove self-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperFirstSpyMsgDelivered" /> 
+			</effect_group>
+			
+		</buff>
+		<!--this buff is called when gameevents.xml:interloperCheckMessageReceivedAction 
+			delivers the second msg into the players inventory-->
+		<buff name="buffInterloperSecondSpyMsgDelivered" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--mark the second transmission as being delivered as needed.-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"  cvar="interloperSecondTransmissionDelivered" operation="set" value="1">
+					<requirement name="HasBuff" buff="buffInterloperSecondSpyMessageReceived"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<!--cleanup-->
+			<effect_group>
+				<!--remove the buff that tells the player to pick up the message-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperSecondSpyMessageReceived">
+					<requirement name="HasBuff" buff="buffInterloperSecondSpyMessageReceived"/>
+				</triggered_effect>
+				<!--remove self-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperSecondSpyMsgDelivered" /> 
+			</effect_group>
+			
+		</buff>
+		<!--this buff is called when gameevents.xml:interloperCheckMessageReceivedAction 
+			delivers the third msg into the players inventory-->
+		<buff name="buffInterloperThirdSpyMsgDelivered" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--mark the transmission as being delivered as needed.-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar"  cvar="interloperThirdTransmissionDelivered" operation="set" value="1">
+					<requirement name="HasBuff" buff="buffInterloperThirdSpyMessageReceived"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<!--cleanup-->
+			<effect_group>
+				<!--remove the buff that tells the player to pick up the message-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperThirdSpyMessageReceived">
+					<requirement name="HasBuff" buff="buffInterloperThirdSpyMessageReceived"/>
+				</triggered_effect>
+				<!--remove self-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperThirdSpyMsgDelivered" /> 
+			</effect_group>
+			
+		</buff>
+		<!--this buff gives the reward for the interloper storyline completion.
+			Called from items.xml:interloperEpilogueRewardBundle -->
+		<buff name="buffInterloperStoryFinishedReward" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+
+			<!--call the event to reward the player-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="action_InterloperFinishReward"/>			
+			</effect_group>
+			
+			<!--remove this buff as only used to call the action event above-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperStoryFinishedReward" />
+			</effect_group>
+		</buff>
+	
+		<!--this buff finalises the interloper storyline.
+			Called when the story is complete, from items.xml:interloperEpilogueRewardBundle -->
+		<buff name="buffInterloperStoryFinished" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<!--The countdown is used in the buffInterloperStory buff-->
+			<effect_group>
+				<!--remove any associated buffs-->
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffInterloperFirstSpyMessageReceived" >
+					<requirement name="HasBuff" buff="buffInterloperFirstSpyMessageReceived"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffInterloperSecondSpyMessageReceived" >
+					<requirement name="HasBuff" buff="buffInterloperSecondSpyMessageReceived"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buffInterloperThirdSpyMessageReceived" >
+					<requirement name="HasBuff" buff="buffInterloperThirdSpyMessageReceived"/>
+				</triggered_effect>
+			
+				<triggered_effect trigger="onSelfBuffStart"  action="RemoveBuff" buff="buffInterloperStory">
+					<requirement name="HasBuff" buff="buffInterloperStory"/>
+				</triggered_effect>
+			</effect_group>
+
+			<!--no more spy messages at the receiver-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSpyMsgAvailable" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperFirstSpyMsgReceived" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSecondSpyMsgReceived" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperThirdSpyMsgReceived" operation="set" value="0"/>
+			</effect_group>
+			
+			<!--remove this buff as only used to set the above vars-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperStoryFinished" />
+			</effect_group>
+		</buff>
+		
+		<!--Interloper storyline controller-->
+		<!--This buff manages the Interloper storyline and handles consistency across the story. -->
+		<buff name="buffInterloperStory" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+
+			<!--The player has placed the listening device near a trader (spywareSetupComplete=1). Setup the next part of the story:
+				Send the player msgs at semi-random times as the story progresses-->
+			<effect_group>	
+				<requirement name="CVarCompare" cvar="interloperSpywareComplete" operation="LT" value="1"/>
+				<requirement name="CVarCompare" cvar="spywareSetupComplete" operation="GTE" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperFirstTransmissionCountdown" operation="set" value="randomint(7800,15000)"/> <!--default randomint(7800,15000):  7800(130min), 15000(250min) where 60min==default 7dtd day length-->
+					<!--the player has completed the setup part of the chapter-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperSpywareComplete" operation="set" value="1"/>
+					<!--drop a note in players inventory -->
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="interloperSpywareSetupCompleteNoteAction"/>
+
+			</effect_group>
+			
+			<!--This is the transmission of the first msg from the spyware transmitter to the Receiver-->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="interloperSpywareComplete" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="interloperFirstTransmissionReceived" operation="LTE" value="0"/>
+				<requirement name="CVarCompare" cvar="interloperFirstTransmissionCountdown" operation="LTE" value="0"/>
+					<!-- mark as received-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperFirstTransmissionReceived" operation="add" value="1"/>
+					<!--tell the player that the first msg is received and ready for pickup-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffInterloperFirstSpyMessageReceived" />
+			</effect_group>
+			<!--second msg transmission-->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="interloperSpywareComplete" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="interloperFirstTransmissionDelivered" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="interloperSecondTransmissionReceived" operation="LTE" value="0"/>
+				<requirement name="CVarCompare" cvar="interloperSecondTransmissionCountdown" operation="LTE" value="0"/>
+					<!-- mark as received-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperSecondTransmissionReceived" operation="add" value="1"/>
+					<!--tell the player that the second msg is received and ready for pickup-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffInterloperSecondSpyMessageReceived" />
+			</effect_group>
+			
+			<!--third and final msg transmission - this starts the last chapter of the interloper story-->
+			<effect_group>
+				<requirement name="CVarCompare" cvar="interloperStoryFinalCountdownStarted" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="interloperStoryFinalCountdown" operation="LTE" value="0"/>
+				<requirement name="CVarCompare" cvar="interloperStoryFinalCountdownFinished" operation="LTE" value="0"/>
+					<!--countdown has reached Zero, countdown was active and we havent finished processing it yet-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperStoryFinalCountdownFinished" operation="add" value="1"/>
+					<!--tell the player that the third msg is received and ready for pickup-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffInterloperThirdSpyMessageReceived" />
+			</effect_group>
+			
+			<!--listen for the final Supply crate spawn - play airplane sound to simulate airdrop-->
+			<!--Plays an airplane sound for X number of seconds: see gamevents.xml:action_AirplaneSoundStart to adjust duration played-->-->
+			<effect_group> 
+				<requirement name="CVarCompare" cvar="playSupplyCrateAirplaneSound" operation="GTE" value="1"/>
+					<!--reset the trigger-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="playSupplyCrateAirplaneSound" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_AirplaneSoundStart"/>	
+			</effect_group>
+			
+			<!--countdown stuff-->
+			<effect_group>
+				<!--Once the spyware setup is complete there is a countdown to sending the first transmission.-->
+				<requirement name="CVarCompare" cvar="interloperFirstTransmissionCountdown" operation="GT" value="0"/> 
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperFirstTransmissionCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+			<effect_group>
+				<!--countdown to sending the second transmission.-->
+				<requirement name="CVarCompare" cvar="interloperSecondTransmissionCountdown" operation="GT" value="0"/> 
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperSecondTransmissionCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+			<!--final chapter countdown-->
+			<effect_group>
+				<!--countdown to sending the final transmission.-->
+				<requirement name="CVarCompare" cvar="interloperStoryFinalCountdown" operation="GT" value="0"/> 
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="interloperStoryFinalCountdown" operation="subtract" value="@$MetabolismDuration"/>
+			</effect_group>
+			<!--END countdown stuff-->
+			
+			
+			<!--shutdown - called from buffInterloperStoryFinished 
+				Reset intialisation vars in case the entire interloper story gets repeated-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="interloperSpywareComplete" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="interloperFirstTransmissionReceived" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="interloperSecondTransmissionReceived" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="interloperStoryFinalCountdownStarted" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="interloperStoryFinalCountdownFinished" operation="set" value="0"/>
+			</effect_group>
+			
+			
+		</buff>
+		
+		
+		
+		<!--This buff is called from the item bundle items.xml:interloperMaliciousActorSpywareNoteBundle
+			It indicates that the player has finished the spyware part of the Interloper story.
+			NO LONGER USED-->
+		<buff name="buffInterloperMaliciousActorSpywareSetup" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<!--Mark the planting spyware part of the interloper story complete.
+				Intialise the value (in seconds) for the countdown to send the first transmission as the spyware setup is complete.
+				The countdown is used in the buffInterloperStory buff-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperFirstTransmissionCountdown" operation="set" value="randomint(7800,15000)"/> <!--default randomint(7800,15000) : 7800(130min), 15000(250min) where 60min==default 7dtd day length-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSpywareComplete" operation="set" value="1"/>
+			</effect_group>
+			
+			<!--remove this buff as only used to set the above vars-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperMaliciousActorSpywareSetup" />
+			</effect_group>
+		</buff>
+		<!--end Interloper storyline controller-->
+		
+		<!--buffs for the interloper supply drop book series: Plissken's Survival Technique books
+			These buffs are considered permanent. Several books are made available to the player during the
+			Interloper story. Each book can permanently boost a player stat but at the cost of the Gamestage stat.
+			e.g. Increase max health by 20, increase GameStage by 20 (may not be a actual book in game, is just an example)-->
+		
+		<!--First book -->
+		<buff name="buffInterloperRewardBookOne" name_key="buffInterloperRewardBookOne" description_key="buffInterloperRewardBookOneDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<!--increase Max Health-->
+				<passive_effect name="HealthMax" operation="base_add" value="50"/>
+				<!--increase natural healing speed 0.15 health/sec-->
+				<passive_effect name="HealthChangeOT" operation="base_add" value="0.15"/>
+				<!--decrease food loss per health point gained-->
+				<passive_effect name="FoodLossPerHealthPointGained" operation="perc_add" value="-0.50" />
+				
+				<!--increase gamestage-->
+				<passive_effect name="GameStage" operation="base_add" value="30"/>	
+			</effect_group>
+		</buff>
+		<!--Second book -->
+		<buff name="buffInterloperRewardBookTwo" name_key="buffInterloperRewardBookTwo" description_key="buffInterloperRewardBookTwoDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="StaminaMax" operation="base_add" value="50"/>
+				<!--Stamina Regen increase-->
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value="0.1"/>
+				<!--decrease water loss per stamina point gained-->				
+				<passive_effect name="WaterLossPerStaminaPointGained" operation="perc_add" value="-0.50"/> 
+
+				<passive_effect name="GameStage" operation="base_add" value="25"/>
+			</effect_group>
+		</buff>
+		<!--Third  book -->
+		<buff name="buffInterloperRewardBookThree" name_key="buffInterloperRewardBookThree" description_key="buffInterloperRewardBookThreeDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<!--book of speed, a speed increase across variety of stats-->
+				<passive_effect name="RunSpeed" operation="perc_add" value="0.1"/>
+				<passive_effect name="WalkSpeed" operation="perc_add" value="0.1"/>
+				<passive_effect name="JumpStrength" operation="perc_add" value="0.1"/>
+				<passive_effect name="CrouchSpeed" operation="perc_add" value="0.1"/>
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.1"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value=".15"/>
+				<passive_effect name="ScavengingTime" operation="perc_add" value="0.20"/>
+				
+				<passive_effect name="GameStage" operation="base_add" value="25"/>
+			</effect_group>
+		</buff>
+		<!--Fourth book -->
+		<buff name="buffInterloperRewardBookFour" name_key="buffInterloperRewardBookFour" description_key="buffInterloperRewardBookFourDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
+				<passive_effect name="LockPickTime" operation="perc_set" value="0.03"/>
+				<passive_effect name="LootQuantity" operation="perc_add" value=".25" tags="buriedTreasure,safes,lockedSafe"/>
+				<passive_effect name="GameStage" operation="base_add" value="20"/>
+			</effect_group>
+		</buff>
+		<!--Fifth book NOT USED-->
+		<buff name="buffInterloperRewardBookFive" name_key="buffInterloperRewardBookFive" description_key="buffInterloperRewardBookFiveDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<!--test code-->
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.25"/>
+				<!--block damage increase deosnt apply to weapons or bullets-->
+				<passive_effect name="BlockDamage" operation="perc_add" value="0.2" invert_tag_check="true" tags="weapon,ammo">
+					<requirement name="!HoldingItemHasTags" tags="weapon"/>
+				</passive_effect>
+				
+				<passive_effect name="GeneralDamageResist" operation="perc_add" value="0.25"/>
+				<passive_effect name="ElementalDamageResist" operation="perc_add" value="0.25" tags="cold,heat,electrical"/>
+				<passive_effect name="PhysicalDamageResist" operation="perc_add" value="0.25"/>
+				<passive_effect name="GameStage" operation="base_add" value="50"/>
+				
+				<passive_effect name="FoodLossPerHealthPointGained" operation="per.5"/>
+				<passive_effect name="WaterChangeOT" operation="perc_add" value="-0.5"/>
+				<passive_effect name="GameStage" operation="base_add" value="20"/>
+			</effect_group>
+			
+		</buff>
+		<!--END buffs for the interloper supply drop book series-->
+		
+		<!--This buff sets the countdown for the final chapter of the Interloper Story-->
+		<buff name="buffInterloperStoryFinalCountdown" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<!--The countdown is used in the buffInterloperStory buff.
+				A short countdown so the final chapter follows quickly-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperStoryFinalCountdown" operation="set" value="randomint(3600,7800)"/> <!--default 3600(60min), 7800(130min) - 60min==default 7dtd day length-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperStoryFinalCountdownStarted" operation="set" value="1"/> 
+				3
+			</effect_group>
+			
+			<!--remove this buff as only used to set the above vars-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffInterloperStoryFinalCountdown" />
+			</effect_group>
+		</buff>
+		
+		
+		<!--END interloper buffs-->
+		
+		<!--Mary's revenge buffs-->
+		
+		<!--This buff tracks screamers (with nav_objects) specifically for the quests:graveRobbingCovenHouse quest.
+			One of the screamers being tracked will drop the loot bag with a map to Magrat's sisters (Judys) grave.
+			Removed when the player gets the loot bag-->
+		<buff name="buff_trackCovenHouseScreamers" hidden="true" remove_on_death="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingCovenHouse,trackingCovenHouseLoot"/>
+			</effect_group>
+		</buff>	
+		<!--This buff tracks Magrat (with nav_objects.). The player gets this buff from a mod that they get from a grave
+			as a sidequest (Ipslore's Folly) in the Marys Revenge story -->
+		<buff name="buff_trackMagrat" hidden="true" remove_on_death="true" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="magrat"/>
+			</effect_group>
+		</buff>	
+		
+		<!--This buff tracks screamers.
+			See entityclasses.xml & nav_objects.xml.
+			For Magrat's Left Eye - Mary's revenge story.
+			This effect is permanent. -->
+		<buff name="buff_MagratsLeftEye" name_key="buff_MagratsLeftEye" description_key="buff_MagratsLeftEyeDesc" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingSNT"/>
+				<passive_effect name="GameStage" operation="base_add" value="10"/>
+			</effect_group>
+		</buff>	
+
+		<!--code to remove the buff_MagratsLeftEye buff - USED FOR TESTING see items.xml:testRemoveScreamerTrackingBuff-->
+		<buff name="buff_RemoveMagratsLeftEye" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--remove  buff_MagratsLeftEye-->
+			<effect_group>
+				<requirement name="HasBuff" buff="buff_MagratsLeftEye"/>
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buff_MagratsLeftEye" />
+			</effect_group>
+			<!--remove self-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_RemoveMagratsLeftEye" />
+			</effect_group>
+		</buff>	
+		
+		<!--set when the player opens Magrats loot and signals the end of the Mary's Revenge story.
+			Removes itself after setting the trigger-->
+		<buff name="buff_marysRevengeFinalTrigger" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="marysRevengeFinalTrigger" operation="set" value="1"/>
+			</effect_group>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buff_marysRevengeFinalTrigger" />
+			</effect_group>
+		</buff>
+		
+		<!--Used to spawn Magrat's Minions. Called randomly when a Minion is damaged (see entityclasses:marysRevengeFinalBossMinion).
+			Has a cooldown timer so that there is a minimum time between Minion spawns. Additional calls to this buff 
+			are ignored until it completes-->
+		<buff name="buffMarysRevengeFinalMinionSummon" hidden="true" remove_on_death="true">
+			<!--ignore new calls while busy-->
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			
+			<effect_group>
+				<!--minimum time between Minion spawns -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$magratMinionSpawnCountdown" operation="set" value="@magratMinionSpawnCountdownDefault"/> <!--value is in seconds--> 
+				<!--spawn a set of Minions only if Magrat is still alive--> 
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="action_spawn_MarysRevengeBossMinion">
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="LTE" value="0"/>
+				</triggered_effect>	
+			</effect_group>
+			
+			<!--this buff only spawns Minions when first called. It then sticks around for magratMinionSpawnCountdown seconds so that
+				there is a minimum time between Minion Spawns. -->
+			
+			<!--Countdown to next spawn-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratMinionSpawnCountdown" operation="subtract" value="@$MetabolismDuration">
+					<requirement name="CVarCompare" cvar="$magratMinionSpawnCountdown" operation="GT" value="0"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<effect_group>
+				<!--remove this buff when the countdown reaches 0 or Magrat is killed-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalMinionSummon">
+					<requirement name="CVarCompare" cvar="$magratMinionSpawnCountdown" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalMinionSummon">
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="GTE" value="1"/>
+				</triggered_effect>
+			</effect_group>
+			
+			<!--clean up-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$magratMinionSpawnCountdown" operation="set" value="0"/>
+			</effect_group>
+		
+		</buff>
+	
+	
+		<!--this buff start Marys Revenge Final Boss after a Delay.
+		Called from items.xml:foodPumpkinJudyPieSlice. Called when the player eats the pie used to summon the final boss-->
+		<buff name="buffMarysRevengeFinalBossSummon" name_key="buffMarysRevengeFinalBossSummonName" description_key="buffMarysRevengeFinalBossSummonDesc" tooltip_key="buffMarysRevengeFinalBossSummonTooltip" icon="ui_game_symbol_skull" icon_color="28,142,199" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<display_value_key value="buffMarysRevengeFinalBossSummonDisplay"/>
+			<display_value value="xxx"/>
+			
+			<!--init vars because its possible that this buff gets run more than once-->
+			<effect_group>
+				<!--this buff is triggered when a player eats a pie, Magrat's 1st spawn is delayed so the spawn is not instant -->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$magratSpawnCountdown" operation="set" value="@magratFirstSpawnCountdownDefault"/>
+				<!--marysRevengeFinalTrigger is used to determine when to delete this buff.-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="marysRevengeFinalTrigger" operation="set" value="0"/>
+				<!--number of times Magrat gets spawned, allows for a cap (@magratSpawnCountMax)-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$magratSpawnCount" operation="set" value="0"/>
+				<!--used to determine when the Marys revenge storyline is complete. Set when this buff gets removed.-->
+				<!--<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="marysRevengeFinalComplete" operation="set" value="0"/>-->
+				
+			</effect_group>
+			
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalBossSummon">
+					<!--set when the player opens the Magrats loot, which means the story is complete-->
+					<requirement name="CVarCompare" cvar="marysRevengeFinalTrigger" operation="GTE" value="1"/>
+				</triggered_effect>
+				
+				<!--will only spawn Magrat magratSpawnCountMax number of times-->
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinalBossSummon">
+					<requirement name="CVarCompare" cvar="$magratSpawnCount" operation="GTE" value="@magratSpawnCountMax"/> 
+				</triggered_effect>
+			</effect_group>
+			
+			<!--the first magrat spawn happens during the quest_KillMagrat quest . The rest of the Magrat spawns
+				are from a countdown. IF Magrats loot isnt picked up by the player before the countdown expires it is assumed
+				something failed and the boss will be spawned again up to a max magratSpawnCountMax (config var) number if times-->
+			<effect_group>
+				<!--if countdown is 0 and final loot not received - spawn-->
+				<requirement name="CVarCompare" cvar="$magratSpawnCount" operation="LT" value="@magratSpawnCountMax"/>
+				<!--if not in a countdown between boss spawns-->
+				<requirement name="CVarCompare" cvar="$magratSpawnCountdown" operation="LT" value="1"/> 
+				<!--dont spawn if player in vehicle, in a bloodmoon etc-->
+				<requirement name="!IsAttachedToEntity" />
+				<requirement name="!IsIndoors" />
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="CVarCompare" cvar="_sheltered" operation="Equals" value="0"/>
+				<requirement name="CVarCompare" cvar="_shaded" operation="Equals" value="0"/>
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+					<!--spawn the boss, start a countdown, if the player doesnt have the main loot by the end of the countdown  - will send out another boss-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratSpawnCount" operation="add" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratSpawnCountdown" operation="set" value="randomint(3600,7200)"/>  <!--this is in seconds. Default 3600 (60min), 7200(120min)-->
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_spawn_MarysRevengeBoss"/>
+			</effect_group>
+						
+			<!--countdown to next spawn-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$magratSpawnCountdown" operation="subtract" value="@$MetabolismDuration">
+					<requirement name="CVarCompare" cvar="$magratSpawnCountdown" operation="GT" value="0"/>
+				</triggered_effect>
+			</effect_group>
+						
+			<!--clean up-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar="$magratSpawnCount,$magratSpawnCountdown"/>
+				<!--<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="marysRevengeFinalComplete" operation="add" value="1"/>-->
+			</effect_group>
+			
+		</buff>
+		
+		<!--gives out the reward after the player kills magrat and end the Marys Revenge storyline-->
+		<buff name="buffMarysRevengeFinishedReward" hidden="true" remove_on_death="false" >
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+
+			<!--call the event to reward the player-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="CallGameEvent" event="action_MarysRevengeFinishReward"/>			
+			</effect_group>
+			
+			<!--remove this buff as only used to call the action event above-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffMarysRevengeFinishedReward" />
+			</effect_group>
+		</buff>
+		
+		<!--Called from buffMarysRevengeBleeding and buffMarysRevengeBleedingTerminal. 
+			Handler that attaches the bleeding particle effect and controls a timer. 
+			Removed by calling buff when it exits-->
+		<buff name="buffMarysRevengeBleedingParticle" name_key="buffInjuryBleedingParticleName" hidden="true">
+			<duration value="0"/>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_bleeding" local_offset="0,0,0" parent_transform=".body"/>
+
+				<triggered_effect trigger="onSelfBuffStart" action="RemoveCVar" cvar=".buffInjuryBleedingParticleTimer"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffInjuryBleedingParticleTimer" operation="add" value="1"/>
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="AttachParticleEffectToEntity" particle="p_bleeding" local_offset="0,0,0" parent_transform=".body">
+					<requirement name="CVarCompare" cvar=".buffInjuryBleedingParticleTimer" operation="GTE" value="4"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveCVar" cvar=".buffInjuryBleedingParticleTimer">
+					<requirement name="CVarCompare" cvar=".buffInjuryBleedingParticleTimer" operation="GTE" value="4"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar=".buffInjuryBleedingParticleTimer"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_bleeding"/>
+				<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_bleeding"/>
+			</effect_group>
+		</buff>
+		
+		<!-- Terminal Bleed buff from using Mary's Revenge rifle - called from items.xml:marysRevengeHomemadeRifle.
+		This is a modification of the game's buffInjuryBleeding buff. Applies to a target and differs from buffMarysRevengeBleeding because it will kill the target.
+		Buff has heavy bleeding and a large RunSpeed slowdown until death - mimicking a fatal wound
+		from a tumbling 44 bullet. 
+		-->
+		<buff name="buffMarysRevengeBleedingTerminal" name_key="buffInjuryBleedingName" description_key="buffInjuryBleedingDesc" tooltip_key="buffInjuryBleedingTooltip" icon="ui_game_symbol_critical" icon_color="255,0,0" icon_blink="true">
+			<damage_type value="bloodloss"/>
+			<damage_source value="Internal"/>
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<!--knockdown, this is just added to provide some 
+				variance to zombie behaviour on hit and isnt intended to do much. 
+				It doesnt last long and doesnt have much force - indicates bleed out-->
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfBuffStart" action="Ragdoll" target="self" duration="1.8" force="275"/>
+			</effect_group>
+			
+			<effect_group>
+				<!--lose a chunk of health per second-->
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="25"/>
+				<!--slow the target as well-->
+				<passive_effect name="RunSpeed" operation="perc_add" value="-0.3"/>
+				<passive_effect name="WalkSpeed" operation="perc_add" value="-0.3"/>
+				<!--continue until death-->
+				<triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffMarysRevengeBleedingParticle">
+					<requirement name="HasBuff" buff="buffMarysRevengeBleedingParticle"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfDied" action="RemoveBuff" buff="buffMarysRevengeBleedingTerminal"/>
+			</effect_group>
+
+			<effect_group>
+				<requirement name="!HasBuff" buff="buffMarysRevengeBleedingParticle"/>
+					<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffMarysRevengeBleedingParticle"/>
+			</effect_group>
+		</buff>
+		<!--END Mary's revenge buffs-->
+			
+	
+		<!-- this buff is given to the player when they start a game - see buff ADDCONTROLLERBUFF below -->
+		<!-- Keeps track of various game counters e.g. number of zombie kills.
+			 Uses this info to set off events in game e.g. Give player 'Mary's Revenge Bundle' for 4000 zombie kills -->
+		<buff name="buffGameEventController" name_key="buffGameEventController" description_key="buffGameEventControllerDesc">
+			<stack_type value="replace"/>
+			<duration value="0"/>
+			<display_value value=".buffGameEventControllerDisplay"/>
+			<!-- this buff is a background buff and isnt shown on the hud so no display value format 
+				(its not completely hidden though and can be seen in the players 'current buffs' window-->
+			<!--<display_value_format value="time"/>-->
+			<effect_group>
+				<!--update number of zombie kills when onSelfKilledOther event received-->
+				<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$numZombieKillsControl" operation="add" value="1" >
+					<requirement name="EntityTagCompare" target="other" tags="walker,crawler,spider,zombie"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="@$numZombieKillsControl"/>
+			</effect_group>
+
+			<effect_group>
+				<!--handling the buff for the magnum vol 4 intimidation book.
+				  All .44 weapons are tagged with 'bookMagnumV4'-->
+				<requirement name="ProgressionLevel" progression_name="perkEnforcerIntimidation" operation="Equals" value="1"/>
+				<requirement name="ItemHasTags" tags="bookMagnumV4"/>
+					<passive_effect name="LootStage" operation="base_add" value="7"/>
+			</effect_group>		
+			
+			<!--test code used for testing quests-->
+			<!--<effect_group>
+				<requirement name="CVarCompare" cvar="questTestCodeTrigger" operation="GTE" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="action_questTestCode"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="questTestCodeTrigger" operation="set" value="0"/>
+			</effect_group>-->
+			
+			<effect_group>
+				<!--handling the event for making the solarbank recipe available at level 50 -->
+				<requirement name="PlayerLevel" operation="Equals" value="50"/>
+				<requirement name="CVarCompare" cvar="solarBankRecipeUnlocked" operation="LTE" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="solarbank" operation="set" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="solarBankRecipeUnlocked" operation="add" value="1" />
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="solarBankUnlocked"/>
+			</effect_group>
+			
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0" />
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0" />
+			</effect_group>
+			
+			<effect_group>			
+				<!-- check zombie death count - give Marys revenge quest if passed-->
+				<requirement name="CVarCompare" cvar="$numZombieKillsControl" operation="GTE" value="@killStreakTarget"/>
+				<requirement name="CVarCompare" cvar="burialSiteOneGiven" operation="LTE" value="0"/>
+				<!--only give quest when player idle-->
+				<!--IsBloodMoon doesnt work in MP so using IsNight-->
+				<requirement name="!IsNight" />
+				<requirement name="EntityHasMovementTag" tags="idle"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="CallGameEvent" event="give_graveRobbingOneQuest"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShakeCamera" shake_speed="0.04" shake_amplitude="40" shake_time="2"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="milestoneBundleZombieKill"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="burialSiteOneGiven" operation="add" value="1"/>
+			</effect_group>
+			
+			<!--<effect_group>-->
+				<!--currenty this buff stays with the player for the entire game and will show the number of zombie kills count 
+				   It could be removed after the give_graveRobbingOneQuest event as well. Code is here for the stanalone mod.-->
+				<!--<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffGameEventController">
+					<requirement name="CVarCompare" cvar="burialSiteOneGiven" operation="GTE" value="1"/> 
+				</triggered_effect>-->
+			<!--</effect_group>-->
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
+			</effect_group>
+			
+			
+					<!-- Tracking leveling / level up and current level
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$numLevelsControl" operation="add" value="1" >
+						<requirement name="PlayerLevel" operation="GT" value="@$LastPlayerLevel"/>
+					</triggered_effect>
+					-->
+					<!--example OR statement: If counter is LT next blur OR next blur = 0 
+						<requirements compare_type="or">
+							<requirement name="CVarCompare" cvar="$concussionCounter" operation="LT" value="@$concussionNextBlur"/>
+							<requirement name="CVarCompare" cvar="$concussionNextBlur" operation="Equals" value="0"/>
+						</requirements>
+					-->
+		</buff>
+	</append>
+
+	
+	<!--adds the background buffs to the player and sets some comfig variables
+		This will auto re-add buffGameEventController to the player after initial spawn and any deaths.-->
+	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+			
+		<!-- auto add buffGameEventController to the player after initial spawn and any deaths.
+				It gets deleted on death as the Number of Zombie Kills counter gets reset on death-->
+		<effect_group>
+			<requirement name="!HasBuff" buff="buffGameEventController"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffGameEventController"/>
+				<!--<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>-->
+		</effect_group>
+		
+		<!--buffPigeonsCarryDiseasesStory will only be added once doesnt get deleted on death
+			Only add if the story is not already complete-->
+		<effect_group>
+			<requirement name="CVarCompare" cvar="fourthPigeonDeliveryComplete" operation="LT" value="1"/>
+			<requirement name="!HasBuff" buff="buffPigeonsCarryDiseasesStory"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffPigeonsCarryDiseasesStory"/>
+		</effect_group>
+	
+		<!--add the Crouching  buff as a background buff to run continually - it is stateless so no issues-->
+		<effect_group>
+			<requirement name="!HasBuff" buff="buffCrouchAimingEffects"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffCrouchAimingEffects"/>
+		</effect_group>
+	
+<!--PLAYER CONFIG VARIABLES-->		
+			
+<!--GRIM TALES PLAYER CONFIG VARIABLES-->
+		
+		<!--Mary's Revenge-->
+		<effect_group>
+			<!--set the total kill streak required for Mary's revenge to trigger: default 3000-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="killStreakTarget" operation="set" value="3000"/>
+			
+			<!--When the player 'summons' Magrat, there is a delay before she actually spawns.-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratFirstSpawnCountdownDefault" operation="set" value="2,7"/> <!--default 2,7 seconds-->
+			<!--If the player doesnt kill Magrat, the final boss, Magrat can respawn magratSpawnCountMax number of times.
+				Default is to only spawn once, the player is given a pie with 6 slices so they can repeat the quest if they fail.
+				If Magrat is set to spawn more than once, she will respawn randomly at another time if the player dies or goes out of render distance.
+				When this is set to more than one spawn, eating another slice of pie wont do anything until magratSpawnCountMax is surpassed.
+				While Magrat is in spawn/respawn mode the player will see a Blue Skull Curse Buff in the UI see:buffMarysRevengeFinalBossSummon-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratSpawnCountMax" operation="set" value="1"/> <!--default 1 (only once)-->
+			<!--the time between Magrat re-Spawns varies between the spawns and set in buffs:buffMarysRevengeFinalBossSummon-->
+			
+			
+			<!--While Magrat is alive, Minions have a random chance to spawn other Minions (dopplegangers) when damaged.
+				See entityclasses.xml:marysRevengeFinalBossMinion and comment at entityclasses.xml:MINIONSPAWNS 
+				for details.-->
+			<!--This is the minimum number of seconds between Magrat's Minion spawns so the player doesnt get flooded-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="magratMinionSpawnCountdownDefault" operation="set" value="10"/> <!--default 10 seconds-->
+			<!--To set the the % Chance a Minion will spawn another Minion when damaged
+				see entityclasses.xml:marysRevengeFinalBossMinion, look for the 'random' function-->
+				
+		</effect_group>
+		<!--End Mary's Revenge-->
+		
+		
+		<!-- pigeons carry diseases variable initialisation-->
+		<!-- Initialise the spawn variables for the pigeons carry diseases storyline-->
+		<effect_group>
+			<!--begin the story somewhere between the player's 22nd - 32nd level-->
+			<!--each pigeon is released a random number (between 5 and 13 ) of player levels after the previous pigeon was released-->
+			<!--first pigeon will spawn between level 20 and 30-->
+			<!--grimtalestest-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="firstPigeonLevel" operation="set" value="randomint(22,32)"/> <!--default level randomint(22,32)-->
+			<!--Second pigeon will spawn between 5 and 13 levels after the first pigeon etc. 
+				The longest number of levels for the last pigeon to spawn is level 71, and shortest number of levels is 37. Avg: 54
+				The Interloper story start with the thrid pigeon kill. Largest level for player getting the interloper story is 58, shortest is 32. Avg: 45
+				Modify the 5 to change the shortest number of levels
+				Modify the 13 to change the longest number of levels
+				The min gap of 5 levels between spawns allows time for the previous pigeon's message to be resent if it fails to be delivered-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="secondPigeonLevel" operation="set" value="@firstPigeonLevel"/>  
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="secondPigeonLevel" operation="add" value="randomint(5,13)"/>  <!--default level randomint(5,13)-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="thirdPigeonLevel" operation="set" value="@secondPigeonLevel"/>   
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="thirdPigeonLevel" operation="add" value="randomint(5,13)"/>   <!--default level randomint(5,13)-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="fourthPigeonLevel" operation="set" value="@thirdPigeonLevel"/>   
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="fourthPigeonLevel" operation="add" value="randomint(5,13)"/>  <!--default level randomint(5,13)-->
+			
+			<!--The time in seconds between when a pigeon spawns and the pigeon's delivery is considered 'not received' - resend (respawn) the same pigeon after this number of seconds-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="pigeonSpawnCountdown" operation="set" value="2700"/> <!--default: 2700 (45min or 18hrs of a default in game day)-->
+			<!--number of times to spawn a specific pigeon to deliver a note, after these attempts it will no longer try deliver the note.
+				This includes the final pigeon boss - will respawn at pigeonSpawnCountdown intervals above until either killed or this number of spawns-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="pigeonSpawnAttempts" operation="set" value="5"/> <!-- default: 5-->
+		</effect_group>
+		<!-- END pigeons carry diseases variable initialisation-->
+<!--END GRIM TALES PLAYER CONFIG VARIABLES-->
+<!--END START GRIM TALES CODE-->
+	</append>
+</configs>

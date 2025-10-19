@@ -1,0 +1,216 @@
+<configs>
+	<!--add a weight to the helmet mods to allow them to be scrrapped. Scrap will be 75% of the weight value in iron-->
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorPerception']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorStrength']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorFortitude']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorAgility']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorIntellect']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorTreasureHunter']"><property name="Weight" value="334"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorNightVision']"><property name="Weight" value="334"/></append>
+	<!--end add weight for scrap-->
+	
+	<!--change the effect of cigars from trade specific to block damage
+		See also ui_display.xml-->
+	<remove xpath="item_modifiers/item_modifier[@name='modArmorCigar']"/>
+	<insertAfter xpath="item_modifiers/item_modifier[@name='modArmorHelmetLight']">
+		<item_modifier name="modArmorCigar" installable_tags="armorHead" modifier_tags="cigar" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="CustomIcon" value="apparelCigar"/>
+			<!--<property name="DisplayType" value="clothingCigar"/>-->
+			<property name="UnlockedBy" value="perkUrbanCombatCigar"/>
+			<property name="TraderStageTemplate" value="modsTier2"/>
+			<property name="Material" value="Mplants"/>
+			<property name="EconomicValue" value="1000"/>
+
+			<effect_group tiered="false">
+			<passive_effect name="AttributeLevel" tags="attStrength" operation="base_add" value="1"/>
+			<passive_effect name="BlockDamage" operation="perc_add" value="0.1"/>
+			</effect_group>
+		</item_modifier>
+	</insertAfter>
+
+	
+	<!--these 3 mods are unlocked by modRagdollSpecialSchematic, modElectricSpecialSchematic,
+		modCrowdControlSchematic, only the last is currently used in-game -->
+	<append xpath="/item_modifiers">
+		
+		<!--ragdoll armour mod-->
+		<item_modifier name="modRagdollSpecial" installable_tags="armorLegs" modifier_tags="ragdollSpecial" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="UnlockedBy" value="modRagdollSpecialSchematic"/>
+			<property name="CustomIcon" value="modMeleeStunBatonRepulsor"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DisplayType" value="modArmor"/>
+			<property name="DescriptionKey" value="modArmorPlatingBasicDesc"/>
+			
+			<effect_group tiered="false">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="Ragdoll" target="other" duration="2.5" force="350"/>
+			</effect_group>
+		</item_modifier>
+		<!--shock armour mod-->
+		<item_modifier name="modElectricSpecial" installable_tags="armorChest" modifier_tags="ragdollSpecial" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="UnlockedBy" value="modElectricSpecialSchematic"/>
+			<property name="CustomIcon" value="modGunMeleeNiCdBattery"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DisplayType" value="modArmor"/>
+			<property name="DescriptionKey" value="modArmorPlatingBasicDesc"/>
+
+			<effect_group tiered="false">
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="10"/>
+				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="other" buff="buffShocked"/>
+			</effect_group>
+		</item_modifier>
+		
+		<!--combined electric and shock armour mod. 
+			Used in the Crowd Control missing schematics quest
+			This is the only one being used at the moment-->
+		<item_modifier name="modCrowdControl" installable_tags="armorChest" modifier_tags="electicRagdollSpecial" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="UnlockedBy" value="modCrowdControlSchematic"/>
+			<property name="CustomIcon" value="modMeleeStunBatonRepulsor"/>
+			<property name="CustomIconTint" value="255,152,152"/>
+			<property name="DescriptionKey" value="modCrowdControlDesc"/>
+
+			<effect_group tiered="false">
+				<requirement name="EntityTagCompare" target="other" tags="walker,crawler,spider,zombie,feral,radiated,animal,bear,coyote,dog,vulture,wolf"/>
+				<requirement name="TargetRange" target="other" operation="LTE" value="3"/>
+				<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>	
+					<triggered_effect trigger="onOtherDamagedSelf" action="Ragdoll" target="other" duration="3.5" force="400"/>
+					<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="other" buff="buffShocked"/>
+					<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="other" buff="buffRadiatedRegenBlock"/>
+			</effect_group>
+			
+			<effect_group tiered="false">
+				<passive_effect name="GeneralDamageResist" operation="base_add" value=".05"/><!--reduce hp loss by 5%-->
+				<!--<passive_effect name="BuffResistance" operation="base_add" value="0.10" tags="buffInjuryStunned01,buffInjuryStunned02"/>
+				<passive_effect name="BuffResistance" operation="base_add" value="0.10" tags="buffInfectionCatch"/>-->
+			</effect_group>
+		</item_modifier>
+
+		<!--pigeons carry diseases story end-loot mod. Reduces shotgun block damage to blocks with the shotgunBlockDamage tag.
+			The shotgunBlockDamage tag is added to Cobblestone, Concrete and Steel blocks in blocks.xml. 
+			Increases wood block damage.-->
+		<item_modifier name="modShotgunBlockDamage" installable_tags="shotgun" modifier_tags="shotgunBlockDamage,barrelAttachment" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="CustomIcon" value="ductStraightCentered"/>
+			<property name="CustomIconTint" value="247,255,230"/>
+			<property name="DescriptionKey" value="modShotgunBlockDamageDesc"/>
+			
+			<effect_group tiered="false">
+				<passive_effect name="BlockDamage" operation="base_set" value="0" tags="shotgunBlockDamage">
+					<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				</passive_effect>
+			</effect_group>
+			<effect_group tiered="false">			
+				<passive_effect name="BlockDamage" operation="perc_add" value="4" tags="wood">
+					<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				</passive_effect>
+			</effect_group>
+			<effect_group tiered="false">
+				<passive_effect name="BlockDamage" operation="perc_add" value="-2" tags="shotgunBlockDamage">
+					<requirement name="HoldingItemHasTags" tags="perkBoomstick"/>
+				</passive_effect>
+			</effect_group>
+		</item_modifier>
+		
+		<!--pigeons carry diseases story end-loot mod. Expanded Drum mag for M60 -->
+		<item_modifier name="modM60DrumMagazine" installable_tags="expandedDrumMag" modifier_tags="modM60DrumMagazine,magazine" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="CustomIcon" value="modGunDrumMagazineExtender"/>
+			<property name="CustomIconTint" value="88,141,69"/>
+			<property name="DescriptionKey" value="modM60DrumMagazineDesc"/>
+			
+			<effect_group tiered="false">
+				<passive_effect name="MagazineSize" operation="perc_add" value="3"/> <!-- = 300% = 240 rounds. Vanilla drum mag is 100% (120 rounds)-->
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="-0.25"/> <!--vanilla drum mag is -0.25-->
+			</effect_group>
+		</item_modifier>
+		
+		<!--pigeons carry diseases story end-loot mod. Reciprocating Bolt Spring for machine guns. Increased fire rate.
+		<item_modifier name="modBoltSpring" installable_tags="drumMagazine" modifier_tags="modBoltSpring,magazine" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="CustomIcon" value="barbedWireSpindle"/>
+			<property name="CustomIconTint" value="88,141,69"/>
+			<property name="DescriptionKey" value="modM60DrumMagazineDesc"/>
+			
+			<effect_group tiered="false">
+				<passive_effect name="MagazineSize" operation="perc_add" value="3"/> barbedWireSpindle
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="-.35"/> 
+			</effect_group>
+		</item_modifier>-->
+
+		<!--other mods used in stories-->
+		<!--Modified Structural Brace mod for special military ops-->
+		<item_modifier name="modMilitaryStructuralBrace" installable_tags="melee,perkArchery" modifier_tags="durability" blocked_tags="noMods" type="attachment">
+			<property name="Extends" value="modMeleeStructuralBrace" param1="CustomIcon"/>
+			<property name="CustomIcon" value="modMeleeStructuralBrace"/>
+			<property name="CustomIconTint" value="88,141,69"/>
+			<property name="DescriptionKey" value="modMilitaryStructuralBraceDesc"/>
+			
+			<effect_group tiered="false">
+				<passive_effect name="BlockDamage" operation="perc_add" value="0.1" /> 
+				<passive_effect name="EntityDamage" operation="perc_add" value="0.1" /> 
+			</effect_group>
+		</item_modifier>
+		
+		<!--Mary's Revenge : Iplore's Talisman that allows the player to identify Magrat the final Boss-->
+		<item_modifier name="modMagratTracker" installable_tags="head" modifier_tags="misc,modArmorHelmetLight" blocked_tags="noMods,clothing" type="attachment">
+			<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
+			<property name="DescriptionKey" value="modMagratTrackerDesc"/>
+			<property name="Material" value="Msteel"/>
+			<property name="CustomIcon" value="lanternOld_01"/>
+			<property name="CustomIconTint" value="28,142,199"/>
+			<property name="LightValue" value=".4"/>
+			<effect_group tiered="false">
+				<requirement name="IsEquipped"/>
+					<triggered_effect trigger="onSelfEquipChanged" action="AddPartFPV" part="HeadLight" prefab="@:Entities/Lighting/miningHelmetLightSource.prefab" parentTransform="CameraNode" localPos="0,0.1,0" localRot="-90,180,0"/>
+					<triggered_effect trigger="onSelfEquipChanged" action="AddPartTPV" part="HeadLight" prefab="@:Entities/Lighting/miningHelmetLightSource.prefab" parentTransform="Spotlight" localPos="0,0,0" localRot="90,0,0"/>
+					<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="HeadLight"/>
+					<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buff_trackMagrat">
+						<requirement name="HasBuff" buff="buff_trackMagrat"/> </triggered_effect>
+					<triggered_effect trigger="onSelfItemActivate" action="SetPartActive" part="HeadLight" active="true"/>
+					<triggered_effect trigger="onSelfItemDeactivate" action="SetPartActive" part="HeadLight" active="false"/>
+					<triggered_effect trigger="onSelfItemActivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
+					<triggered_effect trigger="onSelfItemDeactivate" silent_on_equip="true" action="PlaySound" target="self" sound="flashlight_toggle" play_in_head="false"/>
+					<triggered_effect trigger="onSelfItemActivate" action="AddBuff" buff="buff_trackMagrat" />
+					<triggered_effect trigger="onSelfItemDeactivate" action="RemoveBuff" buff="buff_trackMagrat" >
+						<requirement name="HasBuff" buff="buff_trackMagrat"/> </triggered_effect>
+			</effect_group>
+		</item_modifier>
+	</append>
+
+	<!--remove crosshair for scopes when used with Mary's Revenge-->
+	<append xpath="/item_modifiers/item_modifier[@name ='modGunReflexSight']">
+		<item_property_overrides name="marysRevengeHomemadeRifle">
+			<property name="CrosshairOnAim" value="false"/>
+			<property name="Zoom_max_out" value="55"/>
+			<property name="Zoom_max_in" value="55"/>
+		</item_property_overrides>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[@name ='modGunScopeSmall']">
+		<item_property_overrides name="marysRevengeHomemadeRifle">
+			<property name="CrosshairOnAim" value="false"/>
+			<property name="Zoom_overlay" value="@:Other/Items/Weapons/HUD/sniper_zoom_overlay.tga"/>
+			<property name="Zoom_max_out" value="40"/>
+			<property name="Zoom_max_in" value="40"/>
+		</item_property_overrides>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[@name ='modGunScopeMedium']">
+		<item_property_overrides name="marysRevengeHomemadeRifle">
+			<property name="CrosshairOnAim" value="false"/>
+			<property name="Zoom_overlay" value="@:Other/Items/Weapons/HUD/sniper_zoom_overlay.tga"/>
+			<property name="Zoom_max_out" value="30"/>
+			<property name="Zoom_max_in" value="20"/>
+		</item_property_overrides>
+	</append>
+	<append xpath="/item_modifiers/item_modifier[@name ='modGunScopeLarge']">
+		<item_property_overrides name="marysRevengeHomemadeRifle">
+			<property name="CrosshairOnAim" value="false"/>
+			<property name="Zoom_overlay" value="@:Other/Items/Weapons/HUD/sniper_zoom_overlay.tga"/>
+			<property name="Zoom_max_out" value="40"/>
+			<property name="Zoom_max_in" value="10"/>
+		</item_property_overrides>
+	</append>
+</configs>

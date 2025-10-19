@@ -1,0 +1,691 @@
+<configs>
+	<!-- Set crops seed drop probability to 50% -->
+	<set xpath ="blocks/block[@name='plantedMushroom3HarvestPlayer']/drop[@name='plantedMushroom1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedYucca3HarvestPlayer']/drop[@name='plantedYucca1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedCotton3HarvestPlayer']/drop[@name='plantedCotton1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedCoffee3HarvestPlayer']/drop[@name='plantedCoffee1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedGoldenrod3HarvestPlayer']/drop[@name='plantedGoldenrod1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedAloe3HarvestPlayer']/drop[@name='plantedAloe1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedBlueberry3HarvestPlayer']/drop[@name='plantedBlueberry1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedPotato3HarvestPlayer']/drop[@name='plantedPotato1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedChrysanthemum3HarvestPlayer']/drop[@name='plantedChrysanthemum1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedCorn3HarvestPlayer']/drop[@name='plantedCorn1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedGraceCorn3HarvestPlayer']/drop[@name='plantedGraceCorn1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedHop3HarvestPlayer']/drop[@name='plantedHop1']/@prob">0.35</set>
+	<set xpath ="blocks/block[@name='plantedPumpkin3HarvestPlayer']/drop[@name='plantedPumpkin1']/@prob">0.35</set>
+	
+	<!--change the description text of the solarBank to include mod info (ublocked at level 50 and solar cells found in airdrops)-->
+	<set xpath ="blocks/block[@name='solarbank']/property[@name='DescriptionKey']/@value">electicPowerSourceDesc</set>
+
+	<!--spotlights can be rotated in any axis-->
+	<set xpath ="blocks/block[@name='spotlightPlayer']/property[@name='OnlySimpleRotations']/@value">false</set>
+
+	<!-- Brood Nest for farming eggs -->
+	<append xpath="/blocks">
+		<block name="broodnest">
+			<property name="Class" value="PlantGrowing"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="Material" value="Mwood"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="DescriptionKey" value="broodnestInfo"/>
+			<property name="Model" value="@:Entities/LootContainers/birdnestPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Path" value="solid"/>
+			<property name="Collide" value="movement,rockets,sight,melee"/>
+			<property name="CustomIcon" value="cntBirdnest"/>
+			<property name="TintColor" value="A9A9A9"/>
+			<property name="PlantGrowing.Next" value="broodnestHarvest"/>
+			<property name="PlantGrowing.FertileLevel" value="0"/>
+			<property name="PlantGrowing.IsRandom" value="false"/> 
+			<property name="PlantGrowing.GrowthRate" value="120"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Harvest" name="resourceFeather" count="2" tag="allHarvest"/>
+		</block>
+		
+		<block name="broodnestHarvest">
+			<property name="Class" value="Loot"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="Material" value="Mwood"/>
+			<property name="DescriptionKey" value="broodnestHarvestInfo"/>
+			<property name="Model" value="@:Entities/LootContainers/birdnestPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Path" value="solid"/>
+			<property name="Collide" value="movement,rockets,sight,melee"/>
+			<property name="LootList" value="farmBirdnest"/>
+			<property name="CustomIcon" value="cntBirdnest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Harvest" name="resourceFeather" count="2" tag="allHarvest"/>
+		</block>	
+	</append>
+
+	<!-- set probability of gold, silver and diamonds 
+		They are used in added grandpa recipes 
+		see loot.xml for other drop probability changes-->
+	<!--ores-->
+	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreIron']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreLead']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreCoal']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOrePotassiumNitrate']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.005-->
+	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.007-->
+	<set xpath ="blocks/block[@name='terrOreOilDeposit']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.01-->
+	<!--coffins-->
+	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCasketModernOffsetRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.05-->	
+	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceSilverNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceRawDiamond']/@prob">0.003</set> <!-- orig 0.05-->
+	<set xpath ="blocks/block[@name='cntCoffinWildWestRandomHelper']/drop[@name='resourceGoldNugget']/@prob">0.003</set> <!-- orig 0.05-->
+	<!--end gold, silver and diamond block changes : see loot.xml for other drop probability changes-->
+	
+		<!--allow for the T4 and T5 chests to be picked up.
+		Edit the whole chest blocks rather than individual property change 
+		because of fiddling: Loot stuff remains unchanged, this is just pickup -->
+	<!-- Hardened_Chest_T4_UNLOCKED 
+		This will also setup T5 chest for pickup as they extend this block-->
+	<insertBefore xpath="blocks/block[@name='cntHardenedChestInsecure']">
+		<!--base template - basically a T4 chest but without a drop item -->
+		<block name="cntHardenedChestInsecureTemplate">
+			<property name="CreativeMode" value="None"/> 
+			<property name="Class" value="Loot"/>
+			<property name="LootList" value="hardenedChestT4"/>
+			<property name="LootStageMod" value="0.05"/>
+			<property name="LootStageBonus" value="6"/>
+			<property name="CustomIcon" value="cntHardenedChestSecure"/>
+			<property name="DisplayType" value="blockHardenedMulti"/>
+			<property name="Material" value="Mmetal_hard"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/LootContainers/tier4LootChestPrefab.prefab"/>
+			<property name="ImposterExchange" value="imposterBlock" param1="115"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="AllowAllRotations" value="true"/>
+			<property name="Path" value="solid"/>
+			<property name="EconomicValue" value="690"/>
+			<property name="MaxDamage" value="7500"/>
+			<property name="TakeDelay" value="15"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="60"/>
+			</property>
+			<drop event="Harvest" name="resourceForgedIron" count="16,24" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceForgedSteel" count="1,2" tag="salvageHarvest"/>
+			<property name="SortOrder1" value="B104"/>
+			<property name="SortOrder2" value="0006"/>
+			<property name="Tags" value="safes"/>
+			<property name="FilterTags" value="MC_building,SC_loot"/>
+		</block>
+	</insertBefore>
+
+	<!-- add a chest as a drop-on-destroy item for the actual T4 chest-->
+	<set xpath ="blocks/block[@name='cntHardenedChestInsecure']">
+		<property name="Extends" value="cntHardenedChestInsecureTemplate" />
+		<property name="CreativeMode" value="None"/>
+		<property name="Class" value="Loot"/>
+		<property name="LootList" value="hardenedChestT4"/>
+		<property name="LootStageMod" value="0.05"/>
+		<property name="LootStageBonus" value="6"/>
+		<property name="CustomIcon" value="cntHardenedChestSecure"/>
+		<property name="DisplayType" value="blockHardenedMulti"/>
+		<property name="Material" value="Mmetal_hard"/>
+		<property name="Shape" value="ModelEntity"/>
+		<property name="Model" value="@:Entities/LootContainers/tier4LootChestPrefab.prefab"/>
+		<property name="ImposterExchange" value="imposterBlock" param1="115"/>
+		<property name="WaterFlow" value="permitted"/>
+		<property name="AllowAllRotations" value="true"/>
+		<property name="Path" value="solid"/>
+		<property name="EconomicValue" value="690"/>
+		<property name="MaxDamage" value="7500"/>
+		<property class="RepairItems">
+			<property name="resourceForgedIron" value="60"/>
+		</property>
+		<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+		<drop event="Harvest" name="resourceScrapIron" count="15,45" tag="allHarvest"/>
+		<drop event="Harvest" name="resourceForgedIron" count="16,24" tag="salvageHarvest"/>
+		<drop event="Harvest" name="resourceForgedSteel" count="1,2" tag="salvageHarvest"/>
+		<!--add a T4 Chest to drop on destruction-->
+		<drop event="Destroy" name="cntHardenedChestInsecure" count="1"/>
+		<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
+		<property name="SortOrder1" value="B104"/>
+		<property name="SortOrder2" value="0006"/>
+		<property name="Tags" value="safes"/>
+		<property name="FilterTags" value="MC_building,SC_loot"/>	
+		<property name="Place" value="TowardsPlacerInverted"/>
+	</set>
+	
+	<!-- set T5 chest for pickup-->
+	<!-- Hardened_Chest_T5_UNLOCKED -->
+	<set xpath ="blocks/block[@name='cntHardenedChestInsecureT5']">	
+		<!--<block name="cntHardenedChestInsecureT5">-->
+		<property name="Extends" value="cntHardenedChestInsecureTemplate" />
+		<property name="CreativeMode" value="None"/>
+		<property name="LootList" value="hardenedChestT5"/>
+		<property name="LootStageMod" value="0.05"/>
+		<property name="LootStageBonus" value="6"/>
+		<property name="CustomIcon" value="cntHardenedChestSecureT5"/>
+		<!--add a T5 Chest to drop on destruction-->
+		<drop event="Destroy" name="cntHardenedChestInsecureT5" count="1"/>	
+		<property name="Model" value="@:Entities/LootContainers/tier5LootChestPrefab.prefab"/>
+		<property name="ModelOffset" value="0,0.5,0"/>
+		<property name="MultiBlockDim" value="2,1,1"/>
+		<property name="WaterFlow" value="permitted"/>
+
+		<property name="Place" value="TowardsPlacerInverted"/>
+		<property name="MaxDamage" value="10000"/>
+		<property name="SortOrder1" value="B104"/>
+		<property name="SortOrder2" value="0008"/>
+	</set>
+	
+	<!--end allow for the T4 and T5 chests to be picked up-->
+
+
+	
+	<!--GRIM TALES CODE-->
+	<!--gyrocopter stuff for the found gyro storyline-->
+	<append xpath ="/blocks">
+		<block name="gyrocopterWreckTemplate">
+			<property name="CreativeMode" value="None"/>
+			<property name="Class" value="CarExplodeLoot"/>
+			<property name="LootList" value="lootGyroWreck"/>
+			<property name="DescriptionKey" value="gyrocopterWreck"/>
+			
+			<property class="Explosion">
+				<property name="ParticleIndex" value="5"/> 
+				<property name="RadiusBlocks" value="3.5"/> 
+				<property name="BlockDamage" value="500"/> 
+				<property name="RadiusEntities" value="5"/> 
+				<property name="EntityDamage" value="250"/>
+			</property>
+			
+			<property name="TintColor" value="132,105,84"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/Vehicles/TraderVehicles/traderGyrocopterStaticPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="MultiBlockDim" value="1,1,4"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>-->
+
+			<!--<property name="DowngradeBlock" value="gyrocopterFrameworkForcedOpen"/>
+			<property name="DowngradeEvent" value="block_car_alarm_start" />-->
+			
+			<property name="Place" value="TowardsPlacer"/>
+			<property name="PlacementDistance" value="6"/>
+			<property name="BigDecorationRadius" value="5"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<property name="MaxDamage" value="500"/>
+			<property name="PassThroughDamage" value="true"/>
+			
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="4,10" tag="salvageHarvest"/>
+			<drop event="Harvest" name="ammoGasCan" count="50,200" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceOil" count="0,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="5" prob="0.5" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest"/>
+			<drop event="Destroy" name="scrapIron" count="500"/>
+			
+			<property name="ShowModelOnFall" value="false"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="SortOrder1" value="B967"/>
+			<property name="SortOrder2" value="0101"/>
+			
+		</block>
+
+		<block name="gyrocopterWreckChassis">
+			<property name="Extends" value="gyrocopterWreckTemplate" />
+			<!--<drop event="Destroy" name="vehicleGyroCopterChassis" count="1"/>-->
+			<property name="LootList" value="lootGyroWreck"/>
+		</block>
+
+	</append>
+	<!--END gyrocopter stuff-->
+	<!--coffin treasure chests-->
+	<append xpath="/blocks">
+		<!--base helper block-->
+		<block name="graveRobbingCoffinRandomHelper">
+			<property name="CreativeMode" value="Dev"/>
+			<property name="Class" value="Loot"/>
+			<property name="LootList" value="burialSiteCoffins"/>
+			<property name="CustomIcon" value="cntCoffinWildWestClosed"/>
+			<property name="CustomIconTint" value="ff8080"/>
+			<property name="ItemTypeIcon" value="other"/>
+			<property name="DisplayInfo" value="Name"/>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="Material" value="MwoodReinforced"/>
+			<property name="MaxDamage" value="1000"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestPrefab"/>
+			<property name="MultiBlockDim" value="1,1,2"/>
+			<property name="Path" value="solid"/>
+			<property name="ImposterExchange" value="imposterPlate" param1="1"/>
+			<property name="WaterFlow" value="permitted"/>
+			<drop event="Destroy" name="resourceWood" count="1,3"/>
+			<drop event="Harvest" name="resourceBone" prob=".05" count="1,4" tag="WasteTreasuresCoffinHarvest"/>
+			<drop event="Harvest" name="resourceRawDiamond" prob=".05" count="1" tag="WasteTreasuresCoffinHarvest"/>
+			<drop event="Harvest" name="resourceSilverNugget" prob=".05" count="1" tag="WasteTreasuresCoffinHarvest"/>
+			<drop event="Harvest" name="resourceGoldNugget" prob=".05" count="1" tag="WasteTreasuresCoffinHarvest"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0000"/>
+			<property name="FilterTags" value="MC_helpers,SC_loot"/>
+		</block>
+
+		<!--coffins for the first burial quest: Mary's Revenge, Mary's grave-->
+		<block name="graveRobbingOneCoffinOpen">
+			<property name="Extends" value="graveRobbingCoffinRandomHelper" param1="Class,LootList,DescriptionKey,DisplayInfo,CustomIcon,CustomIconTint,ItemTypeIcon"/>
+			<property name="Tags" value="graveRobbingOneCoffin"/>
+			<property name="CreativeMode" value="Dev"/>
+			<property name="DescriptionKey" value="graveRobbingOneCoffinOpen"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestOpenPrefab"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0001"/>
+		</block>
+		<block name="graveRobbingOneCoffinCracked">
+			<property name="Extends" value="graveRobbingOneCoffinOpen" />
+			<property name="CreativeMode" value="Dev"/>
+			<property name="DescriptionKey" value="graveRobbingOneCoffinCracked"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestCrackedPrefab"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0002"/>
+		</block>
+
+		<block name="graveRobbingOneCoffinClosed">
+			<property name="Extends" value="graveRobbingOneCoffinOpen"/>
+			<property name="CreativeMode" value="Dev"/>
+			<property name="Class" value="Loot"/>
+			<property name="DescriptionKey" value="graveRobbingOneCoffinClosed"/>
+			<property name="LootList" value="burialSiteCoffins"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestPrefab"/>
+			<property name="DowngradeBlock" value="graveRobbingOneCoffinCracked"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0003"/>
+		</block>
+		<!--end coffins for the first burial quest: Mary's Revenge (Mary's grave)-->
+		
+		<!--coffins for the second burial quest: Mary's Revenge, Magrat's sisters (Judy) grave-->
+		<block name="graveRobbingTwoCoffinOpen">
+			<property name="Extends" value="cntCasketModernRandomHelper" param1="Class,LootList,DescriptionKey,DisplayInfo,CustomIcon,CustomIconTint,ItemTypeIcon"/>
+			<property name="Tags" value="graveRobbingTwoCoffin"/>
+			<property name="CreativeMode" value="Dev"/>
+			<property name="DescriptionKey" value="graveRobbingTwoCoffinOpen"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/LootContainers/casketModernOpenPrefab.prefab"/>
+			<property name="CustomIconTint" value="7D5750"/>
+			<property name="TintColor" value="7D5750"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0004"/>
+		</block>
+
+		<block name="graveRobbingTwoCoffinClosed">
+			<property name="Extends" value="graveRobbingTwoCoffinOpen"/>
+			<property name="CreativeMode" value="Dev"/>
+			<property name="Class" value="Loot"/>
+			<property name="DescriptionKey" value="graveRobbingTwoCoffinClosed"/>
+			<property name="LootList" value="burialSiteMagratsSister"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Model" value="@:Entities/LootContainers/casketModernClosePrefab.prefab"/>
+			<property name="DowngradeFX" value="impact_organic_on_metal,silencefiller"/>
+			<property name="DowngradeBlock" value="graveRobbingTwoCoffinOpen"/>
+			<property name="CustomIconTint" value="7D5750"/>
+			<property name="TintColor" value="7D5750"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0006"/>
+		</block>
+		<!--END coffins for the second burial quest: Mary's Revenge, Magrat's sisters grave-->
+		
+		<!--coffins for the second burial quest: Mary's Revenge, Ipslore The Red's grave-->
+		<block name="graveRobbingThreeCoffinOpen">
+			<property name="Extends" value="graveRobbingCoffinRandomHelper" param1="Class,LootList,DescriptionKey,DisplayInfo,CustomIcon,CustomIconTint,ItemTypeIcon"/>
+			<property name="Tags" value="graveRobbingThreeCoffin"/>
+			<property name="CreativeMode" value="Dev"/>
+			<property name="DescriptionKey" value="graveRobbingOneCoffinOpen"/> <!--same description-->
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestOpenPrefab"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0011"/>
+		</block>
+		<block name="graveRobbingThreeCoffinCracked">
+			<property name="Extends" value="graveRobbingThreeCoffinOpen" />
+			<property name="CreativeMode" value="Dev"/>
+			<property name="DescriptionKey" value="graveRobbingOneCoffinCracked"/><!--same description-->
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestCrackedPrefab"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0012"/>
+		</block>
+		<block name="graveRobbingThreeCoffinClosed">
+			<property name="Extends" value="graveRobbingThreeCoffinOpen"/>
+			<property name="CreativeMode" value="Dev"/>
+			<property name="Class" value="Loot"/>
+			<property name="DescriptionKey" value="graveRobbingOneCoffinClosed"/> <!--same description-->
+			<property name="LootList" value="ipsloreTheRedCoffin"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/OutdoorDecor/coffinWildWestPrefab"/>
+			<property name="DowngradeBlock" value="graveRobbingThreeCoffinCracked"/>
+			<property name="SortOrder1" value="B440"/>
+			<property name="SortOrder2" value="0013"/>
+		</block>
+		<!--END coffins for the third burial quest: Mary's Revenge, Ipslore The Red's grave-->
+	</append>
+	<!--end coffin treasure chests-->	
+	
+	
+	<!--Patrol car Treasure Chest-->
+	<insertAfter xpath="blocks/block[@name='cntPoliceCar01AlarmUnlocked']" >
+		<!-- *** POLICE_CAR -->
+		<block name="cntPoliceCar01Buried">
+			<property name="Class" value="SecureLoot"/>
+			<property name="LootList" value="buriedPatrolCarLootContainer"/>
+			<property class="Explosion">
+				<property name="ParticleIndex" value="5"/> 
+				<property name="RadiusBlocks" value="3.5"/> 
+				<property name="BlockDamage" value="500"/> 
+				<property name="RadiusEntities" value="5"/>
+				<property name="EntityDamage" value="250"/> 
+			</property>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="ItemTypeIcon" value="lock"/>
+			<property name="CustomIcon" value="cntPoliceCar01"/>
+			<property name="DescriptionKey" value="cntPoliceCar01BuriedDesc"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/Vehicles/Policecar/policeCarPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="MultiBlockDim" value="2,2,5"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="Place" value="TowardsPlacer"/>
+			<property name="PlacementDistance" value="6"/>
+			<property name="BigDecorationRadius" value="5"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<property name="MaxDamage" value="1000"/>
+			<property name="PassThroughDamage" value="true"/>
+			<property name="DowngradeBlock" value="cntPoliceCar01AlarmLockedBuried"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceScrapIron" count="35,90" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<property name="ShowModelOnFall" value="false"/>
+			<property name="SortOrder1" value="B867"/>
+			<property name="SortOrder2" value="0000"/>
+			<property name="FilterTags" value="MC_building,SC_automotive,A21_NEW"/>
+			<!--this event triggers zombie spawns manually because the alarm in the 
+				 police car (cntPoliceCar01AlarmLockedBuried - see below) doesnt spawn zombies 
+				 when used as treasure container in a Treasure Quest -->
+			<property name="DowngradeEvent" value="block_car_alarm_start_PatrolCar" />
+		</block>
+
+		<!-- SMASHED_POLICE_CAR_WITH_ALARM 
+			The Alarm doesnt seem to spawn zombies, have to manually spawn them with an event.-->
+		<block name="cntPoliceCar01AlarmLockedBuried">
+			<property name="CreativeMode" value="None"/>
+			<property name="Class" value="SecureLoot"/>
+			<property name="LootList" value="buriedPatrolCarLootContainer"/>
+			<property name="LootStageMod" value="0.05"/>
+			<property name="LootStageBonus" value="10"/>
+			<property name="CustomIcon" value="cntPoliceCar01"/>
+			<property name="DescriptionKey" value="cntPoliceCar01AlarmLockedBuried"/>
+			<property class="Explosion">
+				<property name="ParticleIndex" value="5"/> 
+				<property name="RadiusBlocks" value="3.5"/> 
+				<property name="BlockDamage" value="500"/> 
+				<property name="RadiusEntities" value="5"/> 
+				<property name="EntityDamage" value="250"/> 
+			</property>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="ItemTypeIcon" value="explosion"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/Vehicles/Policecar/policeCarAlarmPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="MultiBlockDim" value="2,2,5"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="Place" value="TowardsPlacer"/>
+			<property name="PlacementDistance" value="6"/>
+			<property name="BigDecorationRadius" value="5"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<property name="MaxDamage" value="1000"/>
+			<property name="PassThroughDamage" value="true"/>
+			<property name="DowngradeBlock" value="cntPoliceCar01AlarmUnlockedBuried"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceScrapIron" count="35,90" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<property name="ShowModelOnFall" value="false"/>
+			<property name="SortOrder1" value="B867"/>
+			<property name="SortOrder2" value="0002"/>
+			<property name="FilterTags" value="MC_building,SC_automotive,A21_NEW"/>
+			<!--call an event to force zombie spawn-->
+			<property name="DowngradeEvent" value="block_car_alarm_end_PatrolCar" />
+		</block>
+	
+
+		<!-- SMASHED_POLICE_CAR_DOWNGRADED_TO_UNLOCKED -->
+		<block name="cntPoliceCar01AlarmUnlockedBuried">
+			<property name="CreativeMode" value="None"/>
+			<property name="Class" value="CarExplodeLoot"/>
+			<property name="CustomIcon" value="cntPoliceCar01"/>
+			<property name="DescriptionKey" value="cntPoliceCar01AlarmUnlockedBuried"/>
+			<property name="LootList" value="buriedPatrolCarLootContainer"/>
+			<property name="LootStageMod" value="0.05"/>
+			<property name="LootStageBonus" value="10"/>
+			<property class="Explosion">
+				<property name="ParticleIndex" value="5"/> <!-- which prefab/particle is used -->
+				<property name="RadiusBlocks" value="3.5"/> <!-- damage radius for blocks -->
+				<property name="BlockDamage" value="500"/> <!-- damage for blocks in the center of the explosion -->
+				<property name="RadiusEntities" value="5"/> <!-- damage radius for entities -->
+				<property name="EntityDamage" value="250"/> <!-- damage for entities in the center of the explosion -->
+			</property>
+			<property name="DisplayType" value="blockMulti"/>
+			<property name="ItemTypeIcon" value="explosion"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/Vehicles/Policecar/policeCarPrefab.prefab"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="MultiBlockDim" value="2,2,5"/>
+			<property name="ImposterDontBlock" value="true"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="ParticleOnDeath" value="car_destruction_dmg1"/>
+			<property name="Place" value="TowardsPlacer"/>
+			<property name="PlacementDistance" value="6"/>
+			<property name="BigDecorationRadius" value="5"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<property name="MaxDamage" value="1000"/>
+			<property name="PassThroughDamage" value="true"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="smallEngine" count="0,1" prob=".5" tag="salvageHarvest"/>
+			<drop event="Harvest" name="carBattery" count="0,1" prob=".4" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceAcid" count="1" prob=".15" tag="WasteTreasuresAcidHarvest"/>
+			<drop event="Harvest" name="resourceRadiator" count="0,1" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="4,10" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="1,5" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceHeadlight" count="1,2" tag="salvageHarvest"/>
+			<drop event="Harvest" name="ammoGasCan" count="50,200" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceOil" count="0,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapPolymers" count="8,22" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceSpring" count="3,6" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMetalPipe" count="5" prob="0.5" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<property name="ShowModelOnFall" value="false"/>
+			<property name="SortOrder1" value="B867"/>
+			<property name="SortOrder2" value="0003"/>
+			<property name="FilterTags" value="MC_building,SC_automotive,A21_NEW"/>
+		</block>
+	</insertAfter>
+	<!--end Patrol Car Treasure Chest -->
+	<!--set the vanilla patrol cars to have 1000 (double)MaxDamage-->
+	<set xpath ="blocks/block[@name='cntPoliceCar01']/property[@name='MaxDamage']/@value">1000</set> 
+	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmLocked']/property[@name='MaxDamage']/@value">1000</set> 
+	<!--end set the vanilla patrol cars to have 1000 MaxDamage-->
+	
+	<!--set the forced open Police Car loot to include the items for the Crowd Control mod-->
+	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmLocked']/property[@name='LootList']/@value">policeCarsForcedBonus</set>
+	<set xpath ="blocks/block[@name='cntPoliceCar01AlarmUnlocked']/property[@name='LootList']/@value">policeCarsForcedBonus</set>
+	<!--end set the forced open Police Car loot to include the items for the Crowd Control mod-->
+
+
+	<!--Mary's Revenge Story-->
+	<!--player can make explosive barrels that do a lot of Zombie damage and little block damage-->
+	<insertAfter xpath ="blocks/block[@name='cntBarrelGasSingle45']">	
+		<block name="playerExplosiveBarrel">
+			<property name="Class" value="CarExplodeLoot"/>
+			<property name="LootList" value="gasBarrel"/>
+			<property class="Explosion">
+				<property name="ParticleIndex" value="18"/>
+				<property name="RadiusBlocks" value="4"/>
+				<property name="BlockDamage" value="20"/>
+				<property name="RadiusEntities" value="7"/>
+				<property name="EntityDamage" value="1800"/>
+				<property name="BlastPower" value="120"/> 
+			</property>
+			<property name="MaxDamage" value="20"/>
+			<property name="CustomIcon" value="cntBarrelGasSingle00"/>
+			<property name="ItemTypeIcon" value="explosion"/>
+			<property name="DescriptionKey" value="playerExplosiveBarrelDesc"/>
+			<property name="Material" value="MFuelBarrelMetal"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/Industrial/barrelGasPrefab"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="Place" value="TowardsPlacerInverted"/>
+			<property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>
+			<property name="Path" value="solid"/>
+			<property name="CanPickup" value="true"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="CanDecorateOnSlopes" value="false"/>
+			<drop event="Harvest" name="playerExplosiveBarrel" count="1" tag="allToolsHarvest"/>
+			<drop event="Destroy" count="0"/>
+			<drop event="Fall" name="scrapMetalPile" count="1,5" prob="0.75" stick_chance="1"/>
+			<property name="Tags" value="barrelExplosive"/>
+			<property name="FilterTags" value="MC_building,SC_loot"/>
+			<property name="SortOrder1" value="B260"/>
+			<property name="SortOrder2" value="0500"/>
+		</block>		
+	</insertAfter>
+	<!--end Mary's Revenge Story-->
+	
+	<!--Pigeons Carry Diseases story-->
+	
+	<!-- tags for story items - see also items.xml for other tag additions -->
+	<!--add tags to cobblestone, concrete and steel blocks to support the item_modifiers.xml:modShotgunBlockDamage mod-->
+	<append xpath ="/blocks/block[@name='cobblestoneShapes']">
+		<property name="Tags" value="shotgunBlockDamage"/>
+	</append>
+	<append xpath ="/blocks/block[@name='concreteShapes']">
+		<property name="Tags" value="shotgunBlockDamage"/>
+	</append>
+	<append xpath ="/blocks/block[@name='steelShapes']">
+		<property name="Tags" value="shotgunBlockDamage"/>
+	</append>
+	<!--end tags for story items-->
+
+	<!--end Pigeons Carry Diseases story-->
+	
+	<!--Interloper story code -->
+	<append xpath="/blocks">
+		<!-- receiver block:
+			interloperReceiverBlock that gets paired with a interloperTransmitterBlock block.
+			In the interloper story, the player places one of these at their base to listen for signal sfrom 
+			the interloperTransmitterBlock spy device-->
+		<block name="interloperReceiverBlock">
+			<property name="Extends" value="satelliteUnitSmallWall" />
+			<property name="DescriptionKey" value="interloperReceiverBlockDesc"/>
+			<property name="CustomIcon" value="satelliteUnitSmallWall"/>
+			<property name="Class" value="GameEvent"/>
+			<!--will call an action event when activated. The event checks for any transmissions received.
+				Either puts the msg in the players inventory or displays a 'no messages received' toolbelt message.-->
+			<property name="ActivateEvent" value="interloperCheckMessageReceivedAction"/>
+			
+			<property name="Material" value="Mmetal_weak"/>
+			<property class="RepairItems">
+				<property name="resourceForgedIron" value="10"/>
+			</property>
+			<drop event="Harvest" name="resourceScrapPolymers" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceForgedIron" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="2,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="2,4" tag="salvageHarvest"/>
+			<property name="SortOrder1" value="B116"/>
+			<property name="SortOrder2" value="0400"/>
+			<property name="FilterTags" value="MC_building"/>
+		</block>
+
+		<!-- transmitter block:
+			interloperTransmitterBlock that gets paired with a interloperReceiverBlock block.
+			In the interloper story, the player places one of these at a Trader to listen to local chatter.
+			Send any msgs to the above (msg are created and managed in buff.xml - see around buffInterloperMessageReceiver 
+			and interloperCheckMessageReceivedAction in gameevents.xml) 
+			In actuality this block doesnt really do anything but placing it progresses the story-->
+		<block name="interloperTransmitterBlock">
+			<property name="Extends" value="cntDomedTrashCanEmpty" />
+			<property name="DescriptionKey" value="interloperTransmitterBlockDesc"/>
+			<!--the transmitter block is not lootable (empty) but for a listening device disguised as a rubbish bin, the open (full)
+				TrashCan looks much better. So use the model and Icon of a Full trashcan.-->
+			<property name="Model" value="@:Entities/LootContainers/domedTrashCanFullPrefab.prefab"/>
+			<property name="CustomIcon" value="cntDomedTrashCanFull"/>
+			<property name="CustomIconTint" value="808080"/>
+			<property name="TintColor" value="808080"/>
+			
+			<property name="Material" value="Miron"/>		
+			<property class="RepairItems">
+				<property name="resourceForgedSteel" value="10"/>
+			</property>
+			<drop event="Harvest" name="resourceScrapPolymers" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceForgedIron" count="1,3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceElectricParts" count="2,3" tag="salvageHarvest"/>
+			<drop event="Harvest" name="resourceMechanicalParts" count="2,4" tag="salvageHarvest"/>
+			<property name="SortOrder1" value="B113"/>
+			<property name="SortOrder2" value="0400"/>
+			<property name="FilterTags" value="MC_building"/>
+		</block>
+
+		<!--Block used to wrap the Supply Crate magazines, used in quests:quest_Interloper_Epilogue 
+			They build this Block using the Special Supply Crate magazine bundle. (items.xml:interloperSupplyCrateMagazineBundle)
+			They then place this block (deliver the goods via a drop) at a random place and then go 
+			pick up the book bundle they get in return trade for the magazines.
+			This block doesnt do anything in particular.-->
+		<block name="interloperTradeDropBag">
+			<property name="DescriptionKey" value="interloperTradeDropBagDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="Material" value="Mcloth"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="@:Entities/LootContainers/backpack03Prefab.prefab"/>
+			<property name="CustomIcon" value="cntBackpack03"/>
+			<property name="LightOpacity" value="0"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="GndAlign" value="1"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="Collide" value="melee,bullet,arrow,rocket"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="MaxDamage" value="1000"/>
+			<drop event="Harvest" name="resourceCloth" count="2" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceCloth" count="1"/>
+			<property name="SortOrder1" value="B113"/>
+			<property name="SortOrder2" value="1700"/>
+			<property name="FilterTags" value="MC_building,SC_loot"/>
+		</block>
+	</append>
+	<!--end Interloper story code-->
+	
+	<!--END GRIM TALES CODE-->
+</configs>

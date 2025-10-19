@@ -1,0 +1,84 @@
+
+<configs>
+
+	<remove xpath="/progression/perks/perk[@name='perkBetterBarter']"/>
+	<remove xpath="/progression/perks/perk[@name='perkDaringAdventurer']"/>
+
+	<insertBefore xpath="/progression/perks/perk[@name='perkCharismaticNature']"><!--ui_game_symbol_barter-->	
+		<perk name="perkSweetTooth" max_level="4" parent="skillIntellectInfluence" name_key="perkSweetToothName" desc_key="perkSweetToothDesc" icon="ui_game_symbol_fork"> 
+			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="1" desc_key="reqIntellectLevel01"/></level_requirements>
+			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="3" desc_key="reqIntellectLevel03"/></level_requirements>
+			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="5" desc_key="reqIntellectLevel05"/></level_requirements>
+			<level_requirements level="4"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="7" desc_key="reqIntellectLevel07"/></level_requirements>
+			
+			<effect_group>
+				<!--unoptimised syntax as is easier to read this way for testing-->
+				<passive_effect name="LootStage" operation="perc_add" level="1,2,3,4" value="0.04,0.08,0.10,0.12"/>
+				
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="drugRockBusters"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="drugHackers"/>
+
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="drugAtomJunkies"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="drugCovertCats"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="drugOhShitzDrops"/>
+
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="drugSkullCrushers"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="drugNerdTats"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="drugHealthBar"/>
+				
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="drugJailBreakers"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="drugEyeKandy"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="drinkCanMegaCrush"/>
+				
+				<effect_description level="1" desc_key="perkSweetToothRank1Desc" long_desc_key="perkSweetToothRank1LongDesc"/>
+				<effect_description level="2" desc_key="perkSweetToothRank2Desc" long_desc_key="perkSweetToothRank2LongDesc"/>
+				<effect_description level="3" desc_key="perkSweetToothRank3Desc" long_desc_key="perkSweetToothRank3LongDesc"/>
+				<effect_description level="4" desc_key="perkSweetToothRank4Desc" long_desc_key="perkSweetToothRank4LongDesc"/>
+			</effect_group>
+		</perk>
+		<!--ui_game_symbol_adventure-->	
+		<perk name="perkProductionLine" max_level="4" parent="skillIntellectInfluence" name_key="perkProductionLineName" desc_key="perkProductionLineDesc" icon="ui_game_symbol_assemble">
+			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="1" desc_key="reqIntellectLevel01"/></level_requirements>
+			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="4" desc_key="reqIntellectLevel04"/></level_requirements>
+			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="7" desc_key="reqIntellectLevel07"/></level_requirements>
+			<level_requirements level="4"><requirement name="ProgressionLevel" progression_name="attIntellect" operation="GTE" value="10" desc_key="reqIntellectLevel10"/></level_requirements>
+			<effect_group>			
+				<!--unoptimised syntax as is easier to read this way for testing-->
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="cobblestoneShapesBundleChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="resourceGlueBundleChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,2,3,4" value="1,1,1,1" tags="resourceWoodBlockBundle"/>
+				
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="resourceDuctTapeBundleChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="concreteShapesBundleChanged"/>	
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3,4" value="1,1,1" tags="cobblestoneShapesBundleLargeChanged"/>					
+				
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="resourceDuctTapeBundleLargeChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="resourceGlueBundleLargeChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="steelShapesBundleChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,4" value="1,1" tags="concreteShapesBundleLargeChanged"/>	
+				
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="ammoGasCanBundleChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="steelShapesBundleLargeChanged"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="thrownAmmoMolotovCocktailBundle"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="thrownGrenadeBundle"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="4" value="1" tags="thrownGrenadeContactBundle"/>
+				
+				<effect_description level="1" desc_key="perkProductionLineRank1Desc" long_desc_key="perkProductionLineRank1LongDesc"/>
+				<effect_description level="2" desc_key="perkProductionLineRank2Desc" long_desc_key="perkProductionLineRank2LongDesc"/>
+				<effect_description level="3" desc_key="perkProductionLineRank3Desc" long_desc_key="perkProductionLineRank3LongDesc"/>
+				<effect_description level="4" desc_key="perkProductionLineRank4Desc" long_desc_key="perkProductionLineRank4LongDesc"/>
+			</effect_group>	
+		</perk>
+	</insertBefore>
+	
+	<!--this is called when opening volume4 of the Magnum 44 series of books-->
+	<remove xpath ="/progression/perks/book[@name='perkEnforcerIntimidation']"/>
+	<insertAfter xpath ="/progression/perks/book[@name='perkEnforcerPunks']">
+		<book name="perkEnforcerIntimidation" parent="skillEnforcer" max_level="1" base_skill_point_cost="0" desc_key="perkEnforcerIntimidationDesc" long_desc_key="perkEnforcerIntimidationLongDesc">
+			<effect_group>
+			<!--handled in buffGameEventController-->
+			</effect_group>
+		</book>
+	</insertAfter>	
+	
+</configs>

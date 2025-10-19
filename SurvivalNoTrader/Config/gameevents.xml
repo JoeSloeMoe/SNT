@@ -1,0 +1,789 @@
+<configs>
+
+	<!--non story line or Learn By Use events-->
+	<!--remove duke note buff on startup-->
+	<remove xpath="gameevents/action_sequence[@name='game_first_spawn']"/>
+	
+	<!--remove challenge events and replace with non-trader challenge events-->
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_basics']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_homesteading']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_advanced_survival']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_crafting']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_trader_quests']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_harvesting']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_gatherer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_farmer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_healer']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_survivor']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_rabbit_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_chicken_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_coyote_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_deer_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_snake_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_boar_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_wolf_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_lion_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_bear_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_any_animal_hunter']"/>
+	<remove xpath="gameevents/action_sequence[@name='challenge_group_reward_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_any_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_vulture_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_spider_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_lumberjack_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_bigmama_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_tourist_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_cop_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_wight_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_mutated_zombie_slayer']"/>
+	<remove xpath="gameevents/action_sequence[@name='reward_demolition_zombie_slayer']"/>
+	
+	<insertAfter xpath="gameevents/action_sequence[@name='challenge_reward_10000']">
+		<action_sequence name="challenge_group_reward_basics">
+			<property name="allow_user_trigger" value="false" />
+			<property name="action_type" value="Game" />
+
+			<action class="AddSkillPoints">
+				<property name="skill_points" value="4" />
+			</action>
+		</action_sequence>
+		
+		<action_sequence name="challenge_group_reward_homesteading">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** ADVANCED_SURVIVAL_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_advanced_survival" >
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** CRAFTING_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_crafting">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** TRADER_QUESTS_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_trader_quests">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** HARVESTING_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_harvesting">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+
+	<!-- **** PAGE_02_ADVANCED_CHALLENGE_REWARDS -->
+
+		<!-- *** GATHERER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_gatherer">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** FARMER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_farmer" >
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** HEALER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_healer">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** SURVIVOR_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_survivor">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** ANIMAL_HUNTER_GROUP_REWARD -->
+		<action_sequence name="challenge_group_reward_hunter">
+			<property name="action_type" value="Game" />
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="1000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_RABBITS_REWARD -->
+		<action_sequence name="reward_rabbit_hunter">
+			<property name="action_type" value="Game"/>
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_CHICKENS_REWARD -->
+		<action_sequence name="reward_chicken_hunter">
+			<property name="action_type" value="Game"/>
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_COYOTES_REWARD -->
+		<action_sequence name="reward_coyote_hunter">
+			<property name="action_type" value="Game"/>
+			<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_DEER_REWARD -->
+		<action_sequence name="reward_deer_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_SNAKES_REWARD -->
+		<action_sequence name="reward_snake_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_BOAR_REWARD -->
+		<action_sequence name="reward_boar_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_WOLVES_REWARD -->
+		<action_sequence name="reward_wolf_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_LIONS_REWARD -->
+		<action_sequence name="reward_lion_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_BEAR_REWARD -->
+		<action_sequence name="reward_bear_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_ANY_ANIMALS_REWARD -->
+		<action_sequence name="reward_any_animal_hunter">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="groupChallengeRewardBasicBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+		<!-- *** ZOMBIE_SLAYER -->
+		<action_sequence name="challenge_group_reward_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardBasicAmmoBundle" />
+					<property name="added_item_counts" value="1" /> 
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_ANY_ZOMBIES_REWARD -->
+		<action_sequence name="reward_any_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardBasicAmmoBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_VULTURES_REWARD -->
+		<action_sequence name="reward_vulture_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardAPAmmoBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_SPIDERS_REWARD -->
+		<action_sequence name="reward_spider_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardArmorModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_LUMBERJACK_REWARD -->
+		<action_sequence name="reward_lumberjack_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardThrownAmmoBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_BIG_MAMA_REWARD -->
+		<action_sequence name="reward_bigmama_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardGunModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_TOURIST_REWARD -->
+		<action_sequence name="reward_tourist_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardClothingModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_COP_REWARD -->
+		<action_sequence name="reward_cop_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardGoodStuffBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_WIGHT_REWARD -->
+		<action_sequence name="reward_wight_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<!--<property name="added_items" value="challengeRewardLegendaryMeleeWeaponBundle" />-->
+					<property name="added_items" value="challengeRewardLegendaryMeleeWeaponChoice" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_MUTATED_REWARD -->
+		<action_sequence name="reward_mutated_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<property name="added_items" value="challengeRewardPerkModBundle" />
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+
+			<!-- *** KILL_DEMOLITION_REWARD -->
+		<action_sequence name="reward_demolition_zombie_slayer">
+			<property name="action_type" value="Game"/>
+				<action class="AddItems">
+					<!--<property name="added_items" value="challengeRewardLegendaryRangedWeaponBundle" />-->
+					<property name="added_items" value="challengeRewardLegendaryRangedWeaponChoice" />				
+					<property name="added_item_counts" value="1" />
+				</action>
+			<action class="AddXP">
+					<property name="xp_amount" value="10000" />
+			</action>
+		</action_sequence>
+		
+	</insertAfter>
+	
+	<!--END non-storyline or learn by use events-->
+		
+	<append xpath="/gameevents">
+		
+		<!--Interloper story events-->
+
+		<!--called when the interloper story final supply crate is dropped - airplane sound.
+			Cant adjust volume so no fade effect at end-->
+		<action_sequence name="action_AirplaneSoundStart">
+			<action class="PlaySound">
+				<property name="sound" value="Interloper_Supply_Crate_Plane" />
+				<property name="loop_duration" value="20"/>
+				<property name="phase" value="1" />
+			</action>
+		</action_sequence>
+		
+		<!--called at the end of the interloper story - reward for completion-->
+		<action_sequence name="action_InterloperFinishReward">
+			<action class="AddXP">
+				<property name="xp_amount" value="10000" />
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="ui_mag_read_set" />
+			</action>
+			<action class="BeltTooltip">
+				<property name="text" value="Interloper Completed: 10,000XP." />
+			</action>
+		</action_sequence>
+		
+		<!--called when the player interacts with the spy Receiver (blocks.xml:interloperReceiverBlock)
+			if a msg has been received it will add the appropriate Message to the players inventory (depending on which msg was received).
+			It displays a 'Not Available' msg if no msg received. Cleans up vars after itself -->
+		<!--At this point in the story, the player has visited Traders, built spyware receiver/transmitter pair to listen in on any chatter, 
+			and placed the transmitter somewhere near a Trader.-->
+		<action_sequence name="interloperCheckMessageReceivedAction">
+			<!--add the msg to players inventory depeding on which msg was received-->
+			<action class="AddItems">
+				<property name="added_items" value="qt_InterloperFirstTransmissionReceived" />
+				<property name="added_item_counts" value="1" />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperFirstSpyMsgReceived"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			<action class="AddItems">
+				<property name="added_items" value="qt_InterloperSecondTransmissionReceived" />
+				<property name="added_item_counts" value="1" />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperSecondSpyMsgReceived"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			<action class="AddItems">
+				<property name="added_items" value="qt_InterloperThirdTransmissionReceived" />
+				<property name="added_item_counts" value="1" />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperThirdSpyMsgReceived"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			<!--EITHER: play sound if message dispensed-->
+			<action class="PlaySound">
+				<property name="sound" value="book_grab"/> 
+				<requirement class="CVar">
+					<property name="cvar" value="interloperSpyMsgAvailable"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			<!--OR display text if no msg available-->
+			<action class="BeltTooltip">
+				<property name="text" value="No messages available." />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperSpyMsgAvailable"/>
+					<property name="operation" value="Equals" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			
+			<!--Add the respective 'msg delivered' buffs for the different msgs-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buffInterloperFirstSpyMsgDelivered" />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperFirstSpyMsgReceived"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			<action class="AddBuff">
+				<property name="buff_name" value="buffInterloperSecondSpyMsgDelivered" />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperSecondSpyMsgReceived"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+			<action class="AddBuff">
+				<property name="buff_name" value="buffInterloperThirdSpyMsgDelivered" />
+				<requirement class="CVar">
+					<property name="cvar" value="interloperThirdSpyMsgReceived"/>
+					<property name="operation" value="GT" />
+					<property name="value" value="0" />
+				</requirement>
+			</action>
+		
+		</action_sequence>
+		<!--called when the player places the spy device at the Trader compound-->
+		<action_sequence name="interloperSpywareSetupCompleteNoteAction">
+			<!--add the msg to players inventory depeding on which msg was received-->
+			<action class="AddItems">
+				<property name="added_items" value="interloperSpywareSetupCompleteNote" />
+				<property name="added_item_counts" value="1" />
+			</action>
+		</action_sequence>
+		
+		<!--End Interloper story code -->
+		
+		<!--quest test code-->
+		<action_sequence name="action_questTestCode">	
+			<action class="AddItems">
+					<property name="added_items" value="resourceGoldNugget"/>
+					<property name="added_item_counts" value="1"/>
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="quest_restore_power_complete" />
+			</action>
+			<action class="BeltTooltip"> 
+				<property name="text" value="Quest Test Action" />
+			</action>
+		</action_sequence>
+		<!--end quest test code-->
+		
+		<!--Marys Revenge story code-->
+		<!--can either give Marys Revenge (burial site One) using book or directly-->
+		<!--give the map/note for the BurialSiteOne quest - Used from buffs.xml see buffGameEventController -->
+		<action_sequence name="give_burialSiteOneQuestNote">	
+			<action class="AddItems">
+					<property name="added_items" value="qt_burialSiteMarysRevenge"/>
+					<property name="added_item_counts" value="1"/>
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="quest_restore_power_complete" />
+			</action>
+			<action class="BeltTooltip"> 
+				<property name="text" value="You've found a page from a bloodstained black book" />
+			</action>
+		</action_sequence>	
+		
+		<!--</action_sequence> the first burial site quest. </action_sequence>n from treasure map/note, see </action_sequence>_burialSiteOneQuestNote above -->
+		<action_sequence name="give_graveRobbingOneQuest">
+			<action class="AddQuest">
+				<property name="quest" value="graveRobbingOne" />
+			</action>
+		</action_sequence>
+		
+		<!--Spawns for the Mary's Revenge Side Quest quests:graveRobbingIpsloreTheRed-->
+		<!--Spawn screamers while the player is digging up Magrat's sisters (Judy's) grave)-->
+		<action_sequence name="spawn_graveKeeperDireWolf">
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnGraveKeeperDireWolf" />
+			</action>
+		</action_sequence>
+		<action_sequence name="graveKeeperDireBear">
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnGraveKeeperDireBear" />
+			</action>
+		</action_sequence>
+		<!--END Spawns for the Mary's Revenge Side Quest quests:graveRobbingIpsloreTheRed-->
+		
+		<!--used in quests.xml:graveRobbingMagratsSister to spawn screamers while the player is digging up Magrat's sisters (Judy's) grave)-->
+		<action_sequence name="spawn_JudysGraveScreamers">
+			<action class="AddQuest">
+				<property name="quest" value="graveRobbingJudysScreamerSpawn" />
+			</action>
+		</action_sequence>
+		
+		<!--called when the person activates the marysRevengeArtifactContainer
+			 (items.xml). When a person open the container,
+			this Event is called- this Event will then assign a quest. The 'quest'  
+			spawns zombies and provides the contents of the container.
+		-->
+		<action_sequence name="eventMarysRevengeArtifactContainerOpened">
+			<action class="AddQuest">
+				<property name="quest" value="questMarysRevengeArtifactContainerOpened" />
+			</action>
+		</action_sequence>
+		
+		<!--called when the player starts the quests.xml:graveRobbingCovenHouse quest.
+			This action starts the quests.xml:graveRobbingCovenHouseScreamerSpawn quest that spawns screamers,
+			one of which drops the loot bag containing the map to Margrat's sisters grave location-->
+		<action_sequence name="action_CovenHouseSpawn">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<!--add the buff to show the player the target screamers-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buff_trackCovenHouseScreamers" />
+			</action>
+			<!--spawn the screamers-->
+			<action class="AddQuest">
+				<property name="quest" value="graveRobbingCovenHouseScreamerSpawn" />
+			</action>
+		</action_sequence>
+		
+		<!--starts the final Marys Revenge boss fight-->
+		<action_sequence name="eventMarysRevengeFinalBoss">
+			<!--add the buff that manages the final boss encounter-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buffMarysRevengeFinalBossSummon" />
+			</action>
+		</action_sequence>
+		
+	
+		<!--spawn the final boss and some minions-->
+		<action_sequence name="action_spawn_MarysRevengeBoss">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<!--<action class="AddQuest">
+				<property name="quest" value="quest_KillMagrat" />
+			</action>-->
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnMagrat" />
+			</action>
+			
+		</action_sequence>
+		<!--spawn minions-->
+		<action_sequence name="action_spawn_MarysRevengeBossMinion">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnMagratMinions" />
+			</action>
+		</action_sequence>
+		 
+		 
+		 <!--called by at the end of Marys Revenge story for the reward-->
+		<action_sequence name="action_MarysRevengeFinishReward">
+			<action class="AddXP"> 
+				<property name="xp_amount" value="10000" />
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="ui_mag_read_set" />
+			</action>
+			<action class="BeltTooltip">
+				<property name="text" value="Mary's Revenge Story Complete: 10,000XP." />
+			</action>
+			<!--double check: clear out the storyline-->
+			<action class="AddBuff">
+				<property name="buff_name" value="buff_marysRevengeFinalTrigger" />
+			</action>
+		</action_sequence>
+		<!--END Marys Revenge story code-->
+		
+		<!--not used right now - handy to play screamer 
+			sound on some actions so leaving in for other use sometime-->
+		<action_sequence name="eventPlayScreamerSound">
+			<action class="PlaySound">
+				<property name="sound" value="magratsScream" />
+			</action>
+		</action_sequence>
+		
+		<!--called from the buried patrol car treasure quest.
+			Called when the cop car is downgraded and the alarm goes off
+				Have to manually spawn zombies, so call a quest to do that-->
+			<action_sequence name="block_car_alarm_start_PatrolCar">
+				<property name="action_type" value="Game" />
+				<property name="target_type" value="Block" />
+				<property name="allow_while_dead" value="false" />
+				<action class="AddQuest">
+					<property name="quest" value="quest_buriedPatrolCarComplete" />
+				</action>
+			</action_sequence>
+			
+			<!--called when the buried Patrol car alarm stops-->
+			<action_sequence name="block_car_alarm_end_PatrolCar">
+				<property name="action_type" value="Game" />
+				<property name="target_type" value="Block" />
+				<property name="allow_while_dead" value="false" />
+				
+				<action class="PlaySound">
+					<property name="sound" value="caralarm1_dying" />
+					<property name="phase" value="1" /> 
+				</action>
+			</action_sequence>
+	</append>
+	<!--this sound is present in vanilla but commented out.
+		Set Police Cars to 'wind-down' when alarm stops.
+	-->
+	<append xpath="/gameevents/action_sequence[@name='block_car_alarm_end']">
+		<action class="PlaySound">
+					<property name="sound" value="caralarm1_dying" />
+					<property name="phase" value="1" /> 
+		</action>
+	</append>
+	
+	<!--spawn pigeons for the PigeonsCarryDiseases story-->
+	<append xpath="/gameevents">
+		<action_sequence name="action_spawn_pigeon1">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnHomingPigeon1" />
+			</action>
+		</action_sequence>
+
+		<action_sequence name="action_spawn_pigeon2">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnHomingPigeon2" />
+			</action>
+		</action_sequence>
+
+		<action_sequence name="action_spawn_pigeon3">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnHomingPigeon3" />
+			</action>
+		</action_sequence>
+		
+		<action_sequence name="action_spawn_pigeon4">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_SpawnHomingPigeon4" />
+			</action>
+		</action_sequence>
+		
+		<action_sequence name="action_spawn_pigeonBoss">
+			<property name="action_type" value="Game" />
+			<property name="target_type" value="Block" />
+			<property name="allow_while_dead" value="false" />
+			<action class="AddQuest">
+				<property name="quest" value="quest_PigeonsEpilogueSpawn" />
+			</action>
+		</action_sequence>
+		
+		<!--called by at the end of the pigeons carry diseases story for the reward-->
+		<action_sequence name="action_PigeonsFinishReward">
+			<action class="AddXP">
+				<property name="xp_amount" value="5000" />
+			</action>
+			<action class="PlaySound">
+				<property name="sound" value="ui_mag_read_set" />
+			</action>
+			<action class="BeltTooltip">
+				<property name="text" value="Pigeons Carry Diseases Complete: 5,000XP." />
+			</action>
+		</action_sequence>
+	</append>
+</configs>
