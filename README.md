@@ -12,8 +12,8 @@ Installation instructions:
 Download the zip file from the repository link.
 Unpack the zip file into a temp directory somewhere.
 You will have a directory called SNT-main
-Within the SNT-main directory there are 3 directories:
+Within the SNT-main directory there are 3 directories shown below. Copy the SurvivalNoTrader directory and either LearnByUse OR HybridLearnByUse to your <drive>:\Users\<user_name>\AppData\Roaming\7DaysToDie\Mods directory.
 - SurvivalNoTrader - this is the main directory
 - LearnByUse
 - HybridLearnByUse
-Copy the SurvivalNoTrader directory and either LearnByUse OR HybridLearnByUse to your <drive>:\Users\<user_name>\AppData\Roaming\7DaysToDie\Mods directory.
+
