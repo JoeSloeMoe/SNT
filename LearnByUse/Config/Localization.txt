@@ -1,0 +1,83 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+attLearnByUse,progression,Attribute,,,"Learn By Use"
+attlearnbyuse,progression,Attribute,,,"Learn By Use"
+attLearnByUseDesc,progression,Attribute,,,"Increase Mining, Scavenging and Weapons stats (eg. Damage and Stamina) by using tools and weapons. Gain an extra Skill Point at level 100 for each Perk. Learn-By-Use perk leveling decreases the respective weapon/tool Degradation gradually up to 50%. Increase the rate of Learning by investing in the Skilled Labourer perk under the General Perks tab."
+attLearnByUseName,progression,Attribute,,,"Learn By Use"
+lbu_Miner69erName,progression,Perk,,,"Miner69r/MotherLode [DECEA3]{cvar($lbu_Miner69er_LevelXP:0)}xp To Next Lvl[-]" 
+lbu_Miner69erDesc,progression,Perk,,,"Use any axe, pick, shovel, chainsaw or auger to upgrade the Miner69er/MotherLode skill points. Increases are applied cumulatively per Level. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_LuckyLooterName,progression,Perk,,,"Lucky Looter [DECEA3]{cvar($lbu_LuckyLooter_LevelXP:0)}xp To Next Level[-]" 
+lbu_LuckyLooterDesc,progression,Perk,,,"Loot any Container to upgrade the Lucky Looter skill points. Increases are applied cumulatively per Level. Increases loot quantity and decreases time to open containers."
+lbu_SalvageName,progression,Perk,,,"Salvage Operation [DECEA3]{cvar($lbu_Salvage_LevelXP:0)}xp To Next Level[-]" 
+lbu_SalvageDesc,progression,Perk,,,"Use any Wrench, Ratchet or Impact Driver to upgrade the Salvage skill points. Increases are applied cumulatively per Level. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_DeadEyeName,progression,Perk,,,"Dead Eye [DECEA3]{cvar($lbu_DeadEye_LevelXP:0)}xp To Next Level[-]"
+lbu_DeadEyeDesc,progression,Perk,,,"Use any Rifle to upgrade the DeadEye skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
+lbu_DemolitionName,progression,Perk,,,"Demolitions Expert [DECEA3]{cvar($lbu_Demolition_LevelXP:0)}xp To Next Level[-]"
+lbu_DemolitionDesc,progression,Perk,,,"Use any explosive weapons to upgrade the Demolitions Expert skill points. Increases are applied cumulatively per Level."
+lbu_SpearMasterName,progression,Perk,,,"Spearmaster [DECEA3]{cvar($lbu_SpearMaster_LevelXP:0)}xp To Next Level[-]"
+lbu_SpearMasterDesc,progression,Perk,,,"Use any Spear to upgrade the Spearmaster skill points. Increases are applied cumulatively per Level. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_BoomstickName,progression,Perk,,,"Boomstick [DECEA3]{cvar($lbu_Boomstick_LevelXP:0)}xp To Next Level[-]" 
+lbu_BoomstickDesc,progression,Perk,,,"Use any Shotgun to upgrade the Boomstick skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
+lbu_PummelPeteName,progression,Perk,,,"Pummel Pete [DECEA3]{cvar($lbu_PummelPete_LevelXP:0)}xp To Next Level[-]"
+lbu_PummelPeteDesc,progression,Perk,,,"Use any Club to upgrade the PummelPete skill points. Killing blows grant from 1 to 30 stamina over levels 1-100. There are 2 EntityDamage values shown below - the 2nd one is additional damage when target stunned. There are 2 StaminaLoss values shown below - the 2nd one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_SkullCrusherName,progression,Perk,,,"Skull Crusher [DECEA3]{cvar($lbu_SkullCrusher_LevelXP:0)}xp To Next Level[-]" 
+lbu_SkullCrusherDesc,progression,Perk,,,"Use any Sledgehammer to upgrade the SkullCrusher skill points. Increases are applied cumulatively per Level. Killing blows grant from 1 to 30 stamina over levels 1-100. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_BrawlerName,progression,Perk,,,"Brawler [DECEA3]{cvar($lbu_Brawler_LevelXP:0)}xp To Next Level[-]"  
+lbu_BrawlerDesc,progression,Perk,,,"Use your Fists to upgrade the Brawler skill points. Increases are cumulative per Level. Killing blows grant 1 to 30 stamina over levels 1-100. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_MachineGunnerName,progression,Perk,,,"Machine Gunner [DECEA3]{cvar($lbu_MachineGunner_LevelXP:0)}xp To Next Level[-]" 
+lbu_MachineGunnerDesc,progression,Perk,,,"Use any Assault Rifle or Machinegun to upgrade the Machinegunner skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
+lbu_ArcheryName,progression,Perk,,,"Archery [DECEA3]{cvar($lbu_Archery_LevelXP:0)}xp To Next Level[-]" 
+lbu_ArcheryDesc,progression,Perk,,,"Use any Bow to upgrade the Archery skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
+lbu_GunslingerName,progression,Perk,,,"Gunslinger [DECEA3]{cvar($lbu_Gunslinger_LevelXP:0)}xp To Next Level[-]" 
+lbu_GunslingerDesc,progression,Perk,,,"Use any Handgun or SMG to upgrade the Gunslinger skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
+lbu_DeepCutsName,progression,Perk,,,"Deep Cuts [DECEA3]{cvar($lbu_DeepCuts_LevelXP:0)}xp To Next Level[-]"  
+lbu_DeepCutsDesc,progression,Perk,,,"Use any Bladed Weapon to upgrade the DeepCuts skill points. Increases are applied cumulatively per Level. Killing blows grant from 1 to 30 stamina over levels 1-100. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+lbu_HiddenStrikeName,progression,Perk,,,"Hidden Strike [DECEA3]{cvar($lbu_HiddenStrike_LevelXP:0)}xp To Next Level[-]" 
+lbu_HiddenStrikeDesc,progression,Perk,,,"While sneaking, kill or wound any enemies when they are unaware to upgrade the Hidden Strike skill points. Increases are applied cumulatively per Level. Applies to the same weapons as the Hidden Strike Perk"
+lbu_ElectrocutionerName,progression,Perk,,,"Electrocutioner [DECEA3]{cvar($lbu_Electrocutioner_LevelXP:0)}xp To Next Level[-]"  
+lbu_ElectrocutionerDesc,progression,Perk,,,"Use any Baton to upgrade the Electrocutioner skill points. Increases are cumulative per Level. Killing blows grant 1 to 30 stamina over levels 1-100. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
+
+lbu_MULTIPLAYERTURRETS_START,progression,Perk,,,"Multiplayer Turret Note, DELETE THE ENTRIES BELOW THIS LINE"
+lbu_RoboticsName,progression,Perk,,,"Robotics [DECEA3]{cvar($lbu_Robotics_LevelXP:0)}xp To Next Level[-]"  
+lbu_RoboticsDesc,progression,Perk,,,"Use any Robotic Weapon to upgrade the Robotics skill points. There are 2 RoundsPerMinute values shown below. The first is melee (holding the Turret) and the second is ranged (Turret placed). Degradation rate is decreasing from 100% to 50%."
+lbu_MULTIPLAYERTURRETS_END,progression,Perk,,,"Multiplayer Turret Note, DELETE THE ENTRIES ABOVE THIS LINE"
+
+lbu_BarteringName,progression,Perk,,,"Better Barter [DECEA3]{cvar($lbu_Bartering_LevelXP:0)}xp To Next Level[-]" 
+lbu_BarteringDesc,progression,Perk,,,"Trade items with Traders to upgrade the Bartering skill points. Increase both Buying and Selling."
+lbu_DaringAdvName,progression,Perk,,,"Daring Adventure [DECEA3]{cvar($lbu_DaringAdv_LevelXP:0)}xp To Next Level[-]"  
+lbu_DaringAdvDesc,progression,Perk,,,"Complete Trader Quests to upgrade the Daring Adventure skill points. Increase the Trader Stage and get Better rewards."
+lbu_PhysicianName,progression,Perk,,,"Physician [DECEA3]{cvar($lbu_Physician_LevelXP:0)}xp To Next Level[-]" 
+lbu_PhysicianDesc,progression,Perk,,,"Use healing items such as medical items and food to upgrade the Physician skill points.\nThe EntityHeal value below is the increase in healing over time from Medical Items. PlayerExpGain is the increase in player experience when using medical items.\nAt level 30 Splints & Casts will heal sprains, at level 60 Casts cure broken limbs, 10% chance of instant death for Stun Battons at level 100."
+statEntityHeal,ui_display,Item stat,,,Health Heal Over Time
+perkSkilledLabourerDesc,progression,perk Per,,,"Increase your rate of Learning by doing things. Each level increases the all Learn By Use leveling speeds by 20%. Configurable in buffs.xml."
+perkSkilledLabourerName,progression,perk Per,,,Skilled Labourer,
+perkSkilledLabourerRank1Desc,progression,perk Per,,,Intern
+perkSkilledLabourerRank1LongDesc,progression,perk Per,,,"Damn, I cut it twice and its still too short. Increase all Learn by Use leveling speeds by 20%."
+perkSkilledLabourerRank2Desc,progression,perk Per,,,Apprentice
+perkSkilledLabourerRank2LongDesc,progression,perk Per,,,"You're like lightning with a hammer! You never hit the same spot twice. Increase all Learn by Use leveling speeds by a further 20%. (40% total)" 
+perkSkilledLabourerRank3Desc,progression,perk Per,,,Journeyman
+perkSkilledLabourerRank3LongDesc,progression,perk Per,,,"Most people are shocked when they find out you're an Electrician. Increase all Learn by Use leveling speeds by a further 20%. (60% total)"
+perkSkilledLabourerRank4Desc,progression,perk Per,,,Master
+perkSkilledLabourerRank4LongDesc,progression,perk Per,,,"This is my step ladder… I never knew my real ladder. Increase all Learn by Use leveling speeds by a further 20%. (80% total)"
+perkSkilledLabourerRank5Desc,progression,perk Per,,,Foreman
+perkSkilledLabourerRank5LongDesc,progression,perk Per,,,"Turn it 'till it cracks, back it off a quarter-turn, and leave it for the nightshift. Increase all Learn by Use leveling speeds by a further 20%. (100% total)"
+
+craftingBladesDesc,progression,Attribute,,,"Increased by the [DECEA3]Deep Cuts[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingBowsDesc,progression,Attribute,,,"Increased by the [DECEA3]Archery[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingClubsDesc,progression,Attribute,,,"Increased by the [DECEA3]Pummel Pete[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingExplosivesDesc,progression,Attribute,,,"Increased by the [DECEA3]Demolitions Expert[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingHandgunsDesc,progression,Attribute,,,"Increased by the [DECEA3]Gunslinger[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingHarvestingToolsDesc,progression,Attribute,,,"Increased by the [DECEA3]Miner 69'er[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingKnucklesDesc,progression,Attribute,,,"Increased by the [DECEA3]The Brawler[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingMachineGunsDesc,progression,Attribute,,,"Increased by the [DECEA3]Machine Gunner[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingMedicalDesc,progression,Attribute,,,"Increased by the [DECEA3]Physician[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingRiflesDesc,progression,Attribute,,,"Increased by the [DECEA3]Dead Eye[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingRoboticsDesc,progression,Attribute,,,"Increased by the [DECEA3]Electrocutioner and/or Robotics Inventor[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingSalvageToolsDesc,progression,Attribute,,,"Increased by the [DECEA3]Salvage Operations[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingShotgunsDesc,progression,Attribute,,,"Increased by the [DECEA3]Boomstick[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingSledgehammersDesc,progression,Attribute,,,"Increased by the [DECEA3]Skull Crusher[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+craftingSpearsDesc,progression,Attribute,,,"Increased by the [DECEA3]Spear Master[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
+
+
+buffDebug1,buffs,Buff,,,Stats Gamestage
+buffDebug2,buffs,Buff,,,Biome modifier
+buffDebug3,buffs,Buff,,,Biome Bonus

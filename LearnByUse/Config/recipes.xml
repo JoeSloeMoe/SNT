@@ -1,0 +1,8 @@
+<configs>
+	<!--remove the requirements to craft pipebombs in workstations
+		All other perks have a default craftable item when the player starts except demolition.
+		In order for the player to gain experience with demolition they need to be able to use something to start the learning curve.
+		And should be craftable by when the player starts the game, see items.xml-->
+	<removeattribute xpath="/recipes/recipe[@name='thrownAmmoPipeBomb']/@craft_area"/>
+	<removeattribute xpath="/recipes/recipe[@name='thrownAmmoPipeBomb']/@tags"/>
+</configs>

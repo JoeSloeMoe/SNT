@@ -1,0 +1,63 @@
+Learn By Use - Action Skills 7DTD XML mod.
+JoeSloeMoe
+
+Learn By Use Action Skills. Branched from Hybrid Learn By Use.
+
+Recommend starting a new game.
+
+Currently applies to the tools and weapons for the following Perks:
+General: Lucky Looter
+Perception: DeadEye, Demolition Expert, SpearMaster, Salvage
+Strength: Boomstick, PummelPete, SkullCrusher, Miner69r/Motherload.
+Fortitude: Brawler, MachineGunner
+Agility: Archery, Gunslinger, DeepCuts, Hidden Strike
+Intellect: Electrocutioner, Robotics, Physician, Bartering, Daring Adventure
+
+Mod Functionality (configurable in buffs.xml):
+- Receive a bonus skill point when you max out each Perk Skill (level 100) 
+- New Skilled Labourer Perk under General Perks. Each Point invested in Skilled Labourer give 
+  20% more Learn By Use progression xp. e.g The Default for Archery is each archery kill gives 
+  48 progression xp. With 2 levels in Skilled Labourer, Archery progession xp is 67.2, 40% increase. 
+- The more Experience using a tool or weapon you have the more you know how to maintain it.
+  Every second level of a LBU Perk decreases associated tool/weapon degradation rate by 1% (total 50%).
+  Doesnt apply to the Hidden Strike or Demolition perks.
+- LBU Perks provide the same benefits as the default perks e.g. For Physician, splints will heal sprains at level 30.
+  You will find more books and tool/weapon parts the higher you Learn By Use perk level.
+- There are no magazines for the LBU Perks, each Perk increases the respective magazine count autmatically as you progress. So you will
+  be able to craft better shottguns as you increase your Learn By Use shotgun skills etc.
+
+Notes:
+- Learn By Use removes over 100 points worth of upgrades. For balance, these points are used by increasing the cost of remaining Perks that are not Learn By Use.
+  E.g. the level cost of Penetrator is increased from 1,1,1,1,1 to 1,2,2,2,2. The cost of Mastery Perks is not changed.
+- You can craft Pipe Bombs and Wrenches from the start otherwise you would not be able to increase the Demolitions and Salvaging LBU perks. 
+  You don't need a workbench to craft Pipebombs
+- Because so many magazones have been removed from the game, the remaining magazines have been balanced to be less abundant. E.g. You will find less magazines available 
+  at the Trader and in quest reward bundles, bookshelves etc.
+
+Config variables:
+There are many Global Config variables to control the Learn-By-Use functionality. E.g. you can configure the progression speed each Perk individualy to
+suit you game style. See buffs.xml, look for the line: "!--PLAYER CONFIG VARIABLES..." for the variables and further information.
+
+Multiplayer Notes:
+ - Special thanks for Aramus for multiplayer testing.
+ - Fully tested
+ - Ranged Turrets do not work in multiplayer. Please see the comment line [START Multiplayer Turret Notes] in progression.xml to remove Turrets from Learn-By-Use if needed for multiplayer.
+
+License:
+The code is free to use license and commented as such. It is based on the Action Skill levelling algorithm from 
+Khaine in the Darkness Falls mod. Please acknowledge Khaine's coal-face work if you reuse the code.
+
+Version Info
+1.0.2 
+- Initial Release
+
+1.0.3 18th Oct 2025
+ - Learn By Use Perks now show xp needed for next level
+ - Increased Learn By Use progression speed:
+       >Increased progression speed of a weapons (except Demolition items) by approx. 10%
+       >Very slightly reduced progression curve from 2.3% per level to 2.2%
+       >Reduced level where progression curve stops increasing from level 98 to level 92
+ - Fixed bug where exploding arrows and bolts didn't contribute to Demolisher xp
+ - Fixed issue where magazines that have 75 total count (rather than 100) were reaching 75 before perk progress reached 100.
+   All magazines now reach total count at same time as corresponding Perk. 
+ - Small number of minor bug fixes
