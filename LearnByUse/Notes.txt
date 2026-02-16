@@ -51,15 +51,14 @@ Version Info
 1.0.2 
 - Initial Release
 
-1.0.3 18th Oct 2025
+1.0.4 18th Oct 2025
  - Learn By Use Perks now show xp needed for next level
  - Increased Learn By Use progression speed:
        >Increased progression speed of a weapons (except Demolition items) by approx. 10%
-       >Increased progression speed of Hidden Strike and Salvage by approx 10%
+	   >Increased progression speed of Hidden Strike and Salvage by approx 10%
        >Very slightly reduced progression curve from 2.3% per level to 2.2%
        >Reduced level where progression curve stops increasing from level 98 to level 92
  - Fixed bug where exploding arrows and bolts didn't contribute to Demolisher xp
  - Fixed issue where magazines that have 75 total count (rather than 100) were reaching 75 before perk progress reached 100.
    All magazines now reach total count at same time as corresponding Perk. 
  - Small number of minor bug fixes
-

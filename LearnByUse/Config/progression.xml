@@ -88,6 +88,8 @@
 	<remove xpath="progression/perks/perk[@name='perkBrawler']"/>
 	<!--Modify existing Machine Gunner perk -->	
 	<remove xpath="progression/perks/perk[@name='perkMachineGunner']"/>
+	<!--Modify existing Cardio perk -->	
+	<remove xpath="progression/perks/perk[@name='perkRuleOneCardio']"/>
 	<!--Modify existing perkArchery-->
 	<remove xpath="progression/perks/perk[@name='perkArchery']"/>
 	<!--Modify existing perkGunslinger-->
@@ -812,6 +814,8 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="SetProgressionLevel" progression_name="craftingClubs" level="75" show_message="true">
 						<requirement name="ProgressionLevel" progression_name="craftingClubs" operation="LT" value="75"/>
 						<requirement name="ProgressionLevel" progression_name="perkPummelPete" operation="EQ" value="100"/></triggered_effect>
+						
+					
 			</effect_group>
 			<effect_group>
 				<requirement name="ItemHasTags" tags="perkPummelPete"/>
@@ -853,7 +857,8 @@
 					<triggered_effect trigger="onSelfKilledOther" action="SetProgressionLevel" progression_name="craftingClubs" level="75" show_message="true">
 						<requirement name="ProgressionLevel" progression_name="craftingClubs" operation="LT" value="75"/>
 						<requirement name="ProgressionLevel" progression_name="perkPummelPete" operation="EQ" value="100"/></triggered_effect>
-					
+						
+				
 			</effect_group>
 			<!--updatethe display var that shows remainingxp to next level see Localization.txt:lbu_PummelPeteName-->
 			<effect_group>
@@ -862,7 +867,7 @@
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="$lbu_PummelPete_LevelXP" operation="subtract" value="@lbu_PummelPete_XP"/>
 					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$lbu_PummelPete_LevelXP" operation="set" value="@lbu_PummelPete_XPIncrement"/>
 					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$lbu_PummelPete_LevelXP" operation="subtract" value="@lbu_PummelPete_XP"/>
-			</effect_group>
+			</effect_group>			
 		</perk>
 		<!-- end Pummel Pete Learn By Use (lbu)-->
 		
@@ -1097,6 +1102,9 @@
 				<requirement name="ProgressionLevel" progression_name="perkMiner69r" operation="LT" value="100"/>
 					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="@lbu_Miner69er_DMG_XP">
 						<requirement name="!ItemHasTags" tags="motorTool"/></triggered_effect>
+					<!--for the auger each damage hit only gives 1 xp-->
+					<triggered_effect trigger="onSelfHarvestBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="1">
+						<requirement name="ItemHasTags" tags="motorTool"/></triggered_effect>
 							
 					<!-- add additional damage for destruction-->
 					<triggered_effect trigger="onSelfDestroyedBlock" action="ModifyCVar" cvar="lbu_Miner69er_XP" operation="add" value="@lbu_Miner69er_Kill_XP"/> 
@@ -1453,7 +1461,28 @@
 		<!-- end Machine Gunner Learn By Use (lbu)-->
 	</insertAfter>	
 	
-	<insertAfter xpath="/progression/perks/perk[@name='perkRuleOneCardio']">	
+	<insertAfter xpath="/progression/perks/perk[@name='perkSlowMetabolism']">	
+		<!-- begin Cardio Learn By Use (lbu)
+		See also buffs.xml:buffCardioXPMonitor for the progression increase code-->
+		<perk name="perkRuleOneCardio" max_level="100" parent="skillFortitudeRecovery" base_skill_point_cost="0" name_key="lbu_CardioName" desc_key="lbu_CardioDesc" long_desc_key="lbu_CardioDesc" icon="ui_game_symbol_cardio">
+
+			<!--BCK verify ProgressionLevel, backup var should always be equal to ProgessionLevel-->
+			<effect_group>
+				<requirement name="!HasBuff" buff="buffVerifyLBU_ProgressLevels"/>								
+				<requirement name="ProgressionLevel" progression_name="perkRuleOneCardio" operation="NotEquals" value="@lbu_Cardio_Lvl"/> 
+					<triggered_effect trigger="onSelfDamagedOther" action="AddBuff" buff="buffVerifyLBU_ProgressLevels"/>
+			</effect_group>
+
+			<!--apply current effect as per level-->
+			<effect_group>
+					<passive_effect name="StaminaChangeOT" operation="perc_add" level="1,80" value=".01,.3" tags="running,swimmingRun"/> 
+					<passive_effect name="StaminaChangeOT" operation="perc_add" level="81,100" value=".3" tags="running,swimmingRun"/> 
+					<passive_effect name="StaminaMax" operation="base_add" level="80,100" value="1,50"/>
+			</effect_group>
+			
+		</perk>
+		
+		<!-- end Cardio Learn By Use (lbu)-->
 		<!-- begin Archery Learn By Use (lbu)-->
 		<perk name="perkArchery" max_level="100" parent="skillAgilityCombat" base_skill_point_cost="0" name_key="lbu_ArcheryName" desc_key="lbu_ArcheryDesc" long_desc_key="lbu_ArcheryDesc" icon="ui_game_symbol_archery">
 			

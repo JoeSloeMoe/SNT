@@ -43,6 +43,7 @@
 			<item name="trapsSkillMagazine" count="1"/>
 			<item name="electricianSkillMagazine" count="1"/>
 		</lootgroup>
+	
 	</insertAfter>
 	
 	<remove xpath="/lootcontainers/lootgroup[@name='groupChallengeRewardSkillMagazinesAll01']"/>
@@ -158,7 +159,11 @@
 		<item name="resourcePaper" />
 	</append>
 
-	
+	<remove xpath="/lootcontainers/lootgroup[@name='groupLiquorBonus']/item[@name='handgunsSkillMagazine']"/>
+	<remove xpath="/lootcontainers/lootgroup[@name='groupLiquorBonus']/item[@name='shotgunsSkillMagazine']"/>
+	<remove xpath="/lootcontainers/lootgroup[@name='groupLiquorBonus']/item[@name='riflesSkillMagazine']"/>
+	<remove xpath="/lootcontainers/lootgroup[@name='groupLiquorBonus']/item[@name='machineGunsSkillMagazine']"/>
+
 	<remove xpath="/lootcontainers/lootgroup[@name='groupShotgunMessiahCrateBooks']/item[@name='handgunsSkillMagazine']"/>
 	<remove xpath="/lootcontainers/lootgroup[@name='groupShotgunMessiahCrateBooks']/item[@name='shotgunsSkillMagazine']"/>
 	<remove xpath="/lootcontainers/lootgroup[@name='groupShotgunMessiahCrateBooks']/item[@name='riflesSkillMagazine']"/>

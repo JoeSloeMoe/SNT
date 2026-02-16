@@ -25,6 +25,9 @@ lbu_BrawlerName,progression,Perk,,,"Brawler [DECEA3]{cvar($lbu_Brawler_LevelXP:0
 lbu_BrawlerDesc,progression,Perk,,,"Use your Fists to upgrade the Brawler skill points. Increases are cumulative per Level. Killing blows grant 1 to 30 stamina over levels 1-100. There are 2 StaminaLoss values shown below - the second one is for Power Attacks. Degradation rate is decreasing from 100% to 50%."
 lbu_MachineGunnerName,progression,Perk,,,"Machine Gunner [DECEA3]{cvar($lbu_MachineGunner_LevelXP:0)}xp To Next Level[-]" 
 lbu_MachineGunnerDesc,progression,Perk,,,"Use any Assault Rifle or Machinegun to upgrade the Machinegunner skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
+lbu_CardioName,progression,Perk,,,"Cardio [DECEA3]{cvar($lbu_Cardio_LevelXP:0)}xp To Next Level[-]" 
+lbu_CardioDesc,progression,Perk,,,"Train your body in the number one tactic against the zombie menace: Running away from them. General activity such as running and jumping upgrades Cardio skill points. Increases are applied cumulatively per Level. The StaminaChangeOT value shown below is the stamina regeneration rate increase. After level 80, the StaminaMax value shows the total increase in available stamina."
+
 lbu_ArcheryName,progression,Perk,,,"Archery [DECEA3]{cvar($lbu_Archery_LevelXP:0)}xp To Next Level[-]" 
 lbu_ArcheryDesc,progression,Perk,,,"Use any Bow to upgrade the Archery skill points. Increases are applied cumulatively per Level. Degradation rate is decreasing from 100% to 50%."
 lbu_GunslingerName,progression,Perk,,,"Gunslinger [DECEA3]{cvar($lbu_Gunslinger_LevelXP:0)}xp To Next Level[-]" 
@@ -77,6 +80,39 @@ craftingShotgunsDesc,progression,Attribute,,,"Increased by the [DECEA3]Boomstick
 craftingSledgehammersDesc,progression,Attribute,,,"Increased by the [DECEA3]Skull Crusher[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
 craftingSpearsDesc,progression,Attribute,,,"Increased by the [DECEA3]Spear Master[-] Learn By Use skill. Increase learning speed by investing points in the [DECEA3]Skilled Labourer[-] perk under General Perks tab"
 
+		
+LBUMagazineReward,items,Item,,,Magazine Choice Reward
+LBUMagazineRewardDesc,items,Item,,,"Reward for max'ing a first Learn-By-Use tier. A Bonus Bundle for the first time a LBU Perk reaches maximum.\n\nFive free Skill Magazines to increase the Crafting Skill of any LBU Perk.\nUse [DECEA3]Recipes[-] to create a choice of Crafting Skill Magazine bundle. Each bundle created has 5 Magazines."
+LBUMagazineRewardBow,items,Item,,,Bundle of 5 Bow Magazines
+LBUMagazineRewardBowDesc,items,Item,,,Bundle of 5 Bow Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardSpear,items,Item,,,Bundle of 5 Spear Magazines
+LBUMagazineRewardSpearDesc,items,Item,,,Bundle of 5 Spear Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardClub,items,Item,,,Bundle of 5 Club Magazines
+LBUMagazineRewardClubDesc,items,Item,,,Bundle of 5 Club Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardHammer,items,Item,,,Bundle of 5 Sledgehammer Magazines
+LBUMagazineRewardHammerDesc,items,Item,,,Bundle of 5 Sledgehammer Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardHarvest,items,Item,,,Bundle of 5 Harvesting Tool Magazines
+LBUMagazineRewardHarvestDesc,items,Item,,,Bundle of 5 Harvesting Tool Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardKnuckes,items,Item,,,Bundle of 5 Knuckles Magazines
+LBUMagazineRewardKnuckesDesc,items,Item,,,Bundle of 5 Knuckles Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardBlade,items,Item,,,Bundle of 5 Blade Magazines
+LBUMagazineRewardBladeDesc,items,Item,,,Bundle of 5 Blade Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardSalvage,items,Item,,,Bundle of 5 Salvage Tool Magazines
+LBUMagazineRewardSalvageDesc,items,Item,,,Bundle of 5 Salvage Tool Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardHandgun,items,Item,,,Bundle of 5 Handgun Magazines
+LBUMagazineRewardHandgunDesc,items,Item,,,Bundle of 5 Handgun Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardShotgun,items,Item,,,Bundle of 5 Shotgun Magazines
+LBUMagazineRewardShotgunDesc,items,Item,,,Bundle of 5 Shotgun Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardRifle,items,Item,,,Bundle of 5 Rifle Magazines
+LBUMagazineRewardRifleDesc,items,Item,,,Bundle of 5 Rifle Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardMachineGun,items,Item,,,Bundle of 5 Machine gun Magazines
+LBUMagazineRewardMachineGunDesc,items,Item,,,Bundle of 5 Machinegun Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardExplosive,items,Item,,,Bundle of 5 Explosives Magazines
+LBUMagazineRewardExplosiveDesc,items,Item,,,Bundle of 5 Explosives Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardRobotics,items,Item,,,Bundle of 5 Robotics Magazines
+LBUMagazineRewardRoboticsDesc,items,Item,,,Bundle of 5 Robotics Magazines. \nUse this item to open and unpack it.
+LBUMagazineRewardMedical,items,Item,,,Bundle of 5 Medical Magazines
+LBUMagazineRewardMedicalDesc,items,Item,,,Bundle of 5 Medical Magazines. \nUse this item to open and unpack it.
 
 buffDebug1,buffs,Buff,,,Stats Gamestage
 buffDebug2,buffs,Buff,,,Biome modifier
