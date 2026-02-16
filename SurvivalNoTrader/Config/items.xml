@@ -1,4 +1,28 @@
 <configs>
+	<!--test code for quests-->
+	<append xpath="/items">
+		<item name="notes_TESTinfested6_Quest">
+			<property name="Tags" value="requestStation"/>
+			<property name="CustomIcon" value="challengeQuestMaster"/>
+			<property name="CustomIconTint" value="A42ACC"/>
+			<property name="ItemTypeIcon" value="quest"/>
+			<property name="DescriptionKey" value="notes_TESTinfested6_QuestDesc"/>
+			<property name="HoldType" value="45"/>
+			<property name="Stacknumber" value="10"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Mcloth"/>
+			<property name="Weight" value="1"/>
+			<property name="Group" value="Notes"/>
+			<property class="Action0">
+				<property name="Class" value="Quest"/>
+				<property name="QuestGiven" value="tier6_clear_infested"/>
+				<property name="Delay" value="0.5"/>
+				<property name="UseAnimation" value="false"/>
+			</property>
+		</item>
+	</append>
+	<!--END test code for quests-->
 	
 	<!-- Adding an additional mod slot to a select group of top tier equipment {Tools,Handweapons,Guns,Military Armour,Steel Armour,Swat Helmet} 
 		 Everything is the same as the base game except for (value=".,.,.,.,.,5" <==this value 5) in each line
@@ -68,138 +92,140 @@
 	</append>	
 	
 	<!-- Clothings sets. All Legendary clothing (except primative) has an extra mod slot (5). 
-			Increase slots from  value="1,1,2,2,3,4" per tier="1,2,3,4,5,6" TO value="1,1,2,3,4,5" per tier="1,2,3,4,5,6"-->
+			Increase slots from  value="1,1,2,2,3,4" per tier="1,2,3,4,5,6" TO value="2,2,3,4,5,6" per tier="1,2,3,4,5,6"-->
 		<append xpath="/items/item[starts-with(@name, 'armorLumberjackHelmet')]/effect_group[starts-with(@name, 'LumberjackHelmet')]">
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorLumberjackOutfit')]/effect_group[starts-with(@name, 'LumberjackOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorLumberjackGloves')]/effect_group[starts-with(@name, 'LumberjackGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorLumberjackBoots')]/effect_group[starts-with(@name, 'LumberjackBoots')]">		
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<!--The Preacher helmet is coded below this as the whole Helmet is replaced-->
 	<append xpath="/items/item[starts-with(@name, 'armorPreacherOutfit')]/effect_group[starts-with(@name, 'PreacherOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorPreacherGloves')]/effect_group[starts-with(@name, 'PreacherGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorPreacherBoots')]/effect_group[starts-with(@name, 'PreacherBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorRogueHelmet')]/effect_group[starts-with(@name, 'RogueHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRogueOutfit')]/effect_group[starts-with(@name, 'RogueOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRogueGloves')]/effect_group[starts-with(@name, 'RogueGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRogueBoots')]/effect_group[starts-with(@name, 'RogueBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 		
 	<!--The Athletic helmet modslots are coded below this as the whole Helmet is replaced-->
 	<append xpath="/items/item[starts-with(@name, 'armorAthleticOutfit')]/effect_group[starts-with(@name, 'AthleticOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorAthleticGloves')]/effect_group[starts-with(@name, 'AthleticGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorAthleticBoots')]/effect_group[starts-with(@name, 'AthleticBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<!--The Ranger helmet is coded below this as the whole Helmet is replaced-->
 	<append xpath="/items/item[starts-with(@name, 'armorEnforcerOutfit')]/effect_group[starts-with(@name, 'EnforcerOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorEnforcerGloves')]/effect_group[starts-with(@name, 'EnforcerGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorEnforcerBoots')]/effect_group[starts-with(@name, 'EnforcerBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorFarmerHelmet')]/effect_group[starts-with(@name, 'FarmerHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorFarmerOutfit')]/effect_group[starts-with(@name, 'FarmerOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorFarmerGloves')]/effect_group[starts-with(@name, 'FarmerGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorFarmerBoots')]/effect_group[starts-with(@name, 'FarmerBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorBikerHelmet')]/effect_group[starts-with(@name, 'BikerHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorBikerOutfit')]/effect_group[starts-with(@name, 'BikerOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorBikerGloves')]/effect_group[starts-with(@name, 'BikerGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorBikerBoots')]/effect_group[starts-with(@name, 'BikerBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorScavengerHelmet')]/effect_group[starts-with(@name, 'ScavengerHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorScavengerOutfit')]/effect_group[starts-with(@name, 'ScavengerOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorScavengerGloves')]/effect_group[starts-with(@name, 'ScavengerGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorScavengerBoots')]/effect_group[starts-with(@name, 'ScavengerBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<!--The Ranger helmet is coded below this as the whole Helmet is replaced-->
 	<append xpath="/items/item[starts-with(@name, 'armorRangerOutfit')]/effect_group[starts-with(@name, 'RangerOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRangerGloves')]/effect_group[starts-with(@name, 'RangerGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRangerBoots')]/effect_group[starts-with(@name, 'RangerBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorCommandoHelmet')]/effect_group[starts-with(@name, 'CommandoHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorCommandoOutfit')]/effect_group[starts-with(@name, 'CommandoOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorCommandoGloves')]/effect_group[starts-with(@name, 'CommandoGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorCommandoBoots')]/effect_group[starts-with(@name, 'CommandoBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorAssassinHelmet')]/effect_group[starts-with(@name, 'AssassinHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorAssassinOutfit')]/effect_group[starts-with(@name, 'AssassinOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorAssassinGloves')]/effect_group[starts-with(@name, 'AssassinGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorAssassinBoots')]/effect_group[starts-with(@name, 'AssassinBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorMinerHelmet')]/effect_group[starts-with(@name, 'MinerHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorMinerOutfit')]/effect_group[starts-with(@name, 'MinerOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorMinerGloves')]/effect_group[starts-with(@name, 'MinerGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorMinerBoots')]/effect_group[starts-with(@name, 'MinerBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorNomadHelmet')]/effect_group[starts-with(@name, 'NomadHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorNomadOutfit')]/effect_group[starts-with(@name, 'NomadOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorNomadGloves')]/effect_group[starts-with(@name, 'NomadGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorNomadBoots')]/effect_group[starts-with(@name, 'NomadBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorNerdHelmet')]/effect_group[starts-with(@name, 'NerdHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorNerdOutfit')]/effect_group[starts-with(@name, 'NerdOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorNerdGloves')]/effect_group[starts-with(@name, 'NerdGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorNerdBoots')]/effect_group[starts-with(@name, 'NerdBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 		
 	<append xpath="/items/item[starts-with(@name, 'armorRaiderHelmet')]/effect_group[starts-with(@name, 'RaiderHelmet')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRaiderOutfit')]/effect_group[starts-with(@name, 'RaiderOutfit')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRaiderGloves')]/effect_group[starts-with(@name, 'RaiderGloves')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
 	<append xpath="/items/item[starts-with(@name, 'armorRaiderBoots')]/effect_group[starts-with(@name, 'RaiderBoots')]">	
-		<passive_effect name="ModSlots" operation="base_set" value="1,1,2,3,4,5" tier="1,2,3,4,5,6"/> </append>
+		<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/> </append>
+	<!-- END Clothings sets-->
+	
 	<!--end mod slot changes-->
 	
 	<!-- make some use from oldCash (as cant be sold) - give it 30 vs burning power of wood (wood is 50)-->
@@ -232,7 +258,7 @@
 			<property name="SoundPickup" value="headwear_cloth_grab"/>
 			<property name="SoundPlace" value="headwear_cloth_place"/>
 			<effect_group name="AthleticHelmet">
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/>
 				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
@@ -283,7 +309,7 @@
 			<property name="SoundPickup" value="headwear_cloth_grab"/>
 			<property name="SoundPlace" value="headwear_cloth_place"/>
 			<effect_group name="PreacherHelmet">
-				<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+				<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/>
 				<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
 				<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
@@ -331,7 +357,7 @@
 				<property name="SoundPickup" value="headwear_sunglasses_grab"/>
 				<property name="SoundPlace" value="headwear_sunglasses_place"/>
 				<effect_group name="EnforcerHelmet">
-					<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+					<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/>
 					<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
 					<passive_effect name="PhysicalDamageResist" operation="base_add" value="8,12.3" tier="1,6"/>
 					<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
@@ -379,7 +405,7 @@
 				<property name="SoundPickup" value="headwear_cloth_grab"/>
 				<property name="SoundPlace" value="headwear_cloth_place"/>
 				<effect_group name="RangerHelmet">
-					<passive_effect name="ModSlots" operation="base_set" value="1,1,2,2,3,4" tier="1,2,3,4,5,6"/>
+					<passive_effect name="ModSlots" operation="base_set" value="2,2,3,4,5,6" tier="1,2,3,4,5,6"/>
 					<passive_effect name="ModPowerBonus" operation="base_add" value="300" tags="EconomicValue"/>
 					<passive_effect name="PhysicalDamageResist" operation="base_add" value="13,17.3" tier="1,6"/>
 					<passive_effect name="PhysicalDamageResist" operation="base_add" value="-.2,.2"/>
@@ -1455,6 +1481,7 @@
 		<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
 	</append>
 	<!--do the full jailbreakers as adding lock pick time reduction as well-->
+
 	<set xpath ="items/item[@name='drugJailBreakers']">
 		<property name="Extends" value="drugAtomJunkies"/>
 		<property name="DisplayType" value="drugJailBreakers"/>
@@ -1471,8 +1498,8 @@
 
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="5"/>
 			<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
-			
 		</effect_group>
+
 	</set>
 	<!--end modify the Kandy bars to be able to be unlocked and group them-->
 	
@@ -3146,7 +3173,7 @@
 			<!--the book uses the same description as the buff that is received by reading the book-->
 			<property name="DescriptionKey" value="buffInterloperRewardBookOneDesc"/>
 			<property name="CustomIcon" value="cntBookPile05"/>
-			<property name="CustomIconTint" value="42C234"/>
+			<property name="CustomIconTint" value="255,152,152"/>
 			<property name="Stacknumber" value="1"/>
 			<effect_group tiered="false">
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookOne"/>
@@ -3156,7 +3183,7 @@
 			<property name="Extends" value="schematicMaster"/>
 			<property name="DescriptionKey" value="buffInterloperRewardBookTwoDesc"/>
 			<property name="CustomIcon" value="cntBookPile07"/>
-			<property name="CustomIconTint" value="42C234"/>
+			<property name="CustomIconTint" value="0,171,255"/>
 			<property name="Stacknumber" value="1"/>
 			<effect_group tiered="false">
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookTwo"/>
@@ -3166,7 +3193,7 @@
 			<property name="Extends" value="schematicMaster"/>
 			<property name="DescriptionKey" value="buffInterloperRewardBookThreeDesc"/>
 			<property name="CustomIcon" value="cntBookPile11"/>
-			<property name="CustomIconTint" value="42C234"/>
+			<property name="CustomIconTint" value="0,255,171"/>
 			<property name="Stacknumber" value="1"/>
 			<effect_group tiered="false">
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookThree"/>
@@ -3176,7 +3203,7 @@
 			<property name="Extends" value="schematicMaster"/>
 			<property name="DescriptionKey" value="buffInterloperRewardBookFourDesc"/>
 			<property name="CustomIcon" value="cntBookPile14"/>
-			<property name="CustomIconTint" value="42C234"/>
+			<property name="CustomIconTint" value="230,229,0"/>
 			<property name="Stacknumber" value="1"/>
 			<effect_group tiered="false">
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffInterloperRewardBookFour"/>
@@ -3794,25 +3821,23 @@
 			</property>
 		</item>		-->
 		<item name="challengeRewardLegendaryMeleeWeaponChoice">
-			<property name="CustomIcon" value="cntLootCrateBookstore"/>
-			<!--<property name="CustomIconTint" value="232,103,103"/> -->
+			<property name="CustomIcon" value="bundleMeleeMods"/>
+			<property name="CustomIconTint" value="143,203,143"/>
 			<property name="DescriptionKey" value="challengeRewardLegendaryMeleeWeaponBundleDesc"/>
 			<property name="HoldType" value="45"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
-			<property name="Weight" value="1"/>
 			<property name="Material" value="Mpaper"/>
 			<property name="Stacknumber" value="10"/> <!-- STK loot -->
 			<property name="Group" value="Resources"/>
 		</item>
 		<item name="challengeRewardLegendaryRangedWeaponChoice">
-			<property name="CustomIcon" value="cntLootCrateBookstore"/>
-			<!--<property name="CustomIconTint" value="232,103,103"/> -->
+			<property name="CustomIcon" value="bundleRangedMods"/>
+			<property name="CustomIconTint" value="143,203,143"/>
 			<property name="DescriptionKey" value="challengeRewardLegendaryRangedWeaponBundleDesc"/>
 			<property name="HoldType" value="45"/>
 			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
 			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
-			<property name="Weight" value="1"/>
 			<property name="Material" value="Mpaper"/>
 			<property name="Stacknumber" value="10"/> <!-- STK loot -->
 			<property name="Group" value="Resources"/>

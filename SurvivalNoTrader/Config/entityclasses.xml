@@ -482,6 +482,7 @@
 			 EntityLootContainerHomingPigeon1 with lootbag homingPigeonDelivery1 (defined in loot.xml)-->
 		<entity_class name="EntityHomingPigeon1">
 			<property name="Class" value="EntityLootContainer"/>
+			<property name="NavObject" value="trackingGeneralPigeonLoot" />
 			<property name="UserSpawnType" value="Console"/>
 			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
 			<property name="ModelType" value="Custom"/>
@@ -497,6 +498,7 @@
 			 EntityLootContainerHomingPigeon2 with lootbag homingPigeonDelivery2 (defined in loot.xml)-->
 		<entity_class name="EntityHomingPigeon2">
 			<property name="Class" value="EntityLootContainer"/>
+			<property name="NavObject" value="trackingGeneralPigeonLoot" />
 			<property name="UserSpawnType" value="Console"/>
 			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
 			<property name="ModelType" value="Custom"/>
@@ -512,6 +514,7 @@
 			 EntityLootContainerHomingPigeon3 with lootbag homingPigeonDelivery3 (defined in loot.xml)-->
 		<entity_class name="EntityHomingPigeon3">
 			<property name="Class" value="EntityLootContainer"/>
+			<property name="NavObject" value="trackingGeneralPigeonLoot" />
 			<property name="UserSpawnType" value="Console"/>
 			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
 			<property name="ModelType" value="Custom"/>
@@ -526,6 +529,7 @@
 			 EntityLootContainerHomingPigeon4 with lootbag homingPigeonDelivery4 (defined in loot.xml)-->
 		<entity_class name="EntityHomingPigeon4">
 			<property name="Class" value="EntityLootContainer"/>
+			<property name="NavObject" value="trackingGeneralPigeonLoot" />
 			<property name="UserSpawnType" value="Console"/>
 			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
 			<property name="ModelType" value="Custom"/>
@@ -562,7 +566,7 @@
 		<entity_class name="basicPigeonTemplate" extends="animalZombieVulture">
 			<property name="UserSpawnType" value="Menu"/>
 			<property name="Tags" value="entity,animal,zombie,hostile,vulture,pigeon"/>
-			
+			<property name="NavObject" value="trackingGeneralPigeon" />
 			<property name="Mass" value="25"/> <!--35-->
 			<property name="SizeScale" value="0.40"/> <!--0.7-->
 			<!--<property name="ParticleOnSpawn" value="@:ParticleEffects/RadiatedParticlesOnMesh.prefab" param1="SetShapeToMesh0"/>-->
@@ -608,6 +612,7 @@
 			 Need a different pigeon defined for each different delivery drop-->
 		<entity_class name="animalHomingPigeonOne" extends="homingPigeonTemplate">
 			<property name="LootDropEntityClass" value="EntityHomingPigeon1"/> 
+			<property name="NavObject" value="trackingGeneralPigeon" />
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2"/> 
 			<drop event="Harvest" name="resourceFeather" tag="butcherHarvest" count="15"/>
@@ -618,6 +623,7 @@
 		<!-- Second pigeon with next delivery package -->
 		<entity_class name="animalHomingPigeonTwo" extends="homingPigeonTemplate">
 			<property name="LootDropEntityClass" value="EntityHomingPigeon2"/>
+			<property name="NavObject" value="trackingGeneralPigeon" />
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2"/> 
 			<drop event="Harvest" name="resourceFeather" tag="butcherHarvest" count="15"/>
@@ -628,6 +634,7 @@
 		<!-- third pigeon with next delivery package -->
 		<entity_class name="animalHomingPigeonThree" extends="homingPigeonTemplate">
 			<property name="LootDropEntityClass" value="EntityHomingPigeon3"/>
+			<property name="NavObject" value="trackingGeneralPigeon" />
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2"/> 
 			<drop event="Harvest" name="resourceFeather" tag="butcherHarvest" count="15"/>
@@ -637,6 +644,7 @@
 		<!-- Fourth pigeon with next delivery package -->
 		<entity_class name="animalHomingPigeonFour" extends="homingPigeonTemplate">
 			<property name="LootDropEntityClass" value="EntityHomingPigeon4"/>
+			<property name="NavObject" value="trackingGeneralPigeon" />
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRottingFlesh" tag="butcherHarvest" count="2"/> 
 			<drop event="Harvest" name="resourceFeather" tag="butcherHarvest" count="15"/>

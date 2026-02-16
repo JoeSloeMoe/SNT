@@ -1,10 +1,6 @@
  <configs>
 	 <!--Reduces Plague Spitter to 1/4 of default spawns, reduces rate of spawns as well.
 		Reduces Frost Claw to 1/4 of default spawns, reduces rate of spawns as well.
-
-		See challenges.xml: To compensate for reduced spawns
-		Reduces biome badge ‘Kill’ requirement for Plague Spitter from 10 to 6;
-		Reduces biome badge ‘Kill’ requirement for Frost Claw from 15 to 9;
 	-->
 	<remove xpath="entitygroups/entitygroup[@name='ZombiesDesertNight']"/>
 	<remove xpath="entitygroups/entitygroup[@name='ZombiesDesert']"/>
@@ -13,51 +9,39 @@
 	
 	<insertAfter xpath="entitygroups/entitygroup[@name='ZombiesBurntForestNight']">
 		<entitygroup name="ZombiesDesert">
-			zombiePlagueSpitter, 0.25
+			zombieRancher, 0.25
 			zombieSteveCrawler, .05
 			zombieBiker, .1
-			zombiePartyGirl, .1
 			zombieUtilityWorker, .1
 			zombieJanitor, .1
-			zombieLumberjack, .1
-			zombieNurse, .1
-			zombieFatHawaiian, .1
+			zombieFatHawaiian, .15
 		</entitygroup>
 
 		<entitygroup name="ZombiesDesertNight">
-			zombiePlagueSpitter, .03
-			zombiePlagueSpitterFeral, .1
+			zombieRancher, .03
+			zombieRancherFeral, .1
+			zombieBiker, .2
 			zombieBikerFeral, .1
-			zombiePartyGirl, .1
 			zombieUtilityWorker, .1
-			zombieJanitor, .1
-			zombieLumberjack, .1
-			zombieNurse, .1
+			zombieJanitorFeral, .1
 		</entitygroup>
 
 		<!-- *** BIOME_ZOMBIES_SNOW_GROUP -->
 		<entitygroup name="ZombiesSnow">
-			zombieFrostclaw, 0.25
-			zombieLumberjack, .05
+			zombieChuck, 0.25
+			zombieLumberjack, .2
 			zombieBiker, .1
-			zombiePartyGirl, .1
-			zombieUtilityWorker, .1
+			zombieMoe, .1
 			zombieJanitor, .1
-			zombieLumberjack, .1
-			zombieNurse, .1
-			zombieFatHawaiian, .1
 		</entitygroup>
 
 		<entitygroup name="ZombiesSnowNight">
-			zombieFrostclaw, 0.3
-			zombieFrostclawFeral, .1
-			zombieLumberjack, .05
-			zombieLumberjackFeral, .05
-			zombieBikerFeral, .1
-			zombieUtilityWorker, .1
-			zombieJanitor, .1
-			zombieLumberjack, .1
-			zombieFatHawaiian, .1
+			zombieChuck, 0.3
+			zombieChuckFeral, .1
+			zombieLumberjack, .2
+			zombieLumberjackFeral, .1
+			zombieMoe, .1
+			zombieMoeFeral, .1
 		</entitygroup>
 	</insertAfter>	
 	

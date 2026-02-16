@@ -440,8 +440,8 @@
 				</effect_group>
 
 				<effect_group>
-					<passive_effect name="LockPickBreakChance" operation="perc_subtract" value="2"/>
-					<passive_effect name="LockPickTime" operation="perc_set" value="0.03"/>
+					<passive_effect name="LockPickTime" operation="perc_add" value="-.95" />
+					<passive_effect name="LockPickBreakChance" operation="perc_add" value="-3" />
 				</effect_group>
 			</buff>
 		</insertAfter>
@@ -512,7 +512,7 @@
 				<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$firstPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
 			</effect_group>
-			
+			<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFirstPigeonDelivery"/>
 			<effect_group>
 				<!--Spawn the first pigeon - this can run multiple times of the person doesnt receive the delivery from the pigeon-->
 				<requirement name="PlayerLevel" operation="GTE" value="@firstPigeonLevel"/>
@@ -563,7 +563,11 @@
 					<requirement name="CVarCompare" cvar="firstPigeonMsgReceived" operation="LT" value="1"/> 
 						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$firstPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
 			</effect_group>
-				
+			<effect_group>
+				<!--remove the pigeon tracking buff-->
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffTrackPigeons">
+					<requirement name="HasBuff" buff="buffTrackPigeons"/></triggered_effect>
+			</effect_group>
 		</buff>
 		
 		<!--buff that sends out the second pigeon - if the  delivery is not received it will resend the pigeon-->
@@ -573,6 +577,7 @@
 			<effect_group>
 				<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$secondPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
+				
 			</effect_group>
 			
 			<effect_group>
@@ -625,7 +630,11 @@
 					<requirement name="CVarCompare" cvar="secondPigeonMsgReceived" operation="LT" value="1"/> 
 						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$secondPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
 			</effect_group>
-
+			<effect_group>
+				<!--remove the pigeon tracking buff-->
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffTrackPigeons">
+					<requirement name="HasBuff" buff="buffTrackPigeons"/></triggered_effect>
+			</effect_group>
 		</buff>
 		
 		<!--buff that sends out the third pigeon - if the delivery is not received it will resend the pigeon-->
@@ -636,6 +645,7 @@
 			<!--this buff is trigerred when a player levels, pigeon spawn is delayed so the spawn is not instant when the player levels-->
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$thirdPigeonSpawnCountdown" operation="set" value="randomint(60,180)"/>  <!--this is in seconds. Default 60, 180-->
+				
 			</effect_group>
 			
 			<effect_group>
@@ -688,7 +698,11 @@
 					<requirement name="CVarCompare" cvar="thirdPigeonMsgReceived" operation="LT" value="1"/> 
 						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$thirdPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
 			</effect_group>
-
+			<effect_group>
+				<!--remove the pigeon tracking buff-->
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffTrackPigeons">
+					<requirement name="HasBuff" buff="buffTrackPigeons"/></triggered_effect>
+			</effect_group>
 		</buff>
 		
 		<!--buff that send out the fourth pigeon - if the delivery is received it will resend the pigeon-->
@@ -748,9 +762,22 @@
 					<requirement name="CVarCompare" cvar="fourthPigeonMsgReceived" operation="LT" value="1"/> 
 						<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$fourthPigeonSpawnCountdown" operation="subtract" value="@$MetabolismDuration"/>
 			</effect_group>
-
+			<effect_group>
+				<!--remove the pigeon tracking buff-->
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveBuff" buff="buffTrackPigeons">
+					<requirement name="HasBuff" buff="buffTrackPigeons"/></triggered_effect>
+			</effect_group>
 		</buff>
 		
+		<!--This buff tracks the Pigeons added at the start of each pigeon spawning buff and removed when the buffs are complete
+			(e.g buffFirstPigeonDelivery, buffSecondPigeonDelivery etc.) -->
+		<buff name="buffTrackPigeons" hidden="true" remove_on_death="false">
+			<stack_type value="ignore"/>
+			<duration value="0"/>
+			<effect_group>
+				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingGeneralPigeon,trackingGeneralPigeonLoot"/>
+			</effect_group>
+		</buff>	
 		
 		<!--buff that manages the PigeonsCarryDiseases story and the start of the Interloper story which is delivered by the third pigeon.
 			See buffStatusCheck01 for variable initialisation-->
@@ -765,8 +792,11 @@
 				<requirement name="PlayerLevel" operation="GTE" value="@firstPigeonLevel"/>
 				<!--check if already done-->
 				<requirement name="CVarCompare" cvar="firstPigeonDeliveryComplete" operation="LT" value="1"/>
-				<!--check if in the process of being done-->
+				<!--check if in the process of being done-->	
 				<requirement name="!HasBuff" buff="buffFirstPigeonDelivery"/>
+					<!--add the pigeon tracking buff, buff will be removed when buffFirstPigeonDelivery completes -->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffTrackPigeons">
+						<requirement name="!HasBuff" buff="buffTrackPigeons"/></triggered_effect>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffFirstPigeonDelivery"/>
 			</effect_group>
 			
@@ -777,6 +807,9 @@
 				<requirement name="CVarCompare" cvar="firstPigeonDeliveryComplete" operation="GTE" value="1"/>
 				<requirement name="CVarCompare" cvar="secondPigeonDeliveryComplete" operation="LT" value="1"/> 
 				<requirement name="!HasBuff" buff="buffSecondPigeonDelivery"/>
+					<!--add the pigeon tracking buff, buff will be removed when buffSecondPigeonDelivery completes -->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffTrackPigeons">
+						<requirement name="!HasBuff" buff="buffTrackPigeons"/></triggered_effect>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffSecondPigeonDelivery"/>
 			</effect_group>
 			
@@ -787,6 +820,9 @@
 				<requirement name="CVarCompare" cvar="secondPigeonDeliveryComplete" operation="GTE" value="1"/> 
 				<requirement name="CVarCompare" cvar="thirdPigeonDeliveryComplete" operation="LT" value="1"/>
 				<requirement name="!HasBuff" buff="buffThirdPigeonDelivery"/>
+					<!--add the pigeon tracking buff, buff will be removed when buffThirdPigeonDelivery completes -->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffTrackPigeons">
+						<requirement name="!HasBuff" buff="buffTrackPigeons"/></triggered_effect>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffThirdPigeonDelivery"/>
 			</effect_group>
 			
@@ -797,6 +833,9 @@
 				<requirement name="CVarCompare" cvar="thirdPigeonDeliveryComplete" operation="GTE" value="1"/> 
 				<requirement name="CVarCompare" cvar="fourthPigeonDeliveryComplete" operation="LT" value="1"/>
 				<requirement name="!HasBuff" buff="buffFourthPigeonDelivery"/>
+					<!--add the pigeon tracking buff, buff will be removed when buffFourthPigeonDelivery completes -->
+					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffTrackPigeons">
+						<requirement name="!HasBuff" buff="buffTrackPigeons"/></triggered_effect>
 					<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffFourthPigeonDelivery"/>
 			</effect_group>
 			
@@ -1291,8 +1330,8 @@
 			e.g. Increase max health by 20, increase GameStage by 20 (may not be a actual book in game, is just an example)-->
 		
 		<!--First book -->
-		<buff name="buffInterloperRewardBookOne" name_key="buffInterloperRewardBookOne" description_key="buffInterloperRewardBookOneDesc" remove_on_death="false" >
-			<stack_type value="ignore"/>
+		<buff name="buffInterloperRewardBookOne" name_key="buffInterloperRewardBookOne" description_key="buffInterloperRewardBookOneDesc" remove_on_death="false" icon="ui_game_symbol_challenge_crafting_read_magazine" showonhud="false"  icon_color="255,152,152">
+			<stack_type value="ignore"/> 
 			<duration value="0"/>
 			<effect_group>
 				<!--increase Max Health-->
@@ -1307,9 +1346,8 @@
 			</effect_group>
 		</buff>
 		<!--Second book -->
-		<buff name="buffInterloperRewardBookTwo" name_key="buffInterloperRewardBookTwo" description_key="buffInterloperRewardBookTwoDesc" remove_on_death="false" >
+		<buff name="buffInterloperRewardBookTwo" name_key="buffInterloperRewardBookTwo" description_key="buffInterloperRewardBookTwoDesc" remove_on_death="false" icon="ui_game_symbol_challenge_crafting_read_magazine" showonhud="false"  icon_color="0,171,255">
 			<stack_type value="ignore"/>
-			<duration value="0"/>
 			<effect_group>
 				<passive_effect name="StaminaMax" operation="base_add" value="50"/>
 				<!--Stamina Regen increase-->
@@ -1321,7 +1359,7 @@
 			</effect_group>
 		</buff>
 		<!--Third  book -->
-		<buff name="buffInterloperRewardBookThree" name_key="buffInterloperRewardBookThree" description_key="buffInterloperRewardBookThreeDesc" remove_on_death="false" >
+		<buff name="buffInterloperRewardBookThree" name_key="buffInterloperRewardBookThree" description_key="buffInterloperRewardBookThreeDesc" remove_on_death="false" icon="ui_game_symbol_challenge_crafting_read_magazine" showonhud="false"  icon_color="0,255,171">
 			<stack_type value="ignore"/>
 			<duration value="0"/>
 			<effect_group>
@@ -1338,7 +1376,7 @@
 			</effect_group>
 		</buff>
 		<!--Fourth book -->
-		<buff name="buffInterloperRewardBookFour" name_key="buffInterloperRewardBookFour" description_key="buffInterloperRewardBookFourDesc" remove_on_death="false" >
+		<buff name="buffInterloperRewardBookFour" name_key="buffInterloperRewardBookFour" description_key="buffInterloperRewardBookFourDesc" remove_on_death="false" icon="ui_game_symbol_challenge_crafting_read_magazine" showonhud="false"  icon_color="219,218,0">
 			<stack_type value="ignore"/>
 			<duration value="0"/>
 			<effect_group>
@@ -1383,7 +1421,9 @@
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperStoryFinalCountdown" operation="set" value="randomint(3600,7800)"/> <!--default 3600(60min), 7800(130min) - 60min==default 7dtd day length-->
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperStoryFinalCountdownStarted" operation="set" value="1"/> 
-				3
+				<!--turn off the second message, else the player can repeat the quest after success-->
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSecondSpyMsgReceived" operation="set" value="0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="interloperSpyMsgAvailable" operation="set" value="0"/>
 			</effect_group>
 			
 			<!--remove this buff as only used to set the above vars-->
@@ -1421,12 +1461,12 @@
 			See entityclasses.xml & nav_objects.xml.
 			For Magrat's Left Eye - Mary's revenge story.
 			This effect is permanent. -->
-		<buff name="buff_MagratsLeftEye" name_key="buff_MagratsLeftEye" description_key="buff_MagratsLeftEyeDesc" remove_on_death="false" >
+		<buff name="buff_MagratsLeftEye" name_key="buff_MagratsLeftEye" description_key="buff_MagratsLeftEyeDesc" remove_on_death="false" icon="ui_game_symbol_stealth" showonhud="false" icon_color="255,179,0">
 			<stack_type value="ignore"/>
 			<duration value="0"/>
 			<effect_group>
 				<passive_effect name="Tracking" operation="base_set" value="1" tags="trackingSNT"/>
-				<passive_effect name="GameStage" operation="base_add" value="10"/>
+				<passive_effect name="GameStage" operation="base_add" value="15"/>
 			</effect_group>
 		</buff>	
 
@@ -1436,8 +1476,8 @@
 			<duration value="0"/>
 			<!--remove  buff_MagratsLeftEye-->
 			<effect_group>
-				<requirement name="HasBuff" buff="buff_MagratsLeftEye"/>
-					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buff_MagratsLeftEye" />
+					<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff" buff="buff_MagratsLeftEye" >
+						<requirement name="HasBuff" buff="buff_MagratsLeftEye"/></triggered_effect>
 			</effect_group>
 			<!--remove self-->
 			<effect_group>
@@ -1655,7 +1695,7 @@
 		<!-- this buff is given to the player when they start a game - see buff ADDCONTROLLERBUFF below -->
 		<!-- Keeps track of various game counters e.g. number of zombie kills.
 			 Uses this info to set off events in game e.g. Give player 'Mary's Revenge Bundle' for 4000 zombie kills -->
-		<buff name="buffGameEventController" name_key="buffGameEventController" description_key="buffGameEventControllerDesc">
+		<buff name="buffGameEventController" name_key="buffGameEventController" description_key="buffGameEventControllerDesc" icon="ui_game_symbol_zombie" showonhud="false" >
 			<stack_type value="replace"/>
 			<duration value="0"/>
 			<display_value value=".buffGameEventControllerDisplay"/>
@@ -1693,12 +1733,22 @@
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="solarBankRecipeUnlocked" operation="add" value="1" />
 					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="solarBankUnlocked"/>
 			</effect_group>
+			<!--tracking whether the traders can offer level 6 jobs, see TRADER_JOBS comment in player config settings 
+					If showTraderJobs is true, the player has set the trader to display level 6 jobs in config settings.
+					Only make level 6 jobs available to player when triggered and
+					If not already displayed to player-->
+			<!--<effect_group>
+				<requirement name="CVarCompare" cvar="showTraderJobs" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="showTraderJobsTriggered" operation="GTE" value="1"/>
+				<requirement name="CVarCompare" cvar="showTraderJobsAvailable" operation="LTE" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="traderQuestsEnabled" operation="set" value="1"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="showTraderJobsAvailable" operation="add" value="1" />
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message_key="traderJobsUnlocked"/>
+			</effect_group>-->
 			
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0"/>
-				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar=".buffGameEventControllerDisplay" operation="set" value="0" />
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0"/>
-				<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$numZombieKillsControl" operation="set" value="0" />
 			</effect_group>
 			
 			<effect_group>			
@@ -1751,7 +1801,7 @@
 				It gets deleted on death as the Number of Zombie Kills counter gets reset on death-->
 		<effect_group>
 			<requirement name="!HasBuff" buff="buffGameEventController"/>
-				<triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="buffGameEventController"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffGameEventController"/>
 				<!--<triggered_effect trigger="onSelfBuffStack" action="AddBuff" buff="buffGameEventController"/>-->
 		</effect_group>
 		
@@ -1768,9 +1818,37 @@
 			<requirement name="!HasBuff" buff="buffCrouchAimingEffects"/>
 				<triggered_effect trigger="onSelfEnteredGame" action="AddBuff" buff="buffCrouchAimingEffects"/>
 		</effect_group>
-	
+		<effect_group>
 <!--PLAYER CONFIG VARIABLES-->		
+			<!-- the player can choose to have the traders give level 6 quests at a certain point in the game.
+				This is generally so that late game the player can squeeze some aditional play time when they are high level-->
+			<!--showTraderJobs: if set to 0 trader wont show any level 6 jobs.
+				Set one or more of the following variables and the trader will display level 6 jobs when the target is reached.
+				If more than one var is set larger than 0 then its whichever target is reached first
+				Set to 0 to not use a particular var.
+				showTraderJobsLevel: show trader level 6 jobs when player is this level
+				showTraderJobsKills: show trader Level 6 jobs after this many zombie kills
+				showTraderJobsDays: show trader Level 6 jobs after this many in-game days
+				showTraderJobsBloodmoons: show trader Level 6 jobs after this many bloodmoons
+				resetTraderJobsTriggersOnDeath: when set to 1 then showTraderJobsKills,showTraderJobsDays,showTraderJobsBloodmoons counts are seset to 0 on player death.
+											showTraderJobsLevel is not reset as thats the players level and its not affected by death. 
+			-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="showTraderJobs" operation="set" value="1"/> <!--turn on or off default:1-->
+			<!--TRIGGERS-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="showTraderJobsLevel" operation="set" value="60"/> <!-- player level default:60-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="showTraderJobsKills" operation="set" value="4500"/> <!--number zombie kills default:4500-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="showTraderJobsDays" operation="set" value="35"/> <!--number of in-game days passed default:35-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="showTraderJobsBloodmoons" operation="set" value="5"/> <!-- number of bloodmoons default:5-->
+			<!--End Triggers-->
+			<!--test code-->
+			<!--<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="traderQuestsEnabled" operation="set" value="0"/> -->
 			
+			<!--end test code-->
+			
+			
+			<!--reset most triggers (except showTraderJobsLevel) on death-->
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="resetTraderJobsTriggersOnDeath" operation="set" value="0"/> <!--default:0-->
+		</effect_group>
 <!--GRIM TALES PLAYER CONFIG VARIABLES-->
 		
 		<!--Mary's Revenge-->
@@ -1829,6 +1907,29 @@
 			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="pigeonSpawnAttempts" operation="set" value="5"/> <!-- default: 5-->
 		</effect_group>
 		<!-- END pigeons carry diseases variable initialisation-->
+		
+		<!--In v2.5 any buff has to be shown in the game ui (e.g. as a counter in the bottom left corner of the screen) if it is also to be 
+			displayed in the player's status screen (where the player views currently applied buffs and their effects). Before 2.5 
+			a buff and it description could be displayed in the status screen without being displayed in the bottom left of the game ui.
+			
+			For all permanent buffs using an example: 
+			e.g. The buffs for the various Plissken books are permanent buffs and there are 4 of them. 
+			Having them display on the game screen for the rest of the game clutters the interface. To deal with this,
+			each Plissken book has 2 associated buffs. The first main buff will initiate a secondary support buff that displays the book's effect's 
+			description in the game ui as well as the status screen and is visisble for buffEffectDisplayTime seconds. 
+			This allows the player to review the active effects of the buffs when they read the book but the secondary support buffs will go away after 10 or so minutes.
+			The first buff main buff is the permanent one but is no longer visible in the ui or the status screen. 
+			
+			The buffs effect's description displayed on the status screen (displayed by the support buffs) includes text something like
+			"This buff is permanent. This status description and the icon on the ui may be removed after some time but the effects will remain."
+			
+			The buffEffectDisplayTime variable below is the amount of time the secondary support buff remains on the ui and the status screens.
+			Set to 0 for the effects to be permanently displayed int he ui and status window for viewing.
+		-->
+		<effect_group>
+			<triggered_effect trigger="onSelfEnteredGame" action="ModifyCVar" cvar="buffEffectDisplayTime" operation="set" value="603"/> <!--10 min-->   
+		</effect_group>
+		
 <!--END GRIM TALES PLAYER CONFIG VARIABLES-->
 <!--END START GRIM TALES CODE-->
 	</append>

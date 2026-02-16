@@ -553,7 +553,7 @@
 					<property name="added_item_counts" value="1"/>
 			</action>
 			<action class="PlaySound">
-				<property name="sound" value="quest_restore_power_complete" />
+				<property name="sound" value="quest_restore_power_complete" /> <!--read_recipe-->
 			</action>
 			<action class="BeltTooltip"> 
 				<property name="text" value="Quest Test Action" />

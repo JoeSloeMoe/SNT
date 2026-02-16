@@ -7,6 +7,11 @@
 	<append xpath="/item_modifiers/item_modifier[@name='modArmorIntellect']"><property name="Weight" value="334"/></append>
 	<append xpath="/item_modifiers/item_modifier[@name='modArmorTreasureHunter']"><property name="Weight" value="334"/></append>
 	<append xpath="/item_modifiers/item_modifier[@name='modArmorNightVision']"><property name="Weight" value="334"/></append>
+	
+	<!--cant scrap modArmorInsulatedLinerT1/T2/T3 for some reason even thought they are cloth so add weight to force scrap option-->
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorInsulatedLinerT1']"><property name="Weight" value="20"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorInsulatedLinerT2']"><property name="Weight" value="20"/></append>
+	<append xpath="/item_modifiers/item_modifier[@name='modArmorInsulatedLinerT3']"><property name="Weight" value="20"/></append>
 	<!--end add weight for scrap-->
 	
 	<!--change the effect of cigars from trade specific to block damage

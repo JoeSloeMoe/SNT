@@ -54,7 +54,7 @@
 		</lootprobtemplate>
 	</insertBefore>
 	<!--overwrite exisitng prop templates for legendary parts with above template-->
-	<set xpath="/lootcontainers/lootgroup[@name='groupArmorParts']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
+	<set xpath="/lootcontainers/lootgroup[@name='groupArmorParts03']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
 	<set xpath="/lootcontainers/lootgroup[@name='groupArmorPartsChests']/item[@name='resourceLegendaryParts']/@loot_prob_template">veryVeryLowDelayed</set>
 	<!--END reduce Legendary parts loot drop chance-->
 
@@ -378,7 +378,7 @@
 			<!--this is the generic parts for the mod: rad remover,stun repulsor-->
 			<item group="lootGroupElectricRagdollGeneric" prob="0.08" force_prob="true"/> <!--.08-->
 			<!--the schemtiac for the mod for the recipe-->
-			<item group="lootGroupElectricRagdollSchematic" prob="0.08" force_prob="true"/> <!--.08-->
+			<item group="lootGroupElectricRagdollSchematic" prob="0.10" force_prob="true"/> <!--.10-->
 			
 			<!--chance for a couple solar panels-->
 			<item group="lootgroupPoliceCarSolarPanel" prob="0.08" force_prob="true"/> <!--.08-->
@@ -606,9 +606,9 @@
 		<item name="resourceRawDiamond" count="1" loot_prob_template="medLow"/>
 		<item name="drinkJarGrandpasForgettingElixir" count="1" loot_prob_template="low"/>
 		<!--add chance for a crucible -->
-		<item name="toolForgeCrucible" count="1" loot_prob_template="low"/>
+		<item name="toolForgeCrucible" count="1" prob="0.15" force_prob="true"/>
 		<!--chance for supercorn seed-->
-		<item name="plantedGraceCorn1" count="1,3" prob="0.10" force_prob="true"/>
+		<item name="plantedGraceCorn1" count="2,5" prob="0.10" force_prob="true"/>
 		<!--chance for supercorn seed recipe-->
 		<item name="plantedGraceCorn1Schematic" count="1" prob="0.08" force_prob="true"/>
 		<item name="cntVendingMachine" count="1" prob="0.05" force_prob="true"/>

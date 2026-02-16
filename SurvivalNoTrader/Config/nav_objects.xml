@@ -147,6 +147,66 @@
 			</onscreen_settings>
 		</nav_object_class>
 		
+		<!--nav object for general Pigeons in Carry diseases storyline -->
+		<nav_object_class name="trackingGeneralPigeon">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+			
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="50"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.1,0" /> 
+			</onscreen_settings>
+		</nav_object_class>
+		<!--nav object for general Pigeon's loot bags in Carry diseases storyline -->
+		<nav_object_class name="trackingGeneralPigeonLoot">
+			<property name="requirement_type" value="Tracking" />
+			<property name="use_override_icon" value="false" />
+			
+			<map_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="-1"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="true"/>
+			</map_settings>
+			
+			<compass_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="up_sprite_name" value="ui_game_symbol_enemy_dot_up"/>
+				<property name="down_sprite_name" value="ui_game_symbol_enemy_dot_down"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="50"/>
+				<property name="max_scale_distance" value="32"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="true"/>
+				<property name="icon_clamped" value="false" />
+			</compass_settings>
+
+			<onscreen_settings>
+				<property name="sprite_name" value="ui_game_symbol_enemy_dot"/>
+				<property name="min_distance" value="0"/>
+				<property name="max_distance" value="25"/>
+				<property name="color" value="255,179,0,255"/>
+				<property name="has_pulse" value="false"/>
+				<property name="offset" value="0,1.2,0" /> 
+			</onscreen_settings>
+		</nav_object_class>
 		
 		<!--nav object for the Pigeons Carry diseases storyline final boss-->
 		<nav_object_class name="bossTrackingFinalPigeon">

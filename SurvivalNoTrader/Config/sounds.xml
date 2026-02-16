@@ -43,7 +43,344 @@
 	</append>
 	<!--END found gyro, assassins pistol silencer sound-->
 	
-	<!--remove the data nodes for all opening and closing sounds. This deminishes the Traders presence in the world (as this is a no-trader mod)-->
+	
+	<!--remove refeences to trading, buying or selling from Trader's monologues-->
+	<!--trader bob-->
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_firstgreet']/AudioClip[@Subtitle='trader_bob_firstgreet_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_firstgreet']/AudioClip[@Subtitle='trader_bob_firstgreet_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetaft']/AudioClip[@Subtitle='trader_bob_greetaft_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetaft']/AudioClip[@Subtitle='trader_bob_greetaft_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetaft']/AudioClip[@Subtitle='trader_bob_greetaft_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetaft']/AudioClip[@Subtitle='trader_bob_greetaft_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetbloodmoon']/AudioClip[@Subtitle='trader_bob_greetbloodmoon_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetbloodmoon']/AudioClip[@Subtitle='trader_bob_greetbloodmoon_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeteve']/AudioClip[@Subtitle='trader_bob_greeteve_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeteve']/AudioClip[@Subtitle='trader_bob_greeteve_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeteve']/AudioClip[@Subtitle='trader_bob_greeteve_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeteve']/AudioClip[@Subtitle='trader_bob_greeteve_05']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_17']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_20']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_21']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_22']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_23']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_25']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_27']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_29']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greeting']/AudioClip[@Subtitle='trader_bob_greeting_32']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetmorn']/AudioClip[@Subtitle='trader_bob_greetmorn_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetmorn']/AudioClip[@Subtitle='trader_bob_greetmorn_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetmorn']/AudioClip[@Subtitle='trader_bob_greetmorn_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetnightfall']/AudioClip[@Subtitle='trader_bob_greetnightfall_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetnightfall']/AudioClip[@Subtitle='trader_bob_greetnightfall_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetsick']/AudioClip[@Subtitle='trader_bob_greetsick_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_greetsick']/AudioClip[@Subtitle='trader_bob_greetsick_04']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_idle']/AudioClip[@Subtitle='trader_bob_idle_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_idle']/AudioClip[@Subtitle='trader_bob_idle_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_idle']/AudioClip[@Subtitle='trader_bob_idle_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_idle']/AudioClip[@Subtitle='trader_bob_idle_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_idle']/AudioClip[@Subtitle='trader_bob_idle_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_idle']/AudioClip[@Subtitle='trader_bob_idle_21']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_11']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_19']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_20']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_22']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_23']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_24']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_trade']/AudioClip[@Subtitle='trader_bob_trade_25']"/>
+	<!--END trader bob-->
+	
+	<!--trader hugh-->
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_firstgreet']/AudioClip[@Subtitle='trader_hugh_firstgreet_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_firstgreet']/AudioClip[@Subtitle='trader_hugh_firstgreet_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetaft']/AudioClip[@Subtitle='trader_hugh_greetaft_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetbloodmoon']/AudioClip[@Subtitle='trader_hugh_greetbloodmoon_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetbloodmoon']/AudioClip[@Subtitle='trader_hugh_greetbloodmoon_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetbloodmoon']/AudioClip[@Subtitle='trader_hugh_greetbloodmoon_04']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeteve']/AudioClip[@Subtitle='trader_hugh_greeteve_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeteve']/AudioClip[@Subtitle='trader_hugh_greeteve_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_11']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_19']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_20']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_21']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_23']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_24']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_26']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_30']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_31']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_32']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greeting']/AudioClip[@Subtitle='trader_hugh_greeting_33']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetmorn']/AudioClip[@Subtitle='trader_hugh_greetmorn_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetmorn']/AudioClip[@Subtitle='trader_hugh_greetmorn_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetmorn']/AudioClip[@Subtitle='trader_hugh_greetmorn_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetnightfall']/AudioClip[@Subtitle='trader_hugh_greetnightfall_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetsick']/AudioClip[@Subtitle='trader_hugh_greetsick_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_greetsick']/AudioClip[@Subtitle='trader_hugh_greetsick_05']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_idle']/AudioClip[@Subtitle='trader_hugh_idle_21']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_11']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_21']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_22']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_23']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_26']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_28']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_31']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_32']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_33']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_35']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_37']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_hugh_trade']/AudioClip[@Subtitle='trader_hugh_trade_38']"/>
+	
+	<!--END trader hugh-->
+	<!--Trader Jen-->
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_firstgreet']/AudioClip[@Subtitle='trader_jen_firstgreet_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_firstgreet']/AudioClip[@Subtitle='trader_jen_firstgreet_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetaft']/AudioClip[@Subtitle='trader_jen_greetaft_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetaft']/AudioClip[@Subtitle='trader_jen_greetaft_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetbloodmoon']/AudioClip[@Subtitle='trader_jen_greetbloodmoon_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetbloodmoon']/AudioClip[@Subtitle='trader_jen_greetbloodmoon_05']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_11']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_21']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_24']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_25']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_26']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_27']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_28']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_29']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_30']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_31']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greeting']/AudioClip[@Subtitle='trader_jen_greeting_33']"/>
+
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetmorn']/AudioClip[@Subtitle='trader_jen_greetmorn_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetmorn']/AudioClip[@Subtitle='trader_jen_greetmorn_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetmorn']/AudioClip[@Subtitle='trader_jen_greetmorn_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetsick']/AudioClip[@Subtitle='trader_jen_greetsick_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetsick']/AudioClip[@Subtitle='trader_jen_greetsick_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetsick']/AudioClip[@Subtitle='trader_jen_greetsick_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_greetsick']/AudioClip[@Subtitle='trader_jen_greetsick_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_idle']/AudioClip[@Subtitle='trader_jen_idle_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_idle']/AudioClip[@Subtitle='trader_jen_idle_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_idle']/AudioClip[@Subtitle='trader_jen_idle_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_idle']/AudioClip[@Subtitle='trader_jen_idle_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_idle']/AudioClip[@Subtitle='trader_jen_idle_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_idle']/AudioClip[@Subtitle='trader_jen_idle_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_11']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_12']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_17']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_20']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_22']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_25']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_jen_trade']/AudioClip[@Subtitle='trader_jen_trade_27']"/>
+	<!--End Trader Jen-->
+	
+	
+	<!--Trader Joel-->
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_firstgreet']/AudioClip[@Subtitle='trader_joel_firstgreet_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_firstgreet']/AudioClip[@Subtitle='trader_joel_firstgreet_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetaft']/AudioClip[@Subtitle='trader_joel_greetaft_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetaft']/AudioClip[@Subtitle='trader_joel_greetaft_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetaft']/AudioClip[@Subtitle='trader_joel_greetaft_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetaft']/AudioClip[@Subtitle='trader_joel_greetaft_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetbloodmoon']/AudioClip[@Subtitle='trader_joel_greetbloodmoon_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetbloodmoon']/AudioClip[@Subtitle='trader_joel_greetbloodmoon_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetbloodmoon']/AudioClip[@Subtitle='trader_joel_greetbloodmoon_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetbloodmoon']/AudioClip[@Subtitle='trader_joel_greetbloodmoon_04']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greeteve']/AudioClip[@Subtitle='trader_joel_greeteve_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greeteve']/AudioClip[@Subtitle='trader_joel_greeteve_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greeteve']/AudioClip[@Subtitle='trader_joel_greeteve_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greeteve']/AudioClip[@Subtitle='trader_joel_greeteve_05']"/>
+	
+	<set xpath="/Sounds/SoundDataNode[@name='trader_joel_greeting']">
+		<AudioSource name="@:Sounds/Prefabs/AudioSource_VO_TraderJoel.prefab"/>
+		<Noise ID="1" noise="7" time="3" muffled_when_crouched="0.5"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_greeting_09.wav" Subtitle="trader_joel_greeting_09"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_greeting_32.wav" Subtitle="trader_joel_greeting_32"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_greeting_33.wav" Subtitle="trader_joel_greeting_33"/>
+		<LocalCrouchVolumeScale value="1.0"/> 
+		<CrouchNoiseScale value="0.5"/> 
+		<NoiseScale value="1"/> 
+		<MaxVoices value="10"/> 
+		<MaxRepeatRate value="1.111"/>
+	</set>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetmorn']/AudioClip[@Subtitle='trader_joel_greetmorn_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetmorn']/AudioClip[@Subtitle='trader_joel_greetmorn_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetmorn']/AudioClip[@Subtitle='trader_joel_greetmorn_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetmorn']/AudioClip[@Subtitle='trader_joel_greetmorn_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetnightfall']/AudioClip[@Subtitle='trader_joel_greetnightfall_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetnightfall']/AudioClip[@Subtitle='trader_joel_greetnightfall_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetnightfall']/AudioClip[@Subtitle='trader_joel_greetnightfall_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetsick']/AudioClip[@Subtitle='trader_joel_greetsick_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetsick']/AudioClip[@Subtitle='trader_joel_greetsick_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetsick']/AudioClip[@Subtitle='trader_joel_greetsick_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_greetsick']/AudioClip[@Subtitle='trader_joel_greetsick_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_helpful_tip']/AudioClip[@Subtitle='trader_joel_helpful_tip_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_helpful_tip']/AudioClip[@Subtitle='trader_joel_helpful_tip_08']"/>
+	
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_05']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_17']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_19']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_joel_idle']/AudioClip[@Subtitle='trader_joel_idle_20']"/>
+
+	<set xpath="/Sounds/SoundDataNode[@name='trader_joel_trade']">
+		 <AudioSource name="@:Sounds/Prefabs/AudioSource_VO_TraderJoel.prefab"/>
+		<Noise ID="1" noise="7" time="3" muffled_when_crouched="0.5"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_trade_03.wav" Subtitle="trader_joel_trade_03"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_trade_05.wav" Subtitle="trader_joel_trade_05"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_trade_06.wav" Subtitle="trader_joel_trade_06"/>
+		<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_trade_09.wav" Subtitle="trader_joel_trade_09"/>
+		<LocalCrouchVolumeScale value="1.0"/> 
+		<CrouchNoiseScale value="0.5"/> 
+		<NoiseScale value="1"/> 
+		<MaxVoices value="10"/> 
+		<MaxRepeatRate value="1.111"/> 
+	</set>
+	
+	<!--End Trader Joel-->
+	
+	<!--Trader Rekt-->
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_firstgreet']/AudioClip[@Subtitle='trader_rekt_firstgreet_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greetaft']/AudioClip[@Subtitle='trader_rekt_greetaft_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greetaft']/AudioClip[@Subtitle='trader_rekt_greetaft_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greetbloodmoon']/AudioClip[@Subtitle='trader_rekt_greetbloodmoon_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_06']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_17']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greeting']/AudioClip[@Subtitle='trader_rekt_greeting_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greetmorn']/AudioClip[@Subtitle='trader_rekt_greetmorn_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greetmorn']/AudioClip[@Subtitle='trader_rekt_greetmorn_03']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_greetnightfall']/AudioClip[@Subtitle='trader_rekt_greetnightfall_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_01']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_07']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_08']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_16']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_idle']/AudioClip[@Subtitle='trader_rekt_idle_17']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_02']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_04']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_09']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_10']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_13']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_14']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_15']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_18']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_19']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_20']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_21']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_25']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_26']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_28']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_30']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_31']"/>
+	<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_32']"/>
+	<!--<remove xpath="/Sounds/SoundDataNode[@name='trader_rekt_trade']/AudioClip[@Subtitle='trader_rekt_trade_34']"/>-->
+	<!--Trader Rekt-->
+	
+	<!--END remove refeences to tranding, buying or selling from Trader's momolgues-->
+	
+	
+	<!--remove the data nodes for all Trader's opening and closing sounds. This deminishes the Traders presence in the world (as this is a no-trader mod)-->
 	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_announce_closed']"/>
 	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_announce_closing']"/>
 	<remove xpath="/Sounds/SoundDataNode[@name='trader_bob_announce_open']"/>
@@ -85,139 +422,347 @@
 		<!-- *** Trader Bob -->
 		<SoundDataNode name="trader_bob_announce_closed"> <AudioSource name="@:Sounds/AudioSource_VO_TraderBob.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_01.wav" Subtitle="trader_bob_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_02.wav" Subtitle="trader_bob_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_03.wav" Subtitle="trader_bob_throatclear_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_04.wav" Subtitle="trader_bob_throatclear_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_05.wav" Subtitle="trader_bob_throatclear_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_06.wav" Subtitle="trader_bob_throatclear_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_07.wav" Subtitle="trader_bob_throatclear_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_08.wav" Subtitle="trader_bob_throatclear_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_09.wav" Subtitle="trader_bob_throatclear_09"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_01.wav" Subtitle="trader_bob_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_02.wav" Subtitle="trader_bob_cough_02"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_bob_announce_closing"> <AudioSource name="@:Sounds/AudioSource_VO_TraderBob.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_01.wav" Subtitle="trader_bob_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_02.wav" Subtitle="trader_bob_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_03.wav" Subtitle="trader_bob_throatclear_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_04.wav" Subtitle="trader_bob_throatclear_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_05.wav" Subtitle="trader_bob_throatclear_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_06.wav" Subtitle="trader_bob_throatclear_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_07.wav" Subtitle="trader_bob_throatclear_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_08.wav" Subtitle="trader_bob_throatclear_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_09.wav" Subtitle="trader_bob_throatclear_09"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_01.wav" Subtitle="trader_bob_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_02.wav" Subtitle="trader_bob_cough_02"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_bob_announce_open"> <AudioSource name="@:Sounds/AudioSource_VO_TraderBob.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_01.wav" Subtitle="trader_bob_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_02.wav" Subtitle="trader_bob_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_03.wav" Subtitle="trader_bob_throatclear_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_04.wav" Subtitle="trader_bob_throatclear_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_05.wav" Subtitle="trader_bob_throatclear_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_06.wav" Subtitle="trader_bob_throatclear_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_07.wav" Subtitle="trader_bob_throatclear_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_08.wav" Subtitle="trader_bob_throatclear_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_09.wav" Subtitle="trader_bob_throatclear_09"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_01.wav" Subtitle="trader_bob_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_02.wav" Subtitle="trader_bob_cough_02"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 		
 		<SoundDataNode name="trader_bob_announce_special"> <AudioSource name="@:Sounds/AudioSource_VO_TraderBob.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_01.wav" Subtitle="trader_bob_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_02.wav" Subtitle="trader_bob_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_03.wav" Subtitle="trader_bob_throatclear_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_04.wav" Subtitle="trader_bob_throatclear_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_05.wav" Subtitle="trader_bob_throatclear_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_06.wav" Subtitle="trader_bob_throatclear_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_07.wav" Subtitle="trader_bob_throatclear_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_08.wav" Subtitle="trader_bob_throatclear_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_throatclear_09.wav" Subtitle="trader_bob_throatclear_09"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_01.wav" Subtitle="trader_bob_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Bob/trader_bob_cough_02.wav" Subtitle="trader_bob_cough_02"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<!-- *** Trader Hugh -->
 		<SoundDataNode name="trader_hugh_announce_closed"> <AudioSource name="@:Sounds/AudioSource_VO_TraderHugh.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_01.wav" Subtitle="trader_hugh_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_02.wav" Subtitle="trader_hugh_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_03.wav" Subtitle="trader_hugh_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_04.wav" Subtitle="trader_hugh_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_01.wav" Subtitle="trader_hugh_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_02.wav" Subtitle="trader_hugh_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_03.wav" Subtitle="trader_hugh_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_04.wav" Subtitle="trader_hugh_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_hugh_announce_closing"> <AudioSource name="@:Sounds/AudioSource_VO_TraderHugh.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_01.wav" Subtitle="trader_hugh_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_02.wav" Subtitle="trader_hugh_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_03.wav" Subtitle="trader_hugh_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_04.wav" Subtitle="trader_hugh_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_01.wav" Subtitle="trader_hugh_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_02.wav" Subtitle="trader_hugh_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_03.wav" Subtitle="trader_hugh_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_04.wav" Subtitle="trader_hugh_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_hugh_announce_open"> <AudioSource name="@:Sounds/AudioSource_VO_TraderHugh.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_03.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_01.wav" Subtitle="trader_hugh_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_02.wav" Subtitle="trader_hugh_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_03.wav" Subtitle="trader_hugh_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_04.wav" Subtitle="trader_hugh_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_01.wav" Subtitle="trader_hugh_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_02.wav" Subtitle="trader_hugh_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_03.wav" Subtitle="trader_hugh_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_04.wav" Subtitle="trader_hugh_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_hugh_announce_special"> <AudioSource name="@:Sounds/AudioSource_VO_TraderHugh.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_04.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_01.wav" Subtitle="trader_hugh_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_02.wav" Subtitle="trader_hugh_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_03.wav" Subtitle="trader_hugh_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_clearthroat_04.wav" Subtitle="trader_hugh_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_01.wav" Subtitle="trader_hugh_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_02.wav" Subtitle="trader_hugh_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_03.wav" Subtitle="trader_hugh_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Hugh/trader_hugh_cough_04.wav" Subtitle="trader_hugh_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 	
 	
 		<!-- Trader Jen-->
 		<SoundDataNode name="trader_jen_announce_closed"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jenlikeannounceclosed"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.36"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jen_announce_closing"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jenlikeannounceclosing"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="6.92"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jen_announce_open"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jenlikeannounceopen"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jen_announce_special"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_jenlikeannouncespecial03"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.36"/> </SoundDataNode>
 
 			<!-- *** Specials 10% All Items -->
 		<SoundDataNode name="trader_jenlikeannouncespecial01"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.36"/> </SoundDataNode>
 
 			<!-- *** Specials 15% Medical Items -->
 		<SoundDataNode name="trader_jenlikeannouncespecial02"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJen.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_01.wav" Subtitle="trader_jen_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_02.wav" Subtitle="trader_jen_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_03.wav" Subtitle="trader_jen_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_04.wav" Subtitle="trader_jen_clearthroat_04"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_05.wav" Subtitle="trader_jen_clearthroat_05"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_06.wav" Subtitle="trader_jen_clearthroat_06"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_07.wav" Subtitle="trader_jen_clearthroat_07"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_clearthroat_08.wav" Subtitle="trader_jen_clearthroat_08"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_01.wav" Subtitle="trader_jen_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_02.wav" Subtitle="trader_jen_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Jen/trader_jen_cough_03.wav" Subtitle="trader_jen_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.36"/> </SoundDataNode>
 
 			<!-- *** Trader Joel -->
 		<SoundDataNode name="trader_joel_announce_closed"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJoel.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_01.wav" Subtitle="trader_joel_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_02.wav" Subtitle="trader_joel_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_01.wav" Subtitle="trader_joel_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_02.wav" Subtitle="trader_joel_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_03.wav" Subtitle="trader_joel_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_04.wav" Subtitle="trader_joel_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_joel_announce_closing"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJoel.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_01.wav" Subtitle="trader_joel_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_02.wav" Subtitle="trader_joel_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_01.wav" Subtitle="trader_joel_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_02.wav" Subtitle="trader_joel_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_03.wav" Subtitle="trader_joel_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_04.wav" Subtitle="trader_joel_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_joel_announce_open"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJoel.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_03.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_01.wav" Subtitle="trader_joel_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_02.wav" Subtitle="trader_joel_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_01.wav" Subtitle="trader_joel_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_02.wav" Subtitle="trader_joel_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_03.wav" Subtitle="trader_joel_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_04.wav" Subtitle="trader_joel_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_joel_announce_special"> <AudioSource name="@:Sounds/AudioSource_VO_TraderJoel.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_04.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_01.wav" Subtitle="trader_joel_throatclear_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_throatclear_02.wav" Subtitle="trader_joel_throatclear_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_01.wav" Subtitle="trader_joel_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_02.wav" Subtitle="trader_joel_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_03.wav" Subtitle="trader_joel_cough_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Joel/trader_joel_cough_04.wav" Subtitle="trader_joel_cough_04"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 		
 		<!-- *** Trader Rekt -->
 		<SoundDataNode name="trader_rekt_announce_closed"> <AudioSource name="@:Sounds/AudioSource_VO_TraderRekt.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_01.wav" Subtitle="trader_Cough" />
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_01.wav" Subtitle="trader_rekt_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_02.wav" Subtitle="trader_rekt_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_03.wav" Subtitle="trader_rekt_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_01.wav" Subtitle="trader_rekt_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_02.wav" Subtitle="trader_rekt_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_03.wav" Subtitle="trader_rekt_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_rekt_announce_closing"> <AudioSource name="@:Sounds/AudioSource_VO_TraderRekt.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_02.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_01.wav" Subtitle="trader_rekt_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_02.wav" Subtitle="trader_rekt_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_03.wav" Subtitle="trader_rekt_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_01.wav" Subtitle="trader_rekt_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_02.wav" Subtitle="trader_rekt_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_03.wav" Subtitle="trader_rekt_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_rekt_announce_open"> <AudioSource name="@:Sounds/AudioSource_VO_TraderRekt.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_03.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_01.wav" Subtitle="trader_rekt_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_02.wav" Subtitle="trader_rekt_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_03.wav" Subtitle="trader_rekt_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_01.wav" Subtitle="trader_rekt_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_02.wav" Subtitle="trader_rekt_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_03.wav" Subtitle="trader_rekt_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 		<SoundDataNode name="trader_rekt_announce_special"> <AudioSource name="@:Sounds/AudioSource_VO_TraderRekt.prefab"/>
 			<Noise ID="4" noise="60" time="2" heat_map_strength="0.2" heat_map_time="90"/>
-			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_01.wav" Subtitle="trader_Cough"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_01.wav" Subtitle="trader_rekt_clearthroat_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_02.wav" Subtitle="trader_rekt_clearthroat_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_clearthroat_03.wav" Subtitle="trader_rekt_clearthroat_03"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_01.wav" Subtitle="trader_rekt_cough_01"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_02.wav" Subtitle="trader_rekt_cough_02"/>
+			<AudioClip ClipName="@:Sounds/VO/Trader/Rekt/trader_rekt_cough_03.wav" Subtitle="trader_rekt_cough_03"/>
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.79"/> </SoundDataNode>
 
 	
@@ -238,7 +783,8 @@
 			<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0.5"/> <NoiseScale value="1"/> <MaxVoices value="10"/> <MaxRepeatRate value="5.36"/> </SoundDataNode>
 
 	</insertAfter>
-	<!--END put the sound nodes back with edited sounds for opening and closing-->
+	<!--END remove the data nodes for all Trader's opening and closing sounds.-->
+	
 	<!--change the shotgun sounds -->
 	<insertAfter xpath="/Sounds/SoundDataNode[@name='sawed_off_shotgun_fire']">	
 		<SoundDataNode name="SNT_auto_shotgun_fire"> <AudioSource name="@:Sounds/Prefabs/AudioSource_WeaponFire_Network.prefab"/> <NetworkAudioSource name="@:Sounds/AudioSource_WeaponFire_Network.prefab"/>

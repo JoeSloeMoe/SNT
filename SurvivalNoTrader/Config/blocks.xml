@@ -549,8 +549,8 @@
 	<!--player can make explosive barrels that do a lot of Zombie damage and little block damage-->
 	<insertAfter xpath ="blocks/block[@name='cntBarrelGasSingle45']">	
 		<block name="playerExplosiveBarrel">
-			<property name="Class" value="CarExplodeLoot"/>
-			<property name="LootList" value="gasBarrel"/>
+			<property name="Class" value="CarExplode"/>
+			<!--<property name="LootList" value="gasBarrel"/>-->
 			<property class="Explosion">
 				<property name="ParticleIndex" value="18"/>
 				<property name="RadiusBlocks" value="4"/>
@@ -564,13 +564,14 @@
 			<property name="ItemTypeIcon" value="explosion"/>
 			<property name="DescriptionKey" value="playerExplosiveBarrelDesc"/>
 			<property name="Material" value="MFuelBarrelMetal"/>
+			<property name="Weight" value="40"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="Model" value="Entities/Industrial/barrelGasPrefab"/>
 			<property name="WaterFlow" value="permitted"/>
 			<property name="Place" value="TowardsPlacerInverted"/>
 			<property name="Collide" value="sight,movement,melee,bullet,arrow,rocket"/>
 			<property name="Path" value="solid"/>
-			<property name="CanPickup" value="true"/>
+			<property name="CanPickup" value="true" param1="playerExplosiveBarrel"/>
 			<property name="IsTerrainDecoration" value="true"/>
 			<property name="CanDecorateOnSlopes" value="false"/>
 			<drop event="Harvest" name="playerExplosiveBarrel" count="1" tag="allToolsHarvest"/>

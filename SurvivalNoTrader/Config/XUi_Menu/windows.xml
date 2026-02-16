@@ -35,7 +35,7 @@
 			<gameoption name="ZombieFeralMove" title="goZombieFeralMove" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" value_localization_prefix="" />
 			<gameoption name="ZombieBMMove" title="goZombieBMMove" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" value_localization_prefix="" />
 			<gameoption name="ZombieFeralSense" title="goZombieFeralSense" value_wrap="false" value_type="int" values="" display_names="goOff,goZMDay,goZMNight,goZMAll" value_localization_prefix="" />
-			<gameoption name="AirDropFrequency" title="goAirDropFrequency" value_wrap="false" value_type="int" values="0, 24, 72, 168" display_names="goDisabled" value_localization_prefix="goAirDropValue" />
+			<gameoption name="AirDropFrequency" title="goAirDropFrequency" value_wrap="false" value_type="int" values="0, 24, 48, 72, 96, 120, 144, 168" display_names="goDisabled" value_localization_prefix="goAirDropValue" />
 			<gameoption name="AirDropMarker" title="goMarkAirDrops" value_wrap="false" value_type="bool" values="" display_names="" value_localization_prefix="" />
 			<gameoption name="BiomeProgression" title="goBiomeProgression" value_wrap="false" value_type="bool" values_from_gameserverconfig="true" values="" display_names="" value_localization_prefix="" />
 			<gameoption name="StormFreq" title="goStormFreq" value_wrap="false" value_type="int" values="0, 50, 100, 150, 200, 300, 400, 500" display_names="" value_localization_prefix="goBlockDamageValue" />

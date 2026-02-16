@@ -5,6 +5,485 @@
 			<!-- <property name="delay" value="0.1"/> -->
 			<!-- <property name="on_complete" value="true"/> -->
 		<!-- </action> -->
+		
+	<!--begin code for turning on trader quests -->
+	<!--player can turn on trader quests or select a method of triggering traders quests in the config settings.
+		When trader quests are turned on, the trader quests only require one basic quest to turn on all other quests.
+		Additionally only infested quests are available.-->
+	<!--this sets the number of quests per level needed at the trader (player can turn on questing late game if wanted for addition gameplay) only need 1 quest completed per level-->
+	<setattribute  xpath="quests" name="quests_per_tier">1</setattribute>
+	
+	<!--change the rewards for completing each tier to xp only (as there is only one quest per tier, rewards are minimal-->
+	<set xpath="quests/quest_tier_rewards/quest_tier_reward[@tier='2']">
+		<reward type="Exp" value="1000"/>
+	</set>
+	<set xpath="quests/quest_tier_rewards/quest_tier_reward[@tier='3']">
+		<reward type="Exp" value="2000"/>
+	</set>
+	<set xpath="quests/quest_tier_rewards/quest_tier_reward[@tier='4']">
+		<reward type="Exp" value="3000"/>
+	</set>
+	<set xpath="quests/quest_tier_rewards/quest_tier_reward[@tier='5']">
+		<reward type="Exp" value="4000"/>
+	</set>
+	<set xpath="quests/quest_tier_rewards/quest_tier_reward[@tier='6']">
+		<reward type="Exp" value="5000"/>
+	</set>
+	
+	<!--add tier 2,3,4,5,6 tier restore power infested quests and redefine the tier's infected quests to manage the rewards and maybe change the quests setttings later-->
+	
+	<!--redefine the existing tierX_clear_infested quests-->
+	<set xpath="quests/quest[@id='tier2_clear_infested']">
+		<property name="name_key" value="quest_tier2_infested_clear" param1="name"/>
+		<property name="subtitle_key" value="quest_infestation_subtitle"/>
+		<property name="description_key" value="quest_tier2_infested_clear_offer"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="offer_key" value="quest_tier2_infested_clear_offer" param1="offer"/>
+		<property name="difficulty_tier" value="2" param1="difficulty"/>
+		<property name="statement_key" value="quest_infestation_statement"/>
+		<property name="response_key" value="quest_infestation_response"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="infested" param1="extra_tags"/>
+		<property name="shareable" value="true"/>
+		<property name="spawn_multiplier" value="2" param1="spawn_multiplier"/>
+		<property name="gamestage_mod" value=".6" param1="gamestage_mod"/>
+		<property name="gamestage_bonus" value="30" param1="gamestage_bonus"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_clear_completion"/>
+
+		<objective type="RandomPOIGoto">
+			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+			<property name="biome_filter" value="" param1="biome_filter"/>
+			<property name="nav_object" value="quest"/>
+			<property name="poi_tier" value="1" param1="poi_tier"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+			<property name="rally_marker_type" value="questRallyMarkerInfestation"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="5625"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="2"/>
+	</set>
+	
+	<set xpath="quests/quest[@id='tier3_clear_infested']">
+		<variable name="name" value="quest_tier3_infested_clear"/>
+		<variable name="offer" value="quest_tier3_infested_clear_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="2"/>
+		<variable name="spawn_multiplier" value="2"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		
+		<reward type="Exp" value="7500"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="3"/>
+	</set>
+	
+	<set xpath="quests/quest[@id='tier4_clear_infested']">
+		<variable name="name" value="quest_tier4_infested_clear"/>
+		<variable name="offer" value="quest_tier4_infested_clear_offer"/>
+		<variable name="difficulty" value="4"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="3"/>
+		<variable name="spawn_multiplier" value="1.5"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		<variable name="biome_filter_type" value="SameBiome"/>
+		
+		<reward type="Exp" value="9375"/>
+		<reward type="Item" id="casinoCoin" value="3000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="4"/>
+	</set>
+	
+	<set xpath="quests/quest[@id='tier5_clear_infested']">
+		<variable name="name" value="quest_tier5_infested_clear"/>
+		<variable name="offer" value="quest_tier5_infested_clear_offer"/>
+		<variable name="difficulty" value="5"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="4"/>
+		<variable name="spawn_multiplier" value="1.5"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="18750"/>
+		<reward type="Item" id="casinoCoin" value="4000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="5"/>
+	</set>
+	
+	<set xpath="quests/quest[@id='tier6_clear_infested']">
+		<variable name="name" value="quest_tier6_infested_clear"/>
+		<variable name="offer" value="quest_tier5_infested_clear_offer"/>
+		<variable name="difficulty" value="6"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="5"/>
+		<variable name="spawn_multiplier" value="1.5"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="30000"/>
+		<reward type="Item" id="casinoCoin" value="6000"/>
+
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="6"/>
+	</set>
+	<!--END redefine the existing tierX_clear_infested quests-->
+	
+	<!--add the new restore power infested quests-->
+	<insertAfter xpath="quests/quest[@id='quest_tier6complete']">
+		<quest id="tier2_clear_infestedRestorePower">
+			<property name="name_key" value="quest_tier2_infested_clearRestore" param1="name"/>
+			<property name="subtitle_key" value="quest_infestation_subtitleRestore"/>
+			<property name="description_key" value="quest_tier2_restore_power_offerRestore"/>
+			<property name="icon" value="ui_game_symbol_quest"/>
+			<property name="repeatable" value="true"/>
+			<property name="category_key" value="quest"/>
+			<property name="offer_key" value="quest_tier2_restore_power_offerRestore" param1="offer"/>
+			<property name="difficulty_tier" value="2" param1="difficulty"/>
+			<property name="statement_key" value="quest_infestation_statementRestore"/>
+			<property name="response_key" value="quest_infestation_responseRestore"/>
+			<property name="login_rally_reset" value="true"/>
+			<property name="reward_choices_count" value="5"/>
+			<property name="extra_tags" value="infested" param1="extra_tags"/>
+			<property name="shareable" value="true"/>
+			<property name="spawn_multiplier" value="2" param1="spawn_multiplier"/>
+			<property name="gamestage_mod" value=".6" param1="gamestage_mod"/>
+			<property name="gamestage_bonus" value="30" param1="gamestage_bonus"/>
+
+			<property name="completiontype" value="TurnIn"/>
+			<property name="completion_key" value="quest_clear_completion"/>
+
+			<objective type="RandomPOIGoto">
+				<property name="phase" value="1"/>
+				<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+				<property name="biome_filter" value="" param1="biome_filter"/>
+				<property name="nav_object" value="quest"/>
+				<property name="poi_tier" value="1" param1="poi_tier"/>
+			</objective>
+
+			<objective type="RallyPoint">
+				<property name="phase" value="2"/>
+				<property name="nav_object" value="rally"/>
+				<property name="allowed_start_hour" value="22"/>
+				<property name="allowed_end_hour" value="1"/>
+				<property name="rally_marker_type" value="questRallyMarkerRestorePower"/>
+			</objective>
+			
+			<objective type="ClearSleepers">
+				<property name="phase" value="3"/>
+				<property name="nav_object" value="sleeper_volume"/>
+			</objective>
+			
+			<objective type="POIBlockActivate" >
+				<property name="phase" value="3"/>
+				<property name="block_index" value="QuestRestorePower"/>
+				<property name="nav_object" value="restore_power"/>
+
+				<property name="complete_event" value="quest_poi_lights_on"/>
+			</objective>
+			
+			<objective type="POIStayWithin">
+				<property name="phase" value="3"/>
+				<property name="radius" value="25"/>
+			</objective>
+
+			<action type="UnlockPOI" >
+				<property name="phase" value="4"/>
+			</action>
+
+			<objective type="ReturnToNPC">
+				<property name="phase" value="4"/>
+				<property name="nav_object" value="return_to_trader"/>
+			</objective>
+
+			<objective type="InteractWithNPC">
+				<property name="phase" value="4"/>
+				<property name="nav_object" value="return_to_trader"/>
+			</objective>
+
+			<reward type="Exp" value="5625"/>
+			<reward type="Item" id="casinoCoin" value="1000"/>
+
+			<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="3"/>
+			
+		</quest>
+		<quest id="tier3_clear_infestedRestorePower" template="tier2_clear_infestedRestorePower">
+			<variable name="name" value="quest_tier3_infested_clearRestore"/>
+			<variable name="offer" value="quest_tier3_restore_power_offerRestore"/>
+			<variable name="difficulty" value="3"/>
+			<variable name="extra_tags" value="infested"/>
+			<variable name="poi_tier" value="2"/>
+			<variable name="spawn_multiplier" value="2"/>
+			<variable name="gamestage_mod" value=".6"/>
+			<variable name="gamestage_bonus" value="30"/>
+			
+			<reward type="Exp" value="7500"/>
+			<reward type="Item" id="casinoCoin" value="2000"/>
+
+			<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="4"/>
+			<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="4"/>
+		</quest>
+		<quest id="tier4_clear_infestedRestorePower" template="tier2_clear_infested">
+			<variable name="name" value="quest_tier4_infested_clearRestore"/>
+			<variable name="offer" value="quest_tier4_infested_clear_offerRestore"/>
+			<variable name="difficulty" value="4"/>
+			<variable name="extra_tags" value="infested"/>
+			<variable name="poi_tier" value="3"/>
+			<variable name="spawn_multiplier" value="1.5"/>
+			<variable name="gamestage_mod" value=".6"/>
+			<variable name="gamestage_bonus" value="30"/>
+			<variable name="biome_filter_type" value="SameBiome"/>
+			
+			<reward type="Exp" value="9375"/>
+			<reward type="Item" id="casinoCoin" value="3000"/>
+
+			<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="5"/>
+		</quest>
+		
+		<quest id="tier5_clear_infestedRestorePower" template="tier2_clear_infested">
+			<variable name="name" value="quest_tier5_infested_clearRestore"/>
+			<variable name="offer" value="quest_tier5_infested_clear_offerRestore"/>
+			<variable name="difficulty" value="5"/>
+			<variable name="extra_tags" value="infested"/>
+			<variable name="poi_tier" value="4"/>
+			<variable name="spawn_multiplier" value="1.5"/>
+			<variable name="gamestage_mod" value=".6"/>
+			<variable name="gamestage_bonus" value="30"/>
+			<variable name="biome_filter_type" value="AnyBiome"/>
+			
+			<reward type="Exp" value="18750"/>
+			<reward type="Item" id="casinoCoin" value="4000"/>
+
+			<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="6"/>
+			<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="6"/>
+		</quest>
+
+		<quest id="tier6_clear_infestedRestorePower" template="tier2_clear_infested">
+			<variable name="name" value="quest_tier6_infested_clearRestore"/>
+			<variable name="offer" value="quest_tier5_infested_clear_offerRestore"/>
+			<variable name="difficulty" value="6"/>
+			<variable name="extra_tags" value="infested"/>
+			<variable name="poi_tier" value="5"/>
+			<variable name="spawn_multiplier" value="1.5"/>
+			<variable name="gamestage_mod" value=".6"/>
+			<variable name="gamestage_bonus" value="30"/>
+			<variable name="biome_filter_type" value="AnyBiome"/>
+			
+			<reward type="Exp" value="30000"/>
+			<reward type="Item" id="casinoCoin" value="6000"/>
+
+			<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+			<reward type="LootItem" id="groupQuestFood,groupQuestAmmo" ischosen="true" value="7"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="7"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="7"/>
+			<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo" ischosen="true" value="7"/>
+			<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+			<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="7"/>
+		</quest>
+	</insertAfter>
+	<!--add the new restore power infested quests-->
+	
+	<!--END add tier 2,3,4,5,6 tier restore power infested quests-->
+	
+	<!--set the type of quests that will be available-->
+	<set xpath="quests/quest_list[@id='trader_rekt_quests']">
+		<!-- Tier 1 -->
+		<quest id="tier1_clear"/>
+		<!-- Tier 2 -->
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_clear_infestedRestorePower"/>
+		<!-- Tier 3 -->
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_clear_infestedRestorePower"/>
+		<!-- Tier 4 -->
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_clear_infestedRestorePower"/>
+		<!-- Tier 5 -->
+		<quest id="tier5_clear_infested"/>
+		<quest id="tier5_clear_infestedRestorePower"/>
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<quest id="tier6_clear_infestedRestorePower"/>
+		<!-- Special Quests -->
+		<!--<quest id="tier2_nexttrader"/>-->
+	</set>
+	<set xpath="quests/quest_list[@id='trader_jen_quests']">
+		<!-- Tier 1 -->
+		<quest id="tier1_clear"/>
+		<!-- Tier 2 -->
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_clear_infestedRestorePower"/>
+		<!-- Tier 3 -->
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_clear_infestedRestorePower"/>
+		<!-- Tier 4 -->
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_clear_infestedRestorePower"/>
+		<!-- Tier 5 -->
+		<quest id="tier5_clear_infested"/>
+		<quest id="tier5_clear_infestedRestorePower"/>
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<quest id="tier6_clear_infestedRestorePower"/>
+		<!-- Special Quests -->
+		<!--<quest id="tier3_nexttrader"/>-->
+	</set>
+	<set xpath="quests/quest_list[@id='trader_bob_quests']">
+		<!-- Tier 1 -->
+		<quest id="tier1_clear"/>
+		<!-- Tier 2 -->
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_clear_infestedRestorePower"/>
+		<!-- Tier 3 -->
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_clear_infestedRestorePower"/>
+		<!-- Tier 4 -->
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_clear_infestedRestorePower"/>
+		<!-- Tier 5 -->
+		<quest id="tier5_clear_infested"/>
+		<quest id="tier5_clear_infestedRestorePower"/>
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<quest id="tier6_clear_infestedRestorePower"/>
+		<!-- Special Quests -->
+		<!--<quest id="tier4_nexttrader"/>-->
+	</set>
+	<set xpath="quests/quest_list[@id='trader_hugh_quests']">
+		<!-- Tier 1 -->
+		<quest id="tier1_clear"/>
+		<!-- Tier 2 -->
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_clear_infestedRestorePower"/>
+		<!-- Tier 3 -->
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_clear_infestedRestorePower"/>
+		<!-- Tier 4 -->
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_clear_infestedRestorePower"/>
+		<!-- Tier 5 -->
+		<quest id="tier5_clear_infested"/>
+		<quest id="tier5_clear_infestedRestorePower"/>
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<quest id="tier6_clear_infestedRestorePower"/>
+		<!-- Special Quests -->
+		<!--<quest id="tier5_nexttrader"/>-->
+	</set>
+	<set xpath="quests/quest_list[@id='trader_joel_quests']">
+		<!-- Tier 1 -->
+		<quest id="tier1_clear"/>
+		<!-- Tier 2 -->
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_clear_infestedRestorePower"/>
+		<!-- Tier 3 -->
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_clear_infestedRestorePower"/>
+		<!-- Tier 4 -->
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_clear_infestedRestorePower"/>
+		<!-- Tier 5 -->
+		<quest id="tier5_clear_infested"/>
+		<quest id="tier5_clear_infestedRestorePower"/>
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<quest id="tier6_clear_infestedRestorePower"/>
+	</set>
+	
+	<!--END set the type of quests that will be available-->
+		
+	<!--end code for turning on trader quests-->
+	
 	<!--give 4 xp points-->
 	<set xpath="/quests/quest[@id='quest_whiteRiverCitizen1']">
 			<property name="group_name_key" value="quest_BasicStart"/>

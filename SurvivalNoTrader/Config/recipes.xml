@@ -201,9 +201,23 @@
 					<passive_effect name="CraftingIngredientCount" level="1,5" operation="base_add" value="-5" tags="resourceBone"/>
 				</effect_group>
 		</recipe>
+		<recipe name="resourceGlueBundleChanged" count="1" craft_area="chemistryStation"  craft_time="128" tags="perkProductionLine,learnable">
+				<ingredient name="resourceBone" count="46"/>
+				<ingredient name="drinkJarBoiledWater" count="8"/>
+				<effect_group>
+					<passive_effect name="CraftingIngredientCount" level="1,5" operation="base_add" value="-5" tags="resourceBone"/>
+				</effect_group>
+		</recipe>
 		<recipe name="resourceGlueBundleLargeChanged" count="1" craft_area="campfire"  craft_tool="toolCookingPot" craft_time="128" tags="perkProductionLine,learnable">
 				<ingredient name="resourceBone" count="147"/> 
 				<ingredient name="drinkJarBoiledWater" count="21"/> 
+				<effect_group>
+					<passive_effect name="CraftingIngredientCount" level="1,5" operation="base_add" value="-5" tags="resourceBone"/>
+				</effect_group>
+		</recipe>
+		<recipe name="resourceGlueBundleLargeChanged" count="1" craft_area="chemistryStation"  craft_time="128" tags="perkProductionLine,learnable">
+				<ingredient name="resourceBone" count="127"/> 
+				<ingredient name="drinkJarBoiledWater" count="19"/> 
 				<effect_group>
 					<passive_effect name="CraftingIngredientCount" level="1,5" operation="base_add" value="-5" tags="resourceBone"/>
 				</effect_group>

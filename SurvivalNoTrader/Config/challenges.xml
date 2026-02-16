@@ -1,19 +1,4 @@
 <configs>
-	<!--
-		Reduces biome badge ‘Kill’ requirement for Plague Spitter from 10 to 6;
-		Reduces biome badge ‘Kill’ requirement for Frost Claw from 15 to 9;
-		
-		See also entitygroups.xml: for reducced splitter and frost claw spawns
-		Reduces Plague Spitter to 1/4 of default spawns, reduces rate of spawns as well.
-		Reduces Frost Claw to 1/4 of default spawns, reduces rate of spawns as well.
-		See challenges.xml: To compensate for reduced spawns
-	-->
-	<set xpath="/challenges/challenge[@name='desertSurvivalKillZombie']">
-		<objective type="Kill" entity_names="zombiePlagueSpitter,zombiePlagueSpitterFeral,zombiePlagueSpitterRadiated,zombiePlagueSpitterCharged,zombiePlagueSpitterInfernal" count="6" biome="desert"/>
-	</set>
-	<set xpath="/challenges/challenge[@name='snowSurvivalKillZombie']">
-		<objective type="Kill" entity_names="zombieFrostclaw,zombieFrostclawFeral,zombieFrostclawRadiated,zombieFrostclawCharged,zombieFrostclawInfernal" count="9" biome="snow"/>
-	</set>
 
 	<!--change the gathererPrecious challenge to reduce the number of precious stones required as they are more rare in the mod-->
 	<remove xpath="challenges/challenge[@name='gathererPrecious']"/>

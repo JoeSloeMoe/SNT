@@ -1,6 +1,18 @@
 Survival No Trader (SNT) 7DTD XML mod. (JoeSLoeMoe)
 https://community.7daystodie.com/topic/34585-survival-no-trader/#comment-546720
 
+Installation instructions:
+-Download the zip file from the repository link.
+-Unpack the zip file into a temp directory somewhere.
+-You will have a directory called SNT-main
+-Within the SNT-main directory there are 3 directories:
+    SurvivalNoTrader - this is the main directory
+    LearnByUse
+    HybridLearnByUse
+-Copy the SurvuvalNoTrader directory and either LearnByUse OR HybridLearnByUse to your 
+ <drive>:\Users\<user_name>\AppData\Roaming\7DaysToDie\Mods\ directory
+-Start the game.
+
 A mod balanced for game play without Traders.
 This mod removes the ability to trade and get quests from Traders. Traders are still present in the world as part of the storyline, they just ignore you.
 
@@ -106,3 +118,20 @@ Version 1.2 - V1.0 release.
  - Grim Tales:
 		- Minor ammo loot balance.
 		- Code cleanup for Pigeons Carry Diseases boss encounter.
+		
+1.2.4 15th Feb 2026
+ - Added more options for loot crate drop frequency in start game menu options. Was 1,3,7 is now 1,2,3,4,5,6,7
+ - Changed PlagueSpitter and FrostClaw spawning code to reflect the new Rancher and Chuck entities.
+ - A number of small changes for context.
+ - Updated Armour slots for 2.5 
+ - Fixed V2.5 issue with buff icons not displaying in the players Status Screen
+ - Changes to Learn By Use
+      - Added Cardio Perk
+      - Added Functionality (configurable in buffs.xml "Player Config Settings" 
+         - Get a bonus Magazine Bundle when the first LBU Perk reaches max level. Use the magazine bundle for 10 magazines of any Learn By use Perk to increase the crafting skill for that Perk.  
+         - When LBU Daring Adventurer reaches max level the player can Reset Quests at the Traders.
+      - Fixed issue where Skilled Labourer Perk wasn't increasing learning rate properly.
+      - Couple small bug fixes
+ 
+ 
+ 

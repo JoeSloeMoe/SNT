@@ -5,6 +5,20 @@ quest_BasicStart,Quest,Quest Info,,,Fresh Start
 quest_BasicStart_subtitle,Quest,Quest Info,,,"You have 4 exp points"
 quest_BasicStart_description,Quest,Quest Info,,,"You have 4 exp points"
 trader_Cough,UI,Subtitles,,,"Cough!"
+quest_tier2_infested_clearRestore,Quest,Quest Info,,,Tier 2 Infested Restore Power
+quest_tier3_infested_clearRestore,Quest,Quest Info,,,Tier 3 Infested Restore Power
+quest_tier4_infested_clearRestore,Quest,Quest Info,,,Tier 4 Infested Restore Power
+quest_tier5_infested_clearRestore,Quest,Quest Info,,,Tier 5 Infested Restore Power
+quest_tier6_infested_clearRestore,Quest,Quest Info,,,Tier 6 Infested Restore Power
+quest_infestation_subtitleRestore,Quest,Quest Info,,,Restore the Power Generators and Clear the Infested Area
+quest_tier2_restore_power_offerRestore,Quest,Quest Info,,,We found a building that is well suited for a new outpost but it is infested. Go to [DECEA3]{poi.name}[-] and clear out the zombies and reset the generators. You need to do this job at [FF0000]night[-] to avoid enemy detection. Be sure to bring a torch.
+quest_infestation_responseRestore,Quest,Quest Info,,,Infested Clear and Restore ([DECEA3]{poi.distance} {poi.direction}[-]) [FF9900]{poi.name}[-]
+quest_infestation_statementRestore,Quest,Quest Info,,,Clear out the infested zombies in the area and restore the power.
+quest_tier3_restore_power_offerRestore,Quest,Quest Info,,,Our community reported a good size structure that contains significant resources we badly need but is an infested zombie hive. Go to [DECEA3]{poi.name}[-] and reset the generators and clear out the zombies. You need to do this job at [FF0000]night[-] to avoid enemy detection. Be sure to bring a torch.
+quest_tier4_restore_power_offerRestore,Quest,Quest Info,,,We found a location that we believe is large enough to defend and accommodate our growing community's needs but its infested with a swarm of zombies. Go to [DECEA3]{poi.name}[-] and clear out the zombies and reset the generators. You need to do this job at [FF0000]night[-] to avoid enemy detection. Be sure to bring a torch.
+quest_tier5_infested_clear_offerRestore,Quest,Quest Info,,,Holy Shit! A major settlement has been overrun by a colony of infested zombies. Clear the threat and restore the power at [DECEA3]{poi.name}[-].
+quest_tier6_infested_clear_offerRestore,Quest,Quest Info,,,Holy Shit! A major settlement has been overrun by a colony of infested zombies. Clear the threat and restore the power at [DECEA3]{poi.name}[-].
+
 broodnest,Blocks,block,,,Brood Egg Nest
 broodnestInfo,Blocks,block,,,"Set up a comfy place for birds to nest in and lay eggs"
 broodnestHarvest,Blocks,block,,,Brood Nest Harvest 
@@ -176,6 +190,11 @@ ShotgunBundleboxSlug,items,Item,,,Box of 150 Shotgun Slugs
 ShotgunBundleboxSlugDesc,items,Item,,,Box of 150 Shotgun Slugs. \nUse this item to open and unpack it.
 ShotgunBundleboxBreaching,items,Item,,,Box of 150 Shotgun Breaching Slugs
 ShotgunBundleboxBreachingDesc,items,Item,,,Box of 150 Shotgun Breaching Slugs. \nUse this item to open and unpack it.
+solarBankUnlocked,buffs,Buff,,,"You have unlocked the Solar Bank Recipe."
+traderJobsUnlocked,buffs,Buff,,,"Level 6 Quests are available at any Trader!"
+notes_TESTinfested6_Quest,items,Request,,[DECEA3]Tier 3[-] Restore Power
+notes_TESTinfested6_QuestDesc,items,Request,,,"Starts [DECEA3]Tier 3[-] restore power quest"
+
 xuiSelectChallengeInfo,UI,XUI,,,"Select a challenge to view or track the requirements.\n\nTrack a challenge by pressing the Track button or by using the quick action key.\n\nAfter successfully completing every challenge within a group, select each completed challenge marked [00FF00]GREEN[-]. Redeem a challenge by using the button or the quick action key.\n\nRedeeming all of the challenges in each group will give you a couple of rewards."
 challengeGathererPreciousDesc,Challenges,Challenge,,,"Reading [DECEA3]Art of Mining Vol 1[-] allows you to harvest [DECEA3]Gold Nuggets[-], [DECEA3]Silver Nuggets[-], and [DECEA3]Raw Diamonds[-] from [DECEA3]Ores[-].\n\nThese [DECEA3]Precious Elements[-] are mainly used in special Grandpa brew recipes.\n\nHarvest some [DECEA3]Precious Elements[-]."
 challengeReadMagazinesDesc,Challenges,Challenge,,,"[DECEA3]Crafting Skill Magazines[-] come in a wide range of topics. Reading them will increase your [DECEA3]Crafting Skill[-] which increases the [DECEA3]Quality[-] and/or [DECEA3]Technology Tier[-] of the item being crafted. You can track your [DECEA3]Crafting Skill[-] progression in the [DECEA3]Skills Window[-] and selecting the [DECEA3]Hammer[-] icon in the category header.\n\n[DECEA3]Crafting Skill Magazines[-] can be found in various loot containers such as [DECEA3]Mailboxes[-], [DECEA3]Crates[-] and [DECEA3]Safes[-]."
@@ -269,7 +288,7 @@ modMagratTracker,item_modifiers,mod,,,All Is Well
 modMagratTrackerDesc,item_modifiers,mod,,,"Town Cryer's witch finder lantern. Tuned by Ipslore to show Magrats aura but he never had a chance to use it. \n\nInstalls in Helmet as light. Turn light on to activate."         
 magratsEyeDesc,items,Item,,,"A strange smelling eyeball covered in red mucous and slime. At first glance it resembles hard crystal but it feels spongy in your hand. You feel it vibrating faintly as you hold it - you have a strong urge to consume it even though you suspect any side-effects may be permanent.\n\nUse (A) to consume.\n[Mary's Revenge Storyline]"
 buff_MagratsLeftEye,buffs,Buff,,,"Magrat's Left Eye" 
-buff_MagratsLeftEyeDesc,buffs,Buff,,,"You have the witches sight. Screamers are automatically tagged with an orange dot on the compass, map and on-screen. The undead sense the presence of the Eye and it aggravates them - your Game Stage is increased by 15.\n\nPermanent Buff." 
+buff_MagratsLeftEyeDesc,buffs,Buff,,,"You have the witches sight. Screamers are automatically tagged with an orange dot on the compass, map and on-screen. The undead sense the presence of the Eye and it aggravates them - your Game Stage is increased by 15.\n\n[DECEA3]Permanent for the rest of the game.[-]"
 marysRevengeCovenHouseScreamer,entityclasses,Entity,,,Coven House Disciple
 marysRevengeCovenHouseLootScreamer,entityclasses,Entity,,,Coven House Disciple
 graveKeeperDireWolf,entityclasses,Entity,,,Witch Bound Dire Wolf
@@ -393,13 +412,13 @@ resourcePilotsCorpseDesc,items,Item,,,"The mangled corpse of the pilot, doesn't 
 resourceCIADudeCorpse,items,Item,,,"Special Agent's Corpse"
 resourceCIADudeCorpseDesc,items,Item,,,"The dead man appears to be some kind of Special Agent and clearly didn't die from the crash. You count 5, maybe 6 bullet wounds to his chest and there's not much left of the back of his head. A pistol falls from his shoulder holster as you move him. He appears to have been carrying something that someone desperately wanted. His right hand has been sawn-off at the wrist and the remains of his hand and some bloodied handcuffs lay on the floor attached to an empty briefcase."
 resourceCIASecurityTag,items,Item,,,"Fake IDs"
-resourceCIASecurityTagDesc,items,Item,,,"Several different IDs and aliases. A variety of interesting names and professions with the dead agent's picture smiling wistfully in each of them."
+resourceCIASecurityTagDesc,items,Item,,,"Several different IDs and aliases. A variety of interesting names and professions with the dead agent's picture smiling wistfully in each of them.\n\n\n[DECEA3]Grim Tales[-]\nOf no use to you."
 resourceCIABriefingNote,items,Item,,,"Briefing Note"
-resourceCIABriefingNoteDesc,items,Item,,,"A torn and crumpled note. Flattening it out shows it to be a Top Secret Briefing Note. You can't make much out through the bloodstains. The whole scene reflects a grim tale but there's nothing to indicate what the Agent was so desperate to protect."
+resourceCIABriefingNoteDesc,items,Item,,,"A torn and crumpled note. Flattening it out shows it to be a Top Secret Briefing Note. You can't make much out through the bloodstains. The whole scene reflects a grim tale but there's nothing to indicate what the Agent was so desperate to protect.\n\n\n[DECEA3]Grim Tales[-]\nOf no real use to you."
 foundGyroRewardSchematic,items,Traps,,,Gyro World
 foundGyroRewardSchematicDesc,items,Traps,,,"Gyro World. \nIts all greek to me! Gyro maintenance & piloting for dummies. Learn the Gyro Accessories and Chassis recipes."
 foundGyroAgentLuggage,items,Item,,,Small Reinforced Case
-foundGyroAgentLuggageDesc,items,Item,,,"An empty smashed metal case. A bloodied hand dangles from a set of handcuffs still attached to the handle. It looks like took a long while to get into the case using a variety of methods." 
+foundGyroAgentLuggageDesc,items,Item,,,"An empty smashed metal case. A bloodied hand dangles from a set of handcuffs still attached to the handle. It looks like it took a long while to get into the case using a variety of methods.\n\n\n[DECEA3]Grim Tales[-]\nOf no use to you." 
 assassinsPistol,items,Pistol,,,Welrod MkXV11 9mm
 assassinsPistolDesc,items,Pistol,,,"Rare sanitised SOE Stealth Pistol. A quiet blow-back pistol with low heat generation. Uses a combination of a polyaramide bolt and an oil-tempered chrome vanadium recoil spring to support 124-grain 9mm ammunition. As a blowback pistol it does not support AP or HP ammo.\n\nSneak Bonuses:\nSneak Damage 10X.\nSneak Headshot Damage 400%."
 
@@ -408,7 +427,7 @@ gyrocopterWreckChassis,blocks,block,,,Crashed Gyrocopter
 buffTest,buffs,Buff,,,Test
 pigeonFinalBoss,entityclasses,Entity,,,Curtis Pigeonface Colton
 buffGameEventController,buffs,Buff,,,Zombie Kills: 
-buffGameEventControllerDesc,buffs,Buff,,,Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at 3000.
+buffGameEventControllerDesc,buffs,Buff,,,"Zombie kill streak.\nResets on death.\nTriggers Mary's Revenge at [DECEA3]{cvar(killStreakTarget:0)}[-]".
 buffGraveArtifactComplete,buffs,Buff,,,Cursed Artifact-Strongbox 
 buffGraveArtifactCompleteDesc,buffs,Buff,,,Cursed Artifact-Strongbox
 milestoneBundleZombieKill,buffs,Buff,,,Mary reaches out to you from the grave
@@ -545,13 +564,13 @@ interloperRewardBookThree,items,Book,,,"Plissken's Survival Techniques Vol 3."
 interloperRewardBookFour,items,Book,,,"Plissken's Survival Techniques Vol 4." 
 interloperRewardBookFive,items,Book,,,"Plissken's Survival Techniques Vol 5." 
 buffInterloperRewardBookOne,buffs,Buff,,,"Plissken's Survival Techniques Vol 1." 
-buffInterloperRewardBookOneDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume One of Four. An indepth analysis by some guy named Plissken, seems to know what he's talking about. Reading this volume on health will:\nIncrease your Max Health by 50.\nIncrease natural healing speed 0.15h/sec.\nDecrease food loss per health gained by 50%\nIncrease your GameStage by 30.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookOneDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume One of Four. An indepth analysis by some guy named Plissken, seems to know what he's talking about. Reading this volume on health will:\nIncrease your Max Health by 50.\nIncrease natural healing speed 0.15h/sec.\nDecrease food loss per health gained by 50%\nIncrease your GameStage by 30.\n\n[DECEA3]Permanent for the rest of the game.[-]"
 buffInterloperRewardBookTwo,buffs,Buff,,,"Plissken's Survival Techniques Vol 2." 
-buffInterloperRewardBookTwoDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Two of Four. Plissken's second volume focusing on fitness. Reading this volume on fitness will:\nIncrease Max Stamina by 50.\nIncrease stamina regen speed by 10%\nDecrease water loss per stamina gained by 50%\nIncrease your Gamestage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookTwoDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Two of Four. Plissken's second volume focusing on fitness. Reading this volume on fitness will:\nIncrease Max Stamina by 50.\nIncrease stamina regen speed by 10%\nDecrease water loss per stamina gained by 50%\nIncrease your Gamestage by 25.\n\n[DECEA3]Permanent for the rest of the game.[-]"
 buffInterloperRewardBookThree,buffs,Buff,,,"Plissken's Survival Techniques Vol 3." 
-buffInterloperRewardBookThreeDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Three of Four. A study of speed and surprise in warfare. Reading this volume will:\nIncrease Run, Walk & Crouch Speeds by 10%.\nIncrease Jump Strength by 10%.\nIncrease Attacks per Minute by 10%.\nIncrease Reload Speed by 15%.\nIncrease Scavenging Speed by 20%.\nIncrease your GameStage by 25.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookThreeDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Three of Four. A study of speed and surprise in warfare. Reading this volume will:\nIncrease Run, Walk & Crouch Speeds by 10%.\nIncrease Jump Strength by 10%.\nIncrease Attacks per Minute by 10%.\nIncrease Reload Speed by 15%.\nIncrease Scavenging Speed by 20%.\nIncrease your GameStage by 25.\n\n[DECEA3]Permanent for the rest of the game.[-]"
 buffInterloperRewardBookFour,buffs,Buff,,,"Plissken's Survival Techniques Vol 4." 
-buffInterloperRewardBookFourDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Four of Four. Plissken's notes on sticky fingers. Reading this volume will:\nReduce Lockpicking time by 97%\nLockpicking is always successful.\nIncrease loot quantity for Safes and Treasure Chests by 25%. \nIncrease your GameStage by 20.\n\n[DECEA3]Changes are permanent for the rest of the game.[-]"
+buffInterloperRewardBookFourDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Four of Four. Plissken's notes on sticky fingers. Reading this volume will:\nReduce Lockpicking time by 97%\nLockpicking is always successful.\nIncrease loot quantity for Safes and Treasure Chests by 25%. \nIncrease your GameStage by 20.\n\n[DECEA3]Permanent for the rest of the game.[-]"
 buffInterloperRewardBookFive,buffs,Buff,,,"Plissken's Survival Techniques Vol 5." 
 buffInterloperRewardBookFiveDesc,buffs,Buff,,,"Plissken's Survival Techniques Series: Volume Five of Five.\nIncrease General Damage Resist by 25%.\nIncrease Elemental Damage Resist by 25%.\nIncrease Physical Damage Resist by 25%.\nIncrease GameStage by 50.\n\nChanges are permanent for the rest of the game."		
 qt_spawnFinalInterloperLootDrop,items,Book,,,"Spawn final interloper loot"
@@ -648,8 +667,8 @@ EntityHomingPigeon1,entityclasses,Entity,,,Puffy the Homing Pigeon
 EntityHomingPigeon2,entityclasses,Entity,,,CooCoo the Homing Pigeon
 EntityHomingPigeon3,entityclasses,Entity,,,Plop the Homing Pigeon
 EntityHomingPigeon4,entityclasses,Entity,,,Sparkle the Homing Pigeon
-homingPigeonNote1Desc,items,Encrypted Note,,,"A scribbled note attached to an infected pigeon who appears to be named 'Puffy'.\n\n//Hey Zeke, I've run out of options. I think channel Echo is compromised so I'm using my precious homing pigeons from now on. Key for messages will be KT_SKY27. Take care of my girls when they arrive, I don't know what I would do if anything happened to them.//\n\nThe note is unsigned."
-homingPigeonNote2Desc,items,Encrypted Note,,,"A coded message deciphered with the Key: KT_SKY27. Splattered in blood, the text is hard to read.\n\n//Zeke, a sample of what I can get my hands on. There is something big going down near one of the traders, I'll see what I can find out. Puffy still hasn't returned, I keep thinking someone's hurt her and its stressing me the hell out.//"
+homingPigeonNote1Desc,items,Encrypted Note,,,"A scribbled note attached to an infected pigeon who appears to be named 'Puffy'.\n\n//Hey Zeke, I've run out of options. I think channel Echo is compromised so I'm using my precious homing pigeons from now on. Key for messages will be KT_SKY27. Take care of my girls when they arrive, I don't know what I would do if anything happened to them.//\n\nThe note is unsigned. Useful information, but the note itself is not much use to you."
+homingPigeonNote2Desc,items,Encrypted Note,,,"A coded message deciphered with the Key: KT_SKY27. Splattered in blood, the text is hard to read.\n\n//Zeke, a sample of what I can get my hands on. There is something big going down near one of the traders, I'll see what I can find out. Puffy still hasn't returned, I keep thinking someone's hurt her and its stressing me the hell out.//\n\nUseful information, but the note itself is not much use to you."
 homingPigeonNote4Desc,items,Encrypted Note,,,"A coded message deciphered with the Key: KT_SKY27. This note is written clearly and purposefully.\n\n//As agreed, we've left the stash at a drop-house. Its the last payment so its a bit bigger than normal. Here are the coords, make sure you pick it up as soon as possible.//\n\nAn abrupt note, devoid of rantings about pigeons. The stash isn't too far away, might be worth taking a look. Read(A) to begin."
 homingPigeonNote1,items,Encrypted Note,,,"Puffy's Note."
 homingPigeonNote2,items,Encrypted Note,,,"CooCoo's Note."
@@ -660,7 +679,7 @@ interloperSpywareSetupCompleteNoteDesc,items,MaliciousActor,,,"The spyware has b
 interloperMaliciousActorSpywareNoteBundle,items,Item,,,Sound of Silence Notebook
 interloperMaliciousActorSpywareNoteBundleDesc,items,Item,,,"Interloper Special Notebook, open to view contents.\n\n[Must open to continue Interloper Story.]"
 qt_InterloperFirstTransmissionReceived,items,Interloper,,,"Transmission: Interesting tidbits."
-qt_InterloperFirstTransmissionReceivedDesc,items,Interloper,,,"The transmitter only captures a few words around key phrases, the transmission reads:\n\n...DROP a duece, so Henson shot him. Now we'll have to find another pilot to do the SUPPLY DROP run. Tell the man that we know his SUPPLY is low and we will still deliver on ...\n\nThe transmission ends."   
+qt_InterloperFirstTransmissionReceivedDesc,items,Interloper,,,"The transmitter only captures a few words around key phrases, the transmission reads:\n\n...DROP a duece, so Henson shot him. Now we'll have to find another pilot to do the SUPPLY DROP run. Tell the man that we know his SUPPLY is low and we will still deliver on ...\n\nThe transmission ends. Useful information, but the note itself is not much use to you."   
 qt_InterloperThirdTransmissionReceived,items,Interloper,,,"Transmission: A Fair Trade?"
 qt_InterloperThirdTransmissionReceivedDesc,items,Interloper,,,"This transmission doesnt use key word capture - someone has interfered with the Transmitter.\n\nWhoever you are, we know you retrieved the Supply Crate. There were men watching the old base and we figured this transmitter out. Your antics are quite impressive and I'll make you a deal. You drop the 'special' Magazine Bundle at a specific spot and I'll trade you something much better. No games, a straight trade!\nHead to this location for the swap and come alone.\n\nRead (A) to start the trade."   
 interloperInterceptSupplyCrateComplete,items,Interloper,,,"Supply Crate Intercepted"
