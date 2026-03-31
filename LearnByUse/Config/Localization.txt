@@ -113,7 +113,7 @@ LBUMagazineRewardRobotics,items,Item,,,Bundle of 5 Robotics Magazines
 LBUMagazineRewardRoboticsDesc,items,Item,,,Bundle of 5 Robotics Magazines. \nUse this item to open and unpack it.
 LBUMagazineRewardMedical,items,Item,,,Bundle of 5 Medical Magazines
 LBUMagazineRewardMedicalDesc,items,Item,,,Bundle of 5 Medical Magazines. \nUse this item to open and unpack it.
-
+loadingTipPerkLootBoost,UI,Loading Screen,x,,"Increasing Perk levels using Learn By Use will increase the chances of finding related magazines, parts, and ammo for that perk when searching in qualifying loot containers.\nFor example, the Boomstick perk will increase the chances of finding Shotgun Weekly, shotgun parts, shotguns, and shotgun shells in Shotgun Messiah Crates, Gun Safes, or Weapon Bags."
 buffDebug1,buffs,Buff,,,Stats Gamestage
 buffDebug2,buffs,Buff,,,Biome modifier
 buffDebug3,buffs,Buff,,,Biome Bonus

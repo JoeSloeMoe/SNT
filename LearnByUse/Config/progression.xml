@@ -213,6 +213,14 @@
 			<!--updatethe display var that shows remainingxp to next level see Localization.txt:lbu_DeadEyeName-->
 			<effect_group>
 				<requirement name="ItemHasTags" tags="perkDeadEye"/>
+				<requirement name="ProgressionLevel" progression_name="perkDeadEye" operation="LT" value="100"/>
+					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="set" value="@lbu_DeadEye_XPIncrement"/>
+					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="subtract" value="@lbu_DeadEye_XP"/>
+					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="set" value="@lbu_DeadEye_XPIncrement"/>
+					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="subtract" value="@lbu_DeadEye_XP"/>
+			</effect_group>
+			<effect_group>
+				<requirement name="ItemHasTags" tags="perkDeadEye"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="set" value="@lbu_DeadEye_XPIncrement"/>
 					<triggered_effect trigger="onSelfDamagedOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="subtract" value="@lbu_DeadEye_XP"/>
 					<triggered_effect trigger="onSelfKilledOther" action="ModifyCVar" cvar="$lbu_DeadEye_LevelXP" operation="set" value="@lbu_DeadEye_XPIncrement"/>

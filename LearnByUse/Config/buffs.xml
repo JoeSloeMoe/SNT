@@ -1962,7 +1962,10 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$hiddenStrikeTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$lbu_HiddenStrike_LevelXP" operation="set" value="@lbu_HiddenStrike_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$lbu_HiddenStrike_LevelXP" operation="subtract" value="@lbu_HiddenStrike_XP"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$lbu_HiddenStrike_LevelXP" operation="subtract" value="@lbu_HiddenStrike_XP">
+						<requirement name="ProgressionLevel" progression_name="perkHiddenStrike" operation="LT" value="100"/></triggered_effect>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$lbu_HiddenStrike_LevelXP" operation="set" value="@lbu_HiddenStrike_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_HiddenStrike_LevelXP" operation="LT" value="0"/></triggered_effect>
 					<!--reset the trigger to calculate the xp display counter-->
 					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$hiddenStrikeTrigger" operation="set" value="0"/>
 			</effect_group>
@@ -2046,16 +2049,19 @@
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="perkBarteringLevelTrack" operation="set" value="0"/>
 			</effect_group>
 			<effect_group>
-				<passive_effect name="BarteringBuying" operation="base_add" value="@lbu_BarterPerkLevel"/>
-				<passive_effect name="BarteringSelling" operation="base_add" value="@lbu_BarterPerkLevel"/>
+				<passive_effect name="BarteringBuying" operation="perc_add" value="@lbu_BarterPerkLevel"/>
+				<passive_effect name="BarteringSelling" operation="perc_add" value="@lbu_BarterPerkLevel"/>
 			</effect_group>
 			<!--updatethe display var that shows remaining xp to next level see Localization.txt:lbu_BarteringName-->
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$barterTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Bartering_LevelXP" operation="set" value="@lbu_Bartering_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Bartering_LevelXP" operation="subtract" value="@lbu_Bartering_XP"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Bartering_LevelXP" operation="subtract" value="@lbu_Bartering_XP">
+						<requirement name="ProgressionLevel" progression_name="perkBetterBarter" operation="LT" value="100"/></triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Bartering_LevelXP" operation="set" value="@lbu_Bartering_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_Bartering_LevelXP" operation="LT" value="0"/></triggered_effect>
 					<!--reset the trigger to calculate the xp display counter-->
-					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$barterTrigger" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$barterTrigger" operation="set" value="0"/>
 			</effect_group>
 		</buff>
 		
@@ -2129,6 +2135,11 @@
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="lbu_traderQuestsEnabled" operation="add" value="1"> 
 						<requirement name="ProgressionLevel" progression_name="perkDaringAdventurer" operation="EQ" value="100"/>
 					</triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ShowToolbeltMessage" message="Bonus: Can now Reset Quests at traders!">
+						<requirement name="ProgressionLevel" progression_name="perkDaringAdventurer" operation="EQ" value="100"/>
+					</triggered_effect>
+					
+					
 
 			</effect_group>
 			<effect_group>	
@@ -2140,9 +2151,12 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$daringAdvTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_DaringAdv_LevelXP" operation="set" value="@lbu_DaringAdv_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_DaringAdv_LevelXP" operation="subtract" value="@lbu_DaringAdv_XP"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_DaringAdv_LevelXP" operation="subtract" value="@lbu_DaringAdv_XP">
+						<requirement name="ProgressionLevel" progression_name="perkDaringAdventurer" operation="LT" value="100"/></triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_DaringAdv_LevelXP" operation="set" value="@lbu_DaringAdv_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_DaringAdv_LevelXP" operation="LT" value="0"/></triggered_effect>
 					<!--reset the trigger to calculate the xp display counter-->
-					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$daringAdvTrigger" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$daringAdvTrigger" operation="set" value="0"/>
 			</effect_group>
 
 		</buff>
@@ -2237,9 +2251,12 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$physicianTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Physician_LevelXP" operation="set" value="@lbu_Physician_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Physician_LevelXP" operation="subtract" value="@lbu_Physician_XP"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Physician_LevelXP" operation="subtract" value="@lbu_Physician_XP">
+						<requirement name="ProgressionLevel" progression_name="perkPhysician" operation="LT" value="100"/></triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Physician_LevelXP" operation="set" value="@lbu_Physician_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_Physician_LevelXP" operation="LT" value="0"/></triggered_effect>
 					<!--reset the trigger to calculate the xp display counter-->
-					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$physicianTrigger" operation="set" value="0"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$physicianTrigger" operation="set" value="0"/>
 			</effect_group>
 				
 		</buff>
@@ -2384,7 +2401,10 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$demoHitsTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Demolition_LevelXP" operation="set" value="@lbu_Demolition_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Demolition_LevelXP" operation="subtract" value="@lbu_Demolition_XP"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Demolition_LevelXP" operation="subtract" value="@lbu_Demolition_XP">
+						<requirement name="ProgressionLevel" progression_name="perkDemolitionsExpert" operation="LT" value="100"/></triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Demolition_LevelXP" operation="set" value="@lbu_Demolition_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_Demolition_LevelXP" operation="LT" value="0"/></triggered_effect>
 					<!--reset the trigger to calculate the xp display counter-->
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$demoHitsTrigger" operation="set" value="0"/>
 			</effect_group>
@@ -2643,7 +2663,10 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$luckylooterHitsTrigger" operation="GTE" value="1"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_LuckyLooter_LevelXP" operation="set" value="@lbu_LuckyLooter_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_LuckyLooter_LevelXP" operation="subtract" value="@lbu_LuckyLooter_XP"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_LuckyLooter_LevelXP" operation="subtract" value="@lbu_LuckyLooter_XP">
+						<requirement name="ProgressionLevel" progression_name="perkLuckyLooter" operation="LT" value="100"/></triggered_effect>	
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_LuckyLooter_LevelXP" operation="set" value="@lbu_LuckyLooter_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_LuckyLooter_LevelXP" operation="LT" value="0"/></triggered_effect>
 					<!--reset the trigger to calculate the xp display counter-->
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$luckylooterHitsTrigger" operation="set" value="0"/>
 			</effect_group>	
@@ -2714,7 +2737,10 @@
 			<effect_group>
 				<requirement name="CVarCompare" cvar="$cardioloopCounter" operation="GTE" value="@lbu_CardioStaminaCycle"/>
 					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Cardio_LevelXP" operation="set" value="@lbu_Cardio_XPIncrement"/>
-					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Cardio_LevelXP" operation="subtract" value="@lbu_Cardio_XP"/>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Cardio_LevelXP" operation="subtract" value="@lbu_Cardio_XP">
+						<requirement name="ProgressionLevel" progression_name="perkRuleOneCardio" operation="LT" value="100"/></triggered_effect>
+					<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$lbu_Cardio_LevelXP" operation="set" value="@lbu_Cardio_XPIncrement">
+						<requirement name="CVarCompare" cvar="$lbu_Cardio_LevelXP" operation="LT" value="0"/></triggered_effect>
 			</effect_group> 
 			<!--update counter and reset if max -->
 			<effect_group>	
